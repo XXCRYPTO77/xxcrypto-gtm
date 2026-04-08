@@ -221,10 +221,7 @@ export default function LandingPage() {
         {/* Footer */}
         <footer style={{ borderTop: '1px solid rgba(255,255,255,0.06)', padding: '40px 24px' }}>
           <div style={{ maxWidth: 1100, margin: '0 auto', display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: 16 }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-              <div style={{ width: 24, height: 24, borderRadius: 4, background: 'linear-gradient(135deg, #05DC80, #3b82f6)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontWeight: 700, fontSize: 10 }}>XX</div>
-              <span style={{ color: 'white', fontWeight: 600 }}>XXCrypto</span>
-            </div>
+            <span style={{ color: 'white', fontWeight: 700, fontSize: '1rem', letterSpacing: '0.1em' }}>XXCRYPTO</span>
             <div style={{ display: 'flex', gap: 24, fontSize: '0.85rem', color: '#555' }}>
               <a href="#">Terms</a>
               <a href="#">Privacy</a>
