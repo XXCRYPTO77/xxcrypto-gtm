@@ -26,7 +26,7 @@ export default function LandingPage() {
       <Navbar />
 
       {/* Hero */}
-      <section className="pt-32 pb-20 px-6 relative overflow-hidden">
+      <section className="pt-40 pb-32 px-6 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(0,212,170,0.08),transparent_60%)]" />
         <div className="max-w-5xl mx-auto text-center relative">
           <div className="inline-block px-4 py-1.5 rounded-full border border-[#00d4aa]/30 bg-[#00d4aa]/5 text-[#00d4aa] text-sm mb-6">
@@ -51,7 +51,7 @@ export default function LandingPage() {
       </section>
 
       {/* Features */}
-      <section id="features" className="py-20 px-6">
+      <section id="features" className="py-28 px-6">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-4">Why XXCrypto?</h2>
           <p className="text-gray-400 text-center mb-14 max-w-xl mx-auto">Everything you need to trade like a pro, powered by AI</p>
@@ -68,7 +68,7 @@ export default function LandingPage() {
       </section>
 
       {/* How it Works */}
-      <section id="how-it-works" className="py-20 px-6 bg-[#0d0d20]">
+      <section id="how-it-works" className="py-28 px-6 bg-[#0d0d20]">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-14">How it Works</h2>
           <div className="grid md:grid-cols-3 gap-8">
@@ -87,7 +87,7 @@ export default function LandingPage() {
       </section>
 
       {/* Stats */}
-      <section id="stats" className="py-20 px-6">
+      <section id="stats" className="py-28 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {stats.map((s) => (
@@ -101,7 +101,7 @@ export default function LandingPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 px-6">
+      <section className="py-28 px-6">
         <div className="max-w-3xl mx-auto text-center p-12 rounded-3xl bg-gradient-to-br from-[#00d4aa]/10 to-[#3b82f6]/10 border border-[#1f2937]">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Ready to Trade Smarter?</h2>
           <p className="text-gray-400 mb-8">Join 100,000+ traders already using AI-powered strategies</p>
