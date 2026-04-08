@@ -8,12 +8,12 @@ export default function Navbar() {
         <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none' }}>
           <span style={{ color: 'white', fontWeight: 700, fontSize: '1.2rem', letterSpacing: '0.1em' }}>XXCRYPTO</span>
         </Link>
-        <div className="hidden md:flex items-center gap-8">
-          <a href="#features" className="text-[var(--text-secondary)] hover:text-white transition-colors text-sm">Features</a>
-          <a href="#how-it-works" className="text-[var(--text-secondary)] hover:text-white transition-colors text-sm">How it Works</a>
-          <a href="#stats" className="text-[var(--text-secondary)] hover:text-white transition-colors text-sm">Stats</a>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 32 }}>
+          <a href="#phase1" className="nav-link" style={{ color: '#999', fontSize: '0.85rem', textDecoration: 'none' }}>Features</a>
+          <a href="#how-it-works" className="nav-link" style={{ color: '#999', fontSize: '0.85rem', textDecoration: 'none' }}>How it Works</a>
+          <a href="#stats" className="nav-link" style={{ color: '#999', fontSize: '0.85rem', textDecoration: 'none' }}>Stats</a>
         </div>
-        <Link href="/dashboard" className="btn-glow px-5 py-2 text-sm inline-block">
+        <Link href="/dashboard" className="btn-glow" style={{ padding: '8px 20px', fontSize: '0.85rem', display: 'inline-block' }}>
           Launch App
         </Link>
       </div>

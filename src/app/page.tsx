@@ -2,6 +2,7 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Background from "@/components/Background";
 import { LightningIcon, BrainIcon, ShieldIcon, AgentIcon, ApiIcon } from "@/components/GlassIcon";
+import MouseGlow from "@/components/MouseGlow";
 
 const features = [
   { icon: "lightning", title: "Zero Barrier", desc: "No code needed. Deploy your personal AI trading agent with one click. Start in minutes, not months." },
@@ -32,6 +33,7 @@ export default function LandingPage() {
   return (
     <div style={{ minHeight: '100vh', background: '#000', position: 'relative' }}>
       <Background />
+      <MouseGlow />
       <div style={{ position: 'relative', zIndex: 1 }}>
         <Navbar />
 
