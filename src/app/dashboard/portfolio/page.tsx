@@ -24,46 +24,46 @@ export default function PortfolioPage() {
 
       {/* Overview */}
       <div className="grid md:grid-cols-3 gap-6 mb-8">
-        <div className="p-6 rounded-2xl bg-[#111827] border border-[#1f2937]">
-          <p className="text-gray-400 text-sm mb-1">Total Balance</p>
+        <div className="theme-card glow-card-hover p-6">
+          <p className="text-[var(--text-secondary)] text-sm mb-1">Total Balance</p>
           <p className="text-3xl font-bold text-white">$84,532.80</p>
         </div>
-        <div className="p-6 rounded-2xl bg-[#111827] border border-[#1f2937]">
-          <p className="text-gray-400 text-sm mb-1">Total PnL</p>
-          <p className="text-3xl font-bold text-[#00d4aa]">+$12,458.30</p>
-          <p className="text-sm text-[#00d4aa]">+17.3% all time</p>
+        <div className="theme-card glow-card-hover p-6">
+          <p className="text-[var(--text-secondary)] text-sm mb-1">Total PnL</p>
+          <p className="text-3xl font-bold number-glow">+$12,458.30</p>
+          <p className="text-sm text-[#05DC80]">+17.3% all time</p>
         </div>
-        <div className="p-6 rounded-2xl bg-[#111827] border border-[#1f2937]">
-          <p className="text-gray-400 text-sm mb-1">Today&apos;s PnL</p>
-          <p className="text-3xl font-bold text-[#00d4aa]">+$1,332.80</p>
-          <p className="text-sm text-[#00d4aa]">+1.6%</p>
+        <div className="theme-card glow-card-hover p-6">
+          <p className="text-[var(--text-secondary)] text-sm mb-1">Today&apos;s PnL</p>
+          <p className="text-3xl font-bold number-glow">+$1,332.80</p>
+          <p className="text-sm text-[#05DC80]">+1.6%</p>
         </div>
       </div>
 
       {/* Chart Placeholder */}
-      <div className="p-6 rounded-2xl bg-[#111827] border border-[#1f2937] mb-8">
+      <div className="theme-card glow-card-hover p-6 mb-8">
         <h3 className="text-white font-semibold mb-4">Portfolio Performance</h3>
-        <div className="h-48 rounded-xl bg-[#0a0a1a] border border-[#1f2937] flex items-center justify-center text-gray-600 text-sm">
+        <div className="h-48 rounded-xl bg-[var(--dark-bg)] border border-[var(--border-primary)] flex items-center justify-center text-[var(--text-secondary)] text-sm">
           📈 PnL Chart — Coming Soon
         </div>
       </div>
 
       {/* Active Positions */}
-      <div className="rounded-2xl bg-[#111827] border border-[#1f2937] overflow-hidden mb-8">
-        <div className="px-6 py-4 border-b border-[#1f2937]"><h3 className="text-white font-semibold">Active Positions</h3></div>
+      <div className="theme-card overflow-hidden mb-8">
+        <div className="px-6 py-4" style={{ borderBottom: '1px solid var(--border-primary)' }}><h3 className="text-white font-semibold">Active Positions</h3></div>
         <table className="w-full">
-          <thead><tr className="text-gray-500 text-xs uppercase">
+          <thead><tr className="text-[var(--text-secondary)] text-xs uppercase">
             <th className="px-6 py-3 text-left">Asset</th><th className="px-6 py-3 text-left">Side</th><th className="px-6 py-3 text-right">Size</th><th className="px-6 py-3 text-right">Entry</th><th className="px-6 py-3 text-right">Current</th><th className="px-6 py-3 text-right">PnL</th>
           </tr></thead>
           <tbody>
             {positions.map((p, i) => (
-              <tr key={i} className="border-t border-[#1f2937] hover:bg-white/[0.02]">
+              <tr key={i} className="border-t border-[var(--border-primary)] hover:bg-[#05DC80]/[0.02] transition-colors">
                 <td className="px-6 py-3 text-white text-sm font-medium">{p.pair}</td>
-                <td className="px-6 py-3 text-[#00d4aa] text-sm">{p.side}</td>
+                <td className="px-6 py-3 text-[#05DC80] text-sm">{p.side}</td>
                 <td className="px-6 py-3 text-right text-gray-300 text-sm">{p.size}</td>
                 <td className="px-6 py-3 text-right text-gray-300 text-sm">{p.entry}</td>
                 <td className="px-6 py-3 text-right text-gray-300 text-sm">{p.current}</td>
-                <td className={`px-6 py-3 text-right text-sm ${p.pnl.startsWith("+") ? "text-[#00d4aa]" : "text-red-400"}`}>{p.pnl} ({p.pnlPct})</td>
+                <td className={`px-6 py-3 text-right text-sm ${p.pnl.startsWith("+") ? "number-glow" : "text-red-400"}`}>{p.pnl} ({p.pnlPct})</td>
               </tr>
             ))}
           </tbody>
@@ -71,21 +71,21 @@ export default function PortfolioPage() {
       </div>
 
       {/* Trade History */}
-      <div className="rounded-2xl bg-[#111827] border border-[#1f2937] overflow-hidden mb-8">
-        <div className="px-6 py-4 border-b border-[#1f2937]"><h3 className="text-white font-semibold">Trade History</h3></div>
+      <div className="theme-card overflow-hidden mb-8">
+        <div className="px-6 py-4" style={{ borderBottom: '1px solid var(--border-primary)' }}><h3 className="text-white font-semibold">Trade History</h3></div>
         <table className="w-full">
-          <thead><tr className="text-gray-500 text-xs uppercase">
+          <thead><tr className="text-[var(--text-secondary)] text-xs uppercase">
             <th className="px-6 py-3 text-left">Pair</th><th className="px-6 py-3 text-left">Side</th><th className="px-6 py-3 text-right">Entry</th><th className="px-6 py-3 text-right">Exit</th><th className="px-6 py-3 text-right">PnL</th><th className="px-6 py-3 text-right">Date</th>
           </tr></thead>
           <tbody>
             {history.map((h, i) => (
-              <tr key={i} className="border-t border-[#1f2937] hover:bg-white/[0.02]">
+              <tr key={i} className="border-t border-[var(--border-primary)] hover:bg-[#05DC80]/[0.02] transition-colors">
                 <td className="px-6 py-3 text-white text-sm font-medium">{h.pair}</td>
-                <td className={`px-6 py-3 text-sm ${h.side === "Buy" ? "text-[#00d4aa]" : "text-red-400"}`}>{h.side}</td>
+                <td className={`px-6 py-3 text-sm ${h.side === "Buy" ? "text-[#05DC80]" : "text-red-400"}`}>{h.side}</td>
                 <td className="px-6 py-3 text-right text-gray-300 text-sm">{h.entry}</td>
                 <td className="px-6 py-3 text-right text-gray-300 text-sm">{h.exit}</td>
-                <td className={`px-6 py-3 text-right text-sm ${h.pnl.startsWith("+") ? "text-[#00d4aa]" : "text-red-400"}`}>{h.pnl}</td>
-                <td className="px-6 py-3 text-right text-gray-500 text-sm">{h.date}</td>
+                <td className={`px-6 py-3 text-right text-sm ${h.pnl.startsWith("+") ? "number-glow" : "text-red-400"}`}>{h.pnl}</td>
+                <td className="px-6 py-3 text-right text-[var(--text-secondary)] text-sm">{h.date}</td>
               </tr>
             ))}
           </tbody>
@@ -96,15 +96,15 @@ export default function PortfolioPage() {
       <h3 className="text-white font-semibold mb-4">Strategy Performance</h3>
       <div className="grid md:grid-cols-3 gap-6">
         {strategies.map((s) => (
-          <div key={s.name} className="p-6 rounded-2xl bg-[#111827] border border-[#1f2937]">
+          <div key={s.name} className="theme-card glow-card-hover p-6">
             <div className="flex items-center justify-between mb-3">
               <h4 className="text-white font-medium">{s.name}</h4>
-              <span className={`text-xs px-2 py-1 rounded-full ${s.status === "Active" ? "bg-[#00d4aa]/10 text-[#00d4aa]" : "bg-yellow-500/10 text-yellow-400"}`}>{s.status}</span>
+              <span className={`text-xs px-2 py-1 rounded-full ${s.status === "Active" ? "bg-[#05DC80]/10 text-[#05DC80]" : "bg-yellow-500/10 text-yellow-400"}`}>{s.status}</span>
             </div>
             <div className="space-y-2 text-sm">
-              <div className="flex justify-between"><span className="text-gray-400">Win Rate</span><span className="text-white">{s.winRate}</span></div>
-              <div className="flex justify-between"><span className="text-gray-400">Total Trades</span><span className="text-white">{s.trades}</span></div>
-              <div className="flex justify-between"><span className="text-gray-400">Total PnL</span><span className="text-[#00d4aa]">{s.pnl}</span></div>
+              <div className="flex justify-between"><span className="text-[var(--text-secondary)]">Win Rate</span><span className="text-white">{s.winRate}</span></div>
+              <div className="flex justify-between"><span className="text-[var(--text-secondary)]">Total Trades</span><span className="text-white">{s.trades}</span></div>
+              <div className="flex justify-between"><span className="text-[var(--text-secondary)]">Total PnL</span><span className="number-glow">{s.pnl}</span></div>
             </div>
           </div>
         ))}

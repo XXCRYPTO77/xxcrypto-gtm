@@ -20,18 +20,18 @@ export default function AgentPage() {
   return (
     <div className="flex h-[calc(100vh-4rem)] -m-8 overflow-hidden">
       {/* Conversation List */}
-      <div className="w-80 bg-[#0d0d20] border-r border-[#1f2937] flex flex-col">
-        <div className="p-4 border-b border-[#1f2937]">
+      <div className="w-80 flex flex-col" style={{ background: 'var(--bg-card)', borderRight: '1px solid var(--border-primary)' }}>
+        <div className="p-4" style={{ borderBottom: '1px solid var(--border-primary)' }}>
           <h2 className="text-white font-semibold">Conversations</h2>
         </div>
         <div className="flex-1 overflow-y-auto">
           {conversations.map((c) => (
-            <div key={c.id} className={`px-4 py-3 cursor-pointer border-b border-[#1f2937]/50 transition-colors ${c.active ? "bg-[#00d4aa]/5 border-l-2 border-l-[#00d4aa]" : "hover:bg-white/[0.02]"}`}>
+            <div key={c.id} className={`px-4 py-3 cursor-pointer transition-colors ${c.active ? "bg-[#05DC80]/5 border-l-2 border-l-[#05DC80]" : "hover:bg-white/[0.02]"}`} style={{ borderBottom: '1px solid rgba(34,34,34,0.5)' }}>
               <div className="flex justify-between items-center mb-1">
                 <span className="text-sm text-white font-medium">{c.title}</span>
-                <span className="text-xs text-gray-500">{c.time}</span>
+                <span className="text-xs text-[var(--text-secondary)]">{c.time}</span>
               </div>
-              <p className="text-xs text-gray-400 truncate">{c.preview}</p>
+              <p className="text-xs text-[var(--text-secondary)] truncate">{c.preview}</p>
             </div>
           ))}
         </div>
@@ -39,31 +39,31 @@ export default function AgentPage() {
 
       {/* Chat Area */}
       <div className="flex-1 flex flex-col">
-        <div className="px-6 py-4 border-b border-[#1f2937] flex items-center gap-3">
-          <div className="w-9 h-9 rounded-full bg-gradient-to-br from-[#00d4aa] to-[#3b82f6] flex items-center justify-center text-sm">🤖</div>
+        <div className="px-6 py-4 flex items-center gap-3" style={{ borderBottom: '1px solid var(--border-primary)' }}>
+          <div className="w-9 h-9 rounded-full bg-gradient-to-br from-[#05DC80] to-[#3b82f6] flex items-center justify-center text-sm">🤖</div>
           <div>
             <p className="text-white text-sm font-medium">XX Trading Agent</p>
-            <p className="text-xs text-[#00d4aa]">● Online</p>
+            <p className="text-xs text-[#05DC80]">● Online</p>
           </div>
         </div>
 
         <div className="flex-1 overflow-y-auto p-6 space-y-4">
           {messages.map((m, i) => (
             <div key={i} className={`flex gap-3 ${m.from === "user" ? "flex-row-reverse" : ""}`}>
-              <div className={`w-8 h-8 rounded-full flex-shrink-0 flex items-center justify-center text-xs ${m.from === "agent" ? "bg-gradient-to-br from-[#00d4aa] to-[#3b82f6]" : "bg-[#3b82f6]"}`}>
+              <div className={`w-8 h-8 rounded-full flex-shrink-0 flex items-center justify-center text-xs ${m.from === "agent" ? "bg-gradient-to-br from-[#05DC80] to-[#3b82f6]" : "bg-[#3b82f6]"}`}>
                 {m.from === "agent" ? "🤖" : "👤"}
               </div>
-              <div className={`max-w-[70%] px-4 py-3 rounded-2xl text-sm leading-relaxed whitespace-pre-line ${m.from === "agent" ? "bg-[#111827] border border-[#1f2937] text-gray-200" : "bg-[#00d4aa]/10 text-white"}`}>
+              <div className={`max-w-[70%] px-4 py-3 rounded-2xl text-sm leading-relaxed whitespace-pre-line ${m.from === "agent" ? "bg-[var(--bg-card)] text-[var(--text-primary)]" : "bg-[#05DC80]/10 text-white"}`} style={m.from === "agent" ? { border: '1px solid var(--border-primary)', boxShadow: '0 0 15px rgba(5,220,128,0.05)' } : {}}>
                 {m.text}
               </div>
             </div>
           ))}
         </div>
 
-        <div className="p-4 border-t border-[#1f2937]">
+        <div className="p-4" style={{ borderTop: '1px solid var(--border-primary)' }}>
           <div className="flex gap-3">
-            <input type="text" placeholder="Ask your agent anything..." className="flex-1 px-4 py-3 rounded-xl bg-[#111827] border border-[#1f2937] text-white text-sm placeholder-gray-500 focus:outline-none focus:border-[#00d4aa]/50" />
-            <button className="px-6 py-3 bg-[#00d4aa] hover:bg-[#00b894] text-black font-semibold rounded-xl text-sm transition-all">Send</button>
+            <input type="text" placeholder="Ask your agent anything..." className="flex-1 px-4 py-3 rounded-xl bg-[var(--bg-secondary)] border border-[var(--border-primary)] text-white text-sm placeholder-[var(--text-secondary)] focus:outline-none focus:border-[#05DC80]/50" />
+            <button className="btn-glow px-6 py-3 text-sm">Send</button>
           </div>
         </div>
       </div>

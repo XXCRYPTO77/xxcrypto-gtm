@@ -10,27 +10,27 @@ const trades = [
 
 export default function DashboardPage() {
   return (
-    <div>
+    <div className="matrix-grid-subtle">
       <h1 className="text-2xl font-bold text-white mb-8">Dashboard</h1>
 
       {/* Status Cards */}
       <div className="grid md:grid-cols-2 gap-6 mb-8">
-        <div className="p-6 rounded-2xl bg-[#111827] border border-[#1f2937]">
+        <div className="theme-card glow-card-hover p-6">
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-white font-semibold">Agent Status</h3>
-            <span className="flex items-center gap-2 text-sm"><span className="w-2 h-2 rounded-full bg-[#00d4aa] animate-pulse" />Connected</span>
+            <span className="flex items-center gap-2 text-sm"><span className="w-2 h-2 rounded-full bg-[#05DC80] animate-pulse" />Connected</span>
           </div>
-          <p className="text-gray-400 text-sm mb-4">Your AI agent is actively monitoring the market</p>
-          <Link href="/dashboard/agent" className="px-4 py-2 bg-[#00d4aa]/10 text-[#00d4aa] rounded-lg text-sm hover:bg-[#00d4aa]/20 transition-colors">
+          <p className="text-[var(--text-secondary)] text-sm mb-4">Your AI agent is actively monitoring the market</p>
+          <Link href="/dashboard/agent" className="px-4 py-2 bg-[#05DC80]/10 text-[#05DC80] rounded-lg text-sm hover:bg-[#05DC80]/20 transition-colors">
             Chat with Agent
           </Link>
         </div>
-        <div className="p-6 rounded-2xl bg-[#111827] border border-[#1f2937]">
+        <div className="theme-card glow-card-hover p-6">
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-white font-semibold">CoinW API</h3>
             <span className="flex items-center gap-2 text-sm text-yellow-400"><span className="w-2 h-2 rounded-full bg-yellow-400" />Not Connected</span>
           </div>
-          <p className="text-gray-400 text-sm mb-4">Connect your CoinW API to enable live trading</p>
+          <p className="text-[var(--text-secondary)] text-sm mb-4">Connect your CoinW API to enable live trading</p>
           <Link href="/dashboard/api-setup" className="px-4 py-2 bg-[#3b82f6]/10 text-[#3b82f6] rounded-lg text-sm hover:bg-[#3b82f6]/20 transition-colors">
             Setup API
           </Link>
@@ -40,25 +40,25 @@ export default function DashboardPage() {
       {/* Quick Stats */}
       <div className="grid grid-cols-3 gap-6 mb-8">
         {[
-          { label: "Total PnL", value: "+$12,458.30", color: "text-[#00d4aa]" },
-          { label: "Active Strategies", value: "3", color: "text-white" },
-          { label: "Win Rate", value: "87.5%", color: "text-[#00d4aa]" },
+          { label: "Total PnL", value: "+$12,458.30", glow: true },
+          { label: "Active Strategies", value: "3", glow: false },
+          { label: "Win Rate", value: "87.5%", glow: true },
         ].map((s) => (
-          <div key={s.label} className="p-6 rounded-2xl bg-[#111827] border border-[#1f2937]">
-            <p className="text-gray-400 text-sm mb-1">{s.label}</p>
-            <p className={`text-2xl font-bold ${s.color}`}>{s.value}</p>
+          <div key={s.label} className="theme-card glow-card-hover p-6">
+            <p className="text-[var(--text-secondary)] text-sm mb-1">{s.label}</p>
+            <p className={`text-2xl font-bold ${s.glow ? "number-glow" : "text-white"}`}>{s.value}</p>
           </div>
         ))}
       </div>
 
       {/* Recent Trades */}
-      <div className="rounded-2xl bg-[#111827] border border-[#1f2937] overflow-hidden">
-        <div className="px-6 py-4 border-b border-[#1f2937]">
+      <div className="theme-card overflow-hidden">
+        <div className="px-6 py-4" style={{ borderBottom: '1px solid var(--border-primary)' }}>
           <h3 className="text-white font-semibold">Recent Trades</h3>
         </div>
         <table className="w-full">
           <thead>
-            <tr className="text-gray-500 text-xs uppercase">
+            <tr className="text-[var(--text-secondary)] text-xs uppercase">
               <th className="px-6 py-3 text-left">Pair</th>
               <th className="px-6 py-3 text-left">Side</th>
               <th className="px-6 py-3 text-right">Price</th>
@@ -69,13 +69,13 @@ export default function DashboardPage() {
           </thead>
           <tbody>
             {trades.map((t, i) => (
-              <tr key={i} className="border-t border-[#1f2937] hover:bg-white/[0.02] transition-colors">
+              <tr key={i} className="border-t border-[var(--border-primary)] hover:bg-[#05DC80]/[0.02] transition-colors">
                 <td className="px-6 py-3 text-white text-sm font-medium">{t.pair}</td>
-                <td className={`px-6 py-3 text-sm ${t.side === "Buy" ? "text-[#00d4aa]" : "text-red-400"}`}>{t.side}</td>
+                <td className={`px-6 py-3 text-sm ${t.side === "Buy" ? "text-[#05DC80]" : "text-red-400"}`}>{t.side}</td>
                 <td className="px-6 py-3 text-right text-gray-300 text-sm">${t.price}</td>
                 <td className="px-6 py-3 text-right text-gray-300 text-sm">{t.amount}</td>
-                <td className={`px-6 py-3 text-right text-sm ${t.pnl.startsWith("+") ? "text-[#00d4aa]" : "text-red-400"}`}>{t.pnl}</td>
-                <td className="px-6 py-3 text-right text-gray-500 text-sm">{t.time}</td>
+                <td className={`px-6 py-3 text-right text-sm ${t.pnl.startsWith("+") ? "number-glow" : "text-red-400"}`}>{t.pnl}</td>
+                <td className="px-6 py-3 text-right text-[var(--text-secondary)] text-sm">{t.time}</td>
               </tr>
             ))}
           </tbody>

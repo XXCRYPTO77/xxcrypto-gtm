@@ -13,9 +13,9 @@ const navItems = [
 export default function Sidebar() {
   const pathname = usePathname();
   return (
-    <aside className="fixed left-0 top-0 h-screen w-64 bg-[#0d0d20] border-r border-[#1f2937] flex flex-col z-40">
-      <Link href="/" className="flex items-center gap-2 px-6 h-16 border-b border-[#1f2937]">
-        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#00d4aa] to-[#3b82f6] flex items-center justify-center text-white font-bold text-sm">XX</div>
+    <aside className="fixed left-0 top-0 h-screen w-64 flex flex-col z-40" style={{ background: 'var(--bg-secondary)', borderRight: '1px solid rgba(5,220,128,0.1)' }}>
+      <Link href="/" className="flex items-center gap-2 px-6 h-16" style={{ borderBottom: '1px solid var(--border-primary)' }}>
+        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#05DC80] to-[#3b82f6] flex items-center justify-center text-white font-bold text-sm">XX</div>
         <span className="text-white font-bold text-lg">XXCrypto</span>
       </Link>
       <nav className="flex-1 py-4 px-3 space-y-1">
@@ -23,19 +23,20 @@ export default function Sidebar() {
           const active = pathname === item.href;
           return (
             <Link key={item.href} href={item.href}
-              className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition-all ${active ? "bg-[#00d4aa]/10 text-[#00d4aa]" : "text-gray-400 hover:text-white hover:bg-white/5"}`}>
+              className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition-all ${active ? "text-[#05DC80]" : "text-[var(--text-secondary)] hover:text-white hover:bg-white/5"}`}
+              style={active ? { background: 'rgba(5,220,128,0.1)', boxShadow: 'inset 3px 0 0 var(--matrix-green)' } : {}}>
               <span>{item.icon}</span>
               <span>{item.label}</span>
             </Link>
           );
         })}
       </nav>
-      <div className="p-4 border-t border-[#1f2937]">
+      <div className="p-4" style={{ borderTop: '1px solid var(--border-primary)' }}>
         <div className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#00d4aa] to-[#3b82f6]" />
+          <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#05DC80] to-[#3b82f6]" />
           <div>
             <p className="text-sm text-white">Trader</p>
-            <p className="text-xs text-gray-500">Pro Plan</p>
+            <p className="text-xs text-[var(--text-secondary)]">Pro Plan</p>
           </div>
         </div>
       </div>

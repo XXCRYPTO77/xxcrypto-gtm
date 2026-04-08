@@ -22,12 +22,12 @@ export default function ApiSetupPage() {
 
       {/* Progress Bar */}
       <div className="mb-10">
-        <div className="flex justify-between text-xs text-gray-500 mb-2">
+        <div className="flex justify-between text-xs text-[var(--text-secondary)] mb-2">
           <span>Step {current + 1} of {steps.length}</span>
           <span>{Math.round(((current + 1) / steps.length) * 100)}%</span>
         </div>
-        <div className="h-2 bg-[#1f2937] rounded-full overflow-hidden">
-          <div className="h-full bg-gradient-to-r from-[#00d4aa] to-[#3b82f6] rounded-full transition-all duration-500" style={{ width: `${((current + 1) / steps.length) * 100}%` }} />
+        <div className="h-2 bg-[var(--bg-tertiary)] rounded-full overflow-hidden">
+          <div className="h-full progress-gradient rounded-full transition-all duration-500" style={{ width: `${((current + 1) / steps.length) * 100}%`, boxShadow: '0 0 12px rgba(5,220,128,0.4)' }} />
         </div>
       </div>
 
@@ -35,19 +35,18 @@ export default function ApiSetupPage() {
       <div className="flex gap-2 mb-8 overflow-x-auto pb-2">
         {steps.map((_, i) => (
           <button key={i} onClick={() => setCurrent(i)}
-            className={`w-8 h-8 rounded-full text-xs font-medium flex-shrink-0 transition-all ${i === current ? "bg-[#00d4aa] text-black" : i < current ? "bg-[#00d4aa]/20 text-[#00d4aa]" : "bg-[#1f2937] text-gray-500"}`}>
+            className={`w-8 h-8 rounded-full text-xs font-medium flex-shrink-0 transition-all ${i === current ? "bg-[#05DC80] text-black shadow-[0_0_15px_rgba(5,220,128,0.4)]" : i < current ? "bg-[#05DC80]/20 text-[#05DC80]" : "bg-[var(--bg-tertiary)] text-[var(--text-secondary)]"}`}>
             {i < current ? "✓" : i + 1}
           </button>
         ))}
       </div>
 
       {/* Step Content */}
-      <div className="p-8 rounded-2xl bg-[#111827] border border-[#1f2937] mb-6">
+      <div className="theme-card glow-card-hover p-8 mb-6">
         <h2 className="text-xl font-semibold text-white mb-3">{steps[current].title}</h2>
-        <p className="text-gray-400 mb-6">{steps[current].desc}</p>
+        <p className="text-[var(--text-secondary)] mb-6">{steps[current].desc}</p>
 
-        {/* Placeholder for step-specific content */}
-        <div className="rounded-xl bg-[#0a0a1a] border border-[#1f2937] p-6 mb-6">
+        <div className="rounded-xl bg-[var(--dark-bg)] border border-[var(--border-primary)] p-6 mb-6">
           {current === 5 && (
             <div className="p-4 rounded-lg bg-red-500/10 border border-red-500/20 text-red-300 text-sm mb-4">
               ⚠️ <strong>WARNING:</strong> The Secret Key is only displayed once. If you lose it, you must delete this API key and create a new one.
@@ -56,22 +55,22 @@ export default function ApiSetupPage() {
           {current === 6 ? (
             <div className="space-y-4">
               <div>
-                <label className="text-sm text-gray-400 block mb-2">API Key</label>
-                <input type="text" placeholder="Enter your CoinW API Key" className="w-full px-4 py-3 rounded-lg bg-[#111827] border border-[#1f2937] text-white text-sm placeholder-gray-500 focus:outline-none focus:border-[#00d4aa]/50" />
+                <label className="text-sm text-[var(--text-secondary)] block mb-2">API Key</label>
+                <input type="text" placeholder="Enter your CoinW API Key" className="w-full px-4 py-3 rounded-lg bg-[var(--bg-secondary)] border border-[var(--border-primary)] text-white text-sm placeholder-[var(--text-secondary)] focus:outline-none focus:border-[#05DC80]/50" />
               </div>
               <div>
-                <label className="text-sm text-gray-400 block mb-2">Secret Key</label>
-                <input type="password" placeholder="Enter your CoinW Secret Key" className="w-full px-4 py-3 rounded-lg bg-[#111827] border border-[#1f2937] text-white text-sm placeholder-gray-500 focus:outline-none focus:border-[#00d4aa]/50" />
+                <label className="text-sm text-[var(--text-secondary)] block mb-2">Secret Key</label>
+                <input type="password" placeholder="Enter your CoinW Secret Key" className="w-full px-4 py-3 rounded-lg bg-[var(--bg-secondary)] border border-[var(--border-primary)] text-white text-sm placeholder-[var(--text-secondary)] focus:outline-none focus:border-[#05DC80]/50" />
               </div>
             </div>
           ) : current === 8 ? (
             <div className="text-center py-8">
               <div className="text-5xl mb-4">🎉</div>
-              <h3 className="text-xl font-bold text-[#00d4aa] mb-2">Successfully Connected!</h3>
-              <p className="text-gray-400">Your CoinW account is now linked to your AI trading agent</p>
+              <h3 className="text-xl font-bold neon-text mb-2">Successfully Connected!</h3>
+              <p className="text-[var(--text-secondary)]">Your CoinW account is now linked to your AI trading agent</p>
             </div>
           ) : (
-            <div className="flex items-center justify-center h-40 text-gray-600 text-sm">
+            <div className="flex items-center justify-center h-40 text-[var(--text-secondary)] text-sm">
               <div className="text-center">
                 <div className="text-3xl mb-2">📷</div>
                 <p>Screenshot / Visual Guide for Step {current + 1}</p>
@@ -84,11 +83,11 @@ export default function ApiSetupPage() {
       {/* Navigation */}
       <div className="flex justify-between">
         <button onClick={() => setCurrent(Math.max(0, current - 1))} disabled={current === 0}
-          className="px-6 py-2.5 border border-[#1f2937] text-gray-400 rounded-lg text-sm hover:border-[#00d4aa]/30 transition-colors disabled:opacity-30 disabled:cursor-not-allowed">
+          className="px-6 py-2.5 border border-[var(--border-primary)] text-[var(--text-secondary)] rounded-lg text-sm hover:border-[#05DC80]/30 transition-colors disabled:opacity-30 disabled:cursor-not-allowed">
           Previous
         </button>
         <button onClick={() => setCurrent(Math.min(steps.length - 1, current + 1))} disabled={current === steps.length - 1}
-          className="px-6 py-2.5 bg-[#00d4aa] hover:bg-[#00b894] text-black font-semibold rounded-lg text-sm transition-all disabled:opacity-30 disabled:cursor-not-allowed">
+          className="btn-glow px-6 py-2.5 text-sm disabled:opacity-30 disabled:cursor-not-allowed">
           {current === steps.length - 2 ? "Complete Setup" : "Next Step"}
         </button>
       </div>
