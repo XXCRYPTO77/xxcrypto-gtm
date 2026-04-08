@@ -41,7 +41,7 @@ export default function LandingPage() {
             <div style={{ display: 'inline-block', padding: '6px 20px', borderRadius: 9999, border: '1px solid rgba(5,220,128,0.3)', background: 'rgba(5,220,128,0.05)', marginBottom: 32, fontSize: '0.75rem', color: '#05DC80', letterSpacing: '0.15em', textTransform: 'uppercase', fontWeight: 600 }}>
               Powered by CoinW Exchange
             </div>
-            <h1 style={{ fontSize: 'clamp(3.5rem, 8vw, 6rem)', fontWeight: 700, color: 'white', marginBottom: 24, lineHeight: 1.05, letterSpacing: '0.03em' }}>
+            <h1 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 700, color: 'white', marginBottom: 24, lineHeight: 1.15, letterSpacing: '0.04em' }}>
               MAKE AI TRADING<br />
               <span className="glow-text" style={{ backgroundImage: 'linear-gradient(to right, #05DC80, #3b82f6)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>FOR EVERY TRADER</span>
             </h1>

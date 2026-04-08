@@ -3,11 +3,11 @@ import Link from "next/link";
 
 export default function Navbar() {
   return (
-    <nav className="fixed top-0 w-full z-50 backdrop-blur-xl" style={{ background: 'rgba(0,0,0,0.85)', borderBottom: '1px solid rgba(5,220,128,0.1)' }}>
-      <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#05DC80] to-[#3b82f6] flex items-center justify-center text-white font-bold text-sm">XX</div>
-          <span className="text-white font-bold text-xl">XXCrypto</span>
+    <nav style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50, backdropFilter: 'blur(20px)', background: 'rgba(0,0,0,0.8)', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+      <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 32px', height: 64, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+        <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none' }}>
+          <div style={{ width: 30, height: 30, borderRadius: 8, background: 'linear-gradient(135deg, #05DC80, #3b82f6)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontWeight: 700, fontSize: 11 }}>XX</div>
+          <span style={{ color: 'white', fontWeight: 700, fontSize: '1.1rem', letterSpacing: '0.08em' }}>XXCRYPTO</span>
         </Link>
         <div className="hidden md:flex items-center gap-8">
           <a href="#features" className="text-[var(--text-secondary)] hover:text-white transition-colors text-sm">Features</a>
