@@ -1,0 +1,229 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 620" font-family="system-ui, -apple-system, sans-serif">
+  <!--
+    ============================================================
+    Threat Model wireframe — STRIDE × Entry Points matrix
+    ============================================================
+    6 STRIDE rows × 5 entry-point columns = 30 cells
+    Each cell tagged with its highest-risk mitigation code (M# / P#)
+    v0.1 — 2026-04-10
+  -->
+
+  <style>
+    .box { fill: none; stroke: #2A2A32; stroke-width: 1.5; }
+    .cell { fill: none; stroke: #2A2A32; stroke-width: 0.8; }
+    .hdr { fill: #2A2A32; opacity: 0.08; stroke: #2A2A32; stroke-width: 1.5; }
+    .label-lg { fill: #2A2A32; font-size: 15px; font-weight: 600; }
+    .label { fill: #2A2A32; font-size: 12px; font-weight: 500; }
+    .label-sm { fill: #2A2A32; font-size: 10px; opacity: 0.8; }
+    .mitigation { fill: #2A2A32; font-size: 10px; font-weight: 600; }
+    .high { fill: #2A2A32; opacity: 0.15; stroke: #2A2A32; stroke-width: 1.2; }
+    .mid  { fill: #2A2A32; opacity: 0.06; stroke: #2A2A32; stroke-width: 1; }
+    .low  { fill: none;          stroke: #2A2A32; stroke-width: 1; stroke-dasharray: 3 3; }
+  </style>
+
+  <!-- Title -->
+  <text x="480" y="30" text-anchor="middle" class="label-lg">STRIDE × Entry Points Threat Matrix</text>
+  <text x="480" y="50" text-anchor="middle" class="label-sm">30 格 · 每格标缓解措施编号 · 深色=高风险 浅色=中 虚线=低</text>
+
+  <!-- Column headers (entry points) -->
+  <g transform="translate(170,80)">
+    <rect class="hdr" x="0"   y="0" width="150" height="40" rx="4"/>
+    <text x="75" y="20" text-anchor="middle" class="label">API Gateway</text>
+    <text x="75" y="34" text-anchor="middle" class="label-sm">M15 MCP</text>
+
+    <rect class="hdr" x="155" y="0" width="150" height="40" rx="4"/>
+    <text x="230" y="20" text-anchor="middle" class="label">Auth Layer</text>
+    <text x="230" y="34" text-anchor="middle" class="label-sm">M11 API Key</text>
+
+    <rect class="hdr" x="310" y="0" width="150" height="40" rx="4"/>
+    <text x="385" y="20" text-anchor="middle" class="label">Skills Runtime</text>
+    <text x="385" y="34" text-anchor="middle" class="label-sm">M5-M10</text>
+
+    <rect class="hdr" x="465" y="0" width="150" height="40" rx="4"/>
+    <text x="540" y="20" text-anchor="middle" class="label">Exchange API</text>
+    <text x="540" y="34" text-anchor="middle" class="label-sm">DownStream</text>
+
+    <rect class="hdr" x="620" y="0" width="150" height="40" rx="4"/>
+    <text x="695" y="20" text-anchor="middle" class="label">Landing Page</text>
+    <text x="695" y="34" text-anchor="middle" class="label-sm">M17 Web UI</text>
+  </g>
+
+  <!-- Row headers (STRIDE) -->
+  <g transform="translate(10,130)">
+    <rect class="hdr" x="0" y="0"   width="155" height="70" rx="4"/>
+    <text x="78" y="30" text-anchor="middle" class="label">S · Spoofing</text>
+    <text x="78" y="48" text-anchor="middle" class="label-sm">身份伪造</text>
+
+    <rect class="hdr" x="0" y="75"  width="155" height="70" rx="4"/>
+    <text x="78" y="105" text-anchor="middle" class="label">T · Tampering</text>
+    <text x="78" y="123" text-anchor="middle" class="label-sm">篡改</text>
+
+    <rect class="hdr" x="0" y="150" width="155" height="70" rx="4"/>
+    <text x="78" y="180" text-anchor="middle" class="label">R · Repudiation</text>
+    <text x="78" y="198" text-anchor="middle" class="label-sm">抵赖</text>
+
+    <rect class="hdr" x="0" y="225" width="155" height="70" rx="4"/>
+    <text x="78" y="255" text-anchor="middle" class="label">I · Info Disclosure</text>
+    <text x="78" y="273" text-anchor="middle" class="label-sm">信息泄露</text>
+
+    <rect class="hdr" x="0" y="300" width="155" height="70" rx="4"/>
+    <text x="78" y="330" text-anchor="middle" class="label">D · DoS</text>
+    <text x="78" y="348" text-anchor="middle" class="label-sm">拒绝服务</text>
+
+    <rect class="hdr" x="0" y="375" width="155" height="70" rx="4"/>
+    <text x="78" y="405" text-anchor="middle" class="label">E · Elevation</text>
+    <text x="78" y="423" text-anchor="middle" class="label-sm">权限提升</text>
+  </g>
+
+  <!-- 30 cells: 6 rows × 5 cols, 150x70 each, origin (170,130) -->
+  <!-- Helper: cell(col, row, className, mitigationCode) -->
+
+  <!-- Row 0: Spoofing -->
+  <g transform="translate(170,130)">
+    <rect class="high" x="0"   y="0" width="150" height="70" rx="3"/>
+    <text x="75" y="30" text-anchor="middle" class="mitigation">M11 API Key</text>
+    <text x="75" y="48" text-anchor="middle" class="label-sm">签名 + 时间戳</text>
+
+    <rect class="high" x="155" y="0" width="150" height="70" rx="3"/>
+    <text x="230" y="30" text-anchor="middle" class="mitigation">M11 + M12</text>
+    <text x="230" y="48" text-anchor="middle" class="label-sm">HMAC 校验 + 分级</text>
+
+    <rect class="mid"  x="310" y="0" width="150" height="70" rx="3"/>
+    <text x="385" y="30" text-anchor="middle" class="mitigation">M11</text>
+    <text x="385" y="48" text-anchor="middle" class="label-sm">透传认证上下文</text>
+
+    <rect class="mid"  x="465" y="0" width="150" height="70" rx="3"/>
+    <text x="540" y="30" text-anchor="middle" class="mitigation">Internal mTLS</text>
+    <text x="540" y="48" text-anchor="middle" class="label-sm">服务间互验</text>
+
+    <rect class="low"  x="620" y="0" width="150" height="70" rx="3"/>
+    <text x="695" y="30" text-anchor="middle" class="mitigation">CSRF Token</text>
+    <text x="695" y="48" text-anchor="middle" class="label-sm">站内会话</text>
+  </g>
+
+  <!-- Row 1: Tampering -->
+  <g transform="translate(170,205)">
+    <rect class="mid"  x="0"   y="0" width="150" height="70" rx="3"/>
+    <text x="75" y="30" text-anchor="middle" class="mitigation">HTTPS only</text>
+    <text x="75" y="48" text-anchor="middle" class="label-sm">TLS 1.3</text>
+
+    <rect class="high" x="155" y="0" width="150" height="70" rx="3"/>
+    <text x="230" y="30" text-anchor="middle" class="mitigation">Signature</text>
+    <text x="230" y="48" text-anchor="middle" class="label-sm">请求全字段签名</text>
+
+    <rect class="high" x="310" y="0" width="150" height="70" rx="3"/>
+    <text x="385" y="30" text-anchor="middle" class="mitigation">P5 二次确认</text>
+    <text x="385" y="48" text-anchor="middle" class="label-sm">大额参数复核</text>
+
+    <rect class="mid"  x="465" y="0" width="150" height="70" rx="3"/>
+    <text x="540" y="30" text-anchor="middle" class="mitigation">Idempotency</text>
+    <text x="540" y="48" text-anchor="middle" class="label-sm">幂等键</text>
+
+    <rect class="low"  x="620" y="0" width="150" height="70" rx="3"/>
+    <text x="695" y="30" text-anchor="middle" class="mitigation">SRI / CSP</text>
+    <text x="695" y="48" text-anchor="middle" class="label-sm">前端资源</text>
+  </g>
+
+  <!-- Row 2: Repudiation -->
+  <g transform="translate(170,280)">
+    <rect class="mid"  x="0"   y="0" width="150" height="70" rx="3"/>
+    <text x="75" y="30" text-anchor="middle" class="mitigation">Audit Log</text>
+    <text x="75" y="48" text-anchor="middle" class="label-sm">所有调用留痕</text>
+
+    <rect class="mid"  x="155" y="0" width="150" height="70" rx="3"/>
+    <text x="230" y="30" text-anchor="middle" class="mitigation">M11 key id</text>
+    <text x="230" y="48" text-anchor="middle" class="label-sm">每调用绑 key</text>
+
+    <rect class="high" x="310" y="0" width="150" height="70" rx="3"/>
+    <text x="385" y="30" text-anchor="middle" class="mitigation">M18 统计</text>
+    <text x="385" y="48" text-anchor="middle" class="label-sm">全链路可追溯</text>
+
+    <rect class="high" x="465" y="0" width="150" height="70" rx="3"/>
+    <text x="540" y="30" text-anchor="middle" class="mitigation">Exchange Log</text>
+    <text x="540" y="48" text-anchor="middle" class="label-sm">订单流水双写</text>
+
+    <rect class="low"  x="620" y="0" width="150" height="70" rx="3"/>
+    <text x="695" y="30" text-anchor="middle" class="mitigation">Session Log</text>
+    <text x="695" y="48" text-anchor="middle" class="label-sm">登录审计</text>
+  </g>
+
+  <!-- Row 3: Info Disclosure -->
+  <g transform="translate(170,355)">
+    <rect class="mid"  x="0"   y="0" width="150" height="70" rx="3"/>
+    <text x="75" y="30" text-anchor="middle" class="mitigation">TLS + JWT exp</text>
+    <text x="75" y="48" text-anchor="middle" class="label-sm">短 token</text>
+
+    <rect class="high" x="155" y="0" width="150" height="70" rx="3"/>
+    <text x="230" y="30" text-anchor="middle" class="mitigation">Key 加密存储</text>
+    <text x="230" y="48" text-anchor="middle" class="label-sm">KMS · 不落明文</text>
+
+    <rect class="high" x="310" y="0" width="150" height="70" rx="3"/>
+    <text x="385" y="30" text-anchor="middle" class="mitigation">M12 权限分级</text>
+    <text x="385" y="48" text-anchor="middle" class="label-sm">最小返回集</text>
+
+    <rect class="high" x="465" y="0" width="150" height="70" rx="3"/>
+    <text x="540" y="30" text-anchor="middle" class="mitigation">Field Masking</text>
+    <text x="540" y="48" text-anchor="middle" class="label-sm">脱敏敏感字段</text>
+
+    <rect class="mid"  x="620" y="0" width="150" height="70" rx="3"/>
+    <text x="695" y="30" text-anchor="middle" class="mitigation">Error Sanitize</text>
+    <text x="695" y="48" text-anchor="middle" class="label-sm">不回栈信息</text>
+  </g>
+
+  <!-- Row 4: DoS -->
+  <g transform="translate(170,430)">
+    <rect class="high" x="0"   y="0" width="150" height="70" rx="3"/>
+    <text x="75" y="30" text-anchor="middle" class="mitigation">M13 Rate Limit</text>
+    <text x="75" y="48" text-anchor="middle" class="label-sm">全局 + key 级</text>
+
+    <rect class="mid"  x="155" y="0" width="150" height="70" rx="3"/>
+    <text x="230" y="30" text-anchor="middle" class="mitigation">Token bucket</text>
+    <text x="230" y="48" text-anchor="middle" class="label-sm">防爆破</text>
+
+    <rect class="mid"  x="310" y="0" width="150" height="70" rx="3"/>
+    <text x="385" y="30" text-anchor="middle" class="mitigation">Concurrency cap</text>
+    <text x="385" y="48" text-anchor="middle" class="label-sm">并发上限</text>
+
+    <rect class="high" x="465" y="0" width="150" height="70" rx="3"/>
+    <text x="540" y="30" text-anchor="middle" class="mitigation">Exchange Quota</text>
+    <text x="540" y="48" text-anchor="middle" class="label-sm">下游配额预留</text>
+
+    <rect class="low"  x="620" y="0" width="150" height="70" rx="3"/>
+    <text x="695" y="30" text-anchor="middle" class="mitigation">CDN / WAF</text>
+    <text x="695" y="48" text-anchor="middle" class="label-sm">静态防护</text>
+  </g>
+
+  <!-- Row 5: Elevation -->
+  <g transform="translate(170,505)">
+    <rect class="mid"  x="0"   y="0" width="150" height="70" rx="3"/>
+    <text x="75" y="30" text-anchor="middle" class="mitigation">Deny by default</text>
+    <text x="75" y="48" text-anchor="middle" class="label-sm">白名单路由</text>
+
+    <rect class="high" x="155" y="0" width="150" height="70" rx="3"/>
+    <text x="230" y="30" text-anchor="middle" class="mitigation">M12 四级</text>
+    <text x="230" y="48" text-anchor="middle" class="label-sm">只读/现货/合约/全</text>
+
+    <rect class="high" x="310" y="0" width="150" height="70" rx="3"/>
+    <text x="385" y="30" text-anchor="middle" class="mitigation">M14 额度上限</text>
+    <text x="385" y="48" text-anchor="middle" class="label-sm">单笔+日累计</text>
+
+    <rect class="high" x="465" y="0" width="150" height="70" rx="3"/>
+    <text x="540" y="30" text-anchor="middle" class="mitigation">M10 禁提现</text>
+    <text x="540" y="48" text-anchor="middle" class="label-sm">硬红线</text>
+
+    <rect class="low"  x="620" y="0" width="150" height="70" rx="3"/>
+    <text x="695" y="30" text-anchor="middle" class="mitigation">RBAC UI</text>
+    <text x="695" y="48" text-anchor="middle" class="label-sm">后台分角色</text>
+  </g>
+
+  <!-- Legend -->
+  <g transform="translate(10,600)">
+    <rect class="high" x="0"   y="-12" width="18" height="12"/>
+    <text x="25" y="-2" class="label-sm">高风险</text>
+    <rect class="mid"  x="85"  y="-12" width="18" height="12"/>
+    <text x="110" y="-2" class="label-sm">中风险</text>
+    <rect class="low"  x="170" y="-12" width="18" height="12"/>
+    <text x="195" y="-2" class="label-sm">低风险</text>
+    <text x="260" y="-2" class="label-sm">· 格内编号对应 M1-M18 / P1-P9 缓解措施</text>
+  </g>
+</svg>

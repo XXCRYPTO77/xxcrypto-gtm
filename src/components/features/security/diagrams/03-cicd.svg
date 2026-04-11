@@ -1,0 +1,144 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" font-family="system-ui, -apple-system, sans-serif">
+  <!--
+    ============================================================
+    CI/CD wireframe — dev pipeline with approval gates
+    ============================================================
+    Stages: Commit → Static Scan → Sandbox Test → Risk-controlled Canary → Prod
+    Each stage has: actor, checks, approval-gate status
+    v0.1 — 2026-04-10
+  -->
+
+  <style>
+    .box { fill: none; stroke: currentColor; stroke-width: 1.5; }
+    .box-accent { fill: none; stroke: currentColor; stroke-width: 2.5; }
+    .gate { fill: none; stroke: currentColor; stroke-width: 1.5; stroke-dasharray: 4 3; }
+    .lane { fill: currentColor; opacity: 0.04; stroke: currentColor; stroke-width: 0.8; }
+    .line { fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; }
+    .arrow { fill: currentColor; }
+    .label-xl { fill: currentColor; font-size: 17px; font-weight: 700; }
+    .label-lg { fill: currentColor; font-size: 14px; font-weight: 600; }
+    .label { fill: currentColor; font-size: 12px; }
+    .label-sm { fill: currentColor; font-size: 10px; opacity: 0.75; }
+    .stage-num { fill: currentColor; font-size: 32px; font-weight: 700; opacity: 0.15; }
+  </style>
+
+  <!-- Title -->
+  <text x="480" y="30" text-anchor="middle" class="label-xl">Agent Skill CI/CD Pipeline</text>
+  <text x="480" y="50" text-anchor="middle" class="label-sm">从 commit 到生产 · 5 道闸 · 每道闸谁审批</text>
+
+  <!-- Lane: Dev -->
+  <rect class="lane" x="20" y="80"  width="920" height="80" rx="6"/>
+  <text x="30" y="102" class="label-sm">DEV LAYER</text>
+
+  <!-- Lane: Automated -->
+  <rect class="lane" x="20" y="170" width="920" height="180" rx="6"/>
+  <text x="30" y="192" class="label-sm">AUTOMATED CHECKS</text>
+
+  <!-- Lane: Human gate -->
+  <rect class="lane" x="20" y="360" width="920" height="80" rx="6"/>
+  <text x="30" y="382" class="label-sm">HUMAN APPROVAL</text>
+
+  <!-- Stage 1: Commit -->
+  <g transform="translate(50,100)">
+    <text x="0" y="45" class="stage-num">01</text>
+    <rect class="box" x="40" y="0" width="120" height="50" rx="6"/>
+    <text x="100" y="22" text-anchor="middle" class="label-lg">Commit</text>
+    <text x="100" y="38" text-anchor="middle" class="label-sm">开发者 push</text>
+  </g>
+
+  <!-- Stage 2: Static Scan -->
+  <g transform="translate(230,190)">
+    <text x="0" y="45" class="stage-num">02</text>
+    <rect class="box" x="40" y="0" width="160" height="140" rx="6"/>
+    <text x="120" y="22" text-anchor="middle" class="label-lg">Static Scan</text>
+    <text x="120" y="42" text-anchor="middle" class="label-sm">Lint · TypeCheck</text>
+    <text x="120" y="58" text-anchor="middle" class="label-sm">Unit Test ≥ 80%</text>
+    <text x="120" y="74" text-anchor="middle" class="label-sm">Semgrep SAST</text>
+    <text x="120" y="90" text-anchor="middle" class="label-sm">Dep Audit (npm)</text>
+    <text x="120" y="106" text-anchor="middle" class="label-sm">Secret Scan</text>
+    <text x="120" y="124" text-anchor="middle" class="label-sm">⏱ ~3min</text>
+  </g>
+
+  <!-- Stage 3: Sandbox Test -->
+  <g transform="translate(440,190)">
+    <text x="0" y="45" class="stage-num">03</text>
+    <rect class="box" x="40" y="0" width="160" height="140" rx="6"/>
+    <text x="120" y="22" text-anchor="middle" class="label-lg">Sandbox Test</text>
+    <text x="120" y="42" text-anchor="middle" class="label-sm">Mock Exchange</text>
+    <text x="120" y="58" text-anchor="middle" class="label-sm">Integration E2E</text>
+    <text x="120" y="74" text-anchor="middle" class="label-sm">MCP Protocol Conf.</text>
+    <text x="120" y="90" text-anchor="middle" class="label-sm">Permission Fuzz</text>
+    <text x="120" y="106" text-anchor="middle" class="label-sm">Load 1000 QPS</text>
+    <text x="120" y="124" text-anchor="middle" class="label-sm">⏱ ~12min</text>
+  </g>
+
+  <!-- Stage 4: Canary -->
+  <g transform="translate(650,190)">
+    <text x="0" y="45" class="stage-num">04</text>
+    <rect class="box-accent" x="40" y="0" width="160" height="140" rx="6"/>
+    <text x="120" y="22" text-anchor="middle" class="label-lg">Canary</text>
+    <text x="120" y="42" text-anchor="middle" class="label-sm">风控灰度 1% → 10%</text>
+    <text x="120" y="58" text-anchor="middle" class="label-sm">Real Exchange</text>
+    <text x="120" y="74" text-anchor="middle" class="label-sm">小额度 · 限白名单</text>
+    <text x="120" y="90" text-anchor="middle" class="label-sm">告警基线监控</text>
+    <text x="120" y="106" text-anchor="middle" class="label-sm">回滚按钮常备</text>
+    <text x="120" y="124" text-anchor="middle" class="label-sm">⏱ 24h 观察</text>
+  </g>
+
+  <!-- Stage 5: Prod -->
+  <g transform="translate(830,190)">
+    <text x="0" y="45" class="stage-num">05</text>
+    <rect class="box-accent" x="15" y="0" width="115" height="140" rx="6"/>
+    <text x="72" y="22" text-anchor="middle" class="label-lg">Prod</text>
+    <text x="72" y="42" text-anchor="middle" class="label-sm">全量上线</text>
+    <text x="72" y="58" text-anchor="middle" class="label-sm">SLO 监控</text>
+    <text x="72" y="74" text-anchor="middle" class="label-sm">7×24 on-call</text>
+    <text x="72" y="90" text-anchor="middle" class="label-sm">异常自动回滚</text>
+    <text x="72" y="106" text-anchor="middle" class="label-sm">P9 异常告警</text>
+  </g>
+
+  <!-- Approval gates -->
+  <g transform="translate(380,380)">
+    <rect class="gate" x="0" y="0" width="130" height="50" rx="6"/>
+    <text x="65" y="22" text-anchor="middle" class="label">Gate A</text>
+    <text x="65" y="38" text-anchor="middle" class="label-sm">Tech Lead · 代码</text>
+  </g>
+  <g transform="translate(590,380)">
+    <rect class="gate" x="0" y="0" width="130" height="50" rx="6"/>
+    <text x="65" y="22" text-anchor="middle" class="label">Gate B</text>
+    <text x="65" y="38" text-anchor="middle" class="label-sm">Security · 安全</text>
+  </g>
+  <g transform="translate(800,380)">
+    <rect class="gate" x="0" y="0" width="130" height="50" rx="6"/>
+    <text x="65" y="22" text-anchor="middle" class="label">Gate C</text>
+    <text x="65" y="38" text-anchor="middle" class="label-sm">运营 + 风控</text>
+  </g>
+
+  <!-- Stage-to-stage flow arrows -->
+  <line class="line" x1="150" y1="125" x2="150" y2="150"/>
+  <line class="line" x1="150" y1="150" x2="310" y2="150"/>
+  <line class="line" x1="310" y1="150" x2="310" y2="190"/>
+  <polygon class="arrow" points="305,185 310,195 315,185"/>
+
+  <line class="line" x1="440" y1="260" x2="480" y2="260"/>
+  <polygon class="arrow" points="475,255 485,260 475,265"/>
+
+  <line class="line" x1="640" y1="260" x2="690" y2="260"/>
+  <polygon class="arrow" points="685,255 695,260 685,265"/>
+
+  <line class="line" x1="850" y1="260" x2="845" y2="260"/>
+  <polygon class="arrow" points="840,255 850,260 840,265"/>
+
+  <!-- Gate connectors -->
+  <line class="line" x1="445" y1="380" x2="445" y2="330"/>
+  <line class="line" x1="655" y1="380" x2="655" y2="330"/>
+  <line class="line" x1="865" y1="380" x2="888" y2="330"/>
+
+  <!-- Failure paths: rollback -->
+  <path class="line" d="M 720,260 Q 720,470 150,470 L 150,155" stroke-dasharray="5 4"/>
+  <polygon class="arrow" points="145,160 150,150 155,160"/>
+  <text x="430" y="488" text-anchor="middle" class="label-sm">失败 → 回滚 → 回到 Commit · 任何 gate 否决都触发</text>
+
+  <!-- Footer note -->
+  <text x="480" y="510" text-anchor="middle" class="label-sm">M18 调用统计 + P9 异常告警贯穿全流程 · 每次部署留下完整 audit trail</text>
+</svg>

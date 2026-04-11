@@ -1,22 +1,55 @@
 'use client';
 
 import { useT } from '@/i18n/LocaleContext';
+import { Navbar } from '@/components/layout/Navbar';
+import { Footer } from '@/components/layout/Footer';
+import { ActDivider } from '@/components/layout/ActDivider';
+import { Hero } from '@/components/features/Hero';
+import { V10Section } from '@/components/features/V10Section';
+import { V11Section } from '@/components/features/V11Section';
+import { DeepBSection } from '@/components/features/DeepBSection';
+import { V15Section } from '@/components/features/v15/V15Section';
+import { SecuritySection } from '@/components/features/security/SecuritySection';
+import { V20Section } from '@/components/features/V20Section';
+import { ExtensionsSection } from '@/components/features/ExtensionsSection';
 
 export default function Home() {
   const t = useT();
-
   return (
-    <main className="min-h-screen bg-page text-ink">
-      {/* Phase 0 scaffold — section placeholders only.
-          Real components arrive in Phase 1/2. */}
-      <div className="mx-auto max-w-6xl px-6 py-24">
-        <p className="text-sm uppercase tracking-widest text-brand">{t.hero.eyebrow}</p>
-        <h1 className="mt-4 text-5xl font-bold leading-tight">{t.hero.title}</h1>
-        <p className="mt-6 max-w-2xl text-lg text-muted">{t.hero.subtitle}</p>
-        <p className="mt-12 text-xs text-muted">
-          {t.common.wip}
-        </p>
-      </div>
-    </main>
+    <>
+      <Navbar />
+      <main className="bg-page text-ink">
+        <Hero />
+
+        <ActDivider
+          id="act1"
+          num={t.acts.act1.num}
+          title={t.acts.act1.title}
+          desc={t.acts.act1.desc}
+        />
+        <V10Section />
+        <V11Section />
+
+        <ActDivider
+          id="act2"
+          num={t.acts.act2.num}
+          title={t.acts.act2.title}
+          desc={t.acts.act2.desc}
+        />
+        <DeepBSection />
+
+        <ActDivider
+          id="act3"
+          num={t.acts.act3.num}
+          title={t.acts.act3.title}
+          desc={t.acts.act3.desc}
+        />
+        <V15Section />
+        <SecuritySection />
+        <V20Section />
+        <ExtensionsSection />
+      </main>
+      <Footer />
+    </>
   );
 }
