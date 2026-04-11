@@ -1,0 +1,309 @@
+{
+  "meta": {
+    "title": "CoinW Agent Skill · MVP Roadmap",
+    "description": "Turn an Agent into the trading brain of every CoinW user — from reading the market to placing orders in one sentence. Nine steps from v1.0 to v2.0, all on the table."
+  },
+  "nav": {
+    "brand": "CoinW Agent Skill",
+    "tagline": "MVP Roadmap",
+    "acts": {
+      "act1": "Act I · Runs",
+      "act2": "Act II · Contained",
+      "act3": "Act III · Grows"
+    },
+    "cta": "中"
+  },
+  "hero": {
+    "eyebrow": "CoinW × Agent Skill",
+    "title": "Let the Agent trade for you. From signal to fill, one sentence away.",
+    "subtitle": "This is not a slide deck. Every version number ships a mini demo you can click, run, and watch the next step unfold. v1.0 gets it running, v2.0 closes the loop, and the nine steps in between cover the whole thing — tech path, safety, merge-back plan.",
+    "primaryCta": "Try v1.0 first",
+    "secondaryCta": "See the tech path",
+    "roadmapNote": "Powered by CoinW Exchange"
+  },
+  "acts": {
+    "act1": { "num": "ACT I", "title": "Runs", "desc": "Version one doesn't need to be smart. It needs to work end to end. Read the market, place an order, check a position — the Agent treats the exchange like an API." },
+    "act2": { "num": "ACT II", "title": "Contained", "desc": "Put the Agent in a sandbox. Multi-wallet, risk controls, alerts, a low-friction entry — it can't run wild, and it can't lose the user's money." },
+    "act3": { "num": "ACT III", "title": "Grows", "desc": "The Agent picks its own Skills, writes its own strategies, grades its own results. v1.5 is the Agent Zone. v2.0 merges back into the main site. The end state: a trading brain that evolves." }
+  },
+  "v10": {
+    "version": "v1.0",
+    "depth": "DEEP S · PRD prototype",
+    "headline": "The exchange becomes the Agent's raw material",
+    "lede": "This is the one the boss can click today. Five user stories, 18 Must capabilities, 9 Phase-1 extras, and a one-click install command. This is all of Agent Skill phase one, on one page. Built to the PRD. No theatrics.",
+    "stories": {
+      "title": "Five user stories",
+      "subtitle": "Five people from the PRD — each one a closed loop",
+      "items": [
+        {
+          "id": "story1",
+          "persona": "Crypto investor",
+          "scenario": "Data aggregation",
+          "dialog": [
+            { "role": "user", "text": "Show me today's market" },
+            { "role": "agent", "text": "BTC $87,200 +2.3%, ETH $4,100 +1.8%. Hot: an L2 mainnet launched, related tokens up 15%+. Stablecoin net inflow to exchanges: $320M." }
+          ],
+          "skills": ["M1", "P1", "P3"]
+        },
+        {
+          "id": "story2",
+          "persona": "User with an Agent, no crypto tools",
+          "scenario": "Auto-discovery",
+          "dialog": [
+            { "role": "user", "text": "Find me crypto tools that make money" },
+            { "role": "agent", "text": "Found CoinW Skills: quotes, spot & futures, on-chain. Connect?" },
+            { "role": "user", "text": "Yes" },
+            { "role": "agent", "text": "MCP linked." }
+          ],
+          "skills": ["M15", "M16"]
+        },
+        {
+          "id": "story3",
+          "persona": "Active trader",
+          "scenario": "Signal to fill",
+          "dialog": [
+            { "role": "user", "text": "Buy 0.5 BTC if it drops to $85,000" },
+            { "role": "agent", "text": "Order placed: 0.5 BTC @ $85,000" }
+          ],
+          "skills": ["M5", "M11", "M14"]
+        },
+        {
+          "id": "story4",
+          "persona": "Someone who sees AI-trading takes on X",
+          "scenario": "One-click Agent",
+          "dialog": [
+            { "role": "user", "text": "Give me an Agent that can trade" },
+            { "role": "agent", "text": "Done. Use it like this: ..." }
+          ],
+          "skills": ["P6", "M17"]
+        },
+        {
+          "id": "story5",
+          "persona": "Existing CoinW user",
+          "scenario": "In-exchange funnel",
+          "dialog": [
+            { "role": "user", "text": "Found the Agent Skills tab on CoinW" },
+            { "role": "agent", "text": "Generate API key → configure MCP → start using" }
+          ],
+          "skills": ["M17", "M11", "M12"]
+        }
+      ]
+    },
+    "capability": {
+      "title": "18 Must capabilities",
+      "subtitle": "Info / Trade / Auth / Platform — every item required for phase one",
+      "groups": [
+        {
+          "id": "info",
+          "name": "Info · 4 items",
+          "items": [
+            { "code": "M1", "name": "Live market data", "desc": "Price, K-line, depth, trades — the starting point" },
+            { "code": "M2", "name": "Gainers & losers", "desc": "How the Agent picks targets" },
+            { "code": "M3", "name": "Exchange announcements", "desc": "Listings, maintenance, rule changes" },
+            { "code": "M4", "name": "Multi-language output", "desc": "Skill descriptions and results in multiple languages" }
+          ]
+        },
+        {
+          "id": "trade",
+          "name": "Trade · 6 items",
+          "items": [
+            { "code": "M5", "name": "Spot & futures order/cancel", "desc": "Limit and market — the trading loop" },
+            { "code": "M6", "name": "Order query", "desc": "Open orders and history" },
+            { "code": "M7", "name": "Balance query", "desc": "Available and frozen" },
+            { "code": "M8", "name": "Position overview", "desc": "Holdings and PnL" },
+            { "code": "M9", "name": "Transfers", "desc": "Move funds across wallets" },
+            { "code": "M10", "name": "Withdrawal lockdown", "desc": "Hard red line" }
+          ]
+        },
+        {
+          "id": "auth",
+          "name": "Auth · 4 items",
+          "items": [
+            { "code": "M11", "name": "API key auth", "desc": "Real money, real bottom line" },
+            { "code": "M12", "name": "Permission tiers", "desc": "Read / Spot / Futures / Full — least privilege" },
+            { "code": "M13", "name": "Rate limits", "desc": "Throttle abuse, protect the platform" },
+            { "code": "M14", "name": "Amount caps", "desc": "Per-trade and daily" }
+          ]
+        },
+        {
+          "id": "platform",
+          "name": "Platform · 4 items",
+          "items": [
+            { "code": "M15", "name": "MCP protocol server", "desc": "The only way Agents connect" },
+            { "code": "M16", "name": "Skill discoverability", "desc": "If Agents can't find it, it doesn't exist" },
+            { "code": "M17", "name": "In-exchange landing page", "desc": "Showcase + onboarding + API key" },
+            { "code": "M18", "name": "Basic call metrics", "desc": "Minimum data to prove the MVP worked" }
+          ]
+        }
+      ]
+    },
+    "advanced": {
+      "title": "Phase-1 extras · 9 items",
+      "subtitle": "Ordered by priority",
+      "tags": [
+        { "code": "P1", "name": "Market overview", "desc": "From single quote to full view · high" },
+        { "code": "P2", "name": "On-chain data", "desc": "Adds on-chain alpha · mid" },
+        { "code": "P3", "name": "News aggregation", "desc": "From exchange scope to whole market · mid" },
+        { "code": "P4", "name": "Structured reports", "desc": "From raw data to takeaways · low" },
+        { "code": "P5", "name": "Large-trade confirmation", "desc": "A lift in fund-safety confidence · mid" },
+        { "code": "P6", "name": "TG / Email channel", "desc": "For users without an Agent · high" },
+        { "code": "P7", "name": "Funnel analytics", "desc": "From guesswork to data · mid" },
+        { "code": "P8", "name": "IP whitelist", "desc": "Extra guardrail for high-security users · low" },
+        { "code": "P9", "name": "Abnormal-call alerts", "desc": "Proactive defense for sec ops · low" }
+      ]
+    },
+    "quickStart": {
+      "title": "Start now",
+      "steps": [
+        { "n": 1, "title": "Generate API key", "desc": "Create an Agent-scoped key inside CoinW" },
+        { "n": 2, "title": "One-click install Skills", "desc": "Copy the command below into your Agent environment" },
+        { "n": 3, "title": "Try one sentence", "desc": "\"Show me BTC today\" — the Agent takes it from there" }
+      ]
+    },
+    "install": {
+      "title": "One-click install",
+      "note": "Paste this into your Agent environment",
+      "command": "npx @coinw/agent-skills install",
+      "copied": "Copied to clipboard"
+    },
+    "useCases": {
+      "title": "Common prompts · copy and try directly",
+      "items": [
+        { "icon": "newspaper", "title": "Daily crypto digest", "desc": "Using CoinW Skills, at 9 AM every day send me a digest of the last 24 hours: market indices, majors, fund flows, on-chain anomalies." },
+        { "icon": "bell", "title": "Price alerts", "desc": "Watch BTC and ETH. If BTC drops under $85,000 or ETH under $4,000, alert me with depth and fund-flow snapshot." },
+        { "icon": "wallet", "title": "Portfolio overview", "desc": "At close, generate an overview of all my CoinW wallets: PnL, allocation, concentration risk flags." },
+        { "icon": "zap", "title": "Automated trading", "desc": "If BTC hits $85,000 and institutional fund flow is net-positive, place a 0.5 BTC limit buy and notify me on fill." }
+      ]
+    }
+  },
+  "v11": {
+    "version": "v1.1",
+    "depth": "DEEP A · dialog-tree mock",
+    "headline": "One sentence, end to end",
+    "lede": "A chat box on the left, a Skills panel on the right. You type, the Agent calls Skills, the result streams back. No real LLM — it's a dialog tree mock. All three v1.0 stories walk through.",
+    "chatTitle": "Agent Chat",
+    "skillsPanelTitle": "Skills Panel"
+  },
+  "v12": {
+    "version": "v1.2",
+    "depth": "DEEP B",
+    "headline": "One user, several wallets",
+    "lede": "Even retail users run spot plus futures plus staking. The Agent has to know which one you mean. Permission tiers go from two-level to four: read, spot, futures, full. Anything out of scope gets refused on the spot.",
+    "bullets": [
+      "Wallet-aware · the Agent reads your fund layout",
+      "Four-tier permissions · least privilege, not all-or-nothing",
+      "Out-of-scope block · wrong wallet, wrong call — platform says no",
+      "User-visible trace · every call logs which tier it went through"
+    ]
+  },
+  "v13": {
+    "version": "v1.3",
+    "depth": "DEEP B",
+    "headline": "Teach the Agent to ask once",
+    "lede": "The scary part of Agent trading isn't making the wrong call. It's making the wrong call silently. Large-trade confirmation is the brake: above the threshold you set, the Agent has to stop and ask. Simple, effective, lifesaving when it matters.",
+    "bullets": [
+      "Configurable threshold · by dollar or by position %",
+      "Multi-channel push · App / TG / Email",
+      "Timeout policy · if you don't answer, default (reject or hold)",
+      "Full audit trail · every confirmation chain logged"
+    ]
+  },
+  "v14": {
+    "version": "v1.4",
+    "depth": "DEEP B",
+    "headline": "Can't run an Agent? Just type in TG.",
+    "lede": "Not everyone has their own Agent. Not everyone can configure MCP. v1.4 drops the entry barrier to zero — a TG bot command or email subscription gets the same Skills. First net for incremental users.",
+    "bullets": [
+      "TG bot · one line equals a full Agent call",
+      "Email subscription · digest / alerts / portfolio to inbox",
+      "Same source · identical Skills, matching results",
+      "Zero setup · no install, no config, sign up and go"
+    ]
+  },
+  "v15": {
+    "version": "v1.5",
+    "depth": "DEEP A · Agent Zone",
+    "headline": "Agents pick their own Skills and build their own plays",
+    "lede": "In the first four versions, the Agent is used by people. From v1.5 it flips — the Agent browses the Skill Marketplace, builds its own strategies, runs its own backtests. A central Agent node, Skills orbiting, animated connections. The first shape of \"grows\".",
+    "marketplace": {
+      "title": "Skill Marketplace",
+      "subtitle": "14 Skills across 5 categories, loaded on demand",
+      "filterLabel": "Filter"
+    },
+    "agentZone": {
+      "title": "Agent node graph",
+      "subtitle": "Center is the Agent, orbit is loaded Skills, lit lines are active calls",
+      "centerLabel": "Alpha Agent"
+    },
+    "credit": {
+      "title": "Credit economy (mock)",
+      "subtitle": "Each call burns Credit; each win refills the pool",
+      "unit": "Credit"
+    }
+  },
+  "security": {
+    "version": "v1.6 — v1.9",
+    "headline": "Four diagrams, zero hand-waving",
+    "lede": "Before a new module ships, four questions always come up inside the company: what does the architecture look like, how does it most likely get attacked, how does the dev pipeline prevent leaks, and how does it merge back to the main site without blowing up. These four diagrams answer all of it.",
+    "tabs": {
+      "architecture": {
+        "label": "Architecture",
+        "title": "Agent Skill architecture",
+        "desc": "MCP Server / Skills runtime / auth gateway / exchange API gateway — full topology"
+      },
+      "threat": {
+        "label": "Threat model",
+        "title": "STRIDE threat model",
+        "desc": "Six threat classes × five entry points = 30-cell matrix, each mapped to mitigation"
+      },
+      "cicd": {
+        "label": "CI/CD",
+        "title": "Dev pipeline",
+        "desc": "Code → static scan → sandbox test → risk-controlled rollout → prod"
+      },
+      "merge": {
+        "label": "Merge-back",
+        "title": "Path back to main site",
+        "desc": "Three-step migration from standalone MCP server to native integration"
+      }
+    }
+  },
+  "v20": {
+    "version": "v2.0",
+    "headline": "A trading brain that evolves",
+    "lede": "v2.0 is not another version. It's the closing point for the nine before it. The Agent can see, think, place orders, stay contained, find Skills, grade itself, and merge back. The day the full chain runs end to end, Agent Skill graduates from \"a feature module\" into \"a category\".",
+    "pillars": [
+      { "title": "v1.0 - v1.4 Runs + Contained", "desc": "Trading loop · multi-wallet · risk control · low-friction entry" },
+      { "title": "v1.5 Agent Zone", "desc": "Skill Marketplace · node graph · Credit economy" },
+      { "title": "v1.6 - v1.9 Safety base", "desc": "Architecture · threat model · CI/CD · merge-back" },
+      { "title": "v2.0 Native integration", "desc": "From standalone module to CoinW main-site Agent Skill category" }
+    ]
+  },
+  "extensions": {
+    "title": "Not in the main roadmap. Worth saying anyway.",
+    "subtitle": "Five directions in the horizon bay — standalone, waiting for the spine",
+    "items": [
+      { "code": "E1", "title": "Copy trading, Agent-ized", "desc": "\"Follow a trader\" becomes \"follow an Agent\"; signal providers become Skill providers" },
+      { "code": "E2", "title": "DeriW zero-gas perps as execution layer", "desc": "Agents run on CoinW's own perps — less gas, less slippage" },
+      { "code": "E3", "title": "CoinW mascot as a native Agent IP", "desc": "The brand mascot grows into its own Agent persona" },
+      { "code": "E4", "title": "External Agent API access", "desc": "Serve all Agents, not just the house ones" },
+      { "code": "E5", "title": "Non-CN region KOLs, Agent-ized", "desc": "Signal provider personas + strategies as subscribable Skills" }
+    ]
+  },
+  "footer": {
+    "tagline": "Built off-site with AI · for CoinW Agent Skill to take its seat at the table",
+    "disclaimer": "All version numbers, features, and UI on this page are MVP prototypes. Data is mocked. Final PRD governs actual development.",
+    "copyright": "© 2026 CoinW Agent Skill MVP",
+    "links": [
+      { "label": "GitHub", "href": "https://github.com/XXCRYPTO77/xxcrypto-gtm" },
+      { "label": "CoinW API docs", "href": "https://www.coinw.com/api-doc/common/introduction" }
+    ]
+  },
+  "common": {
+    "copy": "Copy",
+    "copied": "Copied",
+    "learnMore": "Learn more",
+    "close": "Close",
+    "wip": "Prototype mock · final PRD governs actual dev"
+  }
+}

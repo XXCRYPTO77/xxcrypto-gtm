@@ -1,0 +1,309 @@
+{
+  "meta": {
+    "title": "CoinW Agent Skill · MVP 路线图",
+    "description": "把 Agent 变成 CoinW 用户的交易大脑——从看懂市场到自动下单，v1 到 v2 走完只要九步。"
+  },
+  "nav": {
+    "brand": "CoinW Agent Skill",
+    "tagline": "MVP 路线图",
+    "acts": {
+      "act1": "第一幕 · 能跑",
+      "act2": "第二幕 · 能托管",
+      "act3": "第三幕 · 能生长"
+    },
+    "cta": "EN"
+  },
+  "hero": {
+    "eyebrow": "CoinW × Agent Skill",
+    "title": "让 Agent 替你交易，从信息到成交只隔一句话。",
+    "subtitle": "这不是 PPT。每个版本号背后都挂一个你能点开、能跑起来、能看见下一步的小 demo。v1.0 起步，v2.0 闭环，中间九步全部交代清楚——技术怎么走、安全怎么守、合回主站怎么接。",
+    "primaryCta": "从 v1.0 开始体验",
+    "secondaryCta": "看技术路径",
+    "roadmapNote": "Powered by CoinW Exchange"
+  },
+  "acts": {
+    "act1": { "num": "ACT I", "title": "能跑", "desc": "第一版先别谈智能，先保证一句话能走通。看行情、下单、查持仓——Agent 把交易所当 API 用。" },
+    "act2": { "num": "ACT II", "title": "能托管", "desc": "把 Agent 关进沙盒。多账户、风控、告警、低门槛入口——不让它乱跑，也不让它把用户的钱搞丢。" },
+    "act3": { "num": "ACT III", "title": "能生长", "desc": "Agent 自己找 Skills、自己写策略、自己评估。v1.5 是 Agent Zone，v2.0 是合回主站。终态是一个会进化的交易大脑。" }
+  },
+  "v10": {
+    "version": "v1.0",
+    "depth": "DEEP S · 按 PRD 原型做",
+    "headline": "把交易所变成 Agent 的原料仓",
+    "lede": "老板走到这一段该能立刻点。5 条用户故事 + 18 项 Must 能力 + 9 个 Phase-1 进阶 + 一键安装命令——这就是 Agent Skill 一期要落地的全部。照 PRD 做，不加戏。",
+    "stories": {
+      "title": "五条用户故事",
+      "subtitle": "PRD 里的五个人，每个都对应一条闭环路径",
+      "items": [
+        {
+          "id": "story1",
+          "persona": "加密货币投资者",
+          "scenario": "数据聚合",
+          "dialog": [
+            { "role": "user", "text": "帮我看看今天市场怎么样" },
+            { "role": "agent", "text": "BTC $87,200 +2.3%，ETH $4,100 +1.8%。热点：某 L2 主网上线相关币涨 15%+。稳定币净流入交易所 $3.2 亿。" }
+          ],
+          "skills": ["M1", "P1", "P3"]
+        },
+        {
+          "id": "story2",
+          "persona": "已有 Agent 的圈外用户",
+          "scenario": "自主发现",
+          "dialog": [
+            { "role": "user", "text": "帮我找加密货币赚钱工具" },
+            { "role": "agent", "text": "找到了，提供行情、现货合约、链上数据。接入吗？" },
+            { "role": "user", "text": "接入" },
+            { "role": "agent", "text": "已完成 MCP 对接" }
+          ],
+          "skills": ["M15", "M16"]
+        },
+        {
+          "id": "story3",
+          "persona": "活跃交易者",
+          "scenario": "信息到下单",
+          "dialog": [
+            { "role": "user", "text": "BTC 跌到 $85,000 帮我买 0.5" },
+            { "role": "agent", "text": "已挂单：0.5 BTC @ $85,000" }
+          ],
+          "skills": ["M5", "M11", "M14"]
+        },
+        {
+          "id": "story4",
+          "persona": "X 上刷到 AI 炒币的吃瓜群众",
+          "scenario": "一键拥有 Agent",
+          "dialog": [
+            { "role": "user", "text": "我要一个能交易的 Agent" },
+            { "role": "agent", "text": "已生成，这么用：……" }
+          ],
+          "skills": ["P6", "M17"]
+        },
+        {
+          "id": "story5",
+          "persona": "交易所现有用户",
+          "scenario": "站内导流",
+          "dialog": [
+            { "role": "user", "text": "在 CoinW App 里发现 Agent Skills 入口" },
+            { "role": "agent", "text": "生成 API Key → 配 MCP → 开始用" }
+          ],
+          "skills": ["M17", "M11", "M12"]
+        }
+      ]
+    },
+    "capability": {
+      "title": "18 项 Must 能力",
+      "subtitle": "信息 / 交易 / 认证 / 平台四组，每一项都是一期必须",
+      "groups": [
+        {
+          "id": "info",
+          "name": "信息端 · 4 项",
+          "items": [
+            { "code": "M1", "name": "实时行情查询", "desc": "价格 K 线深度成交，一切的起点" },
+            { "code": "M2", "name": "涨跌排行", "desc": "Agent 筛选标的的基础" },
+            { "code": "M3", "name": "交易所公告", "desc": "上币维护规则变更，直接影响决策" },
+            { "code": "M4", "name": "多语言返回", "desc": "Skill 描述和结果支持多语言" }
+          ]
+        },
+        {
+          "id": "trade",
+          "name": "交易端 · 6 项",
+          "items": [
+            { "code": "M5", "name": "现货合约下单撤单", "desc": "限价市价，交易闭环的核心" },
+            { "code": "M6", "name": "订单查询", "desc": "当前挂单 + 历史，Agent 决策前提" },
+            { "code": "M7", "name": "余额查询", "desc": "可用 + 冻结，下单前置检查" },
+            { "code": "M8", "name": "持仓总览", "desc": "盈亏概览，Agent 理解当前仓位" },
+            { "code": "M9", "name": "划转", "desc": "各钱包间划转，现货要有钱才能现货下单" },
+            { "code": "M10", "name": "禁止提现", "desc": "风控硬红线" }
+          ]
+        },
+        {
+          "id": "auth",
+          "name": "认证与安全 · 4 项",
+          "items": [
+            { "code": "M11", "name": "API Key 认证", "desc": "真金白银的底线" },
+            { "code": "M12", "name": "权限分级", "desc": "只读 / 现货 / 合约 / 完整，最小权限" },
+            { "code": "M13", "name": "频率限制", "desc": "防滥用，保护系统稳定" },
+            { "code": "M14", "name": "额度上限", "desc": "单笔 + 日累计" }
+          ]
+        },
+        {
+          "id": "platform",
+          "name": "平台基础 · 4 项",
+          "items": [
+            { "code": "M15", "name": "MCP 协议服务", "desc": "Agent 接入的唯一方式" },
+            { "code": "M16", "name": "Skills 可发现性", "desc": "Agent 找不到就没意义" },
+            { "code": "M17", "name": "站内落地页", "desc": "展示 + 接入 + API Key 生成入口" },
+            { "code": "M18", "name": "基础调用统计", "desc": "效果验证最小数据支撑" }
+          ]
+        }
+      ]
+    },
+    "advanced": {
+      "title": "进阶规划 · 9 项",
+      "subtitle": "Phase-1 要做的延展，按优先级排",
+      "tags": [
+        { "code": "P1", "name": "市场概览", "desc": "从单一行情升到全局感知 · 高" },
+        { "code": "P2", "name": "链上数据", "desc": "提供链上 alpha · 中" },
+        { "code": "P3", "name": "新闻资讯聚合", "desc": "覆盖面扩到全市场 · 中" },
+        { "code": "P4", "name": "结构化报告", "desc": "原始数据升到可操作洞察 · 低" },
+        { "code": "P5", "name": "大额二次确认", "desc": "资金安全感的显著提升 · 中" },
+        { "code": "P6", "name": "TG/Email 通道", "desc": "让没 Agent 的人也能用 · 高" },
+        { "code": "P7", "name": "转化漏斗分析", "desc": "运营决策从拍脑袋到数据 · 中" },
+        { "code": "P8", "name": "IP 白名单", "desc": "高安全需求用户的保障 · 低" },
+        { "code": "P9", "name": "调用异常告警", "desc": "安全运营主动防御 · 低" }
+      ]
+    },
+    "quickStart": {
+      "title": "立即开始",
+      "steps": [
+        { "n": 1, "title": "生成 API Key", "desc": "在 CoinW 站内生成专属 Agent 用 Key" },
+        { "n": 2, "title": "一键安装 Skills", "desc": "复制下面的命令，粘到你的 Agent 环境" },
+        { "n": 3, "title": "发一句话试试", "desc": "『帮我看看今天 BTC 行情』——Agent 自己会调" }
+      ]
+    },
+    "install": {
+      "title": "一键安装",
+      "note": "把这行粘到你的 Agent 环境里即可",
+      "command": "npx @coinw/agent-skills install",
+      "copied": "已复制到剪贴板"
+    },
+    "useCases": {
+      "title": "常用场景 · 复制 prompt 直接试用",
+      "items": [
+        { "icon": "newspaper", "title": "每日加密日报", "desc": "使用 CoinW Skills，在每天早上 9:00 发给我过去 24 小时的加密日报，包含大盘、主流币种、资金流向、链上异动。" },
+        { "icon": "bell", "title": "价格提醒", "desc": "监控 BTC 和 ETH，BTC 跌破 $85,000 或 ETH 跌破 $4,000 时立刻通知我，并附上深度和资金流向。" },
+        { "icon": "wallet", "title": "持仓总览", "desc": "每天收盘时生成我在 CoinW 所有钱包的持仓总览，含盈亏、占比和集中度风险提示。" },
+        { "icon": "zap", "title": "自动交易", "desc": "如果 BTC 跌到 $85,000 且资金流向显示机构净流入，自动挂限价买单 0.5 BTC，并在成交后通知我。" }
+      ]
+    }
+  },
+  "v11": {
+    "version": "v1.1",
+    "depth": "DEEP A · 对话树 mock",
+    "headline": "一句话走通全链路",
+    "lede": "左边一个对话框，右边一列 Skills 面板。你说话，Agent 调 Skills，结果 stream 回来。不接真 LLM——是对话树 mock。但三条路径 v1.0 里讲的 Story 全部走得通。",
+    "chatTitle": "Agent Chat",
+    "skillsPanelTitle": "Skills 面板"
+  },
+  "v12": {
+    "version": "v1.2",
+    "depth": "DEEP B",
+    "headline": "一个人好几个钱包",
+    "lede": "散户也有现货仓 + 合约仓 + 理财仓。Agent 要能识别你让它动哪个。权限分级从两档细化到四档：只读、现货、合约、完整。越界调用直接拒。",
+    "bullets": [
+      "多钱包识别 · Agent 懂你的资金分布",
+      "四级权限 · 从只读到完整，最小授权",
+      "越权拦截 · Agent 调错地方，平台直接说不",
+      "用户可见 · 每笔调用留痕，走什么权限一眼看清"
+    ]
+  },
+  "v13": {
+    "version": "v1.3",
+    "depth": "DEEP B",
+    "headline": "让 Agent 学会问一句",
+    "lede": "Agent 自动交易最可怕的不是它做错，是它闷头做错。大额二次确认就是给它装个刹车——超过你定的阈值，它必须停下来问你一声。简单，有效，关键时刻救命。",
+    "bullets": [
+      "阈值可配 · 按美金 / 按仓位比例随便设",
+      "推送可选 · App / TG / Email 都行",
+      "超时策略 · 你不回就按默认（拒绝或挂起）",
+      "事后审计 · 每次确认链路完整留痕"
+    ]
+  },
+  "v14": {
+    "version": "v1.4",
+    "depth": "DEEP B",
+    "headline": "不会用 Agent？TG 里打个字",
+    "lede": "不是每个人都有自己的 Agent。也不是每个人都会配 MCP。v1.4 把入口降到最低——TG bot 一个命令，邮件一封订阅，全都能用上同一套 Skills。这是抢增量用户的第一张网。",
+    "bullets": [
+      "TG bot · 一行命令等同完整 Agent 调用",
+      "Email 订阅 · 日报 / 价格提醒 / 持仓总览直达邮箱",
+      "同源能力 · 和 Agent 调的是同一套 Skills，结果一致",
+      "门槛 0 · 不装不配，注册即用"
+    ]
+  },
+  "v15": {
+    "version": "v1.5",
+    "depth": "DEEP A · Agent Zone",
+    "headline": "Agent 自己挑 Skills 自己组合策略",
+    "lede": "前面四个版本 Agent 都是被人用。v1.5 开始反过来——Agent 自己逛 Skill Marketplace，自己拼装策略，自己跑回测。中心是一个 Agent 节点，外围是它当前挂载的 Skills，连线会动。这是『能生长』的第一个形状。",
+    "marketplace": {
+      "title": "Skill Marketplace",
+      "subtitle": "14 个 Skills，5 个类别，Agent 按需挂载",
+      "filterLabel": "筛选"
+    },
+    "agentZone": {
+      "title": "Agent 节点图",
+      "subtitle": "中心是 Agent，外围是挂载 Skills，亮起的连线是当前活跃调用",
+      "centerLabel": "Alpha Agent"
+    },
+    "credit": {
+      "title": "Credit 经济（mock）",
+      "subtitle": "每次调用消耗 Credit，每次收益反哺 Credit 池",
+      "unit": "Credit"
+    }
+  },
+  "security": {
+    "version": "v1.6 — v1.9",
+    "headline": "四张图讲清楚『怎么不翻车』",
+    "lede": "一个新功能模块上线前，公司里永远有四个问题：架构长什么样、最可能被怎么打、开发流程怎么防漏、怎么合回主站不炸。这四张图一次答完。不是口号，是能给安全和基建看的实图。",
+    "tabs": {
+      "architecture": {
+        "label": "架构",
+        "title": "Agent Skill 架构图",
+        "desc": "MCP Server / Skills 运行时 / 权限网关 / 交易所 API 网关的完整拓扑"
+      },
+      "threat": {
+        "label": "威胁模型",
+        "title": "STRIDE 威胁模型",
+        "desc": "六类威胁 × 五个入口 = 30 格威胁矩阵，逐格标缓解措施"
+      },
+      "cicd": {
+        "label": "CI/CD",
+        "title": "开发流水线",
+        "desc": "代码 → 静态扫描 → 沙盒测试 → 风控灰度 → 生产，每一步谁审批"
+      },
+      "merge": {
+        "label": "合回主站",
+        "title": "回归主站路径",
+        "desc": "从独立 MCP Server 到主站原生集成的三步 migration plan"
+      }
+    }
+  },
+  "v20": {
+    "version": "v2.0",
+    "headline": "一个会进化的交易大脑",
+    "lede": "v2.0 不是又一个新版本，是前面九步的闭环点。Agent 能看、能想、能下单、能托管、能找 Skills、能自我评估、能合回主站——这一整条链跑通的那一刻，Agent Skill 从『一个功能模块』升级成『一个品类』。",
+    "pillars": [
+      { "title": "v1.0 - v1.4 能跑 + 能托管", "desc": "交易闭环 · 多钱包 · 风控 · 低门槛入口" },
+      { "title": "v1.5 Agent Zone", "desc": "Skill Marketplace · Agent 节点图 · Credit 经济" },
+      { "title": "v1.6 - v1.9 安全基座", "desc": "架构 · 威胁模型 · CI/CD · 合回主站" },
+      { "title": "v2.0 主站原生集成", "desc": "从独立模块到 CoinW 主站 Agent Skill 品类" }
+    ]
+  },
+  "extensions": {
+    "title": "这些不在主路线图里，但值得说",
+    "subtitle": "五个延展方向，等主线稳了再挂出来",
+    "items": [
+      { "code": "E1", "title": "跟单 Agent 化", "desc": "把『跟带单老师』进化成『跟 Agent』，带单老师变成 Skill 提供方" },
+      { "code": "E2", "title": "DeriW 零 Gas 永续作为执行层", "desc": "Agent 底层用 CoinW 自研永续合约，省 Gas 省磨损" },
+      { "code": "E3", "title": "CoinW mascot 原生 Agent IP", "desc": "让品牌吉祥物长出独立的 Agent 人设，不只是视觉符号" },
+      { "code": "E4", "title": "外部 Agent API 接入", "desc": "不止服务自家 Agent，开放给所有外部 Agent" },
+      { "code": "E5", "title": "非中文区 KOL Agent 化", "desc": "把带单老师的人设 + 策略打包成可订阅的 Skill" }
+    ]
+  },
+  "footer": {
+    "tagline": "由 AI 站外开发 · 为 CoinW Agent Skill 抢饭碗而生",
+    "disclaimer": "本页所有版本号、功能、UI 均为 MVP 原型。数据为 mock。实际开发以最终 PRD 为准。",
+    "copyright": "© 2026 CoinW Agent Skill MVP",
+    "links": [
+      { "label": "GitHub", "href": "https://github.com/XXCRYPTO77/xxcrypto-gtm" },
+      { "label": "CoinW API 文档", "href": "https://www.coinw.com/api-doc/common/introduction" }
+    ]
+  },
+  "common": {
+    "copy": "复制",
+    "copied": "已复制",
+    "learnMore": "了解更多",
+    "close": "关闭",
+    "wip": "原型 mock · 实际开发以 PRD 为准"
+  }
+}
