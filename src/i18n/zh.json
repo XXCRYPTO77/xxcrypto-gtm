@@ -212,7 +212,7 @@
     "version": "v1.4",
     "depth": "DEEP B",
     "headline": "不会用 Agent？TG 里打个字",
-    "lede": "不是每个人都有自己的 Agent。也不是每个人都会配 MCP。v1.4 把入口降到最低——TG bot 一个命令，邮件一封订阅，全都能用上同一套 Skills。这是抢增量用户的第一张网。",
+    "lede": "不是每个人都有自己的 Agent。也不是每个人都会配 MCP。v1.4 把入口降到最低——TG bot 一个命令，邮件一封订阅，全都能用上同一套 Skills。这是把增量用户接进来的第一张网。",
     "bullets": [
       "TG bot · 一行命令等同完整 Agent 调用",
       "Email 订阅 · 日报 / 价格提醒 / 持仓总览直达邮箱",
@@ -291,7 +291,7 @@
     ]
   },
   "footer": {
-    "tagline": "由 AI 站外开发 · 为 CoinW Agent Skill 抢饭碗而生",
+    "tagline": "CoinW Agent Skill · 技术预览版",
     "disclaimer": "本页所有版本号、功能、UI 均为 MVP 原型。数据为 mock。实际开发以最终 PRD 为准。",
     "copyright": "© 2026 CoinW Agent Skill MVP",
     "links": [

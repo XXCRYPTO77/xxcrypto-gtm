@@ -155,7 +155,7 @@
     <circle cx="145" cy="10" r="4" fill="currentColor"/>
     <circle cx="460" cy="10" r="4" fill="currentColor"/>
     <circle cx="775" cy="10" r="4" fill="currentColor"/>
-    <text x="145" y="32" text-anchor="middle" class="label-sm">v1.5 完成时 · 抢到资源</text>
+    <text x="145" y="32" text-anchor="middle" class="label-sm">v1.5 完成时 · 启动集成</text>
     <text x="460" y="32" text-anchor="middle" class="label-sm">v1.8-1.9 · Shadow 2 周</text>
     <text x="775" y="32" text-anchor="middle" class="label-sm">v2.0 · 正式集成</text>
   </g>
