@@ -23,13 +23,16 @@ export function ShellNavbar() {
         ? 'act3'
         : pathname.startsWith('/act4')
           ? 'act4'
-          : null;
+          : pathname.startsWith('/skills')
+            ? 'skills'
+            : null;
 
   const acts = [
     { id: 'act1', label: 'Act I', href: '/act1' },
     { id: 'act2', label: 'Act II', href: '/act2' },
     { id: 'act3', label: 'Act III', href: '/act3' },
     { id: 'act4', label: 'Act IV', href: '/act4' },
+    { id: 'skills', label: 'Skills', href: '/skills' },
   ];
 
   if (!mounted) {
