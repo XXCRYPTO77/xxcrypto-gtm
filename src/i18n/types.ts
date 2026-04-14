@@ -166,6 +166,12 @@ export interface Dict {
     title: string;
     items: ReadonlyArray<{ text: string; time: string }>;
   };
+  ecosystem: {
+    hero: Record<string, string>;
+    boardA: Record<string, string | Record<string, string>>;
+    boardB: Record<string, string>;
+    boardC: Record<string, string>;
+  };
   agentChat: {
     presets: {
       title: string; subtitle: string; select: string;

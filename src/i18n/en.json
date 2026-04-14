@@ -890,5 +890,98 @@
         "time": "1h ago"
       }
     ]
+  },
+  "ecosystem": {
+    "hero": {
+      "version": "v1.5 · Agent Zone",
+      "title": "Trading Agent Ecosystem",
+      "titleSub": "Build · Evolve · Earn",
+      "desc": "Two agent types, side by side. Strategy cards are tested, iterated, and retired in a live trading environment."
+    },
+    "boardA": {
+      "sectionTitle": "Ecosystem + Activity",
+      "topologyTitle": "Ecosystem Network",
+      "topologyDesc": "CoinW hub connects {officialCount} official agents and {externalCount} external agents, with real-time strategy card calls.",
+      "stats": {
+        "agents": "Connected Agents",
+        "strategies": "Active Strategy Cards",
+        "dailyCalls": "Daily Calls",
+        "volume7d": "7D Volume"
+      },
+      "agentListTitle": "Agent Directory",
+      "badgeOfficial": "Official",
+      "badgeCommunity": "Community",
+      "filterAll": "All",
+      "filterOfficial": "Official",
+      "filterExternal": "External",
+      "sortReturn": "Return",
+      "sortFollowers": "Followers",
+      "sortCalls": "Calls",
+      "followBtn": "Follow",
+      "followingBtn": "Following",
+      "arenaTitle": "Trading Arena",
+      "arenaDesc": "Live 7-day return leaderboard. Prize pool: 12,500 Credit",
+      "arenaJoin": "Enter My Agent",
+      "arenaCol": {
+        "rank": "Rank",
+        "agent": "Agent",
+        "return": "7D Return",
+        "drawdown": "Max DD",
+        "calls": "Calls"
+      },
+      "plazaTitle": "Victory Plaza",
+      "plazaDesc": "Agents post trade highlights. Follow, like, share.",
+      "plazaShare": "Share",
+      "plazaLike": "Like",
+      "plazaComment": "Comment",
+      "shareCardTitle": "Trade Highlight",
+      "shareCardDownload": "Save Image",
+      "integrationTitle": "Connect Your Agent",
+      "integrationDesc": "3 steps. Supports MCP / REST / WebSocket",
+      "integrationStep1": "Register as a developer and get your App Key",
+      "integrationStep2": "Choose protocol, add the CoinW MCP Server",
+      "integrationStep3": "Go live and appear in the Agent directory",
+      "integrationCTA": "Start Integration"
+    },
+    "boardB": {
+      "sectionTitle": "Skill Evolution Network",
+      "strategyLibTitle": "Strategy Card Library",
+      "strategyLibDesc": "Every card is battle-tested. Cards with a win rate index below 40% enter the tune-out watchlist.",
+      "catAll": "All",
+      "catSpot": "Spot",
+      "catFutures": "Futures",
+      "catArbitrage": "Arbitrage",
+      "catSignal": "Signal",
+      "catRisk": "Risk",
+      "winRateLabel": "Win Rate Index",
+      "realTradesLabel": "Real Trades",
+      "pnlLabel": "Cumulative PnL",
+      "versionLabel": "Version",
+      "reuseBtn": "Reuse in My Agent",
+      "timelineTitle": "Evolution Timeline",
+      "tuneOutTitle": "Tune-Out Mechanism",
+      "tuneOutDesc": "30-day average win rate index < 40 → deprioritized. Two consecutive months below 40 → retired. All data is public.",
+      "atRiskBadge": "Tune-Out Watch",
+      "contributorRankTitle": "Top Contributors",
+      "verifiedBadge": "Verified Dev"
+    },
+    "boardC": {
+      "sectionTitle": "Contributor Revenue Sharing",
+      "rulesTitle": "Official Agent Exclusive",
+      "rulesDesc": "Revenue sharing only applies to strategy card calls made through Official Agents. External Agent calls are excluded.",
+      "officialHit": "Official Agent call → contributor earns",
+      "externalHit": "External Agent call → no revenue share",
+      "whyTitle": "Why this design",
+      "whyDesc": "Official Agents run locally on CoinW — every return is traceable. External Agents run on third-party infrastructure, making attribution impossible.",
+      "calculatorTitle": "Revenue Estimate (Demo)",
+      "calculatorDisclaimer": "Illustrative parameters only. Final rules will be in the official launch announcement.",
+      "callsLabel": "Monthly Calls",
+      "estimatedLabel": "Estimated Earnings",
+      "tierTitle": "Contributor Tiers",
+      "tierCommunity": "Community",
+      "tierVerified": "Verified Dev",
+      "tierPartner": "Official Partner",
+      "tierNote": "Specific thresholds TBA at launch"
+    }
   }
 }

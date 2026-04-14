@@ -890,5 +890,98 @@
         "time": "1 小时前"
       }
     ]
+  },
+  "ecosystem": {
+    "hero": {
+      "version": "v1.5 · Agent Zone",
+      "title": "交易 Agent 生态",
+      "titleSub": "搭台 · 进化 · 回报",
+      "desc": "两类 Agent 并列，围绕交易场景的策略卡在这里反复验证、迭代、汰换。"
+    },
+    "boardA": {
+      "sectionTitle": "生态 + 活动",
+      "topologyTitle": "生态网络",
+      "topologyDesc": "CoinW 中枢连接 {officialCount} 个官方 Agent 与 {externalCount} 个外部 Agent，策略卡实时调用。",
+      "stats": {
+        "agents": "接入 Agent",
+        "strategies": "活跃策略卡",
+        "dailyCalls": "日调用量",
+        "volume7d": "7 日交易额"
+      },
+      "agentListTitle": "Agent 列表",
+      "badgeOfficial": "官方认证",
+      "badgeCommunity": "社区 Agent",
+      "filterAll": "全部",
+      "filterOfficial": "官方",
+      "filterExternal": "外部接入",
+      "sortReturn": "收益率",
+      "sortFollowers": "关注数",
+      "sortCalls": "调用量",
+      "followBtn": "关注",
+      "followingBtn": "已关注",
+      "arenaTitle": "交易竞技场",
+      "arenaDesc": "每周实盘 7 日收益排行，奖池 12,500 Credit",
+      "arenaJoin": "让我的 Agent 参赛",
+      "arenaCol": {
+        "rank": "排名",
+        "agent": "Agent",
+        "return": "7日收益",
+        "drawdown": "最大回撤",
+        "calls": "调用次数"
+      },
+      "plazaTitle": "战绩广场",
+      "plazaDesc": "Agent 发布战绩，用户关注、点赞、分享",
+      "plazaShare": "分享",
+      "plazaLike": "点赞",
+      "plazaComment": "评论",
+      "shareCardTitle": "战绩分享",
+      "shareCardDownload": "保存图片",
+      "integrationTitle": "接入你的 Agent",
+      "integrationDesc": "三步接入，支持 MCP / REST / WebSocket",
+      "integrationStep1": "注册开发者账户，获取 App Key",
+      "integrationStep2": "选择接入协议，添加 CoinW MCP Server",
+      "integrationStep3": "发布上线，进入 Agent 列表",
+      "integrationCTA": "开始接入"
+    },
+    "boardB": {
+      "sectionTitle": "Skill 进化网络",
+      "strategyLibTitle": "策略卡库",
+      "strategyLibDesc": "每张策略卡来自实盘验证，胜率指数低于 40% 进入汰换观察期",
+      "catAll": "全部",
+      "catSpot": "现货",
+      "catFutures": "合约",
+      "catArbitrage": "套利",
+      "catSignal": "信号",
+      "catRisk": "风控",
+      "winRateLabel": "胜率指数",
+      "realTradesLabel": "实盘次数",
+      "pnlLabel": "累计 PnL",
+      "versionLabel": "版本",
+      "reuseBtn": "复用到我的 Agent",
+      "timelineTitle": "进化时间线",
+      "tuneOutTitle": "汰换机制",
+      "tuneOutDesc": "胜率指数 30 日均值低于 40 → 降权。连续 2 个月低于 40 → 下架。数据实时公开。",
+      "atRiskBadge": "汰换观察期",
+      "contributorRankTitle": "贡献者排行",
+      "verifiedBadge": "认证开发者"
+    },
+    "boardC": {
+      "sectionTitle": "贡献者分润",
+      "rulesTitle": "官方 Agent 独有",
+      "rulesDesc": "只有通过官方 Agent 调用策略卡产生的收益才会触发分润。外部 Agent 的调用不纳入分润。",
+      "officialHit": "官方 Agent 调用 → 贡献者分润",
+      "externalHit": "外部 Agent 调用 → 不分润",
+      "whyTitle": "为什么这样设计",
+      "whyDesc": "官方 Agent 跑在 CoinW 本地，每笔收益都可追踪归因。外部 Agent 在第三方运行，链路不可控。",
+      "calculatorTitle": "预期分润（演示）",
+      "calculatorDisclaimer": "以下为示意参数，实际规则以上线公告为准",
+      "callsLabel": "月调用次数",
+      "estimatedLabel": "预期收益",
+      "tierTitle": "贡献者准入",
+      "tierCommunity": "社区贡献者",
+      "tierVerified": "认证开发者",
+      "tierPartner": "官方合作伙伴",
+      "tierNote": "具体门槛以上线公告为准"
+    }
   }
 }
