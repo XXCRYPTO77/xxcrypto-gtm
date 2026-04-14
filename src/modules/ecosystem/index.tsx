@@ -2,7 +2,7 @@
 
 import { useT } from '@/i18n/LocaleContext';
 import { EcosystemBoard } from './boards/EcosystemBoard';
-// import { EvolutionBoard } from './boards/EvolutionBoard';
+import { EvolutionBoard } from './boards/EvolutionBoard';
 // import { RevenueBoard } from './boards/RevenueBoard';
 
 export default function EcosystemModule() {
@@ -36,10 +36,15 @@ export default function EcosystemModule() {
 
       <hr className="border-border my-16" />
 
-      {/* Board B placeholder */}
-      <div id="board-b" className="mb-20 rounded-2xl border border-border bg-gray-50 p-8 text-center text-muted">
-        板块 B · {eco.boardB.sectionTitle} — A3.2 实现
-      </div>
+      {/* Board B */}
+      <section id="board-b" className="mb-20">
+        <div className="mb-8">
+          <span className="inline-block rounded-full border border-brand-light bg-brand-soft px-3 py-1 text-xs font-semibold text-brand mb-3">
+            02 · {eco.boardB.sectionTitle}
+          </span>
+        </div>
+        <EvolutionBoard />
+      </section>
 
       <hr className="border-border my-16" />
 
