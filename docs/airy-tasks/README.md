@@ -58,16 +58,21 @@ src/
 
 ---
 
-## 当前任务（Act 1）
+## 当前任务（Act 2）
 
-三个并行，从任意一个开始：
+两个独立任务，没有依赖，可以并行：
 
 | 文件 | 任务 | 预估工时 | 状态 |
 |------|------|----------|------|
-| [A1.1-capabilities-data.md](./A1.1-capabilities-data.md) | M1-M18 能力数据文件 | 2h | 待做 |
-| [A1.2-usecases-data.md](./A1.2-usecases-data.md) | 4 张场景卡 + UseCaseCards | 1h | 待做 |
-| [A1.3-comingsoon.md](./A1.3-comingsoon.md) | P1-P9 Coming Soon 标签墙 | 1h | 待做 |
+| [A2.1-skill-discovery.md](./A2.1-skill-discovery.md) | Step 1 SkillDiscovery 组件 + 补 6 个 skill | 2-3h | 待做 |
+| [A2.2-trade-summary.md](./A2.2-trade-summary.md) | Step 6 TradeSummary 复盘 dashboard | 2-3h | 待做 |
 
-**注意**：A1.1 + A1.2 + A1.3 都会写 `src/modules/landing/data/types.ts`。
-先做 A1.1 的那个人建这个文件，后做的人追加 interface，不要覆盖整个文件。
-如果并行做（推荐），各自在自己的任务包里建完整的 types.ts，merge 时 F 会合并。
+**接入点**：`modules/agent-chat/index.tsx` 里已经留好 lazy require，你 push 到远端 + Dan merge 进 master 后，组件会自动在 `/act2` 上对应的 step 生效。placeholder 是 F 临时占位的，不用管。
+
+**已完成（Act 1）**：
+
+| 文件 | 任务 | 状态 |
+|------|------|------|
+| [A1.1-capabilities-data.md](./A1.1-capabilities-data.md) | M1-M18 能力数据 | ✅ 已合并 |
+| [A1.2-usecases-data.md](./A1.2-usecases-data.md) | UseCaseCards | ✅ 已合并 |
+| [A1.3-comingsoon.md](./A1.3-comingsoon.md) | ComingSoon | ✅ 已合并 |
