@@ -1,0 +1,48 @@
+{
+  "hero": {
+    "eyebrow": "CoinW Agent Skill",
+    "title": "Make AI Trading for Every Trader",
+    "subtitle": "Not a charting tool. Not a copy-trade bot. AI reads the market, picks strategies, and executes — one click, zero code.",
+    "primaryCta": "Get started",
+    "secondaryCta": "API Docs"
+  },
+  "quickStart": {
+    "title": "Get started",
+    "steps": [
+      {
+        "n": 1,
+        "title": "Generate API Key",
+        "desc": "Create a dedicated Agent Key in your CoinW account"
+      },
+      {
+        "n": 2,
+        "title": "Install Skills",
+        "desc": "Copy the command below and run it in your Agent environment"
+      },
+      {
+        "n": 3,
+        "title": "Send a message",
+        "desc": "\"Show me BTC market right now\" — Agent handles the rest"
+      }
+    ]
+  },
+  "installBlock": {
+    "title": "One-click install",
+    "command": "npx @coinw/agent-skills install",
+    "copyLabel": "Copy",
+    "copiedLabel": "Copied!"
+  },
+  "capability": {
+    "title": "Capabilities",
+    "groups": [
+      { "id": "info", "label": "Market Info" },
+      { "id": "trade", "label": "Trading" },
+      { "id": "auth", "label": "Security" },
+      { "id": "platform", "label": "Platform" }
+    ]
+  },
+  "comingSoon": {
+    "title": "Coming Soon",
+    "subtitle": "More capabilities rolling out soon"
+  }
+}

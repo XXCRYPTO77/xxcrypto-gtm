@@ -1,17 +1,17 @@
 'use client';
 
 import React from 'react';
-import { useT } from '@/i18n/LocaleContext';
+import { useLandingT } from '../i18n/useLandingT';
 import { Card } from '@/components/primitives/Card';
 
 export function QuickStart() {
-  const t = useT();
-  const steps = t.v10.quickStart.steps;
+  const t = useLandingT();
+  const steps = t.quickStart.steps;
 
   return (
     <section id="quick-start" className="mx-auto max-w-7xl px-6 py-10 sm:py-12">
       <div className="mb-12">
-        <h2 className="text-3xl font-bold text-ink sm:text-4xl">{t.v10.quickStart.title}</h2>
+        <h2 className="text-3xl font-bold text-ink sm:text-4xl">{t.quickStart.title}</h2>
       </div>
 
       <div className="grid gap-6 md:grid-cols-3">

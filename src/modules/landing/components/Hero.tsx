@@ -1,15 +1,15 @@
 'use client';
 
 import React from 'react';
-import { useT } from '@/i18n/LocaleContext';
+import { useLandingT } from '../i18n/useLandingT';
 import { Button } from '@/components/primitives/Button';
 import { ArrowRight, ExternalLink } from 'lucide-react';
 
 export function Hero() {
-  const t = useT();
+  const t = useLandingT();
 
   const handleScrollToQuickStart = () => {
-    const elem = document.getElementById('capability-matrix');
+    const elem = document.getElementById('quick-start');
     if (elem) {
       elem.scrollIntoView({ behavior: 'smooth' });
     }
@@ -31,6 +31,7 @@ export function Hero() {
           <h1 className="max-w-5xl text-5xl font-black leading-[1.05] tracking-tight text-ink sm:text-6xl md:text-7xl">
             {t.hero.title}
           </h1>
+          <p className="max-w-2xl text-lg text-muted sm:text-xl">{t.hero.subtitle}</p>
           <div className="flex flex-wrap items-center gap-4">
             <Button size="lg" onClick={handleScrollToQuickStart}>
               {t.hero.primaryCta} <ArrowRight size={18} />

@@ -2,12 +2,11 @@
 
 import React from 'react';
 import { Hero } from './components/Hero';
-import { MarketPreview } from './components/MarketPreview';
-import { WhatIsSection } from './components/WhatIsSection';
-import { WhySection } from './components/WhySection';
+import { QuickStart } from './components/QuickStart';
 import { InstallBlock } from './components/InstallBlock';
 import { UseCaseCards } from './components/UseCaseCards';
-import { UserStoryCards } from './components/UserStoryCards';
+import { CapabilityTabs } from './components/CapabilityTabs';
+import { ComingSoon } from './components/ComingSoon';
 
 function Divider() {
   return (
@@ -21,34 +20,31 @@ export function LandingModule() {
       {/* ① Hero — 品牌价值主张 */}
       <Hero />
 
-      {/* ② 实时市场数据（灰底） */}
-      <MarketPreview />
+      <Divider />
+
+      {/* ② 快速开始 · 3 步 */}
+      <QuickStart />
 
       <Divider />
 
-      {/* ③ 什么是 Agent Skills（白底） */}
-      <WhatIsSection />
-
-      <Divider />
-
-      {/* ④ 为什么选 CoinW Agent Skills（灰底） */}
-      <WhySection />
-
-      <Divider />
-
-      {/* ⑤ 一键安装（白底） */}
+      {/* ③ 一键安装命令块 */}
       <InstallBlock />
 
       <Divider />
 
-      {/* ⑥ 常用场景 prompt 卡片（白底） */}
+      {/* ④ 常用场景 prompt 卡片 */}
       <UseCaseCards />
 
       <Divider />
 
-      {/* ⑦ 用户故事（灰底，补充性质） */}
+      {/* ⑤ 能力概览 M1-M18 · Tab 切换 */}
+      <CapabilityTabs />
+
+      <Divider />
+
+      {/* ⑥ Coming Soon · P1-P9 标签墙（视觉权重最低） */}
       <div className="bg-gray-50">
-        <UserStoryCards />
+        <ComingSoon />
       </div>
     </section>
   );

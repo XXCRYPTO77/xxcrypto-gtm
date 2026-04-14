@@ -1,0 +1,48 @@
+{
+  "hero": {
+    "eyebrow": "CoinW Agent Skill",
+    "title": "Make AI Trading for Every Trader",
+    "subtitle": "不是看盘工具，不是抄单机器。AI 看懂行情、给你靠谱策略、一键自动执行——普惠AI交易，人人皆可轻松入局。",
+    "primaryCta": "立即开始",
+    "secondaryCta": "API 文档"
+  },
+  "quickStart": {
+    "title": "立即开始",
+    "steps": [
+      {
+        "n": 1,
+        "title": "生成 API Key",
+        "desc": "在 CoinW 站内生成专属 Agent 用 Key"
+      },
+      {
+        "n": 2,
+        "title": "一键安装 Skills",
+        "desc": "复制下面的命令，粘到你的 Agent 环境"
+      },
+      {
+        "n": 3,
+        "title": "发一句话试试",
+        "desc": "「帮我看看今天 BTC 行情」——Agent 自己会调"
+      }
+    ]
+  },
+  "installBlock": {
+    "title": "一键安装",
+    "command": "npx @coinw/agent-skills install",
+    "copyLabel": "复制",
+    "copiedLabel": "已复制"
+  },
+  "capability": {
+    "title": "能力概览",
+    "groups": [
+      { "id": "info", "label": "行情信息" },
+      { "id": "trade", "label": "交易操作" },
+      { "id": "auth", "label": "安全认证" },
+      { "id": "platform", "label": "平台接入" }
+    ]
+  },
+  "comingSoon": {
+    "title": "Coming Soon",
+    "subtitle": "更多能力持续开放中"
+  }
+}
