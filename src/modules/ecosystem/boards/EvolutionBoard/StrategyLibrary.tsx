@@ -30,9 +30,9 @@ const CATEGORY_LABELS: Record<string, { zh: string; en: string }> = {
 };
 
 const STATUS_STYLES: Record<string, { cls: string; zh: string; en: string }> = {
-  trending:   { cls: 'bg-green-100 text-green-700', zh: '🔥 趋势策略', en: '🔥 Trending' },
+  trending:   { cls: 'bg-cw-green-light text-cw-green', zh: '🔥 趋势策略', en: '🔥 Trending' },
   active:     { cls: 'bg-blue-50 text-blue-600', zh: '✓ 活跃', en: '✓ Active' },
-  'at-risk':  { cls: 'bg-red-50 text-red-600 border border-red-200', zh: '⚠ 汰换观察期', en: '⚠ Tune-Out Watch' },
+  'at-risk':  { cls: 'bg-cw-red-light text-cw-red border border-cw-red-mid', zh: '⚠ 汰换观察期', en: '⚠ Tune-Out Watch' },
   deprecated: { cls: 'bg-gray-100 text-gray-400', zh: '已下架', en: 'Retired' },
 };
 
@@ -154,7 +154,7 @@ export function StrategyLibrary({ strategies, isZh }: StrategyLibraryProps) {
                     {isZh ? '实盘' : 'Trades'}: <span className="text-ink font-medium">{s.realTrades.toLocaleString()}</span>
                   </span>
                   <span className="text-muted">
-                    PnL: <span className={s.cumulativePnL >= 0 ? 'text-green-600 font-medium' : 'text-red-500 font-medium'}>
+                    PnL: <span className={s.cumulativePnL >= 0 ? 'text-cw-green font-medium' : 'text-cw-red font-medium'}>
                       {s.cumulativePnL >= 0 ? '+' : ''}${s.cumulativePnL.toLocaleString()}
                     </span>
                   </span>

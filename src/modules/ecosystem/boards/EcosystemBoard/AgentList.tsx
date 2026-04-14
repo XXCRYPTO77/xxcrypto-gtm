@@ -116,7 +116,7 @@ export function AgentList({ agents, isZh }: AgentListProps) {
 
               {/* Metrics */}
               <div className="flex items-center gap-4 border-t border-border pt-3 text-xs">
-                <span className={ret >= 0 ? 'font-semibold text-green-600' : 'font-semibold text-red-500'}>
+                <span className={ret >= 0 ? 'font-semibold text-cw-green' : 'font-semibold text-cw-red'}>
                   {ret >= 0 ? '+' : ''}{ret}%
                 </span>
                 <span className="text-muted">{agent.metrics.dailyCalls.toLocaleString()} {isZh ? '日调用' : 'calls/d'}</span>

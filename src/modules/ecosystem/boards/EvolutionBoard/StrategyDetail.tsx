@@ -89,10 +89,10 @@ export function StrategyDetail({ strategy, isZh }: StrategyDetailProps) {
           {MOCK_TRADES.map((t, i) => (
             <div key={i} className="flex gap-6 py-0.5">
               <span className="w-24 text-muted">{t.date}</span>
-              <span className={`w-8 ${t.win ? 'text-green-600' : 'text-red-500'}`}>
+              <span className={`w-8 ${t.win ? 'text-cw-green' : 'text-cw-red'}`}>
                 {t.win ? '✓' : '✗'}
               </span>
-              <span className={t.pnl >= 0 ? 'text-green-600' : 'text-red-500'}>
+              <span className={t.pnl >= 0 ? 'text-cw-green' : 'text-cw-red'}>
                 {t.pnl >= 0 ? '+' : ''}${Math.abs(t.pnl)}
               </span>
             </div>

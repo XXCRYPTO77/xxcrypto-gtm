@@ -8,17 +8,15 @@ interface NetworkTopologyProps {
 }
 
 const STATS = [
-  { key: 'agents', value: '134' },
-  { key: 'strategies', value: '68' },
-  { key: 'dailyCalls', value: '1,284,000' },
-  { key: 'volume7d', value: '$48M' },
+  { value: '134',       zh: '接入 Agent',   en: 'Agents' },
+  { value: '68',        zh: '活跃策略卡',   en: 'Strategies' },
+  { value: '1,284,000', zh: '日调用量',     en: 'Daily Calls' },
+  { value: '$48M',      zh: '7 日交易额',   en: '7D Volume' },
 ];
 
 export function NetworkTopology({ agents, isZh }: NetworkTopologyProps) {
   const official = agents.filter((a) => a.type === 'official');
   const external = agents.filter((a) => a.type === 'external');
-
-  const eco = (globalThis as any).__ECO_T__;
 
   // Position nodes in circles around center (50%, 50%)
   const cx = 50;
@@ -113,7 +111,7 @@ export function NetworkTopology({ agents, isZh }: NetworkTopologyProps) {
               {/* Tooltip */}
               <div className="pointer-events-none absolute bottom-full mb-2 hidden rounded-lg bg-gray-800 px-3 py-1.5 text-xs text-white whitespace-nowrap group-hover:block">
                 <div className="font-semibold">{isZh ? n.agent.name : n.agent.nameEn}</div>
-                <div className={n.agent.metrics.return7d >= 0 ? 'text-green-400' : 'text-red-400'}>
+                <div className={n.agent.metrics.return7d >= 0 ? 'text-cw-green' : 'text-cw-red'}>
                   {n.agent.metrics.return7d >= 0 ? '+' : ''}{n.agent.metrics.return7d}%
                 </div>
               </div>
@@ -140,7 +138,7 @@ export function NetworkTopology({ agents, isZh }: NetworkTopologyProps) {
         {STATS.map((s) => (
           <div key={s.key} className="rounded-xl bg-gray-950 px-4 py-3 text-center">
             <div className="text-xl font-bold text-white">{s.value}</div>
-            <div className="text-xs text-gray-400">{s.key}</div>
+            <div className="text-xs text-gray-400">{isZh ? s.zh : s.en}</div>
           </div>
         ))}
       </div>

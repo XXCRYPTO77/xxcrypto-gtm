@@ -53,7 +53,7 @@ export function ContributorRank({ isZh }: ContributorRankProps) {
                 {isZh ? '策略' : 'Strategies'}: <span className="text-ink font-medium">{c.strategies}</span>
               </span>
               <span>
-                PnL: <span className="text-green-600 font-medium">+${c.cumPnL.toLocaleString()}</span>
+                PnL: <span className="text-cw-green font-medium">+${c.cumPnL.toLocaleString()}</span>
               </span>
               <span>
                 {isZh ? '月调用' : 'Monthly'}: <span className="text-ink font-medium">{c.monthlyCalls.toLocaleString()}</span>

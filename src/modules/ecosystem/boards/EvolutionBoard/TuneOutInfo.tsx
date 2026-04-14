@@ -16,7 +16,7 @@ const STEPS = [
   {
     zh: '⚠ 汰换观察期',
     en: '⚠ Tune-Out Watch',
-    cls: 'bg-red-50 border-red-200 text-red-600',
+    cls: 'bg-cw-red-light border-cw-red-mid text-cw-red',
   },
   {
     zh: '已下架',

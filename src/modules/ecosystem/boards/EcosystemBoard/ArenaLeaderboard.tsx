@@ -24,8 +24,8 @@ export function ArenaLeaderboard({ entries, isZh }: ArenaLeaderboardProps) {
   };
 
   const trendIcon = (t: 'up' | 'down' | 'flat') => {
-    if (t === 'up') return <span className="text-green-500">▲</span>;
-    if (t === 'down') return <span className="text-red-500">▼</span>;
+    if (t === 'up') return <span className="text-cw-green">▲</span>;
+    if (t === 'down') return <span className="text-cw-red">▼</span>;
     return <span className="text-gray-400">—</span>;
   };
 
@@ -68,7 +68,7 @@ export function ArenaLeaderboard({ entries, isZh }: ArenaLeaderboardProps) {
                     </div>
                   </td>
                   <td className="py-3 px-2">
-                    <span className={entry.return7d >= 0 ? 'font-semibold text-green-600' : 'font-semibold text-red-500'}>
+                    <span className={entry.return7d >= 0 ? 'font-semibold text-cw-green' : 'font-semibold text-cw-red'}>
                       {entry.return7d >= 0 ? '+' : ''}{entry.return7d}%
                     </span>
                     {' '}{trendIcon(entry.trend)}
