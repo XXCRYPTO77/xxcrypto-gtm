@@ -32,6 +32,12 @@
     "copyLabel": "Copy",
     "copiedLabel": "Copied!"
   },
+  "useCases": {
+    "title": "Common Scenarios",
+    "copyLabel": "Copy Prompt",
+    "copiedLabel": "Copied!",
+    "toastMsg": "Copied — paste it into your Agent"
+  },
   "capability": {
     "title": "Capabilities",
     "groups": [

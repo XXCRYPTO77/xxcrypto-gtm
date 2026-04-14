@@ -3,22 +3,25 @@
 import React, { useState } from 'react';
 import { Card } from '@/components/primitives/Card';
 import { Badge } from '@/components/primitives/Badge';
-import { CAPABILITIES, CAPABILITY_GROUPS } from '../data/capabilities';
+import { CAPABILITIES } from '../data/capabilities';
+import { useLandingT } from '../i18n/useLandingT';
 
 export function CapabilityTabs() {
-  const [activeGroupId, setActiveGroupId] = useState<string>(CAPABILITY_GROUPS[0].id);
+  const t = useLandingT();
+  const groups = t.capability.groups;
+  const [activeGroupId, setActiveGroupId] = useState<string>(groups[0].id);
 
   const activeItems = CAPABILITIES.filter((c) => c.group === activeGroupId);
 
   return (
-    <section id="capability-matrix" className="mx-auto max-w-7xl px-6 py-10 sm:py-12">
+    <section className="mx-auto max-w-7xl px-6 py-10 sm:py-12">
       <div className="mb-8">
-        <h2 className="text-3xl font-bold text-ink sm:text-4xl">能力全览</h2>
+        <h2 className="text-3xl font-bold text-ink sm:text-4xl">{t.capability.title}</h2>
       </div>
 
       {/* Tab buttons */}
       <div className="mb-8 flex flex-wrap gap-3 border-b border-border pb-6">
-        {CAPABILITY_GROUPS.map((group) => (
+        {groups.map((group) => (
           <button
             key={group.id}
             onClick={() => setActiveGroupId(group.id)}

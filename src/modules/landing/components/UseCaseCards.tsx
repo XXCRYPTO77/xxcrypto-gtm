@@ -4,12 +4,15 @@ import React, { useState, useCallback } from 'react';
 import { Card } from '@/components/primitives/Card';
 import { Copy, Check } from 'lucide-react';
 import { USECASES } from '../data/useCases';
+import { useLandingT } from '../i18n/useLandingT';
 
 export function UseCaseCards() {
+  const t = useLandingT();
+
   return (
     <section className="mx-auto max-w-7xl px-6 py-10 sm:py-12">
       <div className="mb-12">
-        <h2 className="text-3xl font-bold text-ink sm:text-4xl">常用场景</h2>
+        <h2 className="text-3xl font-bold text-ink sm:text-4xl">{t.useCases.title}</h2>
       </div>
 
       <div className="grid gap-6 md:grid-cols-2">
@@ -28,6 +31,7 @@ function UseCaseCard({
   useCase: (typeof USECASES)[number];
   isFeatured?: boolean;
 }) {
+  const t = useLandingT();
   const [copied, setCopied] = useState(false);
 
   const onCopy = useCallback(async () => {
@@ -70,12 +74,12 @@ function UseCaseCard({
         }`}
       >
         {copied ? <Check size={14} /> : <Copy size={14} />}
-        {copied ? '已复制' : useCase.cta}
+        {copied ? t.useCases.copiedLabel : t.useCases.copyLabel}
       </button>
 
       {copied && (
         <span className="absolute left-0 top-full mt-2 z-10 inline-flex items-center rounded-lg bg-gray-900 px-3 py-1.5 text-xs text-white shadow-lg">
-          已复制，前往你的 Agent 粘贴使用
+          {t.useCases.toastMsg}
         </span>
       )}
     </Card>

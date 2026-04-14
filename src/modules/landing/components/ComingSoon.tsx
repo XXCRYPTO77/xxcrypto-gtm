@@ -2,13 +2,16 @@
 
 import React from 'react';
 import { COMING_SOON } from '../data/comingSoon';
+import { useLandingT } from '../i18n/useLandingT';
 
 export function ComingSoon() {
+  const t = useLandingT();
+
   return (
     <section className="py-8">
       <div className="mx-auto max-w-7xl px-6">
         <p className="mb-4 text-sm font-medium uppercase tracking-wider text-muted">
-          Coming Soon
+          {t.comingSoon.title}
         </p>
 
         <div className="flex flex-wrap gap-2">
@@ -22,7 +25,7 @@ export function ComingSoon() {
           ))}
         </div>
 
-        <p className="mt-4 text-sm text-muted">更多能力持续开放中</p>
+        <p className="mt-4 text-sm text-muted">{t.comingSoon.subtitle}</p>
       </div>
     </section>
   );
