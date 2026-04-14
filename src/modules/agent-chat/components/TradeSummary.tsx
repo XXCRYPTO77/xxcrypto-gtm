@@ -13,6 +13,7 @@ import { useT } from '@/i18n/LocaleContext';
 
 interface TradeSummaryProps {
   onNext: () => void;
+  agentName?: string;
 }
 
 const ICONS: Record<string, React.ComponentType<{ className?: string }>> = {
@@ -48,7 +49,7 @@ const SUMMARY = {
 
 const MAX_CALLS = 12;
 
-export default function TradeSummary({ onNext }: TradeSummaryProps) {
+export default function TradeSummary({ onNext, agentName = 'CWClaw' }: TradeSummaryProps) {
   const t = useT();
   const isZh = t.nav.cta === 'EN';
   const [exporting, setExporting] = useState(false);
@@ -64,7 +65,7 @@ export default function TradeSummary({ onNext }: TradeSummaryProps) {
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <h1 className="text-3xl font-bold text-ink">
-            {isZh ? '本次会话复盘' : 'Session Review'}
+            {isZh ? `${agentName} 今日的表现` : `${agentName}'s Performance Today`}
           </h1>
           <p className="mt-1 text-muted">
             {SUMMARY.date} · {SUMMARY.duration}

@@ -58,16 +58,21 @@ src/
 
 ---
 
-## 当前任务（Act 2）
+## 当前任务
 
-两个独立任务，没有依赖，可以并行：
+暂无待派任务。等下一轮迭代。
 
-| 文件 | 任务 | 预估工时 | 状态 |
-|------|------|----------|------|
-| [A2.1-skill-discovery.md](./A2.1-skill-discovery.md) | Step 1 SkillDiscovery 组件 + 补 6 个 skill | 2-3h | 待做 |
-| [A2.2-trade-summary.md](./A2.2-trade-summary.md) | Step 6 TradeSummary 复盘 dashboard | 2-3h | 待做 |
+---
 
-**接入点**：`modules/agent-chat/index.tsx` 里已经留好 lazy require，你 push 到远端 + Dan merge 进 master 后，组件会自动在 `/act2` 上对应的 step 生效。placeholder 是 F 临时占位的，不用管。
+**已完成（Act 2）**：
+
+| 文件 | 任务 | 状态 |
+|------|------|------|
+| [A2.1-skill-discovery.md](./A2.1-skill-discovery.md) | SkillDiscovery 组件 + M1-M18 skills | ✅ 已合并 |
+| [A2.2-trade-summary.md](./A2.2-trade-summary.md) | TradeSummary 复盘 dashboard | ✅ 已合并（F 补了 agentName prop） |
+
+> Act 2 已完成全面重构（2026-04-14）。新流程：Landing → Auth → PersonalityWizard → AgentNaming → Chat → TradeSummary。
+> SkillDiscovery 组件保留，已搬至 `/skills` 独立路由（待实现）。
 
 **已完成（Act 1）**：
 
