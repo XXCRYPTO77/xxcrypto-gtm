@@ -1,12 +1,12 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useCallback } from 'react';
 import { useT } from '@/i18n/LocaleContext';
 import { SectionHeader } from '../primitives/SectionHeader';
 import { Card } from '../primitives/Card';
 import { Badge } from '../primitives/Badge';
 import { CopyBlock } from '../primitives/CopyBlock';
-import { User, Bot, Newspaper, Bell, Wallet, Zap } from 'lucide-react';
+import { User, Bot, Newspaper, Bell, Wallet, Zap, Copy, Check } from 'lucide-react';
 
 const ICONS: Record<string, React.ReactNode> = {
   newspaper: <Newspaper size={20} />,
@@ -142,18 +142,51 @@ export function V10Section() {
         <h3 className="mb-8 text-2xl font-bold text-ink">{v.useCases.title}</h3>
         <div className="grid gap-4 md:grid-cols-2">
           {v.useCases.items.map((u, i) => (
-            <Card key={i} variant="outlined" className="flex gap-4">
-              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-brand-soft text-brand">
-                {ICONS[u.icon] ?? <Zap size={20} />}
-              </span>
-              <div>
-                <p className="text-base font-semibold text-ink">{u.title}</p>
-                <p className="mt-1 text-sm leading-relaxed text-muted">{u.desc}</p>
-              </div>
-            </Card>
+            <UseCaseCard key={i} icon={u.icon} title={u.title} desc={u.desc} />
           ))}
         </div>
       </div>
     </section>
+  );
+}
+
+function UseCaseCard({ icon, title, desc }: { icon: string; title: string; desc: string }) {
+  const t = useT();
+  const [toast, setToast] = useState(false);
+
+  const onCopy = useCallback(async () => {
+    try {
+      await navigator.clipboard.writeText(desc);
+      setToast(true);
+      setTimeout(() => setToast(false), 2200);
+    } catch { /* noop */ }
+  }, [desc]);
+
+  return (
+    <Card variant="outlined" className="flex flex-col gap-4">
+      <div className="flex gap-4">
+        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-brand-soft text-brand">
+          {ICONS[icon] ?? <Zap size={20} />}
+        </span>
+        <div className="flex-1">
+          <p className="text-base font-semibold text-ink">{title}</p>
+          <p className="mt-1 text-sm leading-relaxed text-muted">{desc}</p>
+        </div>
+      </div>
+      <div className="relative">
+        <button
+          onClick={onCopy}
+          className="inline-flex items-center gap-2 rounded-lg border border-brand bg-brand-soft px-4 py-2 text-sm font-medium text-brand transition-colors hover:bg-brand hover:text-white"
+        >
+          {toast ? <Check size={14} /> : <Copy size={14} />}
+          {toast ? t.common.copied : t.v10.useCases.tryLabel}
+        </button>
+        {toast && (
+          <span className="absolute left-0 top-full mt-2 inline-flex items-center rounded-lg bg-gray-900 px-3 py-1.5 text-xs text-white shadow-lg">
+            {t.v10.useCases.toastMsg}
+          </span>
+        )}
+      </div>
+    </Card>
   );
 }

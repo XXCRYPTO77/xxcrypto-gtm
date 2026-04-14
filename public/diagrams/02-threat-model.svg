@@ -10,15 +10,20 @@
 
   <style>
     .box { fill: none; stroke: #2A2A32; stroke-width: 1.5; }
-    .cell { fill: none; stroke: #2A2A32; stroke-width: 0.8; }
-    .hdr { fill: #2A2A32; opacity: 0.08; stroke: #2A2A32; stroke-width: 1.5; }
+    .cell { fill: none; stroke: #2A2A32; stroke-width: 0.8; transition: all 0.2s ease; }
+    .hdr { fill: #2A2A32; opacity: 0.08; stroke: #2A2A32; stroke-width: 1.5; transition: all 0.2s ease; }
     .label-lg { fill: #2A2A32; font-size: 15px; font-weight: 600; }
     .label { fill: #2A2A32; font-size: 12px; font-weight: 500; }
     .label-sm { fill: #2A2A32; font-size: 10px; opacity: 0.8; }
     .mitigation { fill: #2A2A32; font-size: 10px; font-weight: 600; }
-    .high { fill: #2A2A32; opacity: 0.15; stroke: #2A2A32; stroke-width: 1.2; }
-    .mid  { fill: #2A2A32; opacity: 0.06; stroke: #2A2A32; stroke-width: 1; }
+    .high { fill: #2A2A32; opacity: 0.15; stroke: #2A2A32; stroke-width: 1.2; transition: all 0.2s ease; }
+    .mid  { fill: #2A2A32; opacity: 0.06; stroke: #2A2A32; stroke-width: 1; transition: all 0.2s ease; }
     .low  { fill: none;          stroke: #2A2A32; stroke-width: 1; stroke-dasharray: 3 3; }
+    g:hover > .cell { stroke: #5227FF; stroke-width: 1.5; fill: rgba(82,39,255,0.06); }
+    g:hover > .high { fill: #5227FF; opacity: 0.2; stroke: #5227FF; }
+    g:hover > .mid { fill: #5227FF; opacity: 0.1; stroke: #5227FF; }
+    g:hover > .hdr { fill: #5227FF; opacity: 0.12; stroke: #5227FF; }
+    g:hover .label, g:hover .mitigation { fill: #5227FF; }
   </style>
 
   <!-- Title -->

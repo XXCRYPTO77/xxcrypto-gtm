@@ -10,6 +10,7 @@ export interface ButtonProps
   variant?: Variant;
   size?: Size;
   href?: string;
+  external?: boolean;
   fullWidth?: boolean;
   children: React.ReactNode;
 }
@@ -33,6 +34,7 @@ export function Button({
   variant = 'primary',
   size = 'md',
   href,
+  external,
   fullWidth,
   className = '',
   children,
@@ -52,7 +54,12 @@ export function Button({
 
   if (href) {
     return (
-      <a href={href} className={cn} role="button">
+      <a
+        href={href}
+        className={cn}
+        role="button"
+        {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+      >
         {children}
       </a>
     );

@@ -9,9 +9,9 @@
   -->
 
   <style>
-    .box { fill: none; stroke: #2A2A32; stroke-width: 1.5; }
-    .box-accent { fill: none; stroke: #2A2A32; stroke-width: 2.5; }
-    .gate { fill: none; stroke: #2A2A32; stroke-width: 1.5; stroke-dasharray: 4 3; }
+    .box { fill: none; stroke: #2A2A32; stroke-width: 1.5; transition: all 0.2s ease; }
+    .box-accent { fill: none; stroke: #2A2A32; stroke-width: 2.5; transition: all 0.2s ease; }
+    .gate { fill: none; stroke: #2A2A32; stroke-width: 1.5; stroke-dasharray: 4 3; transition: all 0.2s ease; }
     .lane { fill: #2A2A32; opacity: 0.04; stroke: #2A2A32; stroke-width: 0.8; }
     .line { fill: none; stroke: #2A2A32; stroke-width: 1.5; stroke-linecap: round; }
     .arrow { fill: #2A2A32; }
@@ -20,6 +20,12 @@
     .label { fill: #2A2A32; font-size: 12px; }
     .label-sm { fill: #2A2A32; font-size: 10px; opacity: 0.75; }
     .stage-num { fill: #2A2A32; font-size: 32px; font-weight: 700; opacity: 0.15; }
+    g:hover > .box { stroke: #5227FF; stroke-width: 2; fill: rgba(82,39,255,0.04); }
+    g:hover > .box-accent { stroke: #5227FF; stroke-width: 3; fill: rgba(82,39,255,0.06); }
+    g:hover > .gate { stroke: #5227FF; fill: rgba(82,39,255,0.03); }
+    g:hover .label, g:hover .label-lg { fill: #5227FF; }
+    @keyframes flowRight { 0% { stroke-dashoffset: 16; } 100% { stroke-dashoffset: 0; } }
+    .line { stroke-dasharray: 8 8; stroke-dashoffset: 16; animation: flowRight 1.2s linear infinite; }
   </style>
 
   <!-- Title -->

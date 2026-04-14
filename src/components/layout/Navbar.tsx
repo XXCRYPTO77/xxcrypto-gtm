@@ -3,12 +3,15 @@
 import React, { useEffect, useState } from 'react';
 import { useT } from '@/i18n/LocaleContext';
 import { LangToggle } from '../primitives/LangToggle';
+import { ArrowLeft } from 'lucide-react';
 
 export function Navbar() {
   const t = useT();
   const [scrolled, setScrolled] = useState(false);
+  const [isSubpage, setIsSubpage] = useState(false);
 
   useEffect(() => {
+    setIsSubpage(window.location.pathname !== '/');
     const onScroll = () => setScrolled(window.scrollY > 20);
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
@@ -24,7 +27,8 @@ export function Navbar() {
       }`}
     >
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
-        <a href="#top" className="flex items-center gap-3">
+        <a href="/" className="flex items-center gap-3">
+          {isSubpage && <ArrowLeft size={16} className="text-muted" />}
           <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-brand font-bold text-white">
             C
           </span>
@@ -35,13 +39,13 @@ export function Navbar() {
         </a>
 
         <div className="hidden items-center gap-8 md:flex">
-          <a href="#act1" className="text-sm font-medium text-muted transition-colors hover:text-brand">
+          <a href="/act1" className="text-sm font-medium text-muted transition-colors hover:text-brand">
             {t.nav.acts.act1}
           </a>
-          <a href="#act2" className="text-sm font-medium text-muted transition-colors hover:text-brand">
+          <a href="/act2" className="text-sm font-medium text-muted transition-colors hover:text-brand">
             {t.nav.acts.act2}
           </a>
-          <a href="#act3" className="text-sm font-medium text-muted transition-colors hover:text-brand">
+          <a href="/act3" className="text-sm font-medium text-muted transition-colors hover:text-brand">
             {t.nav.acts.act3}
           </a>
         </div>

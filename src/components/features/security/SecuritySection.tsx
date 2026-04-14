@@ -86,16 +86,28 @@ function DiagramSlot({ tab }: { tab: TabId }) {
   }
 }
 
+function SvgDiagram({ src, title }: { src: string; title: string }) {
+  return (
+    <object
+      data={src}
+      type="image/svg+xml"
+      className="w-full"
+      aria-label={title}
+    >
+      <img src={src} alt={title} className="w-full" />
+    </object>
+  );
+}
+
 function ArchitectureDiagram() {
-  // Inline import of SVG as string not supported directly; use img with public path instead.
-  return <img src="/diagrams/01-architecture.svg" alt="Architecture" className="w-full text-ink" />;
+  return <SvgDiagram src="/diagrams/01-architecture.svg" title="Architecture" />;
 }
 function ThreatModelDiagram() {
-  return <img src="/diagrams/02-threat-model.svg" alt="Threat model" className="w-full text-ink" />;
+  return <SvgDiagram src="/diagrams/02-threat-model.svg" title="Threat model" />;
 }
 function CiCdDiagram() {
-  return <img src="/diagrams/03-cicd.svg" alt="CI/CD" className="w-full text-ink" />;
+  return <SvgDiagram src="/diagrams/03-cicd.svg" title="CI/CD" />;
 }
 function MergeBackDiagram() {
-  return <img src="/diagrams/04-merge-back.svg" alt="Merge-back" className="w-full text-ink" />;
+  return <SvgDiagram src="/diagrams/04-merge-back.svg" title="Merge-back" />;
 }

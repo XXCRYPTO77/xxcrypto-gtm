@@ -16,14 +16,19 @@
   -->
 
   <style>
-    .box { fill: none; stroke: #2A2A32; stroke-width: 1.5; }
-    .box-accent { fill: none; stroke: #2A2A32; stroke-width: 2.5; }
+    .box { fill: none; stroke: #2A2A32; stroke-width: 1.5; transition: all 0.2s ease; }
+    .box-accent { fill: none; stroke: #2A2A32; stroke-width: 2.5; transition: all 0.2s ease; }
     .line { fill: none; stroke: #2A2A32; stroke-width: 1; stroke-linecap: round; }
     .dash { stroke-dasharray: 4 4; }
     .label { fill: #2A2A32; font-size: 13px; font-weight: 500; }
     .label-sm { fill: #2A2A32; font-size: 11px; opacity: 0.7; }
     .label-lg { fill: #2A2A32; font-size: 15px; font-weight: 600; }
     .layer-label { fill: #2A2A32; font-size: 10px; font-weight: 600; letter-spacing: 0.1em; opacity: 0.5; text-transform: uppercase; }
+    g:hover > .box { stroke: #5227FF; stroke-width: 2; fill: rgba(82,39,255,0.04); }
+    g:hover > .box-accent { stroke: #5227FF; stroke-width: 3; fill: rgba(82,39,255,0.06); }
+    g:hover .label, g:hover .label-lg { fill: #5227FF; }
+    @keyframes flowDown { 0% { stroke-dashoffset: 16; } 100% { stroke-dashoffset: 0; } }
+    .line:not(.dash) { stroke-dasharray: 8 8; stroke-dashoffset: 16; animation: flowDown 1.2s linear infinite; }
   </style>
 
   <!-- Layer 1: External Agents -->

@@ -35,6 +35,21 @@ export interface Dict {
     depth: string;
     headline: string;
     lede: string;
+    market: {
+      title: string;
+      subtitle: string;
+      coins: ReadonlyArray<{ symbol: string; name: string; price: string; change: string; up: boolean }>;
+    };
+    whatIs: {
+      title: string;
+      desc: string;
+      flow: ReadonlyArray<string>;
+      note: string;
+    };
+    why: {
+      title: string;
+      items: ReadonlyArray<{ tag: string; title: string; desc: string }>;
+    };
     stories: {
       title: string;
       subtitle: string;
@@ -72,6 +87,8 @@ export interface Dict {
     };
     useCases: {
       title: string;
+      tryLabel: string;
+      toastMsg: string;
       items: ReadonlyArray<{ icon: string; title: string; desc: string }>;
     };
   };
@@ -106,6 +123,20 @@ export interface Dict {
     headline: string; lede: string;
     pillars: ReadonlyArray<{ title: string; desc: string }>;
   };
+  transitionBands: {
+    band1: {
+      from: string; to: string; label: string;
+      items: ReadonlyArray<{ code: string; name: string; desc: string }>;
+    };
+    band2: {
+      from: string; to: string; label: string;
+      items: ReadonlyArray<{ code: string; name: string; desc: string }>;
+    };
+    band3: {
+      from: string; to: string; label: string;
+      items: ReadonlyArray<{ code: string; name: string; desc: string }>;
+    };
+  };
   extensions: {
     title: string; subtitle: string;
     items: ReadonlyArray<{ code: string; title: string; desc: string }>;
@@ -120,5 +151,39 @@ export interface Dict {
     copy: string; copied: string;
     learnMore: string; close: string;
     wip: string;
+  };
+  // Airy's Act 2 side-panel + chat i18n
+  ticker: Record<string, string>;
+  portfolio: {
+    title: string; total: string; change: string; changePercent: string;
+    coin: string; amount: string; pnl: string;
+  };
+  sentiment: {
+    title: string; fear: string; greed: string;
+    extreme_fear: string; extreme_greed: string; neutral: string; label: string;
+  };
+  whaleFeed: {
+    title: string;
+    items: ReadonlyArray<{ text: string; time: string }>;
+  };
+  agentChat: {
+    presets: {
+      title: string; subtitle: string; select: string;
+      conservative: { name: string; desc: string };
+      scalper: { name: string; desc: string };
+      quant: { name: string; desc: string };
+      trend: { name: string; desc: string };
+      news: { name: string; desc: string };
+      balanced: { name: string; desc: string };
+      [key: string]: unknown;
+    };
+    chat: {
+      placeholder: string; send: string;
+      welcomeMsg: string; marketReply: string; tradeReply: string; reportReply: string;
+      quickMarket: string; quickTrade: string; quickReport: string;
+    };
+    journey: {
+      [key: string]: string;
+    };
   };
 }
