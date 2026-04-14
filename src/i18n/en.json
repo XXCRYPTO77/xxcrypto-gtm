@@ -733,12 +733,120 @@
       "reportReply": "24h Report: BTC +2.3%, ETH +1.8%, total market cap $3.2T. Net fund inflow $520M. Fear & Greed: 68 (Greed). On-chain active addresses up 12%."
     },
     "journey": {
-      "discover": "Discover",
-      "pickAgent": "Pick Agent",
-      "bindApi": "Bind API",
-      "firstChat": "First Chat",
-      "executeTrade": "Execute Trade",
+      "adopt": "Adopt",
+      "linkAccount": "Link Account",
+      "personality": "Personality",
+      "naming": "Naming",
+      "chat": "First Chat",
       "review": "Review"
+    },
+    "landing": {
+      "hero": "Adopt Your CWClaw",
+      "heroSub": "Your personal crypto trading Agent, powered by CoinW",
+      "cta": "Start Adopting →",
+      "f1Title": "Knows Your Portfolio",
+      "f1Desc": "Real-time quotes, position analysis, order tracking — one question gets it all",
+      "f2Title": "Has a Personality",
+      "f2Desc": "4 styles × 4 preferences × 3 frequencies — tune your CWClaw",
+      "f3Title": "Talk to Trade",
+      "f3Desc": "One line to place orders, set stops, generate reports — no interface switching",
+      "stat1": "18 Core Skills",
+      "stat2": "7×24h Online",
+      "stat3": "0 Withdrawal Access"
+    },
+    "auth": {
+      "title": "Link Your CoinW Account",
+      "sub": "CWClaw needs read + trade access. Withdrawal is permanently locked.",
+      "bindBtn": "Authorize with CoinW",
+      "step1": "Connect CoinW account",
+      "step2": "Auto-generate API Key",
+      "step3": "UID binding complete",
+      "generating": "Generating your API Key...",
+      "done": "Account linked",
+      "uid": "UID",
+      "keyLabel": "API Key (read + spot trade, no withdrawal)",
+      "next": "Tune Personality →",
+      "secNote": "Withdrawal access is permanently locked — your assets cannot be transferred"
+    },
+    "personality": {
+      "title": "Tune Your CWClaw",
+      "step1of3": "Step 1: Trading Style",
+      "step2of3": "Step 2: Asset Preference",
+      "step3of3": "Step 3: Push Frequency",
+      "next": "Next →",
+      "prev": "← Back",
+      "finish": "Done →",
+      "styles": {
+        "professional": {
+          "name": "Professional",
+          "desc": "Data-driven, low risk priority"
+        },
+        "humorous": {
+          "name": "Snarky",
+          "desc": "Praises you when up, roasts you when down — but accurate"
+        },
+        "mentor": {
+          "name": "Mentor",
+          "desc": "Explains why, teaches you to think not just copy"
+        },
+        "aggressive": {
+          "name": "Hunter",
+          "desc": "High risk high reward, no fluff, straight in"
+        }
+      },
+      "prefs": {
+        "mainstream": {
+          "name": "Blue Chip",
+          "desc": "BTC / ETH focused"
+        },
+        "altcoin": {
+          "name": "Alt Hunter",
+          "desc": "Small-cap alpha plays"
+        },
+        "defi": {
+          "name": "DeFi Purist",
+          "desc": "On-chain DEX / LP farming"
+        },
+        "all": {
+          "name": "All-In",
+          "desc": "No preference, follow the opportunity"
+        }
+      },
+      "freqs": {
+        "onDemand": {
+          "name": "On Demand",
+          "desc": "Responds only when asked"
+        },
+        "daily": {
+          "name": "Daily Brief",
+          "desc": "One market briefing per day"
+        },
+        "realtime": {
+          "name": "Real-Time",
+          "desc": "Push alerts on every move"
+        }
+      }
+    },
+    "naming": {
+      "title": "Name Your CWClaw",
+      "placeholder": "e.g. Spike, Alpha, My Fund Manager",
+      "sub": "Once named, your CWClaw goes live",
+      "confirm": "Adopt & Start Chatting →",
+      "skip": "Skip, use default name"
+    },
+    "quickAccess": {
+      "title": "Quick Access",
+      "market": "Market",
+      "positions": "Positions",
+      "orders": "Orders",
+      "activity": "Activity",
+      "apikey": "API Key",
+      "app": "Download App",
+      "pro": "Upgrade Pro",
+      "marketHint": "Check live market",
+      "positionsHint": "View your positions",
+      "ordersHint": "Check open orders",
+      "activityHint": "Recent account activity"
     }
   },
   "portfolio": {

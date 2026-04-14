@@ -3,7 +3,7 @@
 import { useT } from '@/i18n/LocaleContext';
 
 const STEP_KEYS = [
-  'discover', 'pickAgent', 'bindApi', 'firstChat', 'executeTrade', 'review',
+  'adopt', 'linkAccount', 'personality', 'naming', 'chat', 'review',
 ] as const;
 
 interface JourneyBarProps {

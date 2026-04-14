@@ -182,8 +182,11 @@ export interface Dict {
       welcomeMsg: string; marketReply: string; tradeReply: string; reportReply: string;
       quickMarket: string; quickTrade: string; quickReport: string;
     };
-    journey: {
-      [key: string]: string;
-    };
+    journey: { [key: string]: string };
+    landing: { [key: string]: string };
+    auth: { [key: string]: string };
+    personality: { [key: string]: unknown };
+    naming: { [key: string]: string };
+    quickAccess: { [key: string]: string };
   };
 }

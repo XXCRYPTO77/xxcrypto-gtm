@@ -8,7 +8,8 @@ import { ToolCallBubble } from './ToolCallBubble';
 import { DailyReportCard } from './DailyReportCard';
 import { LimitOrderCard } from './LimitOrderCard';
 import { McpInstallCard } from './McpInstallCard';
-import { SkillSidebar } from './SkillSidebar';
+import { QuickAccessPanel } from './QuickAccessPanel';
+import type { Personality } from './PersonalityWizard';
 import {
   DIALOG_PATHS,
   findMatchingStep,
@@ -18,6 +19,8 @@ import {
 
 interface ChatInterfaceProps {
   onTrade?: () => void;
+  agentName?: string;
+  personality?: Personality;
 }
 
 // ── Message types ────────────────────────────────────────────────────────────
@@ -34,7 +37,13 @@ const nextId = () => `m${++idCounter}`;
 
 // ── Component ────────────────────────────────────────────────────────────────
 
-export function ChatInterface({ onTrade }: ChatInterfaceProps) {
+const DEFAULT_PERSONALITY: Personality = {
+  style: 'professional',
+  preference: 'mainstream',
+  frequency: 'onDemand',
+};
+
+export function ChatInterface({ onTrade, agentName = 'CWClaw', personality = DEFAULT_PERSONALITY }: ChatInterfaceProps) {
   const t = useT();
   const isZh = t.nav.cta === 'EN';
 
@@ -43,8 +52,8 @@ export function ChatInterface({ onTrade }: ChatInterfaceProps) {
       kind: 'agent-text',
       id: nextId(),
       text: isZh
-        ? '你好！我是 CoinW 交易 Agent。试试问我"查看 BTC 行情"、"帮我买 BTC"或"帮我找交易工具"。'
-        : 'Hi! I am your CoinW trading agent. Try "show BTC price", "buy BTC for me", or "find crypto tools".',
+        ? `你好！我是 ${agentName}，你的专属交易 Agent。试试问我"查看 BTC 行情"、"帮我买 BTC"或"帮我找交易工具"。`
+        : `Hi! I'm ${agentName}, your personal trading Agent. Try "show BTC price", "buy BTC for me", or "find crypto tools".`,
     },
   ]);
 
@@ -219,9 +228,14 @@ export function ChatInterface({ onTrade }: ChatInterfaceProps) {
         </div>
       </div>
 
-      {/* Sidebar — skill highlight */}
+      {/* Sidebar — quick access panel */}
       <div className="flex-[2] overflow-y-auto hidden lg:block">
-        <SkillSidebar activeCodes={activeSkills} usedCodes={usedSkills} isZh={isZh} />
+        <QuickAccessPanel
+          agentName={agentName}
+          personality={personality}
+          isZh={isZh}
+          onShortcut={(trigger) => send(trigger)}
+        />
       </div>
     </div>
   );

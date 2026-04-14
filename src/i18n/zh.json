@@ -733,12 +733,120 @@
       "reportReply": "24h 市场日报：BTC +2.3%，ETH +1.8%，总市值 $3.2T。资金净流入 $520M。恐惧贪婪指数 68（贪婪）。链上活跃地址数增 12%。"
     },
     "journey": {
-      "discover": "发现",
-      "pickAgent": "选择 Agent",
-      "bindApi": "绑定 API",
-      "firstChat": "首次对话",
-      "executeTrade": "执行交易",
-      "review": "复盘"
+      "adopt": "认养",
+      "linkAccount": "绑定账号",
+      "personality": "性格调教",
+      "naming": "取名",
+      "chat": "首次对话",
+      "review": "今日复盘"
+    },
+    "landing": {
+      "hero": "认养你的 CWClaw",
+      "heroSub": "你的专属加密交易 Agent，由 CoinW 驱动",
+      "cta": "开始认养 →",
+      "f1Title": "读懂你的仓位",
+      "f1Desc": "实时行情、持仓分析、委托追踪，问一句全给你",
+      "f2Title": "有性格的对话",
+      "f2Desc": "四种风格 × 四种偏好 × 三种频率，调出专属 CWClaw",
+      "f3Title": "指令即交易",
+      "f3Desc": "一句话下单、止盈止损、生成日报，无需切换界面",
+      "stat1": "18 项核心 Skill",
+      "stat2": "7 × 24h 在线",
+      "stat3": "0 提现权限"
+    },
+    "auth": {
+      "title": "绑定你的 CoinW 账号",
+      "sub": "CWClaw 需要读取行情 + 下单权限。提现权限永不开放。",
+      "bindBtn": "CoinW 授权登录",
+      "step1": "连接 CoinW 账号",
+      "step2": "自动生成专属 API Key",
+      "step3": "UID 绑定完成",
+      "generating": "正在生成专属 API Key...",
+      "done": "账号已绑定",
+      "uid": "UID",
+      "keyLabel": "API Key（只读 + 现货交易，禁止提现）",
+      "next": "继续调教性格 →",
+      "secNote": "提现权限被永久锁定，Agent 无法转移你的资产"
+    },
+    "personality": {
+      "title": "调教你的 CWClaw",
+      "step1of3": "第 1 步：交易风格",
+      "step2of3": "第 2 步：资产偏好",
+      "step3of3": "第 3 步：推送频率",
+      "next": "下一步 →",
+      "prev": "← 上一步",
+      "finish": "调教完成 →",
+      "styles": {
+        "professional": {
+          "name": "专业稳健",
+          "desc": "数据说话，低风险优先"
+        },
+        "humorous": {
+          "name": "幽默毒舌",
+          "desc": "涨了吹你，跌了骂你，但很准"
+        },
+        "mentor": {
+          "name": "导师模式",
+          "desc": "讲解原因，带你学会不只跟单"
+        },
+        "aggressive": {
+          "name": "激进猎手",
+          "desc": "高风险高回报，不废话直接冲"
+        }
+      },
+      "prefs": {
+        "mainstream": {
+          "name": "主流大饼",
+          "desc": "BTC / ETH 为核心"
+        },
+        "altcoin": {
+          "name": "山寨猎手",
+          "desc": "小市值 alpha 机会"
+        },
+        "defi": {
+          "name": "DeFi 原教旨",
+          "desc": "链上 DEX / 流动性挖矿"
+        },
+        "all": {
+          "name": "全仓扫荡",
+          "desc": "不挑，机会在哪跟到哪"
+        }
+      },
+      "freqs": {
+        "onDemand": {
+          "name": "按需召唤",
+          "desc": "主动问才回答"
+        },
+        "daily": {
+          "name": "每日早报",
+          "desc": "每天一次市场播报"
+        },
+        "realtime": {
+          "name": "实时轰炸",
+          "desc": "有动静立刻推送"
+        }
+      }
+    },
+    "naming": {
+      "title": "给你的 CWClaw 取个名字",
+      "placeholder": "例如：小龙、Alpha、我的基金经理",
+      "sub": "取完名字，你的 CWClaw 就正式上线了",
+      "confirm": "认养完成，开始对话 →",
+      "skip": "跳过，用默认名"
+    },
+    "quickAccess": {
+      "title": "快捷操作",
+      "market": "行情",
+      "positions": "持仓",
+      "orders": "委托",
+      "activity": "活动",
+      "apikey": "API Key",
+      "app": "App 下载",
+      "pro": "升级 Pro",
+      "marketHint": "查看最新行情",
+      "positionsHint": "查看当前持仓",
+      "ordersHint": "查看委托订单",
+      "activityHint": "最近账户活动"
     }
   },
   "portfolio": {
