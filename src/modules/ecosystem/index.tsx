@@ -1,8 +1,7 @@
 'use client';
 
 import { useT } from '@/i18n/LocaleContext';
-// A3.1-A3.3 实现后再 uncomment
-// import { EcosystemBoard } from './boards/EcosystemBoard';
+import { EcosystemBoard } from './boards/EcosystemBoard';
 // import { EvolutionBoard } from './boards/EvolutionBoard';
 // import { RevenueBoard } from './boards/RevenueBoard';
 
@@ -25,10 +24,15 @@ export default function EcosystemModule() {
         <p className="mt-3 max-w-2xl text-muted">{eco.hero.desc}</p>
       </div>
 
-      {/* Board A placeholder */}
-      <div id="board-a" className="mb-20 rounded-2xl border border-border bg-gray-50 p-8 text-center text-muted">
-        板块 A · {eco.boardA.sectionTitle} — A3.1 实现
-      </div>
+      {/* Board A */}
+      <section id="board-a" className="mb-20">
+        <div className="mb-8">
+          <span className="inline-block rounded-full border border-brand-light bg-brand-soft px-3 py-1 text-xs font-semibold text-brand mb-3">
+            01 · {eco.boardA.sectionTitle}
+          </span>
+        </div>
+        <EcosystemBoard />
+      </section>
 
       <hr className="border-border my-16" />
 
