@@ -43,18 +43,56 @@ src/
 
 ## 协作流程
 
-1. 从 master 拉分支：`git checkout -b feat/airy-[任务名]`
-2. 做完 commit + push
+1. 从 master 拉分支，**分支命名格式**：`feature/xxcrypto-<task>-<n>`（如 `feature/xxcrypto-act3-board-a-1`）
+2. 做完 commit + push，**commit message 格式**：`<type>(<scope>): <message>`（如 `feat(act3): 新增 EcosystemBoard`）
 3. 告诉 Dan commit hash，Dan 转给 F
 4. F 评审 + 告诉 Dan merge，Dan 在本机 merge 到 master + push
 
 **F 不能自己 push**（Cowork 沙箱权限限制）。Dan 在中间做搬运。你自己 push 没问题。
+
+### 分支命名速查
+
+| 类型 | 格式 | 示例 |
+|------|------|------|
+| 功能/开发 | `feature/xxcrypto-<task>-<n>` | `feature/xxcrypto-act3-board-a-1` |
+| 修复 | `fix/xxcrypto-<task>-<n>` | `fix/xxcrypto-nav-lang-1` |
+
+### Commit message 速查
+
+```
+feat(act3): 新增 EcosystemBoard 三板块结构
+fix(nav): 修复语言切换按钮对齐偏移
+refactor(ecosystem): 重构 AgentList 筛选逻辑
+docs(airy): 更新 A3.0 任务包分支命名
+```
+
+type 可选：`feat` / `fix` / `refactor` / `docs` / `style` / `test` / `chore` / `merge`
+
+## 颜色规范
+
+**禁止硬编码 hex 色值**，所有功能色通过 Tailwind token 引用：
+
+| 用途 | Tailwind 类 |
+|------|------------|
+| 涨/成功文字 | `text-cw-green` |
+| 跌/错误文字 | `text-cw-red` |
+| 警告文字 | `text-cw-orange` |
+| 信息文字 | `text-cw-blue` |
+| 涨浅底 | `bg-cw-green-light` |
+| 跌浅底 | `bg-cw-red-light` |
+| 警告浅底 | `bg-cw-orange-light` |
+| 涨徽章底 | `bg-cw-green-badge` |
+| 跌徽章底 | `bg-cw-red-badge` |
+| 品牌徽章底 | `bg-cw-brand-badge` |
+
+完整规范见 `docs/DEV-STANDARD.md §4`。
 
 ## 注意事项
 
 - 别在 master 上直推半成品
 - 不要动 `shell/` 和 `CLAUDE.md`
 - 不要新增 npm 依赖（除非任务包明确说可以）
+- 颜色必须用 token，不能 hardcode hex
 
 ---
 

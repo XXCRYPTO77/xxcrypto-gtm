@@ -57,4 +57,63 @@
   /* Motion */
   --ease-out: cubic-bezier(.22,.61,.36,1);
   --ease-in-out: cubic-bezier(.65,0,.35,1);
+
+  /* ============================================================
+     CoinW Design System Tokens · Light Theme
+     Source: Web端开发规范 _vars.scss (2026-04-14 同步)
+     使用 --cw- 前缀与上方 brand token 共存，避免命名冲突
+     ============================================================ */
+
+  /* 功能色 — Green（涨/成功） */
+  --cw-green:       #14A739;
+  --cw-green-mid:   #80D68E;
+  --cw-green-light: #DEF2E0;
+  --cw-green-badge: rgba(20, 167, 57, 0.1);
+
+  /* 功能色 — Red（跌/错误） */
+  --cw-red:       #E95032;
+  --cw-red-mid:   #FFC5B0;
+  --cw-red-light: #FFF5F0;
+  --cw-red-badge: rgba(233, 80, 50, 0.1);
+
+  /* 功能色 — Orange（警告/标注） */
+  --cw-orange:       #FE6F00;
+  --cw-orange-mid:   #FEC191;
+  --cw-orange-light: #FEF2EA;
+  --cw-orange-badge: rgba(254, 111, 0, 0.1);
+
+  /* 功能色 — Blue（信息/链接） */
+  --cw-blue:       #2D89CC;
+  --cw-blue-mid:   #B6D9F2;
+  --cw-blue-light: #E0F5FF;
+  --cw-blue-badge: rgba(45, 137, 204, 0.1);
+
+  /* Brand light — badge/card 背景 */
+  --cw-brand-badge: rgba(82, 39, 255, 0.1);
+  --cw-brand-card:  rgba(82, 39, 255, 0.05);
+
+  /* 文字层级 */
+  --cw-text-primary:   #1A1A1A;
+  --cw-text-secondary: #404040;
+  --cw-text-tertiary:  #8C8C8C;
+  --cw-text-disabled:  #BFBFBF;
+
+  /* 背景层级 */
+  --cw-bg-primary:   #FFFFFF;
+  --cw-bg-secondary: #F2F2F2;
+  --cw-bg-input:     #F2F2F2;
+  --cw-bg-card:      #FFFFFF;
+  --cw-bg-tooltip:   #1A1A1A;
+
+  /* 边框 */
+  --cw-border:       #D9D9D9;
+  --cw-border-light: #F2F2F2;
+  --cw-border-brand: #5227FF;
+  --cw-border-error: #E95032;
+
+  /* 按钮状态（主要行动色） */
+  --cw-btn-green:         #14A739;
+  --cw-btn-green-hover:   #35BD52;
+  --cw-btn-red:           #E95032;
+  --cw-btn-red-hover:     #F5795B;
 }

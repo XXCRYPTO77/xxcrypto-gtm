@@ -23,9 +23,30 @@
   --color-gray-700: #2A2A32;
   --color-gray-900: #0B0B0F;
 
+  /* 原 accent 保留，用于图表/市场行情等纯视觉场景 */
   --color-accent-green: #16C784;
   --color-accent-red:   #EA3943;
   --color-accent-amber: #F5A623;
+
+  /* CoinW 设计系统功能色（对齐 Web端开发规范 _vars.scss） */
+  --color-cw-green:        var(--cw-green);
+  --color-cw-green-mid:    var(--cw-green-mid);
+  --color-cw-green-light:  var(--cw-green-light);
+  --color-cw-green-badge:  var(--cw-green-badge);
+  --color-cw-red:          var(--cw-red);
+  --color-cw-red-mid:      var(--cw-red-mid);
+  --color-cw-red-light:    var(--cw-red-light);
+  --color-cw-red-badge:    var(--cw-red-badge);
+  --color-cw-orange:       var(--cw-orange);
+  --color-cw-orange-mid:   var(--cw-orange-mid);
+  --color-cw-orange-light: var(--cw-orange-light);
+  --color-cw-orange-badge: var(--cw-orange-badge);
+  --color-cw-blue:         var(--cw-blue);
+  --color-cw-blue-mid:     var(--cw-blue-mid);
+  --color-cw-blue-light:   var(--cw-blue-light);
+  --color-cw-blue-badge:   var(--cw-blue-badge);
+  --color-cw-brand-badge:  var(--cw-brand-badge);
+  --color-cw-brand-card:   var(--cw-brand-card);
 
   --font-en: "Satoshi", "Inter", system-ui, sans-serif;
   --font-zh: "HarmonyOS Sans SC", "PingFang SC", "Noto Sans SC", sans-serif;
