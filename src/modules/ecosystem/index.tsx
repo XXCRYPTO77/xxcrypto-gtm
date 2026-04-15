@@ -175,28 +175,36 @@ export default function EcosystemModule() {
 
       {/* Section 4: Agent Directory */}
       <section className="mx-auto max-w-7xl px-6 py-20 sm:py-28">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-ink">
-            {isZh ? 'Agent 目录' : 'Agent Directory'}
-          </h2>
+        <h2 className="text-[28px] font-semibold text-[#1a1a2e] text-center mb-12">
+          {isZh ? 'Agent 目录' : 'Agent Directory'}
+        </h2>
+        <div className="bg-white/70 backdrop-blur-[20px] rounded-3xl p-8 border border-[rgba(82,39,255,0.08)] shadow-[0_4px_24px_rgba(82,39,255,0.06)]">
+          <AgentList agents={AGENTS} isZh={isZh} />
         </div>
-        <AgentList agents={AGENTS} isZh={isZh} />
       </section>
 
       {/* Section 5: Strategy & Evolution */}
       <section className="mx-auto max-w-7xl px-6 py-20 sm:py-28">
-        <div className="grid lg:grid-cols-2 gap-10">
-          <StrategyLibrary strategies={STRATEGIES} isZh={isZh} />
-          <ContributorRank isZh={isZh} />
+        <h2 className="text-[28px] font-semibold text-[#1a1a2e] text-center mb-12">
+          {isZh ? '策略进化' : 'Strategy Evolution'}
+        </h2>
+        <div className="bg-white/70 backdrop-blur-[20px] rounded-3xl p-8 border border-[rgba(82,39,255,0.08)] shadow-[0_4px_24px_rgba(82,39,255,0.06)]">
+          <div className="grid lg:grid-cols-2 gap-10">
+            <StrategyLibrary strategies={STRATEGIES} isZh={isZh} />
+            <ContributorRank isZh={isZh} />
+          </div>
         </div>
       </section>
 
       {/* Section 6: Revenue Sharing */}
       <section className="mx-auto max-w-7xl px-6 py-20 sm:py-28">
-        <div className="max-w-3xl mx-auto">
+        <h2 className="text-[28px] font-semibold text-[#1a1a2e] text-center mb-12">
+          {isZh ? '收益分成' : 'Revenue Sharing'}
+        </h2>
+        <div className="max-w-3xl mx-auto bg-white/70 backdrop-blur-[20px] rounded-3xl p-12 border border-[rgba(82,39,255,0.08)] shadow-[0_4px_24px_rgba(82,39,255,0.06)]">
           <RevenueCalculator isZh={isZh} />
         </div>
-        <div className="mt-12">
+        <div className="mt-12 bg-white/70 backdrop-blur-[20px] rounded-3xl p-8 border border-[rgba(82,39,255,0.08)] shadow-[0_4px_24px_rgba(82,39,255,0.06)]">
           <ContributorTiers isZh={isZh} />
         </div>
       </section>
