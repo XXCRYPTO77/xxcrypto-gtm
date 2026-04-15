@@ -75,24 +75,8 @@ export default function EcosystemModule() {
         @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
       `}</style>
 
-      {/* Fixed Navbar */}
-      <nav className="fixed top-0 left-0 w-full z-50 h-16 px-10 flex items-center justify-between" style={{ background: 'rgba(255,255,255,0.8)', backdropFilter: 'blur(16px)', borderBottom: '1px solid rgba(0,0,0,0.06)' }}>
-        <div className="flex items-center gap-3">
-          <span className="text-lg font-bold text-[#111]">CoinW</span>
-          <span className="text-xs font-semibold text-[#5227ff] bg-[rgba(82,39,255,0.08)] px-3 py-1 rounded-full">Agent Zone</span>
-        </div>
-        <div className="hidden md:flex items-center gap-8">
-          {['Overview','Leaderboard','Agents','Strategies','Developers'].map(link => (
-            <a key={link} href={`#${link.toLowerCase()}`} className="text-sm font-medium text-[#333] hover:text-[#5227ff] transition-colors">{link}</a>
-          ))}
-        </div>
-        <button className="bg-[#5227ff] text-white text-sm font-semibold px-6 py-2.5 rounded-full hover:bg-[#4520dd] transition-all shadow-[0_4px_16px_rgba(82,39,255,0.3)]">
-          {isZh ? '连接 Agent' : 'Connect Agent'}
-        </button>
-      </nav>
-
       {/* Section 1: Hero */}
-      <section className="bg-white relative overflow-hidden pt-36 pb-24 min-h-[90vh] flex items-center">
+      <section className="bg-white relative overflow-hidden pt-24 pb-24 min-h-[90vh] flex items-center">
         {/* Decorative elements */}
         <div className="absolute -top-[200px] -right-[100px] w-[800px] h-[800px] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(82,39,255,0.06) 0%, transparent 70%)' }} />
         <div className="absolute top-1/2 right-[5%] -translate-y-1/2 w-[500px] h-[500px] rounded-full border border-[rgba(82,39,255,0.08)] pointer-events-none hidden lg:block" />
