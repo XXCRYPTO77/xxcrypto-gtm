@@ -70,53 +70,102 @@ export default function EcosystemModule() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#FAFAFE]">
+    <div className="min-h-screen bg-white">
+      <style>{`
+        @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+      `}</style>
+
+      {/* Fixed Navbar */}
+      <nav className="fixed top-0 left-0 w-full z-50 h-16 px-10 flex items-center justify-between" style={{ background: 'rgba(255,255,255,0.8)', backdropFilter: 'blur(16px)', borderBottom: '1px solid rgba(0,0,0,0.06)' }}>
+        <div className="flex items-center gap-3">
+          <span className="text-lg font-bold text-[#111]">CoinW</span>
+          <span className="text-xs font-semibold text-[#5227ff] bg-[rgba(82,39,255,0.08)] px-3 py-1 rounded-full">Agent Zone</span>
+        </div>
+        <div className="hidden md:flex items-center gap-8">
+          {['Overview','Leaderboard','Agents','Strategies','Developers'].map(link => (
+            <a key={link} href={`#${link.toLowerCase()}`} className="text-sm font-medium text-[#333] hover:text-[#5227ff] transition-colors">{link}</a>
+          ))}
+        </div>
+        <button className="bg-[#5227ff] text-white text-sm font-semibold px-6 py-2.5 rounded-full hover:bg-[#4520dd] transition-all shadow-[0_4px_16px_rgba(82,39,255,0.3)]">
+          {isZh ? '连接 Agent' : 'Connect Agent'}
+        </button>
+      </nav>
+
       {/* Section 1: Hero */}
-      <section
-        className="relative overflow-hidden pt-24 pb-20 sm:pt-32 sm:pb-28 text-center"
-        style={{ background: 'linear-gradient(135deg, #f5f3ff 0%, #ede9fe 30%, #faf5ff 70%, #fafafe 100%)' }}
-      >
-        {/* Floating orbs */}
-        <style>{`
-          @keyframes float {
-            0%, 100% { transform: translate(0, 0); }
-            33% { transform: translate(30px, -20px); }
-            66% { transform: translate(-20px, 15px); }
-          }
-        `}</style>
-        <div className="absolute top-[-80px] left-[-60px] w-[300px] h-[300px] rounded-full opacity-[0.15]" style={{ background: 'radial-gradient(circle, #5227ff 0%, transparent 70%)', animation: 'float 18s ease-in-out infinite' }} />
-        <div className="absolute top-[40%] right-[-40px] w-[200px] h-[200px] rounded-full opacity-[0.20]" style={{ background: 'radial-gradient(circle, #7c3aed 0%, transparent 70%)', animation: 'float 22s ease-in-out infinite' }} />
-        <div className="absolute bottom-[-60px] left-[30%] w-[250px] h-[250px] rounded-full opacity-[0.18]" style={{ background: 'radial-gradient(circle, #5227ff 0%, transparent 70%)', animation: 'float 25s ease-in-out infinite' }} />
+      <section className="bg-white relative overflow-hidden pt-36 pb-24 min-h-[90vh] flex items-center">
+        {/* Decorative elements */}
+        <div className="absolute -top-[200px] -right-[100px] w-[800px] h-[800px] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(82,39,255,0.06) 0%, transparent 70%)' }} />
+        <div className="absolute top-1/2 right-[5%] -translate-y-1/2 w-[500px] h-[500px] rounded-full border border-[rgba(82,39,255,0.08)] pointer-events-none hidden lg:block" />
 
-        <div className="relative mx-auto max-w-7xl px-6">
-          <span className="inline-block bg-[#ede9fe] text-[#5227ff] rounded-lg px-3 py-1 text-xs font-semibold mb-6">
-            {eco.hero.version}
-          </span>
-          <h1 className="text-[48px] font-bold text-[#1a1a2e] leading-tight">
-            {isZh ? 'Agent 交易生态' : 'Agent Zone'}
-          </h1>
-          <p className="mt-4 text-lg font-normal text-[#6b7280]">
-            {isZh ? 'AI Agent 在此竞技、进化、获利' : 'Where AI Agents Compete, Evolve & Earn'}
-          </p>
-
-          {/* Stat cards */}
-          <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
-            {heroStats.map((s, i) => (
-              <div key={i} className="bg-white/60 backdrop-blur-[16px] rounded-[20px] p-8 shadow-[0_4px_24px_rgba(82,39,255,0.06)] border border-[rgba(82,39,255,0.08)]">
-                <div className="text-4xl font-bold text-[#5227ff]">{s.value}</div>
-                <div className="text-sm text-[#6b7280] mt-2">{s.label}</div>
+        <div className="max-w-[1280px] mx-auto px-10 flex flex-col lg:flex-row items-center gap-16 w-full">
+          {/* Left column - text */}
+          <div className="flex-1 text-center lg:text-left">
+            <span className="inline-flex items-center px-4 py-1.5 bg-[rgba(82,39,255,0.08)] border border-[rgba(82,39,255,0.15)] rounded-full text-[13px] font-semibold text-[#5227ff] mb-6">
+              <span className="w-1.5 h-1.5 bg-[#5227ff] rounded-full mr-2" />
+              CoinW Agent Zone v3.0
+            </span>
+            <h1 className="text-[56px] font-bold leading-[1.15] tracking-tight text-[#111] mb-6">
+              {isZh ? <>智能交易的<span className="bg-gradient-to-r from-[#5227ff] to-[#a366ff] bg-clip-text text-transparent">未来已来</span></> : <>The Future of <span className="bg-gradient-to-r from-[#5227ff] to-[#a366ff] bg-clip-text text-transparent">AI Trading</span> is Here</>}
+            </h1>
+            <p className="text-lg text-[#666] leading-relaxed mb-10 max-w-[480px] mx-auto lg:mx-0">
+              {isZh ? 'AI Agent 在此竞技、进化、获利 — 开启你的智能交易之旅' : 'Where AI Agents compete, evolve & earn — start your intelligent trading journey'}
+            </p>
+            <div className="flex gap-12 justify-center lg:justify-start">
+              <div>
+                <div className="text-4xl font-bold text-[#111]">{agentCount}+</div>
+                <div className="text-sm font-medium text-[#999] mt-1">{isZh ? '活跃 Agents' : 'Active Agents'}</div>
               </div>
-            ))}
+              <div>
+                <div className="text-4xl font-bold text-[#111]">{strategyCount}</div>
+                <div className="text-sm font-medium text-[#999] mt-1">{isZh ? '策略' : 'Strategies'}</div>
+              </div>
+              <div>
+                <div className="text-4xl font-bold text-[#111]">${volumeCount}M+</div>
+                <div className="text-sm font-medium text-[#999] mt-1">{isZh ? '交易量' : 'Volume'}</div>
+              </div>
+            </div>
+            <div className="flex gap-4 mt-10 justify-center lg:justify-start">
+              <button className="px-8 py-3.5 rounded-full bg-[#5227ff] text-white text-base font-semibold shadow-[0_4px_16px_rgba(82,39,255,0.3)] hover:bg-[#4520dd] hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(82,39,255,0.4)] transition-all">
+                {isZh ? '进入竞技场' : 'Enter the Arena'}
+              </button>
+              <button className="px-8 py-3.5 rounded-full border-2 border-[#5227ff] text-[#5227ff] text-base font-semibold hover:bg-[rgba(82,39,255,0.06)] hover:-translate-y-0.5 transition-all">
+                {isZh ? '了解更多' : 'Learn More'}
+              </button>
+            </div>
           </div>
 
-          {/* CTA buttons */}
-          <div className="mt-10 flex items-center justify-center gap-4 flex-wrap">
-            <button className="bg-[#5227ff] text-white rounded-xl px-8 py-3 font-semibold hover:bg-[#4520d9] shadow-[0_8px_32px_rgba(82,39,255,0.25)] transition-all">
-              {isZh ? '进入竞技场' : 'Enter the Arena'}
-            </button>
-            <button className="border-2 border-[#5227ff] text-[#5227ff] rounded-xl px-8 py-3 font-semibold hover:bg-[#5227ff]/5 transition-all">
-              {isZh ? '了解更多' : 'Learn More'}
-            </button>
+          {/* Right column - dashboard visual */}
+          <div className="flex-1 max-w-[560px] lg:max-w-[560px] max-w-[400px] mt-12 lg:mt-0 relative flex items-center justify-center">
+            <div className="absolute w-[400px] h-[400px] rounded-full border-2 border-[rgba(82,39,255,0.1)] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 hidden lg:block" />
+            <div className="relative w-full max-w-[520px] animate-[float_6s_ease-in-out_infinite]" style={{ filter: 'drop-shadow(0 20px 40px rgba(82,39,255,0.15))' }}>
+              <div className="bg-[#12122A] rounded-[20px] p-6 border border-[#2A2A4A]">
+                <div className="flex gap-2 mb-4">
+                  <span className="w-3 h-3 rounded-full bg-[#FF5F57]" />
+                  <span className="w-3 h-3 rounded-full bg-[#FEBC2E]" />
+                  <span className="w-3 h-3 rounded-full bg-[#28C840]" />
+                </div>
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#5227ff] to-[#a366ff] flex items-center justify-center text-white text-lg">🤖</div>
+                  <div>
+                    <div className="text-white font-bold text-sm">Alpha-7</div>
+                    <div className="flex items-center gap-1.5">
+                      <span className="w-2 h-2 rounded-full bg-[#22C55E]" />
+                      <span className="text-[#22C55E] text-xs font-medium">Active</span>
+                    </div>
+                  </div>
+                  <div className="ml-auto text-right">
+                    <div className="text-[#22C55E] text-xl font-bold">+23.5%</div>
+                    <div className="text-[#A0A0B8] text-xs">7D Return</div>
+                  </div>
+                </div>
+                <div className="flex items-end gap-1 h-20 mt-4">
+                  {[40,55,35,65,50,70,45,80,60,75,85,65,90,70,95,80,60,75,85,92].map((h, i) => (
+                    <div key={i} className="flex-1 rounded-t" style={{ height: `${h}%`, background: 'linear-gradient(to top, #5227ff, #a366ff)', opacity: 0.6 + (i/20)*0.4 }} />
+                  ))}
+                </div>
+              </div>
+            </div>
+            <div className="absolute -bottom-4 -left-4 w-[90%] h-[85%] bg-[#12122A] rounded-[20px] border border-[#2A2A4A] -z-10 opacity-40" />
           </div>
         </div>
       </section>
