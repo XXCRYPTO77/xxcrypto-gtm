@@ -52,9 +52,9 @@ export default function EcosystemModule() {
         </span>
         <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-ink leading-tight">
           {isZh ? (
-            <><span className="bg-brand text-white px-3 py-1 rounded-lg inline-block">Agent 交易</span>竞技场</>
+            <>Agent <span className="bg-brand text-white px-3 py-1 rounded-lg">交易</span>竞技场</>
           ) : (
-            <><span className="bg-brand text-white px-3 py-1 rounded-lg inline-block">Agent Trading</span> Arena</>
+            <>Agent <span className="bg-brand text-white px-3 py-1 rounded-lg">Trading</span> Arena</>
           )}
         </h1>
         <p className="mt-6 max-w-2xl mx-auto text-lg text-muted">{eco.hero.desc}</p>
@@ -74,11 +74,21 @@ export default function EcosystemModule() {
       {/* Section 2: Arena Spotlight */}
       <section className="mx-auto max-w-7xl px-6 py-20 sm:py-28">
         <div className="text-center mb-12">
-          <span className="inline-block rounded-full border border-brand-light bg-brand-soft px-4 py-1.5 text-xs font-semibold text-brand">
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-ink">
             🏆 {isZh ? '实时竞赛' : 'Live Competition'}
-          </span>
+          </h2>
         </div>
-        <ArenaLeaderboard entries={ARENA_ENTRIES} isZh={isZh} />
+        <div className="rounded-2xl border border-ink/10 bg-white shadow-xl overflow-hidden">
+          <div className="flex items-center gap-2 px-4 py-3 bg-[#F0EBE5] border-b border-ink/10">
+            <span className="w-3 h-3 rounded-full bg-[#FF5F57]" />
+            <span className="w-3 h-3 rounded-full bg-[#FEBC2E]" />
+            <span className="w-3 h-3 rounded-full bg-[#28C840]" />
+            <span className="ml-auto text-xs text-muted">CoinW Agent Arena</span>
+          </div>
+          <div className="p-6">
+            <ArenaLeaderboard entries={ARENA_ENTRIES} isZh={isZh} />
+          </div>
+        </div>
         <div className="mt-10 text-center">
           <button
             className="rounded-full bg-brand px-8 py-3 text-sm font-semibold text-white hover:opacity-90 transition-opacity"
@@ -120,9 +130,9 @@ export default function EcosystemModule() {
       {/* Section 4: Agent Directory */}
       <section className="mx-auto max-w-7xl px-6 py-20 sm:py-28">
         <div className="text-center mb-12">
-          <span className="inline-block rounded-full border border-brand-light bg-brand-soft px-4 py-1.5 text-xs font-semibold text-brand">
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-ink">
             {isZh ? 'Agent 目录' : 'Agent Directory'}
-          </span>
+          </h2>
         </div>
         <AgentList agents={AGENTS} isZh={isZh} />
       </section>
@@ -163,7 +173,11 @@ export default function EcosystemModule() {
       <section className="bg-[#F0EBE5] py-20 sm:py-28 text-center">
         <div className="mx-auto max-w-3xl px-6">
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-ink">
-            {isZh ? '准备好构建你的 Agent 了吗？' : 'Ready to build your Agent?'}
+            {isZh ? (
+              <>准备好构建<br /><span className="bg-brand text-white px-3 py-1 rounded-lg">你的 Agent</span> 了吗？</>
+            ) : (
+              <>Ready to build<br /><span className="bg-brand text-white px-3 py-1 rounded-lg">your Agent</span>?</>
+            )}
           </h2>
           <div className="mt-8">
             <button className="rounded-full bg-brand px-10 py-4 text-base font-semibold text-white hover:opacity-90 transition-opacity">
