@@ -15,20 +15,24 @@ export function ShellNavbar() {
   }, []);
 
   const isSubpage = pathname !== '/';
-  const activeAct = pathname.startsWith('/act1')
-    ? 'act1'
-    : pathname.startsWith('/act2')
-      ? 'act2'
-      : pathname.startsWith('/act3')
-        ? 'act3'
-        : pathname.startsWith('/act4')
-          ? 'act4'
-          : pathname.startsWith('/skills')
-            ? 'skills'
-            : null;
+  // 注意：act15 必须先判断，否则被 /act1 startsWith 吃掉
+  const activeAct = pathname.startsWith('/act15')
+    ? 'act15'
+    : pathname.startsWith('/act1')
+      ? 'act1'
+      : pathname.startsWith('/act2')
+        ? 'act2'
+        : pathname.startsWith('/act3')
+          ? 'act3'
+          : pathname.startsWith('/act4')
+            ? 'act4'
+            : pathname.startsWith('/skills')
+              ? 'skills'
+              : null;
 
   const acts = [
     { id: 'act1', label: 'Act I', href: '/act1' },
+    { id: 'act15', label: 'Act I·5', href: '/act15' },
     { id: 'act2', label: 'Act II', href: '/act2' },
     { id: 'act3', label: 'Act III', href: '/act3' },
     { id: 'act4', label: 'Act IV', href: '/act4' },

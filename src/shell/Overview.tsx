@@ -3,28 +3,31 @@
 import React from 'react';
 import { useT } from '@/i18n/LocaleContext';
 import { Button } from '@/components/primitives/Button';
-import { ArrowRight, Layers, MessageSquare, Globe, Telescope } from 'lucide-react';
+import { ArrowRight, Layers, MessagesSquare, MessageSquare, Globe, Telescope } from 'lucide-react';
 // Telescope used for Act 4 icon
 
 const ACT_CONFIG = [
   { key: 'act1', href: '/act1', icon: Layers, color: 'from-brand to-brand-med' },
+  { key: 'act15', href: '/act15', icon: MessagesSquare, color: 'from-amber-500 to-rose-500' },
   { key: 'act2', href: '/act2', icon: MessageSquare, color: 'from-indigo-500 to-purple-600' },
   { key: 'act3', href: '/act3', icon: Globe, color: 'from-violet-600 to-fuchsia-600' },
   { key: 'act4', href: '/act4', icon: Telescope, color: 'from-gray-600 to-gray-800' },
 ] as const;
 
 const ACT_META: Record<string, { num: string; title: string; desc: string; versions: string }> = {
-  act1: { num: 'ACT I', title: '看到', desc: 'Skills 落地页——用户看到产品是什么、能干什么，复制一段 prompt 就能试。', versions: 'v1.0' },
-  act2: { num: 'ACT II', title: '用到', desc: '选风格、跟 Agent 聊、走完看行情→下单→看结果的完整流程。', versions: 'v1.1' },
-  act3: { num: 'ACT III', title: '生态', desc: '双 Agent 接入 + Skill 进化协作 + 交易竞技 + 分润闭环——产品终态。', versions: 'v1.5' },
-  act4: { num: 'ACT IV', title: '远景', desc: '合回主站路径、安全风控、后续规划蓝图。', versions: 'v2.0+' },
+  act1:  { num: 'ACT I',   title: '看到', desc: 'Skills 落地页——用户看到产品是什么、能干什么，复制一段 prompt 就能试。', versions: 'v1.0' },
+  act15: { num: 'ACT I·5', title: '旁观', desc: '3 个 Agent 实时讨论行情和策略，未登录也能看。先建立信任，再谈转化。', versions: 'v1.0.5' },
+  act2:  { num: 'ACT II',  title: '用到', desc: '选风格、跟 Agent 聊、走完看行情→下单→看结果的完整流程。', versions: 'v1.1' },
+  act3:  { num: 'ACT III', title: '生态', desc: '双 Agent 接入 + Skill 进化协作 + 交易竞技 + 分润闭环——产品终态。', versions: 'v1.5' },
+  act4:  { num: 'ACT IV',  title: '远景', desc: '合回主站路径、安全风控、后续规划蓝图。', versions: 'v2.0+' },
 };
 
 const ACT_META_EN: Record<string, { num: string; title: string; desc: string; versions: string }> = {
-  act1: { num: 'ACT I', title: 'See It', desc: 'Skills landing page — see the product, understand it, copy a prompt and try.', versions: 'v1.0' },
-  act2: { num: 'ACT II', title: 'Use It', desc: 'Pick a style, chat with an Agent, walk through the full trading flow.', versions: 'v1.1' },
-  act3: { num: 'ACT III', title: 'Ecosystem', desc: 'Dual Agent access + Skill evolution + trading arena + revenue sharing — the endgame.', versions: 'v1.5' },
-  act4: { num: 'ACT IV', title: 'Vision', desc: 'Main-site integration path, security & compliance, future roadmap.', versions: 'v2.0+' },
+  act1:  { num: 'ACT I',   title: 'See It',    desc: 'Skills landing page — see the product, understand it, copy a prompt and try.', versions: 'v1.0' },
+  act15: { num: 'ACT I·5', title: 'Watch',     desc: '3 Agents discuss markets and strategies in real time. No login required. Trust first, convert later.', versions: 'v1.0.5' },
+  act2:  { num: 'ACT II',  title: 'Use It',    desc: 'Pick a style, chat with an Agent, walk through the full trading flow.', versions: 'v1.1' },
+  act3:  { num: 'ACT III', title: 'Ecosystem', desc: 'Dual Agent access + Skill evolution + trading arena + revenue sharing — the endgame.', versions: 'v1.5' },
+  act4:  { num: 'ACT IV',  title: 'Vision',    desc: 'Main-site integration path, security & compliance, future roadmap.', versions: 'v2.0+' },
 };
 
 export default function Overview() {
@@ -58,7 +61,7 @@ export default function Overview() {
 
       {/* Act Cards Grid */}
       <section className="px-6 pb-24 sm:px-8 lg:px-12">
-        <div className="mx-auto max-w-6xl grid gap-6 sm:grid-cols-2">
+        <div className="mx-auto max-w-6xl grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {ACT_CONFIG.map(({ key, href, icon: Icon, color }) => {
             const m = meta[key];
             return (

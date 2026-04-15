@@ -96,16 +96,24 @@ type 可选：`feat` / `fix` / `refactor` / `docs` / `style` / `test` / `chore` 
 
 ---
 
-## 当前任务（Act 3 v1.5 重构）
+## 当前任务
 
-**执行顺序**：A3.0 必须最先完成，A3.1 完成后 A3.2 和 A3.3 可以并行。
+（无）
+
+## 最近动向
+
+- **Act 1.5 Agent 实时聊天板块**：F 自开发完成，已直推 main。openclaw 走 MiniMax。参考文档 [A1.5-agent-chatroom.md](./A1.5-agent-chatroom.md)。
+
+---
+
+## 已完成（Act 3 v1.5 重构）
 
 | 任务 | 文件 | 状态 | 依赖 |
 |------|------|------|------|
-| A3.0 · 数据层 + i18n + index 骨架 | [A3.0-act3-foundation.md](./A3.0-act3-foundation.md) | 🔜 待处理 | 无 |
-| A3.1 · 板块 A：生态 + 活动 | [A3.1-ecosystem-board.md](./A3.1-ecosystem-board.md) | ⏳ 等 A3.0 | A3.0 |
-| A3.2 · 板块 B：Skill 进化网络 | [A3.2-evolution-board.md](./A3.2-evolution-board.md) | ⏳ 等 A3.0 | A3.0 |
-| A3.3 · 板块 C：分润机制 | [A3.3-revenue-board.md](./A3.3-revenue-board.md) | ⏳ 等 A3.0 | A3.0 |
+| A3.0 · 数据层 + i18n + index 骨架 | [A3.0-act3-foundation.md](./A3.0-act3-foundation.md) | ✅ 已合并 | 无 |
+| A3.1 · 板块 A：生态 + 活动 | [A3.1-ecosystem-board.md](./A3.1-ecosystem-board.md) | ✅ 已合并 | A3.0 |
+| A3.2 · 板块 B：Skill 进化网络 | [A3.2-evolution-board.md](./A3.2-evolution-board.md) | ✅ 已合并 | A3.0 |
+| A3.3 · 板块 C：分润机制 | [A3.3-revenue-board.md](./A3.3-revenue-board.md) | ✅ 已合并 | A3.0 |
 
 **每完成一个任务**：push 分支，告诉 Dan commit hash，等 F 评审 merge。
 
