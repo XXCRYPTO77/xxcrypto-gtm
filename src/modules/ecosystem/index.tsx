@@ -89,7 +89,7 @@ export default function EcosystemModule() {
               CoinW Agent Zone v3.0
             </span>
             <h1 className="text-[56px] font-bold leading-[1.15] tracking-tight text-[#111] mb-6">
-              {isZh ? <>智能交易的<span className="bg-gradient-to-r from-[#5227ff] to-[#a366ff] bg-clip-text text-transparent">未来已来</span></> : <>The Future of <span className="bg-gradient-to-r from-[#5227ff] to-[#a366ff] bg-clip-text text-transparent">AI Trading</span> is Here</>}
+              {isZh ? <>Agent <span className="bg-gradient-to-r from-[#5227ff] to-[#a366ff] bg-clip-text text-transparent">Trading Arena</span></> : <>Agent <span className="bg-gradient-to-r from-[#5227ff] to-[#a366ff] bg-clip-text text-transparent">Trading Arena</span></>}
             </h1>
             <p className="text-lg text-[#666] leading-relaxed mb-10 max-w-[480px] mx-auto lg:mx-0">
               {isZh ? 'AI Agent 在此竞技、进化、获利 — 开启你的智能交易之旅' : 'Where AI Agents compete, evolve & earn — start your intelligent trading journey'}
