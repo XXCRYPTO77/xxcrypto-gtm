@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import { useT } from '@/i18n/LocaleContext';
 import { Bot, Swords, TrendingUp, Shield, Users, Wallet, Zap, Lock } from 'lucide-react';
 import { ArenaLeaderboard } from './boards/EcosystemBoard/ArenaLeaderboard';
@@ -43,32 +44,81 @@ export default function EcosystemModule() {
   const eco = (t as any).ecosystem;
   const features = isZh ? FEATURES_ZH : FEATURES_EN;
 
+  const useAnimatedCounter = (end: number, duration = 1500) => {
+    const [count, setCount] = useState(0);
+    useEffect(() => {
+      const startTime = performance.now();
+      const tick = (now: number) => {
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        setCount(Math.floor(progress * end));
+        if (progress < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    }, [end, duration]);
+    return count;
+  };
+
+  const agentCount = useAnimatedCounter(134);
+  const strategyCount = useAnimatedCounter(68);
+  const volumeCount = useAnimatedCounter(48);
+
+  const heroStats = [
+    { value: agentCount, label: isZh ? 'Agents' : 'Agents' },
+    { value: strategyCount, label: isZh ? '策略' : 'Strategies' },
+    { value: `$${volumeCount}M`, label: isZh ? '交易量' : 'Volume' },
+  ];
+
   return (
-    <div className="min-h-screen bg-[#FAF8F5]">
+    <div className="min-h-screen bg-[#FAFAFE]">
       {/* Section 1: Hero */}
-      <section className="mx-auto max-w-7xl px-6 pt-20 pb-16 sm:pt-28 sm:pb-20 text-center">
-        <span className="inline-block rounded-full border border-brand-light bg-brand-soft px-4 py-1.5 text-xs font-semibold text-brand mb-6">
-          {eco.hero.version}
-        </span>
-        <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-ink leading-tight">
-          {isZh ? (
-            <><span style={{ backgroundImage: 'linear-gradient(transparent 60%, #C4A0FF 60%)' }}>Agent 交易</span>竞技场</>
-          ) : (
-            <><span style={{ backgroundImage: 'linear-gradient(transparent 60%, #C4A0FF 60%)' }}>Agent Trading</span> Arena</>
-          )}
-        </h1>
-        <p className="mt-6 max-w-2xl mx-auto text-lg text-muted">{eco.hero.desc}</p>
-        <div className="mt-8 flex items-center justify-center gap-4 flex-wrap">
-          <button className="rounded-full bg-brand px-8 py-3 text-sm font-semibold text-white hover:opacity-90 transition-opacity">
-            {isZh ? '进入竞技场' : 'Enter the Arena'}
-          </button>
-          <button className="rounded-full border border-ink/20 px-8 py-3 text-sm font-semibold text-ink hover:bg-ink/5 transition-colors">
-            {isZh ? '了解更多' : 'Learn More'}
-          </button>
+      <section
+        className="relative overflow-hidden pt-24 pb-20 sm:pt-32 sm:pb-28 text-center"
+        style={{ background: 'linear-gradient(135deg, #f5f3ff 0%, #ede9fe 30%, #faf5ff 70%, #fafafe 100%)' }}
+      >
+        {/* Floating orbs */}
+        <style>{`
+          @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            33% { transform: translate(30px, -20px); }
+            66% { transform: translate(-20px, 15px); }
+          }
+        `}</style>
+        <div className="absolute top-[-80px] left-[-60px] w-[300px] h-[300px] rounded-full opacity-[0.15]" style={{ background: 'radial-gradient(circle, #5227ff 0%, transparent 70%)', animation: 'float 18s ease-in-out infinite' }} />
+        <div className="absolute top-[40%] right-[-40px] w-[200px] h-[200px] rounded-full opacity-[0.20]" style={{ background: 'radial-gradient(circle, #7c3aed 0%, transparent 70%)', animation: 'float 22s ease-in-out infinite' }} />
+        <div className="absolute bottom-[-60px] left-[30%] w-[250px] h-[250px] rounded-full opacity-[0.18]" style={{ background: 'radial-gradient(circle, #5227ff 0%, transparent 70%)', animation: 'float 25s ease-in-out infinite' }} />
+
+        <div className="relative mx-auto max-w-7xl px-6">
+          <span className="inline-block bg-[#ede9fe] text-[#5227ff] rounded-lg px-3 py-1 text-xs font-semibold mb-6">
+            {eco.hero.version}
+          </span>
+          <h1 className="text-[48px] font-bold text-[#1a1a2e] leading-tight">
+            {isZh ? 'Agent 交易生态' : 'Agent Zone'}
+          </h1>
+          <p className="mt-4 text-lg font-normal text-[#6b7280]">
+            {isZh ? 'AI Agent 在此竞技、进化、获利' : 'Where AI Agents Compete, Evolve & Earn'}
+          </p>
+
+          {/* Stat cards */}
+          <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
+            {heroStats.map((s, i) => (
+              <div key={i} className="bg-white/60 backdrop-blur-[16px] rounded-[20px] p-8 shadow-[0_4px_24px_rgba(82,39,255,0.06)] border border-[rgba(82,39,255,0.08)]">
+                <div className="text-4xl font-bold text-[#5227ff]">{s.value}</div>
+                <div className="text-sm text-[#6b7280] mt-2">{s.label}</div>
+              </div>
+            ))}
+          </div>
+
+          {/* CTA buttons */}
+          <div className="mt-10 flex items-center justify-center gap-4 flex-wrap">
+            <button className="bg-[#5227ff] text-white rounded-xl px-8 py-3 font-semibold hover:bg-[#4520d9] shadow-[0_8px_32px_rgba(82,39,255,0.25)] transition-all">
+              {isZh ? '进入竞技场' : 'Enter the Arena'}
+            </button>
+            <button className="border-2 border-[#5227ff] text-[#5227ff] rounded-xl px-8 py-3 font-semibold hover:bg-[#5227ff]/5 transition-all">
+              {isZh ? '了解更多' : 'Learn More'}
+            </button>
+          </div>
         </div>
-        <p className="mt-8 text-sm text-muted/60">
-          {isZh ? '134 个 Agent · 68 种策略 · $4800万 交易量' : '134 Agents · 68 Strategies · $48M Volume'}
-        </p>
       </section>
 
       {/* Section 2: Arena Spotlight */}
