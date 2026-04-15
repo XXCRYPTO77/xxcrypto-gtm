@@ -25,7 +25,7 @@ export default function Act3Page() {
   return (
     <>
       <ShellNavbar />
-      <main className="pt-16 min-h-screen bg-[#08081a]">
+      <main className="pt-16 min-h-screen bg-page">
         <Act3Content />
       </main>
       <ShellFooter />
