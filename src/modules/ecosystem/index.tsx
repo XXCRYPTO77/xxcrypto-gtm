@@ -121,27 +121,23 @@ export default function EcosystemModule() {
         </div>
       </section>
 
-      {/* Section 2: Arena Spotlight */}
+      {/* Section 2: Live Arena */}
       <section className="mx-auto max-w-7xl px-6 py-20 sm:py-28">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-ink">
-            🏆 {isZh ? '实时竞赛' : 'Live Competition'}
+        <div className="flex items-center justify-center gap-3 mb-12">
+          <span className="relative flex h-3 w-3">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75" />
+            <span className="relative inline-flex rounded-full h-3 w-3 bg-red-500" />
+          </span>
+          <h2 className="text-[28px] font-semibold text-[#1a1a2e]">
+            {isZh ? '实时竞技场' : 'Live Arena'}
           </h2>
         </div>
-        <div className="rounded-2xl border border-ink/10 bg-white shadow-xl overflow-hidden">
-          <div className="flex items-center gap-2 px-4 py-3 bg-[#F0EBE5] border-b border-ink/10">
-            <span className="w-3 h-3 rounded-full bg-[#FF5F57]" />
-            <span className="w-3 h-3 rounded-full bg-[#FEBC2E]" />
-            <span className="w-3 h-3 rounded-full bg-[#28C840]" />
-            <span className="ml-auto text-xs text-muted">CoinW Agent Arena</span>
-          </div>
-          <div className="p-6">
-            <ArenaLeaderboard entries={ARENA_ENTRIES} isZh={isZh} />
-          </div>
+        <div className="bg-white/70 backdrop-blur-[20px] rounded-3xl p-8 border border-[rgba(82,39,255,0.08)] shadow-[0_4px_24px_rgba(82,39,255,0.06)]">
+          <ArenaLeaderboard entries={ARENA_ENTRIES} isZh={isZh} />
         </div>
         <div className="mt-10 text-center">
           <button
-            className="rounded-full bg-brand px-8 py-3 text-sm font-semibold text-white hover:opacity-90 transition-opacity"
+            className="bg-[#5227ff] text-white rounded-xl px-8 py-3 font-semibold hover:bg-[#4520d9] shadow-[0_8px_32px_rgba(82,39,255,0.25)] transition-all"
             onClick={() => {
               if (typeof window !== 'undefined') {
                 const el = document.createElement('div');
@@ -157,21 +153,21 @@ export default function EcosystemModule() {
         </div>
       </section>
 
-      {/* Section 3: Features Grid */}
+      {/* Section 3: Core Capabilities Grid */}
       <section className="mx-auto max-w-7xl px-6 py-20 sm:py-28">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-ink">
-            {isZh ? '核心能力' : 'Core Features'}
+        <div className="text-center mb-12">
+          <h2 className="text-[28px] font-semibold text-[#1a1a2e]">
+            {isZh ? '核心能力' : 'Core Capabilities'}
           </h2>
         </div>
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {features.map((f, i) => (
-            <div key={i} className="flex flex-col items-center text-center">
-              <div className="bg-brand-soft rounded-full p-3 mb-4">
-                <f.icon className="w-8 h-8 text-brand" />
+            <div key={i} className="group bg-white rounded-[20px] p-8 border border-[#e5e7eb] hover:border-[#5227ff] transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(82,39,255,0.08)]">
+              <div className="w-12 h-12 bg-[#ede9fe] group-hover:bg-[#5227ff] rounded-xl flex items-center justify-center transition-all duration-200">
+                <f.icon className="w-6 h-6 text-[#5227ff] group-hover:text-white transition-colors duration-200" />
               </div>
-              <h3 className="font-bold text-ink text-sm sm:text-base">{f.label}</h3>
-              <p className="mt-1 text-xs text-muted">{f.desc}</p>
+              <h3 className="text-lg font-semibold text-[#1a1a2e] mt-4">{f.label}</h3>
+              <p className="text-sm text-[#6b7280] mt-2">{f.desc}</p>
             </div>
           ))}
         </div>
