@@ -77,11 +77,7 @@ export default function EcosystemModule() {
 
       {/* Section 1: Hero */}
       <section className="bg-white relative overflow-hidden pt-24 pb-24 min-h-[90vh] flex items-center">
-        {/* Decorative elements */}
-        <div className="absolute -top-[200px] -right-[100px] w-[800px] h-[800px] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(82,39,255,0.06) 0%, transparent 70%)' }} />
-        <div className="absolute top-1/2 right-[5%] -translate-y-1/2 w-[500px] h-[500px] rounded-full border border-[rgba(82,39,255,0.08)] pointer-events-none hidden lg:block" />
-
-        <div className="max-w-[1280px] mx-auto px-10 flex flex-col lg:flex-row items-center gap-16 w-full">
+        <div className="max-w-[1280px] mx-auto px-10 flex flex-col lg:flex-row items-end gap-16 w-full">
           {/* Left column - text */}
           <div className="flex-1 text-center lg:text-left">
             <span className="inline-flex items-center px-4 py-1.5 bg-[rgba(82,39,255,0.08)] border border-[rgba(82,39,255,0.15)] rounded-full text-[13px] font-semibold text-[#5227ff] mb-6">
@@ -119,11 +115,11 @@ export default function EcosystemModule() {
           </div>
 
           {/* Right column - hero visual */}
-          <div className="flex-1 max-w-[560px] mt-12 lg:mt-0 relative flex items-center justify-center -mt-8 lg:-mt-16">
+          <div className="flex-1 max-w-[560px] mt-12 lg:mt-0 relative flex items-end justify-center">
             <img
               src="/act3/hero_visual.png"
               alt="Agent Trading Arena"
-              className="w-full max-w-[520px] animate-[float_6s_ease-in-out_infinite]"
+              className="w-full max-w-[520px]"
             />
           </div>
         </div>
