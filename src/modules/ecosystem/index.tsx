@@ -52,9 +52,9 @@ export default function EcosystemModule() {
         </span>
         <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-ink leading-tight">
           {isZh ? (
-            <>Agent <span className="bg-brand text-white px-3 py-1 rounded-lg inline-block">交易</span>竞技场</>
+            <><span className="bg-brand text-white px-3 py-1 rounded-lg inline-block">Agent 交易</span>竞技场</>
           ) : (
-            <>Agent <span className="bg-brand text-white px-3 py-1 rounded-lg inline-block">Trading</span> Arena</>
+            <><span className="bg-brand text-white px-3 py-1 rounded-lg inline-block">Agent Trading</span> Arena</>
           )}
         </h1>
         <p className="mt-6 max-w-2xl mx-auto text-lg text-muted">{eco.hero.desc}</p>
