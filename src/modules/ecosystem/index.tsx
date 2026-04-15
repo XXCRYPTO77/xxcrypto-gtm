@@ -72,21 +72,62 @@ export default function EcosystemModule() {
       </section>
 
       {/* Section 2: Arena Spotlight */}
-      <section className="mx-auto max-w-7xl px-6 py-20 sm:py-28">
-        <div className="text-center mb-12">
+      <section className="py-20 sm:py-28">
+        <div className="text-center mb-12 px-6">
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-ink">
-            🏆 {isZh ? '实时竞赛' : 'Live Competition'}
+            {isZh ? '实时竞赛' : 'Live Competition'}
           </h2>
         </div>
-        <div className="rounded-2xl border border-ink/10 bg-white shadow-xl overflow-hidden">
-          <div className="flex items-center gap-2 px-4 py-3 bg-[#F0EBE5] border-b border-ink/10">
-            <span className="w-3 h-3 rounded-full bg-[#FF5F57]" />
-            <span className="w-3 h-3 rounded-full bg-[#FEBC2E]" />
-            <span className="w-3 h-3 rounded-full bg-[#28C840]" />
-            <span className="ml-auto text-xs text-muted">CoinW Agent Arena</span>
-          </div>
-          <div className="p-6">
-            <ArenaLeaderboard entries={ARENA_ENTRIES} isZh={isZh} />
+        {/* macOS Desktop Mockup */}
+        <div className="mx-auto max-w-6xl px-4">
+          <div className="rounded-2xl overflow-hidden shadow-2xl" style={{ background: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)' }}>
+            {/* macOS Menu Bar */}
+            <div className="flex items-center justify-between px-5 py-2" style={{ background: 'rgba(255,255,255,0.08)', backdropFilter: 'blur(20px)' }}>
+              <div className="flex items-center gap-4">
+                <svg className="w-4 h-4 text-white/70" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                <span className="text-white/50 text-xs font-medium">CoinW Agent Arena</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <span className="text-white/40 text-xs">Wed 18:22</span>
+              </div>
+            </div>
+
+            {/* Desktop Content Area */}
+            <div className="relative p-6 sm:p-10 min-h-[500px]">
+              {/* Floating Leaderboard Window */}
+              <div className="rounded-xl overflow-hidden" style={{ background: 'rgba(255,255,255,0.06)', backdropFilter: 'blur(40px)', border: '1px solid rgba(255,255,255,0.1)', boxShadow: '0 8px 32px rgba(0,0,0,0.3), 0 0 80px rgba(82,39,255,0.08)' }}>
+                <div className="flex items-center gap-2 px-4 py-3" style={{ background: 'rgba(255,255,255,0.05)', borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
+                  <span className="w-3 h-3 rounded-full bg-[#FF5F57]" />
+                  <span className="w-3 h-3 rounded-full bg-[#FEBC2E]" />
+                  <span className="w-3 h-3 rounded-full bg-[#28C840]" />
+                  <span className="ml-4 text-white/60 text-xs font-medium">Agent Arena — Season 3</span>
+                </div>
+                <div className="p-4 sm:p-6 [&_*]:!text-white/90 [&_th]:!text-white/50 [&_td]:!text-white/80 [&_.text-muted]:!text-white/50 [&_.text-ink]:!text-white [&_.bg-white]:!bg-white/5 [&_.border-border]:!border-white/10 [&_.bg-surface]:!bg-white/5">
+                  <ArenaLeaderboard entries={ARENA_ENTRIES} isZh={isZh} />
+                </div>
+              </div>
+
+              {/* Floating Stats Panel — top right */}
+              <div className="absolute top-8 right-8 hidden lg:block rounded-lg px-4 py-3" style={{ background: 'rgba(255,255,255,0.06)', backdropFilter: 'blur(20px)', border: '1px solid rgba(255,255,255,0.1)' }}>
+                <div className="text-white/40 text-[10px] uppercase tracking-wider mb-1">Live Stats</div>
+                <div className="text-white/80 text-xs font-medium">134 Agents Online</div>
+                <div className="text-[#C4A0FF] text-xs font-bold">$48M Vol</div>
+              </div>
+
+              {/* Subtle neon glow effect */}
+              <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse at 30% 50%, rgba(82,39,255,0.08) 0%, transparent 60%), radial-gradient(ellipse at 70% 80%, rgba(139,92,246,0.06) 0%, transparent 50%)' }} />
+            </div>
+
+            {/* macOS Dock */}
+            <div className="flex justify-center pb-4 pt-2">
+              <div className="flex items-center gap-2 px-4 py-2 rounded-2xl" style={{ background: 'rgba(255,255,255,0.08)', backdropFilter: 'blur(20px)', border: '1px solid rgba(255,255,255,0.1)' }}>
+                <div className="w-10 h-10 rounded-xl bg-brand flex items-center justify-center text-white font-bold text-sm">C</div>
+                <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: 'rgba(255,255,255,0.1)' }}><Swords className="w-5 h-5 text-white/60" /></div>
+                <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: 'rgba(255,255,255,0.1)' }}><TrendingUp className="w-5 h-5 text-white/60" /></div>
+                <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: 'rgba(255,255,255,0.1)' }}><Users className="w-5 h-5 text-white/60" /></div>
+                <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: 'rgba(255,255,255,0.1)' }}><Wallet className="w-5 h-5 text-white/60" /></div>
+              </div>
+            </div>
           </div>
         </div>
         <div className="mt-10 text-center">
