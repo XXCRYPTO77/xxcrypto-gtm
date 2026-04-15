@@ -115,7 +115,7 @@ export default function EcosystemModule() {
           </div>
 
           {/* Right column - hero visual */}
-          <div className="flex-1 max-w-[640px] mt-12 lg:mt-0 relative flex items-end justify-center">
+          <div className="flex-1 max-w-[640px] mt-12 lg:mt-0 relative flex items-start justify-center">
             <img
               src="/act3/hero_visual.png"
               alt="Agent Trading Arena"
