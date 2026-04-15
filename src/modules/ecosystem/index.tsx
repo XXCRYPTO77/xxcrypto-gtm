@@ -46,29 +46,37 @@ export default function EcosystemModule() {
   return (
     <div className="min-h-screen bg-[#FAF8F5]">
       {/* Section 1: Hero */}
-      <section className="mx-auto max-w-7xl px-6 pt-20 pb-16 sm:pt-28 sm:pb-20 text-center">
-        <span className="inline-block rounded-full border border-brand-light bg-brand-soft px-4 py-1.5 text-xs font-semibold text-brand mb-6">
-          {eco.hero.version}
-        </span>
-        <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-ink leading-tight">
-          {isZh ? (
-            <><span style={{ backgroundImage: 'linear-gradient(transparent 60%, #C4A0FF 60%)' }}>Agent 交易</span>竞技场</>
-          ) : (
-            <><span style={{ backgroundImage: 'linear-gradient(transparent 60%, #C4A0FF 60%)' }}>Agent Trading</span> Arena</>
-          )}
-        </h1>
-        <p className="mt-6 max-w-2xl mx-auto text-lg text-muted">{eco.hero.desc}</p>
-        <div className="mt-8 flex items-center justify-center gap-4 flex-wrap">
-          <button className="rounded-full bg-brand px-8 py-3 text-sm font-semibold text-white hover:opacity-90 transition-opacity">
-            {isZh ? '进入竞技场' : 'Enter the Arena'}
-          </button>
-          <button className="rounded-full border border-ink/20 px-8 py-3 text-sm font-semibold text-ink hover:bg-ink/5 transition-colors">
-            {isZh ? '了解更多' : 'Learn More'}
-          </button>
+      <section className="relative overflow-hidden">
+        {/* Background image */}
+        <div className="absolute inset-0">
+          <img src="/act3/hero_bg_v4_0.png" alt="" className="w-full h-full object-cover object-top" />
+          {/* Bottom fade to cream */}
+          <div className="absolute bottom-0 left-0 right-0 h-40" style={{ background: 'linear-gradient(to bottom, transparent, #FAF8F5)' }} />
         </div>
-        <p className="mt-8 text-sm text-muted/60">
-          {isZh ? '134 个 Agent · 68 种策略 · $4800万 交易量' : '134 Agents · 68 Strategies · $48M Volume'}
-        </p>
+        <div className="relative mx-auto max-w-7xl px-6 pt-28 pb-24 sm:pt-36 sm:pb-32 text-center">
+          <span className="inline-block rounded-full border border-white/20 bg-white/10 backdrop-blur-sm px-4 py-1.5 text-xs font-semibold text-white/90 mb-6">
+            {eco.hero.version}
+          </span>
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-tight">
+            {isZh ? (
+              <><span style={{ backgroundImage: 'linear-gradient(transparent 60%, rgba(196,160,255,0.5) 60%)' }}>Agent 交易</span>竞技场</>
+            ) : (
+              <><span style={{ backgroundImage: 'linear-gradient(transparent 60%, rgba(196,160,255,0.5) 60%)' }}>Agent Trading</span> Arena</>
+            )}
+          </h1>
+          <p className="mt-6 max-w-2xl mx-auto text-lg text-white/60">{eco.hero.desc}</p>
+          <div className="mt-8 flex items-center justify-center gap-4 flex-wrap">
+            <button className="rounded-full bg-white px-8 py-3 text-sm font-semibold text-brand hover:bg-white/90 transition-opacity">
+              {isZh ? '进入竞技场' : 'Enter the Arena'}
+            </button>
+            <button className="rounded-full border border-white/30 px-8 py-3 text-sm font-semibold text-white hover:bg-white/10 transition-colors">
+              {isZh ? '了解更多' : 'Learn More'}
+            </button>
+          </div>
+          <p className="mt-8 text-sm text-white/40">
+            {isZh ? '134 个 Agent · 68 种策略 · $4800万 交易量' : '134 Agents · 68 Strategies · $48M Volume'}
+          </p>
+        </div>
       </section>
 
       {/* Section 2: Arena Spotlight */}
