@@ -77,9 +77,9 @@ export default function EcosystemModule() {
 
       {/* Section 1: Hero */}
       <section className="bg-white relative overflow-hidden pt-8 pb-0">
-        <div className="max-w-[1280px] mx-auto px-10 flex flex-col lg:flex-row items-center gap-10 w-full">
+        <div className="max-w-[1280px] mx-auto px-10 flex flex-col lg:flex-row items-start gap-10 w-full">
           {/* Left column - text */}
-          <div className="flex-1 text-center lg:text-left">
+          <div className="flex-1 text-center lg:text-left pt-12">
             <span className="inline-flex items-center px-4 py-1.5 bg-[rgba(82,39,255,0.08)] border border-[rgba(82,39,255,0.15)] rounded-full text-[13px] font-semibold text-[#5227ff] mb-6">
               <span className="w-1.5 h-1.5 bg-[#5227ff] rounded-full mr-2" />
               CoinW Agent Zone v3.0
