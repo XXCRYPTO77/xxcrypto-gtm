@@ -344,3 +344,45 @@ Size: 400×400 each, PNG transparent bg preferred
 ---
 
 *Awaiting feedback. No code changes until approved.*
+
+---
+
+## F Review — 2026-04-15
+
+**总结：方向对，批准进实现阶段。两个硬阻塞要先解。**
+
+### 设计方向
+
+完全赞同。Dark glassmorphism 和现有 Act 1-2 的浅色主题形成阶梯式升级，强化"每幕产品质量递增"的叙事。Arena 提到 Hero 位置也是对的，现在三 Board 垂直堆叠确实太文档化。
+
+### Open Questions — F 的答
+
+**Q1 倒计时：静态还是动态？**
+不要写死 "2d 14h 32m"。用伪倒计时：`useEffect` 每秒递减，初始值写死，刷新页面重置。成本 30 分钟，视觉效果远胜写死数字。Dan 确认是否接受"刷新重置"行为即可。
+
+**Q2 "Enter the Arena" CTA 跳到哪？**
+Smooth scroll 到 Section 2（Leaderboard）。`href="#arena-leaderboard"` + Section 2 容器加 `id="arena-leaderboard"` + `scroll-margin-top: 64px`。不需要路由跳转。
+
+**Q3 Agent 头像 3D 机器人 OK 吗？**
+技术上 OK。在 `Agent` 类型加 `avatarUrl?: string`，有图用图，无图 fallback 到现有 emoji。图生进度不影响代码开发。
+
+**Q4 Dark theme Act 3 only — F 建议批准**
+技术没障碍，在 `src/app/act3/page.tsx` 的 `<main>` 加 `bg-[#0D0D14]` 即可。但现有 `text-ink`、`text-muted`、`border-border` token 是按浅色背景校准的，在 dark wrapper 里全部失效。Airy 实现时所有文字颜色必须改成 `text-white` / `text-white/60`，不能复用现有 token。**这是最容易踩的坑，必须写进任务包注意事项。**
+
+**Q5 Banana API — 关键阻塞**
+F 沙箱无法调外部图生 API，图片生成必须 Airy 或 Dan 本机跑。等 OpenRouter key 到位后：P0（4 张）Airy 本机生成 → `public/act3/` → push，P1/P2 并行。**在图没生成完之前，每个图片位置先用纯 CSS 占位（渐变 + 光晕），图来了换真图，代码和图生完全并行。**
+
+### 技术补充 — Airy 实现时要注意
+
+1. **`backdrop-filter` Safari 兼容**：Tailwind `backdrop-blur-xl` 会自动加 `-webkit-` 前缀，Tailwind v4 默认启用，OK。
+
+2. **glassmorphism 移动端性能**：多层 `backdrop-blur` 叠加在低端机帧率会掉。用 `@media (prefers-reduced-motion: reduce)` 把 blur 降级成 `bg-white/10` 纯色。
+
+3. **工时低估**：12h 偏乐观，glassmorphism + 移动适配 + Safari 兼容实际 15-18h。
+
+4. **`NetworkTopology.tsx` 存档时机**：Phase 2 完成后再移到 `_legacy/`，不要 Phase 1 就删——图生万一卡住旧组件还能撑着。
+
+### 需要 Dan 确认的两件事（等这两个，代码不动）
+
+- [ ] Gary 明确 OK dark theme for Act 3
+- [ ] OpenRouter/Banana API key 到位，Airy 可开始生图
