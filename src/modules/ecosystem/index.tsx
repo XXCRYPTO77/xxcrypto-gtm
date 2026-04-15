@@ -155,54 +155,53 @@ export default function EcosystemModule() {
       </section>
 
       {/* Section 2: Live Arena */}
-      <section className="mx-auto max-w-7xl px-6 py-20 sm:py-28">
-        <div className="flex items-center justify-center gap-3 mb-12">
-          <span className="relative flex h-3 w-3">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75" />
-            <span className="relative inline-flex rounded-full h-3 w-3 bg-red-500" />
-          </span>
-          <h2 className="text-[28px] font-semibold text-[#1a1a2e]">
-            {isZh ? '实时竞技场' : 'Live Arena'}
+      <section className="bg-[#0A0A1A] py-24 relative overflow-hidden">
+        {/* Purple glow top-left */}
+        <div className="absolute -top-[200px] -left-[200px] w-[600px] h-[600px] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(82,39,255,0.1) 0%, transparent 70%)' }} />
+
+        <div className="max-w-[1280px] mx-auto px-10">
+          <h2 className="text-[40px] font-bold text-white text-center mb-4 tracking-tight">
+            {isZh ? '实时竞技排行' : 'Live Arena'}
           </h2>
-        </div>
-        <div className="bg-white/70 backdrop-blur-[20px] rounded-3xl p-8 border border-[rgba(82,39,255,0.08)] shadow-[0_4px_24px_rgba(82,39,255,0.06)]">
-          <ArenaLeaderboard entries={ARENA_ENTRIES} isZh={isZh} />
-        </div>
-        <div className="mt-10 text-center">
-          <button
-            className="bg-[#5227ff] text-white rounded-xl px-8 py-3 font-semibold hover:bg-[#4520d9] shadow-[0_8px_32px_rgba(82,39,255,0.25)] transition-all"
-            onClick={() => {
-              if (typeof window !== 'undefined') {
-                const el = document.createElement('div');
-                el.className = 'fixed top-6 left-1/2 -translate-x-1/2 z-50 rounded-lg bg-ink text-white px-6 py-3 text-sm shadow-lg';
-                el.textContent = isZh ? '即将开放！' : 'Coming soon!';
-                document.body.appendChild(el);
-                setTimeout(() => el.remove(), 2000);
-              }
-            }}
-          >
-            {isZh ? '加入竞赛' : 'Join the competition'}
-          </button>
+          <p className="text-base text-[#A0A0B8] text-center mb-12">
+            {isZh ? 'AI Agent 实时交易竞技，排名每小时更新' : 'Real-time AI agent trading competition, rankings updated hourly'}
+          </p>
+
+          {/* Wrap ArenaLeaderboard in dark card */}
+          <div className="bg-[#12122A] rounded-[20px] border border-[#2A2A4A] overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.3)]">
+            <ArenaLeaderboard entries={ARENA_ENTRIES} isZh={isZh} />
+          </div>
         </div>
       </section>
 
-      {/* Section 3: Core Capabilities Grid */}
-      <section className="mx-auto max-w-7xl px-6 py-20 sm:py-28">
-        <div className="text-center mb-12">
-          <h2 className="text-[28px] font-semibold text-[#1a1a2e]">
-            {isZh ? '核心能力' : 'Core Capabilities'}
+      {/* Section 3: Core Capabilities */}
+      <section className="bg-[#F5F5F7] py-24">
+        <div className="max-w-[1280px] mx-auto px-10">
+          {/* Badge */}
+          <div className="text-center mb-4">
+            <span className="inline-flex items-center px-4 py-1.5 bg-[rgba(82,39,255,0.08)] border border-[rgba(82,39,255,0.15)] rounded-full text-[13px] font-semibold text-[#5227ff]">
+              {isZh ? '核心能力' : 'Core Features'}
+            </span>
+          </div>
+          <h2 className="text-[44px] font-bold text-[#111] text-center mb-4 tracking-tight leading-tight">
+            {isZh ? <>为什么选择 <span className="text-[#5227ff]">Agent Zone</span></> : <>Why Choose <span className="text-[#5227ff]">Agent Zone</span></>}
           </h2>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {features.map((f, i) => (
-            <div key={i} className="group bg-white rounded-[20px] p-8 border border-[#e5e7eb] hover:border-[#5227ff] transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(82,39,255,0.08)]">
-              <div className="w-12 h-12 bg-[#ede9fe] group-hover:bg-[#5227ff] rounded-xl flex items-center justify-center transition-all duration-200">
-                <f.icon className="w-6 h-6 text-[#5227ff] group-hover:text-white transition-colors duration-200" />
+          <p className="text-lg text-[#666] text-center mb-14 max-w-[600px] mx-auto leading-relaxed">
+            {isZh ? '八大核心能力，打造智能交易新体验' : 'Eight core capabilities powering the next generation of trading'}
+          </p>
+
+          {/* 4-col grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {features.map((f, i) => (
+              <div key={i} className="group bg-white rounded-[20px] p-8 border border-[#E5E5EA] shadow-[0_2px_8px_rgba(0,0,0,0.04)] hover:-translate-y-1 hover:shadow-[0_8px_40px_rgba(0,0,0,0.08)] hover:border-[rgba(82,39,255,0.2)] transition-all duration-300">
+                <div className="w-12 h-12 rounded-[14px] bg-[rgba(82,39,255,0.08)] group-hover:bg-[#5227ff] flex items-center justify-center mb-5 transition-colors duration-300">
+                  <f.icon className="w-6 h-6 text-[#5227ff] group-hover:text-white transition-colors duration-300" />
+                </div>
+                <h3 className="text-lg font-bold text-[#111] mb-2">{f.label}</h3>
+                <p className="text-sm text-[#666] leading-relaxed">{f.desc}</p>
               </div>
-              <h3 className="text-lg font-semibold text-[#1a1a2e] mt-4">{f.label}</h3>
-              <p className="text-sm text-[#6b7280] mt-2">{f.desc}</p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 
