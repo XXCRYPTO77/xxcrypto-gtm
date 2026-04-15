@@ -45,35 +45,39 @@ export default function EcosystemModule() {
 
   return (
     <div className="min-h-screen bg-[#FAF8F5]">
-      {/* Section 1: Hero */}
-      <section className="relative overflow-hidden">
-        {/* Background image */}
-        <div className="absolute inset-0">
-          <img src="/act3/hero_bg_v4_0.png" alt="" className="w-full h-full object-cover object-top" />
-          {/* Bottom fade to cream */}
-          <div className="absolute bottom-0 left-0 right-0 h-40" style={{ background: 'linear-gradient(to bottom, transparent, #FAF8F5)' }} />
-        </div>
-        <div className="relative mx-auto max-w-7xl px-6 pt-28 pb-24 sm:pt-36 sm:pb-32 text-center">
-          <span className="inline-block rounded-full border border-white/20 bg-white/10 backdrop-blur-sm px-4 py-1.5 text-xs font-semibold text-white/90 mb-6">
+      {/* Section 1: Hero — pure CSS dark hero like Neone */}
+      <section className="relative overflow-hidden" style={{ background: '#08081a' }}>
+        {/* CSS Arc glow */}
+        <div className="absolute left-1/2 -translate-x-1/2" style={{ top: '-400px', width: '1400px', height: '800px', borderRadius: '50%', background: 'radial-gradient(ellipse at center, rgba(82,39,255,0.15) 0%, rgba(82,39,255,0.08) 30%, transparent 70%)', boxShadow: '0 0 120px 60px rgba(82,39,255,0.06)' }} />
+        {/* Arc ring */}
+        <div className="absolute left-1/2 -translate-x-1/2" style={{ top: '-380px', width: '1300px', height: '780px', borderRadius: '50%', border: '1px solid rgba(82,39,255,0.2)', boxShadow: '0 0 40px rgba(82,39,255,0.1), inset 0 0 40px rgba(82,39,255,0.05)' }} />
+        {/* Inner glow */}
+        <div className="absolute left-1/2 -translate-x-1/2" style={{ top: '-350px', width: '1100px', height: '750px', borderRadius: '50%', border: '1px solid rgba(140,100,255,0.12)' }} />
+        {/* Subtle stars */}
+        <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,0.4) 50%, transparent 50%), radial-gradient(1px 1px at 30% 65%, rgba(255,255,255,0.3) 50%, transparent 50%), radial-gradient(1.5px 1.5px at 55% 15%, rgba(255,255,255,0.5) 50%, transparent 50%), radial-gradient(1px 1px at 70% 40%, rgba(255,255,255,0.3) 50%, transparent 50%), radial-gradient(1px 1px at 85% 70%, rgba(255,255,255,0.4) 50%, transparent 50%), radial-gradient(1.5px 1.5px at 20% 80%, rgba(255,255,255,0.2) 50%, transparent 50%), radial-gradient(1px 1px at 90% 20%, rgba(255,255,255,0.3) 50%, transparent 50%), radial-gradient(1px 1px at 45% 50%, rgba(255,255,255,0.2) 50%, transparent 50%), radial-gradient(1.5px 1.5px at 65% 85%, rgba(255,255,255,0.3) 50%, transparent 50%), radial-gradient(1px 1px at 5% 50%, rgba(255,255,255,0.25) 50%, transparent 50%)' }} />
+        {/* Bottom fade */}
+        <div className="absolute bottom-0 left-0 right-0 h-32" style={{ background: 'linear-gradient(to bottom, transparent, #FAF8F5)' }} />
+
+        <div className="relative mx-auto max-w-7xl px-6 pt-32 pb-28 sm:pt-40 sm:pb-36 text-center">
+          <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-5 py-2 text-xs font-medium text-white/70 mb-8">
+            <svg className="w-4 h-4 text-[#C4A0FF]" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7-6.3-4.6L5.7 21 8 14l-6-4.6h7.6z"/></svg>
             {eco.hero.version}
           </span>
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-tight">
-            {isZh ? (
-              <><span style={{ backgroundImage: 'linear-gradient(transparent 60%, rgba(196,160,255,0.5) 60%)' }}>Agent 交易</span>竞技场</>
-            ) : (
-              <><span style={{ backgroundImage: 'linear-gradient(transparent 60%, rgba(196,160,255,0.5) 60%)' }}>Agent Trading</span> Arena</>
-            )}
+          <h1 className="text-5xl sm:text-6xl lg:text-8xl font-bold tracking-tight leading-[1.1]">
+            <span className="text-white/60">{isZh ? 'Agent' : 'Agent'}</span>{' '}
+            <span className="text-white">{isZh ? '交易' : 'Trading'}</span>{' '}
+            <span className="text-white/60">{isZh ? '竞技场' : 'Arena'}</span>
           </h1>
-          <p className="mt-6 max-w-2xl mx-auto text-lg text-white/60">{eco.hero.desc}</p>
-          <div className="mt-8 flex items-center justify-center gap-4 flex-wrap">
-            <button className="rounded-full bg-white px-8 py-3 text-sm font-semibold text-brand hover:bg-white/90 transition-opacity">
+          <p className="mt-8 max-w-xl mx-auto text-base sm:text-lg text-white/45 leading-relaxed">{eco.hero.desc}</p>
+          <div className="mt-10 flex items-center justify-center gap-4 flex-wrap">
+            <button className="rounded-full border border-white/20 bg-white/10 px-8 py-3 text-sm font-semibold text-white hover:bg-white/20 transition-colors">
               {isZh ? '进入竞技场' : 'Enter the Arena'}
             </button>
-            <button className="rounded-full border border-white/30 px-8 py-3 text-sm font-semibold text-white hover:bg-white/10 transition-colors">
+            <button className="rounded-full border border-white/10 px-8 py-3 text-sm font-semibold text-white/60 hover:text-white hover:border-white/20 transition-colors">
               {isZh ? '了解更多' : 'Learn More'}
             </button>
           </div>
-          <p className="mt-8 text-sm text-white/40">
+          <p className="mt-10 text-sm text-white/25">
             {isZh ? '134 个 Agent · 68 种策略 · $4800万 交易量' : '134 Agents · 68 Strategies · $48M Volume'}
           </p>
         </div>
