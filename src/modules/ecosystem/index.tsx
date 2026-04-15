@@ -76,10 +76,10 @@ export default function EcosystemModule() {
       `}</style>
 
       {/* Section 1: Hero */}
-      <section className="bg-white relative overflow-hidden pt-24 pb-24 min-h-[90vh] flex items-center">
-        <div className="max-w-[1280px] mx-auto px-10 flex flex-col lg:flex-row items-end gap-16 w-full">
+      <section className="bg-white relative overflow-hidden pt-8 pb-0">
+        <div className="max-w-[1280px] mx-auto px-10 flex flex-col lg:flex-row items-center gap-10 w-full">
           {/* Left column - text */}
-          <div className="flex-1 text-center lg:text-left self-center">
+          <div className="flex-1 text-center lg:text-left">
             <span className="inline-flex items-center px-4 py-1.5 bg-[rgba(82,39,255,0.08)] border border-[rgba(82,39,255,0.15)] rounded-full text-[13px] font-semibold text-[#5227ff] mb-6">
               <span className="w-1.5 h-1.5 bg-[#5227ff] rounded-full mr-2" />
               CoinW Agent Zone v3.0
@@ -115,11 +115,11 @@ export default function EcosystemModule() {
           </div>
 
           {/* Right column - hero visual */}
-          <div className="flex-1 max-w-[560px] mt-12 lg:mt-0 relative flex items-end justify-center">
+          <div className="flex-1 max-w-[640px] mt-12 lg:mt-0 relative flex items-end justify-center">
             <img
               src="/act3/hero_visual.png"
               alt="Agent Trading Arena"
-              className="w-full max-w-[520px]"
+              className="w-full max-w-[600px]"
             />
           </div>
         </div>
