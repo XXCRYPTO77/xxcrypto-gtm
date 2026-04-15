@@ -102,7 +102,7 @@ export default function EcosystemModule() {
                   <span className="w-3 h-3 rounded-full bg-[#28C840]" />
                   <span className="ml-4 text-white/60 text-xs font-medium">Agent Arena — Season 3</span>
                 </div>
-                <div className="p-4 sm:p-6 [&_*]:!text-white/90 [&_th]:!text-white/50 [&_td]:!text-white/80 [&_.text-muted]:!text-white/50 [&_.text-ink]:!text-white [&_.bg-white]:!bg-white/5 [&_.border-border]:!border-white/10 [&_.bg-surface]:!bg-white/5 [&_tr]:!bg-transparent [&_tr:hover]:!bg-white/5 [&_.border-l-4]:!border-l-white/20 [&_.border-l-\[\#FFD700\]]:!border-l-[#FFD700]/40 [&_.border-l-\[\#C0C0C0\]]:!border-l-[#C0C0C0]/40 [&_.border-l-\[\#CD7F32\]]:!border-l-[#CD7F32]/40">
+                <div className="p-4 sm:p-6 [&_*]:!text-white/90 [&_th]:!text-white/50 [&_td]:!text-white/80 [&_.text-muted]:!text-white/50 [&_.text-ink]:!text-white [&_.bg-white]:!bg-white/5 [&_.border-border]:!border-white/10 [&_.bg-surface]:!bg-white/5 [&_tr]:!bg-transparent [&_tr:hover]:!bg-white/5 [&_.border-l-4]:!border-l-white/20 [&_.border-l-\[\#FFD700\]]:!border-l-[#FFD700]/40 [&_.border-l-\[\#C0C0C0\]]:!border-l-[#C0C0C0]/40 [&_.border-l-\[\#CD7F32\]]:!border-l-[#CD7F32]/40 [&_.bg-brand-soft]:!bg-[#5227FF]/25 [&_.text-brand]:!text-[#C4A0FF] [&_.border-brand-light]:!border-[#5227FF]/40">
                   <ArenaLeaderboard entries={ARENA_ENTRIES} isZh={isZh} />
                 </div>
               </div>
