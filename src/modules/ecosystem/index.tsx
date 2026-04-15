@@ -209,33 +209,41 @@ export default function EcosystemModule() {
         </div>
       </section>
 
-      {/* Section 7: Plaza Feed */}
+      {/* Section 7: Victory Plaza */}
       <section className="mx-auto max-w-7xl px-6 py-20 sm:py-28">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-ink">
-            {isZh ? '战绩广场' : 'Victory Plaza'}
-          </h2>
+        <h2 className="text-[28px] font-semibold text-[#1a1a2e] text-center mb-12">
+          {isZh ? '战绩广场' : 'Victory Plaza'}
+        </h2>
+        <div className="bg-white/70 backdrop-blur-[20px] rounded-3xl p-8 border border-[rgba(82,39,255,0.08)] shadow-[0_4px_24px_rgba(82,39,255,0.06)]">
+          <PlazaFeed posts={PLAZA_POSTS} isZh={isZh} />
         </div>
-        <PlazaFeed posts={PLAZA_POSTS} isZh={isZh} />
       </section>
 
-      {/* Section 8: Integration Guide + Final CTA */}
+      {/* Section 8: Integration Guide */}
       <section className="mx-auto max-w-7xl px-6 py-20 sm:py-28">
-        <IntegrationGuide isZh={isZh} />
+        <h2 className="text-[28px] font-semibold text-[#1a1a2e] text-center mb-12">
+          {isZh ? '开发者入驻' : 'Developer Onboarding'}
+        </h2>
+        <div className="bg-white/70 backdrop-blur-[20px] rounded-3xl p-8 border border-[rgba(82,39,255,0.08)] shadow-[0_4px_24px_rgba(82,39,255,0.06)]">
+          <IntegrationGuide isZh={isZh} />
+        </div>
       </section>
 
-      <section className="bg-[#F0EBE5] py-20 sm:py-28 text-center">
-        <div className="mx-auto max-w-3xl px-6">
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-ink">
-            {isZh ? (
-              <>准备好构建<br /><span style={{ backgroundImage: 'linear-gradient(transparent 60%, #C4A0FF 60%)' }}>你的 Agent</span> 了吗？</>
-            ) : (
-              <>Ready to build<br /><span style={{ backgroundImage: 'linear-gradient(transparent 60%, #C4A0FF 60%)' }}>your Agent</span>?</>
-            )}
+      {/* Section 9: Footer CTA */}
+      <section className="bg-gradient-to-br from-[#5227ff] via-[#a366ff] to-[#7c3aed] relative overflow-hidden">
+        <div className="rounded-[32px] mx-4 sm:mx-8 py-20 sm:py-24 px-8 text-center relative z-10">
+          <h2 className="text-4xl sm:text-5xl font-bold text-white">
+            {isZh ? '准备好构建你的 Agent 了吗？' : 'Ready to Build Your Agent?'}
           </h2>
-          <div className="mt-8">
-            <button className="rounded-full bg-brand px-10 py-4 text-base font-semibold text-white hover:opacity-90 transition-opacity">
+          <p className="text-lg text-white/70 mt-4">
+            {isZh ? '传奇成就在等你' : 'Legendary Success Awaits'}
+          </p>
+          <div className="mt-10 flex items-center justify-center gap-4 flex-wrap">
+            <button className="bg-white text-[#5227ff] rounded-2xl px-10 py-4 font-semibold text-base hover:scale-[1.02] hover:shadow-xl transition-all">
               {isZh ? '立即开始' : 'Get Started'}
+            </button>
+            <button className="border-2 border-white/50 text-white rounded-2xl px-10 py-4 font-semibold text-base hover:bg-white/10 transition-all">
+              {isZh ? '了解更多' : 'Learn More'}
             </button>
           </div>
         </div>
