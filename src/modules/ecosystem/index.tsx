@@ -95,14 +95,14 @@ export default function EcosystemModule() {
             {/* Desktop Content Area */}
             <div className="relative p-6 sm:p-10 min-h-[500px]">
               {/* Floating Leaderboard Window */}
-              <div className="rounded-xl overflow-hidden" style={{ background: 'rgba(255,255,255,0.06)', backdropFilter: 'blur(40px)', border: '1px solid rgba(255,255,255,0.1)', boxShadow: '0 8px 32px rgba(0,0,0,0.3), 0 0 80px rgba(82,39,255,0.08)' }}>
+              <div className="rounded-xl overflow-hidden" style={{ background: 'rgba(255,255,255,0.06)', backdropFilter: 'blur(40px)', border: '1px solid rgba(255,255,255,0.15)', boxShadow: '0 8px 32px rgba(0,0,0,0.4), 0 0 60px rgba(82,39,255,0.15), 0 0 120px rgba(82,39,255,0.08), inset 0 1px 0 rgba(255,255,255,0.1)' }}>
                 <div className="flex items-center gap-2 px-4 py-3" style={{ background: 'rgba(255,255,255,0.05)', borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
                   <span className="w-3 h-3 rounded-full bg-[#FF5F57]" />
                   <span className="w-3 h-3 rounded-full bg-[#FEBC2E]" />
                   <span className="w-3 h-3 rounded-full bg-[#28C840]" />
                   <span className="ml-4 text-white/60 text-xs font-medium">Agent Arena — Season 3</span>
                 </div>
-                <div className="p-4 sm:p-6 [&_*]:!text-white/90 [&_th]:!text-white/50 [&_td]:!text-white/80 [&_.text-muted]:!text-white/50 [&_.text-ink]:!text-white [&_.bg-white]:!bg-white/5 [&_.border-border]:!border-white/10 [&_.bg-surface]:!bg-white/5">
+                <div className="p-4 sm:p-6 [&_*]:!text-white/90 [&_th]:!text-white/50 [&_td]:!text-white/80 [&_.text-muted]:!text-white/50 [&_.text-ink]:!text-white [&_.bg-white]:!bg-white/5 [&_.border-border]:!border-white/10 [&_.bg-surface]:!bg-white/5 [&_tr]:!bg-transparent [&_tr:hover]:!bg-white/5 [&_.border-l-4]:!border-l-white/20 [&_.border-l-\[\#FFD700\]]:!border-l-[#FFD700]/40 [&_.border-l-\[\#C0C0C0\]]:!border-l-[#C0C0C0]/40 [&_.border-l-\[\#CD7F32\]]:!border-l-[#CD7F32]/40">
                   <ArenaLeaderboard entries={ARENA_ENTRIES} isZh={isZh} />
                 </div>
               </div>
@@ -114,20 +114,14 @@ export default function EcosystemModule() {
                 <div className="text-[#C4A0FF] text-xs font-bold">$48M Vol</div>
               </div>
 
-              {/* Subtle neon glow effect */}
-              <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse at 30% 50%, rgba(82,39,255,0.08) 0%, transparent 60%), radial-gradient(ellipse at 70% 80%, rgba(139,92,246,0.06) 0%, transparent 50%)' }} />
+              {/* Neon glow effects */}
+              <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse at 20% 30%, rgba(82,39,255,0.18) 0%, transparent 50%), radial-gradient(ellipse at 80% 70%, rgba(139,92,246,0.12) 0%, transparent 45%), radial-gradient(ellipse at 50% 100%, rgba(82,39,255,0.1) 0%, transparent 40%)' }} />
+              {/* Top edge neon line */}
+              <div className="absolute top-0 left-[10%] right-[10%] h-px pointer-events-none" style={{ background: 'linear-gradient(90deg, transparent, rgba(82,39,255,0.5), rgba(139,92,246,0.6), rgba(82,39,255,0.5), transparent)' }} />
             </div>
 
-            {/* macOS Dock */}
-            <div className="flex justify-center pb-4 pt-2">
-              <div className="flex items-center gap-2 px-4 py-2 rounded-2xl" style={{ background: 'rgba(255,255,255,0.08)', backdropFilter: 'blur(20px)', border: '1px solid rgba(255,255,255,0.1)' }}>
-                <div className="w-10 h-10 rounded-xl bg-brand flex items-center justify-center text-white font-bold text-sm">C</div>
-                <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: 'rgba(255,255,255,0.1)' }}><Swords className="w-5 h-5 text-white/60" /></div>
-                <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: 'rgba(255,255,255,0.1)' }}><TrendingUp className="w-5 h-5 text-white/60" /></div>
-                <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: 'rgba(255,255,255,0.1)' }}><Users className="w-5 h-5 text-white/60" /></div>
-                <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: 'rgba(255,255,255,0.1)' }}><Wallet className="w-5 h-5 text-white/60" /></div>
-              </div>
-            </div>
+            {/* Bottom neon edge */}
+            <div className="h-px" style={{ background: 'linear-gradient(90deg, transparent, rgba(82,39,255,0.4), rgba(139,92,246,0.5), rgba(82,39,255,0.4), transparent)' }} />
           </div>
         </div>
         <div className="mt-10 text-center">
