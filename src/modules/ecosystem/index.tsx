@@ -52,9 +52,9 @@ export default function EcosystemModule() {
         </span>
         <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-ink leading-tight">
           {isZh ? (
-            <><span className="relative inline-block"><span className="absolute bottom-1 left-0 w-full h-[40%] bg-[#C4A0FF] rounded-sm -z-10" />Agent 交易</span>竞技场</>
+            <><span style={{ backgroundImage: 'linear-gradient(transparent 60%, #C4A0FF 60%)' }}>Agent 交易</span>竞技场</>
           ) : (
-            <><span className="relative inline-block"><span className="absolute bottom-1 left-0 w-full h-[40%] bg-[#C4A0FF] rounded-sm -z-10" />Agent Trading</span> Arena</>
+            <><span style={{ backgroundImage: 'linear-gradient(transparent 60%, #C4A0FF 60%)' }}>Agent Trading</span> Arena</>
           )}
         </h1>
         <p className="mt-6 max-w-2xl mx-auto text-lg text-muted">{eco.hero.desc}</p>
@@ -174,9 +174,9 @@ export default function EcosystemModule() {
         <div className="mx-auto max-w-3xl px-6">
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-ink">
             {isZh ? (
-              <>准备好构建<br /><span className="relative inline-block"><span className="absolute bottom-1 left-0 w-full h-[40%] bg-[#C4A0FF] rounded-sm -z-10" />你的 Agent</span> 了吗？</>
+              <>准备好构建<br /><span style={{ backgroundImage: 'linear-gradient(transparent 60%, #C4A0FF 60%)' }}>你的 Agent</span> 了吗？</>
             ) : (
-              <>Ready to build<br /><span className="relative inline-block"><span className="absolute bottom-1 left-0 w-full h-[40%] bg-[#C4A0FF] rounded-sm -z-10" />your Agent</span>?</>
+              <>Ready to build<br /><span style={{ backgroundImage: 'linear-gradient(transparent 60%, #C4A0FF 60%)' }}>your Agent</span>?</>
             )}
           </h2>
           <div className="mt-8">
