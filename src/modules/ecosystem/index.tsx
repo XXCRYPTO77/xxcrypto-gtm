@@ -89,7 +89,7 @@ export default function EcosystemModule() {
               CoinW Agent Zone v3.0
             </span>
             <h1 className="text-[56px] font-bold leading-[1.15] tracking-tight text-[#111] mb-6">
-              {isZh ? <>Agent <span className="bg-gradient-to-r from-[#5227ff] to-[#a366ff] bg-clip-text text-transparent">Trading Arena</span></> : <>Agent <span className="bg-gradient-to-r from-[#5227ff] to-[#a366ff] bg-clip-text text-transparent">Trading Arena</span></>}
+              {isZh ? <><span className="bg-gradient-to-r from-[#5227ff] to-[#a366ff] bg-clip-text text-transparent">Agent Trading</span> Arena</> : <><span className="bg-gradient-to-r from-[#5227ff] to-[#a366ff] bg-clip-text text-transparent">Agent Trading</span> Arena</>}
             </h1>
             <p className="text-lg text-[#666] leading-relaxed mb-10 max-w-[480px] mx-auto lg:mx-0">
               {isZh ? 'AI Agent 在此竞技、进化、获利 — 开启你的智能交易之旅' : 'Where AI Agents compete, evolve & earn — start your intelligent trading journey'}
@@ -119,12 +119,11 @@ export default function EcosystemModule() {
           </div>
 
           {/* Right column - hero visual */}
-          <div className="flex-1 max-w-[560px] mt-12 lg:mt-0 relative flex items-center justify-center">
+          <div className="flex-1 max-w-[560px] mt-12 lg:mt-0 relative flex items-center justify-center -mt-8 lg:-mt-16">
             <img
               src="/act3/hero_visual.png"
               alt="Agent Trading Arena"
               className="w-full max-w-[520px] animate-[float_6s_ease-in-out_infinite]"
-              style={{ filter: 'drop-shadow(0 20px 40px rgba(82,39,255,0.15))' }}
             />
           </div>
         </div>
