@@ -44,7 +44,7 @@ export default function EcosystemModule() {
   const features = isZh ? FEATURES_ZH : FEATURES_EN;
 
   return (
-    <div className="min-h-screen bg-[#FAF8F5]">
+    <div className="min-h-screen bg-[#08081a]">
       {/* Section 1: Hero — pure CSS dark hero like Neone */}
       <section className="relative overflow-hidden" style={{ background: '#08081a' }}>
         {/* CSS Arc glow */}
@@ -55,8 +55,7 @@ export default function EcosystemModule() {
         <div className="absolute left-1/2 -translate-x-1/2" style={{ top: '-350px', width: '1100px', height: '750px', borderRadius: '50%', border: '1px solid rgba(140,100,255,0.12)' }} />
         {/* Subtle stars */}
         <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,0.4) 50%, transparent 50%), radial-gradient(1px 1px at 30% 65%, rgba(255,255,255,0.3) 50%, transparent 50%), radial-gradient(1.5px 1.5px at 55% 15%, rgba(255,255,255,0.5) 50%, transparent 50%), radial-gradient(1px 1px at 70% 40%, rgba(255,255,255,0.3) 50%, transparent 50%), radial-gradient(1px 1px at 85% 70%, rgba(255,255,255,0.4) 50%, transparent 50%), radial-gradient(1.5px 1.5px at 20% 80%, rgba(255,255,255,0.2) 50%, transparent 50%), radial-gradient(1px 1px at 90% 20%, rgba(255,255,255,0.3) 50%, transparent 50%), radial-gradient(1px 1px at 45% 50%, rgba(255,255,255,0.2) 50%, transparent 50%), radial-gradient(1.5px 1.5px at 65% 85%, rgba(255,255,255,0.3) 50%, transparent 50%), radial-gradient(1px 1px at 5% 50%, rgba(255,255,255,0.25) 50%, transparent 50%)' }} />
-        {/* Bottom fade */}
-        <div className="absolute bottom-0 left-0 right-0 h-32" style={{ background: 'linear-gradient(to bottom, transparent, #FAF8F5)' }} />
+
 
         <div className="relative mx-auto max-w-7xl px-6 pt-32 pb-28 sm:pt-40 sm:pb-36 text-center">
           <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-5 py-2 text-xs font-medium text-white/70 mb-8">
@@ -86,7 +85,7 @@ export default function EcosystemModule() {
       {/* Section 2: Arena Spotlight */}
       <section className="py-20 sm:py-28">
         <div className="text-center mb-12 px-6">
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-ink">
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white">
             {isZh ? '实时竞赛' : 'Live Competition'}
           </h2>
         </div>
@@ -157,18 +156,18 @@ export default function EcosystemModule() {
       {/* Section 3: Features Grid */}
       <section className="mx-auto max-w-7xl px-6 py-20 sm:py-28">
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-ink">
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white">
             {isZh ? '核心能力' : 'Core Features'}
           </h2>
         </div>
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10">
           {features.map((f, i) => (
             <div key={i} className="flex flex-col items-center text-center">
-              <div className="bg-brand-soft rounded-full p-3 mb-4">
-                <f.icon className="w-8 h-8 text-brand" />
+              <div className="bg-[#5227FF]/15 rounded-full p-3 mb-4">
+                <f.icon className="w-8 h-8 text-[#C4A0FF]" />
               </div>
-              <h3 className="font-bold text-ink text-sm sm:text-base">{f.label}</h3>
-              <p className="mt-1 text-xs text-muted">{f.desc}</p>
+              <h3 className="font-bold text-white text-sm sm:text-base">{f.label}</h3>
+              <p className="mt-1 text-xs text-white/50">{f.desc}</p>
             </div>
           ))}
         </div>
@@ -177,49 +176,59 @@ export default function EcosystemModule() {
       {/* Section 4: Agent Directory */}
       <section className="mx-auto max-w-7xl px-6 py-20 sm:py-28">
         <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-ink">
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white">
             {isZh ? 'Agent 目录' : 'Agent Directory'}
           </h2>
         </div>
-        <AgentList agents={AGENTS} isZh={isZh} />
+        <div className="[&_.text-ink]:!text-white [&_.text-muted]:!text-white/50 [&_.border-border]:!border-white/10 [&_.bg-white]:!bg-white/5 [&_.bg-surface]:!bg-white/5 [&_.bg-brand-soft]:!bg-[#5227FF]/20 [&_.text-brand]:!text-[#C4A0FF] [&_.border-brand-light]:!border-[#5227FF]/40 [&_.bg-page]:!bg-transparent">
+          <AgentList agents={AGENTS} isZh={isZh} />
+        </div>
       </section>
 
       {/* Section 5: Strategy & Evolution */}
       <section className="mx-auto max-w-7xl px-6 py-20 sm:py-28">
-        <div className="grid lg:grid-cols-2 gap-10">
-          <StrategyLibrary strategies={STRATEGIES} isZh={isZh} />
-          <ContributorRank isZh={isZh} />
+        <div className="[&_.text-ink]:!text-white [&_.text-muted]:!text-white/50 [&_.border-border]:!border-white/10 [&_.bg-white]:!bg-white/5 [&_.bg-surface]:!bg-white/5 [&_.bg-brand-soft]:!bg-[#5227FF]/20 [&_.text-brand]:!text-[#C4A0FF] [&_.border-brand-light]:!border-[#5227FF]/40 [&_.bg-page]:!bg-transparent">
+          <div className="grid lg:grid-cols-2 gap-10">
+            <StrategyLibrary strategies={STRATEGIES} isZh={isZh} />
+            <ContributorRank isZh={isZh} />
+          </div>
         </div>
       </section>
 
       {/* Section 6: Revenue Sharing */}
       <section className="mx-auto max-w-7xl px-6 py-20 sm:py-28">
-        <div className="max-w-3xl mx-auto">
-          <RevenueCalculator isZh={isZh} />
-        </div>
-        <div className="mt-12">
-          <ContributorTiers isZh={isZh} />
+        <div className="[&_.text-ink]:!text-white [&_.text-muted]:!text-white/50 [&_.border-border]:!border-white/10 [&_.bg-white]:!bg-white/5 [&_.bg-surface]:!bg-white/5 [&_.bg-brand-soft]:!bg-[#5227FF]/20 [&_.text-brand]:!text-[#C4A0FF] [&_.border-brand-light]:!border-[#5227FF]/40 [&_.bg-page]:!bg-transparent">
+          <div className="max-w-3xl mx-auto">
+            <RevenueCalculator isZh={isZh} />
+          </div>
+          <div className="mt-12">
+            <ContributorTiers isZh={isZh} />
+          </div>
         </div>
       </section>
 
       {/* Section 7: Plaza Feed */}
       <section className="mx-auto max-w-7xl px-6 py-20 sm:py-28">
         <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-ink">
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white">
             {isZh ? '战绩广场' : 'Victory Plaza'}
           </h2>
         </div>
-        <PlazaFeed posts={PLAZA_POSTS} isZh={isZh} />
+        <div className="[&_.text-ink]:!text-white [&_.text-muted]:!text-white/50 [&_.border-border]:!border-white/10 [&_.bg-white]:!bg-white/5 [&_.bg-surface]:!bg-white/5 [&_.bg-brand-soft]:!bg-[#5227FF]/20 [&_.text-brand]:!text-[#C4A0FF] [&_.border-brand-light]:!border-[#5227FF]/40 [&_.bg-page]:!bg-transparent">
+          <PlazaFeed posts={PLAZA_POSTS} isZh={isZh} />
+        </div>
       </section>
 
       {/* Section 8: Integration Guide + Final CTA */}
       <section className="mx-auto max-w-7xl px-6 py-20 sm:py-28">
-        <IntegrationGuide isZh={isZh} />
+        <div className="[&_.text-ink]:!text-white [&_.text-muted]:!text-white/50 [&_.border-border]:!border-white/10 [&_.bg-white]:!bg-white/5 [&_.bg-surface]:!bg-white/5 [&_.bg-brand-soft]:!bg-[#5227FF]/20 [&_.text-brand]:!text-[#C4A0FF] [&_.border-brand-light]:!border-[#5227FF]/40 [&_.bg-page]:!bg-transparent">
+          <IntegrationGuide isZh={isZh} />
+        </div>
       </section>
 
-      <section className="bg-[#F0EBE5] py-20 sm:py-28 text-center">
+      <section className="bg-white/5 py-20 sm:py-28 text-center">
         <div className="mx-auto max-w-3xl px-6">
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-ink">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white">
             {isZh ? (
               <>准备好构建<br /><span style={{ backgroundImage: 'linear-gradient(transparent 60%, #C4A0FF 60%)' }}>你的 Agent</span> 了吗？</>
             ) : (
