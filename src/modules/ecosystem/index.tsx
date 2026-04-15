@@ -118,38 +118,14 @@ export default function EcosystemModule() {
             </div>
           </div>
 
-          {/* Right column - dashboard visual */}
-          <div className="flex-1 max-w-[560px] lg:max-w-[560px] max-w-[400px] mt-12 lg:mt-0 relative flex items-center justify-center">
-            <div className="absolute w-[400px] h-[400px] rounded-full border-2 border-[rgba(82,39,255,0.1)] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 hidden lg:block" />
-            <div className="relative w-full max-w-[520px] animate-[float_6s_ease-in-out_infinite]" style={{ filter: 'drop-shadow(0 20px 40px rgba(82,39,255,0.15))' }}>
-              <div className="bg-[#12122A] rounded-[20px] p-6 border border-[#2A2A4A]">
-                <div className="flex gap-2 mb-4">
-                  <span className="w-3 h-3 rounded-full bg-[#FF5F57]" />
-                  <span className="w-3 h-3 rounded-full bg-[#FEBC2E]" />
-                  <span className="w-3 h-3 rounded-full bg-[#28C840]" />
-                </div>
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#5227ff] to-[#a366ff] flex items-center justify-center text-white text-lg">🤖</div>
-                  <div>
-                    <div className="text-white font-bold text-sm">Alpha-7</div>
-                    <div className="flex items-center gap-1.5">
-                      <span className="w-2 h-2 rounded-full bg-[#22C55E]" />
-                      <span className="text-[#22C55E] text-xs font-medium">Active</span>
-                    </div>
-                  </div>
-                  <div className="ml-auto text-right">
-                    <div className="text-[#22C55E] text-xl font-bold">+23.5%</div>
-                    <div className="text-[#A0A0B8] text-xs">7D Return</div>
-                  </div>
-                </div>
-                <div className="flex items-end gap-1 h-20 mt-4">
-                  {[40,55,35,65,50,70,45,80,60,75,85,65,90,70,95,80,60,75,85,92].map((h, i) => (
-                    <div key={i} className="flex-1 rounded-t" style={{ height: `${h}%`, background: 'linear-gradient(to top, #5227ff, #a366ff)', opacity: 0.6 + (i/20)*0.4 }} />
-                  ))}
-                </div>
-              </div>
-            </div>
-            <div className="absolute -bottom-4 -left-4 w-[90%] h-[85%] bg-[#12122A] rounded-[20px] border border-[#2A2A4A] -z-10 opacity-40" />
+          {/* Right column - hero visual */}
+          <div className="flex-1 max-w-[560px] mt-12 lg:mt-0 relative flex items-center justify-center">
+            <img
+              src="/act3/hero_visual.png"
+              alt="Agent Trading Arena"
+              className="w-full max-w-[520px] animate-[float_6s_ease-in-out_infinite]"
+              style={{ filter: 'drop-shadow(0 20px 40px rgba(82,39,255,0.15))' }}
+            />
           </div>
         </div>
       </section>
