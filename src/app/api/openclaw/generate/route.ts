@@ -96,7 +96,7 @@ export async function POST(req: Request) {
   // ─── 行情数据 ──────────────────────────────────────────────
   const tickers = market?.tickers ?? topic.tickers;
   const tickerLine = tickers
-    .map((t) => `${t.symbol} $${t.price.toLocaleString()} (${t.change24h >= 0 ? '+' : ''}${t.change24h}%)`)
+    .map((t) => `${t.symbol} $${t.price.toLocaleString(undefined, { maximumFractionDigits: 4 })} (${t.change24h >= 0 ? '+' : ''}${t.change24h.toFixed(2)}%)`)
     .join(' | ');
 
   // 资金费率（如果有）
@@ -140,7 +140,7 @@ export async function POST(req: Request) {
       { role: 'system', content: systemPrompt },
       { role: 'user', content: userMsg },
     ],
-    max_tokens: 120,
+    max_tokens: 200,
     temperature: 0.92,
     top_p: 0.9,
   };
