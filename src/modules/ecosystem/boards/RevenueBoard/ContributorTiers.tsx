@@ -1,12 +1,31 @@
 'use client';
 
+import { Sprout, Gem, Crown } from 'lucide-react';
+import type { LucideIcon } from 'lucide-react';
+
 interface ContributorTiersProps {
   isZh: boolean;
 }
 
-const TIERS = [
+const TIERS: Array<{
+  icon: LucideIcon;
+  iconColor: string;
+  iconGlow: string;
+  glowFrom: string;
+  glowTo: string;
+  borderGlow: string;
+  accentColor: string;
+  nameZh: string;
+  nameEn: string;
+  tagZh: string;
+  tagEn: string;
+  perksZh: string[];
+  perksEn: string[];
+}> = [
   {
-    emoji: '🌱',
+    icon: Sprout,
+    iconColor: '#34D399',
+    iconGlow: 'rgba(52,211,153,0.3)' ,
     glowFrom: 'from-emerald-500/40',
     glowTo: 'to-green-400/20',
     borderGlow: 'rgba(16,185,129,0.3)',
@@ -19,7 +38,9 @@ const TIERS = [
     perksEn: ['Publish strategy cards', 'Called by all Agents', 'Community leaderboard display'],
   },
   {
-    emoji: '💎',
+    icon: Gem,
+    iconColor: '#FBBF24',
+    iconGlow: 'rgba(251,191,36,0.3)',
     glowFrom: 'from-amber-500/40',
     glowTo: 'to-orange-400/20',
     borderGlow: 'rgba(245,158,11,0.3)',
@@ -32,7 +53,9 @@ const TIERS = [
     perksEn: ['Priority placement', 'Verified contributor badge', 'Revenue sharing'],
   },
   {
-    emoji: '👑',
+    icon: Crown,
+    iconColor: '#A78BFA',
+    iconGlow: 'rgba(167,139,250,0.3)',
     glowFrom: 'from-violet-500/40',
     glowTo: 'to-purple-400/20',
     borderGlow: 'rgba(139,92,246,0.3)',
@@ -58,9 +81,17 @@ export function ContributorTiers({ isZh }: ContributorTiersProps) {
           {/* Bottom glow */}
           <div className={`absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t ${tier.glowFrom} ${tier.glowTo} to-transparent opacity-60 group-hover:opacity-90 transition-opacity duration-500 blur-sm`} />
 
-          {/* Icon area with subtle dark gradient */}
+          {/* Glassmorphism icon */}
           <div className="relative flex items-center justify-center pt-10 pb-6">
-            <div className="text-6xl drop-shadow-2xl">{tier.emoji}</div>
+            <div
+              className="h-20 w-20 rounded-2xl flex items-center justify-center backdrop-blur-xl border border-white/10"
+              style={{
+                background: `linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 100%)`,
+                boxShadow: `0 8px 32px ${tier.iconGlow}, inset 0 1px 0 rgba(255,255,255,0.1)`,
+              }}
+            >
+              <tier.icon className="h-10 w-10" style={{ color: tier.iconColor, filter: `drop-shadow(0 0 12px ${tier.iconGlow})` }} />
+            </div>
           </div>
 
           {/* Content */}
