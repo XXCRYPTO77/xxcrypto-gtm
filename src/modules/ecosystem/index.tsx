@@ -127,8 +127,14 @@ export default function EcosystemModule() {
 
       {/* Section 2: Live Arena — Podium Leaderboard */}
       <section className="bg-[#0A0A1A] py-24 relative overflow-hidden">
-        {/* Purple glow top-left */}
-        <div className="absolute -top-[200px] -left-[200px] w-[600px] h-[600px] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(82,39,255,0.1) 0%, transparent 70%)' }} />
+        {/* Grid overlay */}
+        <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: 'linear-gradient(rgba(82,39,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(82,39,255,0.04) 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
+
+        {/* Floating purple orbs */}
+        <div className="absolute w-[400px] h-[400px] rounded-full pointer-events-none" style={{ top: '-10%', left: '-5%', background: 'radial-gradient(circle, rgba(82,39,255,0.12) 0%, transparent 70%)', animation: 'floatOrb 12s ease-in-out infinite' }} />
+        <div className="absolute w-[300px] h-[300px] rounded-full pointer-events-none" style={{ top: '50%', right: '-3%', background: 'radial-gradient(circle, rgba(82,39,255,0.08) 0%, transparent 70%)', animation: 'floatOrb 15s ease-in-out 2s infinite' }} />
+        <div className="absolute w-[250px] h-[250px] rounded-full pointer-events-none" style={{ bottom: '5%', left: '20%', background: 'radial-gradient(circle, rgba(82,39,255,0.06) 0%, transparent 70%)', animation: 'floatOrb 10s ease-in-out 4s infinite' }} />
+        <div className="absolute w-[350px] h-[350px] rounded-full pointer-events-none" style={{ top: '30%', left: '60%', background: 'radial-gradient(circle, rgba(120,80,255,0.07) 0%, transparent 70%)', animation: 'floatOrb 18s ease-in-out 1s infinite' }} />
 
         {/* Floating crypto tokens */}
         {[
