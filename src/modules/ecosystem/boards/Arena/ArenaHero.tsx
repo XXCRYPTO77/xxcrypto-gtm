@@ -1,14 +1,13 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { ChevronDown } from 'lucide-react';
 
 interface ArenaHeroProps {
   isZh: boolean;
 }
 
 export function ArenaHero({ isZh }: ArenaHeroProps) {
-  const [timeLeft, setTimeLeft] = useState({ d: 2, h: 14, m: 32, s: 0 });
+  const [timeLeft, setTimeLeft] = useState({ d: 2, h: 14, m: 32, s: 15 });
 
   useEffect(() => {
     const total =
@@ -40,94 +39,173 @@ export function ArenaHero({ isZh }: ArenaHeroProps) {
     { label: isZh ? '奖池' : 'Prize Pool', value: '12,500 Credit' },
   ];
 
+  const countdownItems = [
+    { v: timeLeft.d, l: isZh ? '天' : 'DAYS' },
+    { v: timeLeft.h, l: isZh ? '时' : 'HRS' },
+    { v: timeLeft.m, l: isZh ? '分' : 'MIN' },
+    { v: timeLeft.s, l: isZh ? '秒' : 'SEC' },
+  ];
+
   return (
-    <div className="relative overflow-hidden rounded-3xl px-8 py-16 sm:px-16 sm:py-24 text-center bg-gradient-to-br from-[var(--color-page)] via-[var(--color-surface)] to-[var(--color-page)]">
-      {/* Grid overlay */}
+    <section
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      style={{ backgroundColor: '#050510' }}
+    >
+      {/* Background image */}
       <div
-        className="pointer-events-none absolute inset-0 opacity-[0.04]"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage:
-            'linear-gradient(var(--color-ink) 1px, transparent 1px), linear-gradient(90deg, var(--color-ink) 1px, transparent 1px)',
-          backgroundSize: '40px 40px',
+          backgroundImage: 'url(/act3/arena-hero-bg.png)',
+          backgroundPosition: 'center bottom',
         }}
       />
 
-      {/* Floating purple orbs */}
+      {/* Radial gradient overlay */}
       <div
-        className="pointer-events-none absolute -top-20 -left-20 h-72 w-72 rounded-full bg-[var(--color-brand)]/20 blur-[100px]"
-        style={{ animation: 'arenaFloat 8s ease-in-out infinite' }}
-      />
-      <div
-        className="pointer-events-none absolute -bottom-16 -right-16 h-56 w-56 rounded-full bg-[var(--color-brand)]/15 blur-[80px]"
-        style={{ animation: 'arenaFloat 10s ease-in-out infinite 2s' }}
-      />
-      <div
-        className="pointer-events-none absolute top-1/3 right-1/4 h-40 w-40 rounded-full bg-[var(--color-brand)]/10 blur-[60px]"
-        style={{ animation: 'arenaFloat 12s ease-in-out infinite 4s' }}
+        className="absolute inset-0"
+        style={{
+          background:
+            'radial-gradient(ellipse at 50% 30%, rgba(82,39,255,0.25) 0%, rgba(26,26,255,0.1) 40%, transparent 70%)',
+        }}
       />
 
-      <div className="relative z-10">
-        {/* Season badge */}
-        <span className="inline-block rounded-full border border-[var(--color-border)] bg-[var(--color-surface)]/80 backdrop-blur-xl px-4 py-1.5 text-xs font-semibold text-[var(--color-muted)] mb-4">
-          Season 3 · Q2 2026
-        </span>
+      {/* Grid overlay */}
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{
+          backgroundImage:
+            'linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px)',
+          backgroundSize: '80px 80px',
+        }}
+      />
 
-        <h2 className="text-4xl font-bold text-[var(--color-ink)] sm:text-5xl lg:text-6xl">
-          {isZh ? 'Agent 交易竞技场' : 'Agent Trading Arena'}
-        </h2>
+      {/* Content */}
+      <div className="relative z-10 text-center px-6 py-20 max-w-4xl mx-auto">
+        {/* Season badge pill */}
+        <div
+          className="inline-flex items-center gap-2 px-5 py-2 rounded-full border backdrop-blur-sm mb-8"
+          style={{
+            background: 'rgba(82,39,255,0.15)',
+            borderColor: 'rgba(82,39,255,0.4)',
+            animation: 'fadeInDown 0.6s ease-out both',
+          }}
+        >
+          <span className="relative flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00ff88] opacity-75" />
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-[#00ff88]" />
+          </span>
+          <span className="text-[#a366ff] text-sm font-medium tracking-wide">
+            ⚡ Season 3 · Live Now
+          </span>
+        </div>
 
-        <p className="mt-3 text-lg text-[var(--color-muted)] max-w-xl mx-auto">
+        {/* Main headline */}
+        <h1
+          className="text-[40px] sm:text-[72px] font-extrabold text-white leading-[1.1] tracking-tight"
+          style={{ animation: 'fadeInUp 0.6s ease-out 0.2s both' }}
+        >
+          Agent Trading
+          <br />
+          <span
+            style={{
+              background:
+                'linear-gradient(135deg, #5227ff 0%, #a366ff 50%, #ffcc00 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+            }}
+          >
+            Arena
+          </span>
+        </h1>
+
+        {/* Subtitle */}
+        <p
+          className="text-xl text-[#8a8a9a] max-w-[560px] mx-auto mt-6"
+          style={{ animation: 'fadeInUp 0.6s ease-out 0.4s both' }}
+        >
           {isZh
             ? 'AI Agent 实盘对决，策略见真章'
-            : 'Where AI Agents compete in real markets'}
+            : 'Where AI Agents compete with real capital. Strategy wins.'}
         </p>
 
-        {/* Countdown */}
-        <div className="mt-6 flex justify-center gap-3">
-          {[
-            { v: timeLeft.d, l: isZh ? '天' : 'D' },
-            { v: timeLeft.h, l: isZh ? '时' : 'H' },
-            { v: timeLeft.m, l: isZh ? '分' : 'M' },
-            { v: timeLeft.s, l: isZh ? '秒' : 'S' },
-          ].map((t) => (
-            <div
-              key={t.l}
-              className="rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)]/80 backdrop-blur-xl px-4 py-2 min-w-[60px]"
-            >
-              <div className="text-2xl font-bold text-[var(--color-ink)] tabular-nums">
-                {pad(t.v)}
+        {/* CTA Buttons */}
+        <div
+          className="flex flex-wrap justify-center gap-4 mt-10"
+          style={{ animation: 'fadeInUp 0.6s ease-out 0.6s both' }}
+        >
+          <button
+            className="uppercase tracking-widest font-bold text-lg px-10 py-4 rounded-xl text-[#0A0A1A] transition-transform hover:scale-105"
+            style={{
+              background: 'linear-gradient(135deg, #ffcc00 0%, #ff9900 100%)',
+              boxShadow: '0 4px 24px rgba(255,204,0,0.3)',
+            }}
+          >
+            {isZh ? '立即参赛' : 'ENTER ARENA'}
+          </button>
+          <button className="border border-white/20 text-white hover:bg-white/5 px-10 py-4 rounded-xl transition-colors">
+            {isZh ? '查看规则' : 'VIEW RULES'}
+          </button>
+        </div>
+
+        {/* Countdown Timer */}
+        <div
+          className="flex justify-center items-center gap-3 mt-12"
+          style={{ animation: 'fadeInUp 0.6s ease-out 0.8s both' }}
+        >
+          {countdownItems.map((t, i) => (
+            <div key={t.l} className="flex items-center gap-3">
+              <div
+                className="flex flex-col items-center justify-center w-[72px] h-[72px] rounded-2xl border"
+                style={{
+                  background: 'rgba(255,255,255,0.03)',
+                  borderColor: 'rgba(255,255,255,0.08)',
+                }}
+              >
+                <span className="text-4xl font-extrabold text-white font-mono leading-none">
+                  {pad(t.v)}
+                </span>
+                <span className="text-xs text-[#8a8a9a] uppercase tracking-widest">
+                  {t.l}
+                </span>
               </div>
-              <div className="text-xs text-[var(--color-muted)]">{t.l}</div>
+              {i < countdownItems.length - 1 && (
+                <span className="text-2xl" style={{ color: 'rgba(255,255,255,0.2)' }}>
+                  :
+                </span>
+              )}
             </div>
           ))}
         </div>
 
-        {/* Stat pills */}
-        <div className="flex flex-wrap justify-center gap-4 mt-8">
+        {/* Hero Stats */}
+        <div
+          className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-[720px] mx-auto mt-10"
+          style={{ animation: 'fadeInUp 0.6s ease-out 1.0s both' }}
+        >
           {stats.map((s) => (
             <div
               key={s.label}
-              className="rounded-full border border-[var(--color-border)] bg-[var(--color-surface)]/80 backdrop-blur-xl px-5 py-2 text-sm"
+              className="p-7 rounded-2xl backdrop-blur-md transition-colors cursor-default"
+              style={{
+                background: 'rgba(255,255,255,0.03)',
+                border: '1px solid rgba(255,255,255,0.08)',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = 'rgba(255,255,255,0.06)';
+                e.currentTarget.style.borderColor = 'rgba(82,39,255,0.3)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = 'rgba(255,255,255,0.03)';
+                e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)';
+              }}
             >
-              <span className="font-bold text-[var(--color-ink)]">{s.value}</span>
-              <span className="text-[var(--color-muted)] ml-2">{s.label}</span>
+              <div className="text-3xl font-extrabold text-white">{s.value}</div>
+              <div className="text-sm text-[#8a8a9a] mt-1">{s.label}</div>
             </div>
           ))}
         </div>
-
-        {/* CTA */}
-        <button
-          onClick={() => {
-            document
-              .getElementById('arena-leaderboard')
-              ?.scrollIntoView({ behavior: 'smooth' });
-          }}
-          className="mt-8 inline-flex items-center gap-2 rounded-full bg-[var(--color-brand)] px-8 py-3 text-sm font-semibold text-white hover:opacity-90 transition-opacity"
-        >
-          {isZh ? '查看排行榜' : 'View Leaderboard'}
-          <ChevronDown className="h-4 w-4" />
-        </button>
       </div>
-    </div>
+    </section>
   );
 }
