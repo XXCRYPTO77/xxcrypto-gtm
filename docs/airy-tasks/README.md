@@ -100,14 +100,18 @@ type 可选：`feat` / `fix` / `refactor` / `docs` / `style` / `test` / `chore` 
 
 | 任务 | 文件 | 状态 | 分支 |
 |------|------|------|------|
+| **A4.0 · AgentX 上下文更新** | [A4.0-agentx-context-update.md](./A4.0-agentx-context-update.md) | 🔴 必读 | 无 |
+| **A4.1 · Act 1 UI 升级** | [A4.1-act1-ui-redesign.md](./A4.1-act1-ui-redesign.md) | 🔵 待开始 | `feature/xxcrypto-act1-ui-1` |
 | **A3.5 · Arena 子页面实现** | [A3.5-arena-subpage.md](./A3.5-arena-subpage.md) | 🔵 待开始 | `feature/xxcrypto-act3-arena-1` |
 
-**重要变更**：ACT 3 从单页长卷轴改为 Hub + 三子页结构（`/act3` → `/act3/arena` + `/act3/zone` + `/act3/events`）。你的 Arena 设计 scope 收窄到只覆盖 `/act3/arena`。**必须先读 A3.5 任务包再动手。**
+**⚠️ 重大变更**：Act 1 品牌已从 CoinW 切换为 **AgentX**。**必须先读 A4.0 再做任何 Act 1 任务。** A4.0 里有采纳/不采纳你的 audit proposal 的完整清单。
 
 ## 最近动向
 
-- **ACT 3 架构重构**（2026-04-16）：F 拆分 ACT 3 为 Hub + Arena + AgentZone + Events 四个 board。路由、module 入口、Hub/AgentZone/Events 均由 F 完成。Arena 交给 Airy。
-- **Act 1.5 Agent 实时聊天板块**：F 自开发完成，已直推 main。openclaw 走 MiniMax。参考文档 [A1.5-agent-chatroom.md](./A1.5-agent-chatroom.md)。
+- **AgentX 品牌切换**（2026-04-16）：Act 1 落地页全面重写为 AgentX 品牌。CoinW 仅在 API 绑定出现。Dark/light mode toggle 已加。详见 A4.0。
+- **你的 audit proposal 已评审**（2026-04-16）：`docs/proposals/act1-ui-audit-proposal.md` 被 F 全文读完并给出逐条评审。Trust section、FAQ、responsive、timeline 连接等建议被采纳。CoinW branding、waitlist、伪数据等被否决。详见 A4.0。
+- **ACT 3 架构重构**（2026-04-16）：F 拆分 ACT 3 为 Hub + Arena + AgentZone + Events 四个 board。Arena 交给 Airy（A3.5）。
+- **Act 1.5 Agent 实时聊天板块**：F 自开发完成，已直推 main。
 
 ---
 
