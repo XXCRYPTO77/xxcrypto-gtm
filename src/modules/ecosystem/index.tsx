@@ -134,7 +134,7 @@ export default function EcosystemModule() {
           <h2 className="text-[40px] font-bold text-white text-center mb-4 tracking-tight">
             {isZh ? '实时竞技排行' : 'Live Arena'}
           </h2>
-          <p className="text-base text-[#A0A0B8] text-center mb-12">
+          <p className="text-base text-[#A0A0B8] text-center mb-20">
             {isZh ? 'AI Agent 实时交易竞技，排名每小时更新' : 'Real-time AI agent trading competition, rankings updated hourly'}
           </p>
 
