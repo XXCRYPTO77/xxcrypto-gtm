@@ -201,142 +201,147 @@ modules/agent-chat/
 
 ## 4. Act 3「生态」— v1.5 交易Skill生态（终态）
 
+> **2026-04-16 重构**：从单页长卷轴改为 Hub + 三子页结构。解决信息过载问题。
+
 ### 定位
-产品当前规划的终态。四个板块构成完整生态闭环。
+产品当前规划的终态。Hub 总览 + 三个子页面，按用户动线分流。
 
-### 页面结构
-
-**4.1 板块A：双Agent接入**
-
-两条接入路径并排展示：
-
-| | 自营Agent（CoinW官方） | 外部Agent（第三方） |
-|---|---|---|
-| 用户 | CoinW App/Web用户 | 任何Agent开发者 |
-| 接入方式 | 内置，零配置 | MCP协议/API接入 |
-| 流程 | 用户→CoinW Agent→Skills→交易所API | 外部Agent→MCP Gateway→Skills→交易所API |
-| 视觉色 | CoinW紫色 | 渐变色 |
-
-中间汇合点：两条路径共享Skills层和交易所API。
-
-底部统计mock：在线Agent数 / 日均调用量 / 外部接入方数量
-
-**4.2 板块B：Skill进化协作（evomap参考，给Agent用的）**
-
-三个子区：
-
-**Skill Registry（注册表网格）**
-- 14-20张Skill卡片
-- 每张：Skill名称 / 类别标签 / 评分★ / 调用次数 / 作者 / 安装按钮
-- 分类筛选：信息类 / 交易类 / 分析类 / 策略类 / 风控类
-- 鼠标悬停高亮动效
-
-**Bounty Task池（悬赏任务）**
-- 3-5个进行中的任务卡片，每张包含：
-  - 任务标题（"构建ETH链上异动监控Skill"）
-  - 赏金（500 Credit）
-  - 竞标Agent数
-  - 状态标签：竞标中 / 已提交 / 已完成
-  - 截止时间
-- 这是Agent之间的任务市场，不是人类论坛
-- 任何Agent可自主接单、竞标、提交成果
-- 平台评分（性能/效率/可靠性）→ 最优胜出
-
-**Skill进化链（Evolution Chain）**
-- 一条Skill的迭代历史可视化：
-  - v0.1 基础行情查询 → v0.2 +深度数据 → v0.3 +资金流向 → v1.0 综合市场感知
-- 每个版本节点：改了什么 / 评分变化 / 调用量变化
-- 类似git history可视化
-
-**4.3 板块C：Agent交易竞技**
-
-**交易赛（Trading Arena）**
-- 赛事信息卡：
-  - 当前赛季："Q2 2026 Agent交易锦标赛"
-  - 赛制说明 / 报名条件 / 奖池 / 持续时间
-- 排行榜mock：
-  - 排名 / Agent名称 / 策略类型 / 收益率 / 最大回撤 / 夏普比率
-  - Top 5高亮
-- 交互说明文字：怎么参赛、怎么评分、奖励怎么发
-
-**跟单（Copy Trading）**
-- 明星Agent卡片（3-4张）：
-  - Agent头像 + 名称
-  - 近30天收益率曲线（小折线图）
-  - 策略标签（趋势追踪/套利/高频）
-  - 跟单人数 / 总管理资金
-  - "一键跟单"按钮
-- 跟单流程说明：选择Agent → 设定参数（金额/比例/止损）→ Agent同步交易 → 结算分成
-
-**流转流程图（板块底部）**
+### 路由结构（shell层）
 ```
-Agent在Skill进化协作中磨炼策略
-  → 参加交易赛验证实力
-    → 胜出成为明星Agent
-      → 开放跟单
-        → 用户跟单获益
-          → 收益分成回流
+/act3              → Hub 总览（入口导航 + 生态快照）
+/act3/arena        → 竞技场（Agent 交易竞技 + 跟单）
+/act3/zone         → AgentZone（Agent/策略发现 + 开发者入驻 + 收益模型）
+/act3/events       → 活动中心（Bounty + 赛季活动 + 社区挑战）
 ```
 
-**4.4 板块D：分润闭环（经济引擎）**
+### 4.0 Hub 总览页 `/act3`
 
-**Credit流转全景图**（桑基图/循环流向图风格）
+一屏到底的导航页，不滚无限。
 
-四个节点之间的资金/Credit流动：
-- **Skill作者** — 发布Skill被调用→赚Credit / 完成Bounty→赚Credit
-- **Agent运营者** — 挂载Skill跑策略→交易收益的X%作为Skill调用费
-- **跟单用户** — 跟单获益→收益的Y%给Agent运营者
-- **平台CoinW** — 每笔交易手续费 + Skill调用平台抽成
+**Hero**：Act 3 标题 + "交易 Skill 生态" + 一句话定位
 
-每条流动线标注mock数据。
+**生态快照**：4 个关键数字（glass pill 样式）
+- 在线 Agent 数 / 策略总数 / 当前赛季 / 活跃活动数
 
-底部三组统计：
-- Skill生态：上架数 / Bounty完成率 / 平均迭代次数
-- 交易竞技：参赛Agent数 / 冠军收益率 / 跟单总用户数
-- 经济规模：Credit日流通量 / Skill作者总收入 / 平台分润总额
+**三张导航卡**（竞技场 / AgentZone / 活动中心）：
+- 每张：icon + 标题 + 一句话描述 + 缩略视觉 + 箭头
+- 点击跳转对应子路由
+- 竞技场排第一位（最高视觉权重）
 
-**4.5 安全与合规基座（Act 3底部）**
+**安全基座**（底部）：
+- 四张 SVG 架构图 Tab 切换（原 v1.6-v1.9）
+- 不标版本号，作为"生态安全运转的保障"
 
-四张SVG架构图（原v1.6-v1.9），不标版本号，作为"生态安全运转的保障"呈现：
-- Tab切换：架构 / 威胁模型 / CI/CD / 合回主站
-- 每张配简短说明
-- SVG hover高亮 + flow动画
+### 4.1 子页 Arena（竞技场） `/act3/arena`
+
+用户画像：围观比赛的散户、想跟单的用户、想证明实力的 Agent 运营者。
+
+**Hero Banner**（全宽暗色）
+- 标题 "Agent Trading Arena"
+- 赛季倒计时（伪倒计时，刷新重置）
+- 统计 pill：参赛 Agent 数 / 交易量 / 奖池
+- CTA → smooth scroll 到排行榜
+
+**Top 3 Podium**
+- 冠亚季 3 张大卡（#1 居中偏高）
+- 下方 #4-#10 紧凑表格
+- 每个 Agent：头像 / 名称 / 策略类型 / 收益率 / 回撤 / 夏普
+
+**战绩广场（Battle Feed）**
+- Agent 实时战报 feed（现有 PlazaFeed）
+- 每张卡：Agent + 标题 + 摘要 + PnL/持仓/Skill 标签 + 点赞/评论/分享
+
+**跟单入口（Copy Trading）**
+- 明星 Agent 卡片（3-4 张）：头像 + 30 天收益曲线 + 跟单人数 + 一键跟单
+- 跟单流程说明
+
+**流转流程图**
+```
+磨炼策略 → 参赛验证 → 胜出成星 → 开放跟单 → 用户获益 → 收益回流
+```
+
+视觉方向：Dark glassmorphism（参考 Airy 的 `docs/proposals/act3-arena-redesign-v2.md`）
+
+### 4.2 子页 AgentZone `/act3/zone`
+
+用户画像：策略开发者、Agent 开发者、想了解生态全貌的人。逛"商场"。
+
+**Agent 发现**（现有 AgentList）
+- 筛选：全部 / 官方 / 外部接入
+- 排序：收益率 / 日调用 / 关注数
+- Agent 卡片：头像 + 名称 + 标签 + 策略描述 + 数据 + 关注/接入协议
+
+**策略进化**（现有 StrategyLibrary + TuneOut + ContributorRank）
+- 策略市场：分类筛选 + 搜索 + 策略卡片（胜率指数 / 实盘 / PnL / 版本）
+- TuneOut 机制说明
+- 贡献者排行
+
+**开发者入驻**（现有 IntegrationGuide）
+- 三步接入：注册 → 选协议（MCP/REST/WebSocket）→ 发布上线
+- 代码示例
+
+**贡献者等级**（现有 ContributorTiers）
+- 三级：社区贡献者 → 认证开发者 → 官方合作伙伴
+
+**收益模型**（现有 RevenueRules + RevenueCalculator）
+- 分润规则（官方调用分润 / 外部调用不分润）
+- 收益计算器
+
+### 4.3 子页 Events（活动中心） `/act3/events`
+
+用户画像：活跃社区成员、想赚 Credit 的策略开发者。看"有什么活动可以参加"。
+
+当前阶段：展示页，后续细化。
+
+**进行中活动**
+- Bounty 任务池（悬赏任务卡片：标题 / 赏金 / 竞标数 / 状态 / 截止时间）
+- 赛季活动（如交易锦标赛报名、专题挑战）
+
+**活动日历**
+- 时间线形式：当前 / 即将 / 已结束
+
+**奖励总览**
+- Credit 奖励 / 徽章 / 特殊权限
+
+竞技场 vs 活动的边界：竞技场 = 永久基础设施（排行榜一直在跑），活动 = 运营驱动的限时事件（有截止日）。
 
 ### 代码模块
 ```
 modules/ecosystem/
-  components/
-    dual-agent/
-      DualAgentFlow.tsx
-      AgentPathCard.tsx
-    skill-evolution/
-      SkillRegistry.tsx
-      SkillCard.tsx
-      BountyPool.tsx
-      BountyCard.tsx
-      EvolutionChain.tsx
-    trading-arena/
-      TradingContest.tsx
-      Leaderboard.tsx
-      CopyTrading.tsx
-      StarAgentCard.tsx
-      ArenaFlowDiagram.tsx
-    economics/
-      CreditFlow.tsx        ← 桑基图/流向图
-      EcoStats.tsx
-    security/
-      SecurityBase.tsx
-      ArchitectureSVG.tsx   ← 4张SVG + Tab
+  boards/
+    Hub/
+      EcoSnapshot.tsx        ← 4 个关键统计
+      NavCards.tsx            ← 三张子页导航卡
+      SecurityBase.tsx        ← 4 张 SVG 架构图 Tab
+    Arena/                   ← Airy 主导开发（dark glassmorphism）
+      ArenaHero.tsx
+      ArenaPodium.tsx
+      ArenaLeaderboard.tsx   ← 现有，重构
+      PlazaFeed.tsx          ← 现有，迁移
+      CopyTrading.tsx        ← 新建
+      ArenaFlow.tsx          ← 新建
+    AgentZone/
+      AgentList.tsx          ← 现有，迁移
+      StrategyLibrary.tsx    ← 现有，迁移
+      StrategyDetail.tsx     ← 现有，迁移
+      TuneOutInfo.tsx        ← 现有，迁移
+      ContributorRank.tsx    ← 现有，迁移
+      IntegrationGuide.tsx   ← 现有，迁移
+      ContributorTiers.tsx   ← 现有，迁移
+      RevenueRules.tsx       ← 现有，迁移
+      RevenueCalculator.tsx  ← 现有，迁移
+    Events/
+      ActiveEvents.tsx       ← 新建（Bounty + 赛季活动）
+      EventCalendar.tsx      ← 新建
+      RewardsOverview.tsx    ← 新建
   data/
-    mock-skills.ts
-    mock-bounties.ts
-    mock-leaderboard.ts
-    mock-agents.ts
-    mock-economics.ts
-  i18n/
-    zh.json
-    en.json
-  index.tsx
+    agents.ts
+    strategies.ts
+    arena.ts
+    plaza.ts
+    events.ts               ← 新建
+  components/_legacy/        ← 清理
+  index.tsx                  ← 导出各 board 入口
 ```
 
 ---

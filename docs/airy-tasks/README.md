@@ -98,10 +98,15 @@ type 可选：`feat` / `fix` / `refactor` / `docs` / `style` / `test` / `chore` 
 
 ## 当前任务
 
-（无）
+| 任务 | 文件 | 状态 | 分支 |
+|------|------|------|------|
+| **A3.5 · Arena 子页面实现** | [A3.5-arena-subpage.md](./A3.5-arena-subpage.md) | 🔵 待开始 | `feature/xxcrypto-act3-arena-1` |
+
+**重要变更**：ACT 3 从单页长卷轴改为 Hub + 三子页结构（`/act3` → `/act3/arena` + `/act3/zone` + `/act3/events`）。你的 Arena 设计 scope 收窄到只覆盖 `/act3/arena`。**必须先读 A3.5 任务包再动手。**
 
 ## 最近动向
 
+- **ACT 3 架构重构**（2026-04-16）：F 拆分 ACT 3 为 Hub + Arena + AgentZone + Events 四个 board。路由、module 入口、Hub/AgentZone/Events 均由 F 完成。Arena 交给 Airy。
 - **Act 1.5 Agent 实时聊天板块**：F 自开发完成，已直推 main。openclaw 走 MiniMax。参考文档 [A1.5-agent-chatroom.md](./A1.5-agent-chatroom.md)。
 
 ---
