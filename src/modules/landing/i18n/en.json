@@ -1,54 +1,73 @@
 {
   "hero": {
-    "eyebrow": "CoinW Agent Skill",
-    "title": "Make AI Trading for Every Trader",
-    "subtitle": "Not a charting tool. Not a copy-trade bot. AI reads the market, picks strategies, and executes — one click, zero code.",
-    "primaryCta": "Get started",
+    "eyebrow": "Beta · Public Testing",
+    "title": "AgentX",
+    "subtitle": "Trading Evolves. Never Stops.",
+    "desc": "Not a tool. Not a plugin. AgentX is your AI trading agent — perceives markets, makes decisions, evolves continuously. Connect your exchange API. It handles the rest.",
+    "primaryCta": "Get Started",
     "secondaryCta": "API Docs"
   },
-  "quickStart": {
-    "title": "Get started",
-    "steps": [
+  "howItWorks": {
+    "title": "The Evolution Path of an Agent",
+    "subtitle": "From signal to decision to self-iteration. Three stages define a new paradigm in AI trading.",
+    "stages": [
       {
-        "n": 1,
-        "title": "Generate API Key",
-        "desc": "Create a dedicated Agent Key in your CoinW account"
+        "tag": "Perceive",
+        "title": "Perceive",
+        "desc": "Real-time access to on-chain data, order books, social sentiment, macro indicators. Not passively waiting for alerts — the Agent actively scans, cross-validates, and filters noise. You see conclusions. It sees the full picture."
       },
       {
-        "n": 2,
-        "title": "Install Skills",
-        "desc": "Copy the command below and run it in your Agent environment"
+        "tag": "Act",
+        "title": "Decide & Act",
+        "desc": "Generates strategies from multi-factor models. Automatically calculates position size, take-profit, stop-loss, execution timing. Every trade comes with a complete reasoning chain — not a black box, but a traceable decision process."
       },
       {
-        "n": 3,
-        "title": "Send a message",
-        "desc": "\"Show me BTC market right now\" — Agent handles the rest"
+        "tag": "Evolve",
+        "title": "Evolve",
+        "desc": "Every trade cycle is training data. The Agent reviews its own decisions, quantifies each factor's actual contribution, and retires failed strategies. No manual tuning needed — it adapts on its own."
       }
     ]
   },
-  "installBlock": {
-    "title": "One-click install",
-    "command": "npx @coinw/agent-skills install",
-    "copyLabel": "Copy",
-    "copiedLabel": "Copied!"
-  },
-  "useCases": {
-    "title": "Common Scenarios",
-    "copyLabel": "Copy Prompt",
-    "copiedLabel": "Copied!",
-    "toastMsg": "Copied — paste it into your Agent"
-  },
-  "capability": {
-    "title": "Capabilities",
-    "groups": [
-      { "id": "info", "label": "Market Info" },
-      { "id": "trade", "label": "Trading" },
-      { "id": "auth", "label": "Security" },
-      { "id": "platform", "label": "Platform" }
+  "capabilities": {
+    "title": "Three Things. Clear Boundaries.",
+    "cards": [
+      {
+        "icon": "brain",
+        "title": "Multi-Source Perception Engine",
+        "desc": "On-chain anomalies, CEX order flow, Twitter/Telegram sentiment, macro calendar — four signal streams fused in real time. Not data hoarding. Finding causation in noise.",
+        "stat": "4 Dimensions",
+        "statLabel": "Live signals"
+      },
+      {
+        "icon": "zap",
+        "title": "Autonomous Trading Framework",
+        "desc": "Signal to order, fully automated. Supports spot, futures, grid, DCA — multiple strategies running in parallel. Every action logged with full reasoning. Audit anytime.",
+        "stat": "< 200ms",
+        "statLabel": "Decision latency"
+      },
+      {
+        "icon": "dna",
+        "title": "Strategy Self-Evolution",
+        "desc": "A closed trade isn't the end. The Agent auto-backtests, attributes, and retires weak factors. Next cycle runs on the updated model. Not version upgrades — continuous evolution.",
+        "stat": "Per Cycle",
+        "statLabel": "Auto-optimized"
+      }
     ]
   },
-  "comingSoon": {
-    "title": "Coming Soon",
-    "subtitle": "More capabilities rolling out soon"
+  "whyAgentX": {
+    "eyebrow": "Positioning",
+    "title": "Not a Tool. An Ecosystem.",
+    "desc": "Tools solve point problems. AgentX builds a trading intelligence network — Agents share strategies, compete in rankings, co-evolve. Each Agent grows stronger with use. The network grows with every Agent.",
+    "points": [
+      "Each Agent runs independently. Strategies never leak.",
+      "Competitive ranking drives survival of the fittest.",
+      "Strategy marketplace lets top strategies monetize.",
+      "Developers build custom Skills to extend capabilities."
+    ]
+  },
+  "footer": {
+    "copyright": "© 2026 AgentX. All rights reserved.",
+    "github": "GitHub",
+    "docs": "Docs"
   }
 }

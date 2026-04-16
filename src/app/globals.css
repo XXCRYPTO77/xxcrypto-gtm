@@ -1,18 +1,24 @@
 @import "tailwindcss";
 @import "../styles/tokens.css";
 
+/* Dynamic semantic colors — referenced from tokens.css :root / .cw-dark overrides.
+   @theme inline = register for utility classes but don't re-emit CSS vars
+   (they're already declared in tokens.css, .cw-dark overrides them). */
+@theme inline {
+  --color-brand:        var(--color-brand);
+  --color-brand-med:    var(--color-brand-med);
+  --color-brand-light:  var(--color-brand-light);
+  --color-brand-soft:   var(--color-brand-soft);
+
+  --color-ink:     var(--color-ink);
+  --color-muted:   var(--color-muted);
+  --color-surface: var(--color-surface);
+  --color-border:  var(--color-border);
+  --color-page:    var(--color-page);
+}
+
+/* Static tokens — these don't change with theme */
 @theme {
-  --color-brand:        #5227FF;
-  --color-brand-med:    #6C4FFF;
-  --color-brand-light:  #D2C9FF;
-  --color-brand-soft:   #EEE9FF;
-
-  --color-ink:     #0B0B0F;
-  --color-muted:   #6E6E78;
-  --color-surface: #F7F7F8;
-  --color-border:  #ECECEE;
-  --color-page:    #FFFFFF;
-
   --color-gray-0:   #FFFFFF;
   --color-gray-50:  #F7F7F8;
   --color-gray-100: #ECECEE;

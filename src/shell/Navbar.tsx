@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { ArrowLeft } from 'lucide-react';
 import { LangToggle } from '@/components/primitives/LangToggle';
+import { ThemeToggle } from '@/components/primitives/ThemeToggle';
 
 export function ShellNavbar() {
   const pathname = usePathname();
@@ -44,25 +45,25 @@ export function ShellNavbar() {
   }
 
   return (
-    <nav className="sticky top-0 z-50 border-b border-border bg-white">
+    <nav className="sticky top-0 z-50 border-b border-border bg-page">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
         {/* Left: Brand + Back Arrow */}
         <div className="flex items-center gap-2">
           {isSubpage && (
             <Link
               href="/"
-              className="inline-flex items-center justify-center rounded p-1 hover:bg-gray-100"
+              className="inline-flex items-center justify-center rounded p-1 hover:bg-surface"
               aria-label="Back to home"
             >
-              <ArrowLeft size={16} className="text-gray-600" />
+              <ArrowLeft size={16} className="text-muted" />
             </Link>
           )}
           <Link href="/" className="flex items-center gap-2 no-underline">
-            <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#5227FF] font-bold text-white">
-              C
+            <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-brand font-bold text-white">
+              X
             </span>
             <span className="hidden sm:block">
-              <span className="block text-sm font-bold text-gray-900">CoinW Agent Skill</span>
+              <span className="block text-sm font-bold text-ink">AgentX</span>
             </span>
           </Link>
         </div>
@@ -75,8 +76,8 @@ export function ShellNavbar() {
               href={act.href}
               className={`text-sm font-medium transition-colors ${
                 activeAct === act.id
-                  ? 'text-[#5227FF]'
-                  : 'text-gray-600 hover:text-[#5227FF]'
+                  ? 'text-brand'
+                  : 'text-muted hover:text-brand'
               }`}
             >
               {act.label}
@@ -84,8 +85,9 @@ export function ShellNavbar() {
           ))}
         </div>
 
-        {/* Right: LangToggle */}
-        <div className="flex items-center gap-3">
+        {/* Right: Theme + Lang toggles */}
+        <div className="flex items-center gap-2">
+          <ThemeToggle />
           <LangToggle />
         </div>
       </div>

@@ -1,10 +1,11 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import { LocaleProvider } from '@/i18n/LocaleContext';
+import { ThemeProvider } from '@/theme/ThemeContext';
 
 export const metadata: Metadata = {
-  title: 'CoinW Agent Skill · MVP Roadmap',
-  description: 'Turn an Agent into the trading brain of every CoinW user — from reading the market to placing orders in one sentence.',
+  title: 'AgentX · AI Trading Agent',
+  description: 'Your AI trading agent — perceives markets, makes decisions, evolves continuously.',
 };
 
 export default function RootLayout({
@@ -25,7 +26,9 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased">
-        <LocaleProvider>{children}</LocaleProvider>
+        <ThemeProvider>
+          <LocaleProvider>{children}</LocaleProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

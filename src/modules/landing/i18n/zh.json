@@ -1,54 +1,73 @@
 {
   "hero": {
-    "eyebrow": "CoinW Agent Skill",
-    "title": "Make AI Trading for Every Trader",
-    "subtitle": "不是看盘工具，不是抄单机器。AI 看懂行情、给你靠谱策略、一键自动执行——普惠AI交易，人人皆可轻松入局。",
-    "primaryCta": "立即开始",
+    "eyebrow": "Beta · 公测中",
+    "title": "AgentX",
+    "subtitle": "交易进化，永不停止",
+    "desc": "不是工具，不是插件。AgentX 是你的 AI 交易代理——感知市场、自主决策、持续进化。接入交易所 API，剩下的交给它。",
+    "primaryCta": "开始使用",
     "secondaryCta": "API 文档"
   },
-  "quickStart": {
-    "title": "立即开始",
-    "steps": [
+  "howItWorks": {
+    "title": "一个 Agent 的进化路径",
+    "subtitle": "从信号到决策到自我迭代，三个阶段定义 AI 交易的新范式。",
+    "stages": [
       {
-        "n": 1,
-        "title": "生成 API Key",
-        "desc": "在 CoinW 站内生成专属 Agent 用 Key"
+        "tag": "Perceive",
+        "title": "感知",
+        "desc": "实时接入链上数据、订单簿、社交情绪、宏观指标。不是被动等推送——Agent 主动扫描、交叉验证、过滤噪音。你看到的是结论，它看到的是全局。"
       },
       {
-        "n": 2,
-        "title": "一键安装 Skills",
-        "desc": "复制下面的命令，粘到你的 Agent 环境"
+        "tag": "Act",
+        "title": "决策",
+        "desc": "基于多因子模型生成策略，自动计算仓位、止盈止损、执行时机。每一笔交易都有完整的推理链——不是黑箱，是可追溯的判断过程。"
       },
       {
-        "n": 3,
-        "title": "发一句话试试",
-        "desc": "「帮我看看今天 BTC 行情」——Agent 自己会调"
+        "tag": "Evolve",
+        "title": "进化",
+        "desc": "每一轮交易都是训练数据。Agent 回溯自己的决策、量化每个因子的实际贡献、淘汰失效策略。不需要你手动调参——它自己会变。"
       }
     ]
   },
-  "installBlock": {
-    "title": "一键安装",
-    "command": "npx @coinw/agent-skills install",
-    "copyLabel": "复制",
-    "copiedLabel": "已复制"
-  },
-  "useCases": {
-    "title": "常用场景",
-    "copyLabel": "复制 Prompt",
-    "copiedLabel": "已复制",
-    "toastMsg": "已复制，前往你的 Agent 粘贴使用"
-  },
-  "capability": {
-    "title": "能力概览",
-    "groups": [
-      { "id": "info", "label": "行情信息" },
-      { "id": "trade", "label": "交易操作" },
-      { "id": "auth", "label": "安全认证" },
-      { "id": "platform", "label": "平台接入" }
+  "capabilities": {
+    "title": "三件事，定义边界",
+    "cards": [
+      {
+        "icon": "brain",
+        "title": "多源感知引擎",
+        "desc": "链上异动、CEX 订单流、Twitter/Telegram 情绪、宏观日历——四路信号实时融合。不是堆数据，是在噪音里找因果。",
+        "stat": "4 维信号源",
+        "statLabel": "实时接入"
+      },
+      {
+        "icon": "zap",
+        "title": "自主交易框架",
+        "desc": "从信号到下单，全链路自动化。支持现货、合约、网格、DCA 多策略并行。每笔操作带完整推理日志，随时审计。",
+        "stat": "< 200ms",
+        "statLabel": "决策延迟"
+      },
+      {
+        "icon": "dna",
+        "title": "策略自进化系统",
+        "desc": "交易结束不是终点。Agent 自动回测、归因、淘汰劣质因子，下一轮用更新后的模型执行。不是版本升级，是持续进化。",
+        "stat": "每轮迭代",
+        "statLabel": "自动优化"
+      }
     ]
   },
-  "comingSoon": {
-    "title": "Coming Soon",
-    "subtitle": "更多能力持续开放中"
+  "whyAgentX": {
+    "eyebrow": "定位",
+    "title": "不是工具，是生态",
+    "desc": "工具解决单点问题。AgentX 构建的是一个交易智能体网络——Agent 之间共享策略、竞争排名、协同进化。单个 Agent 越用越强，整个网络越长越大。",
+    "points": [
+      "每个 Agent 独立运行，策略互不泄露",
+      "竞技排名驱动优胜劣汰",
+      "策略市场让优质策略流通变现",
+      "开发者可构建自定义 Skill 扩展能力边界"
+    ]
+  },
+  "footer": {
+    "copyright": "© 2026 AgentX. All rights reserved.",
+    "github": "GitHub",
+    "docs": "文档"
   }
 }
