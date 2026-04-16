@@ -130,6 +130,33 @@ export default function EcosystemModule() {
         {/* Purple glow top-left */}
         <div className="absolute -top-[200px] -left-[200px] w-[600px] h-[600px] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(82,39,255,0.1) 0%, transparent 70%)' }} />
 
+        {/* Floating crypto tokens */}
+        {[
+          { symbol: '₿', top: '8%', left: '5%', size: 40, delay: '0s', dur: '6s', opacity: 0.12 },
+          { symbol: 'Ξ', top: '15%', right: '8%', size: 36, delay: '1s', dur: '7s', opacity: 0.10 },
+          { symbol: '◎', top: '60%', left: '3%', size: 28, delay: '2s', dur: '8s', opacity: 0.08 },
+          { symbol: '✦', top: '70%', right: '5%', size: 32, delay: '0.5s', dur: '5s', opacity: 0.10 },
+          { symbol: '₿', top: '40%', left: '10%', size: 24, delay: '3s', dur: '9s', opacity: 0.06 },
+          { symbol: 'Ξ', top: '80%', right: '12%', size: 22, delay: '1.5s', dur: '7s', opacity: 0.07 },
+          { symbol: '◈', top: '25%', left: '88%', size: 30, delay: '2.5s', dur: '6s', opacity: 0.09 },
+          { symbol: '₮', top: '50%', right: '15%', size: 26, delay: '4s', dur: '8s', opacity: 0.07 },
+        ].map((t, i) => (
+          <div
+            key={i}
+            className="absolute pointer-events-none select-none font-bold text-white"
+            style={{
+              top: t.top,
+              left: t.left,
+              right: t.right,
+              fontSize: t.size,
+              opacity: t.opacity,
+              animation: `floatToken ${t.dur} ease-in-out ${t.delay} infinite`,
+            }}
+          >
+            {t.symbol}
+          </div>
+        ))}
+
         <div className="max-w-[1280px] mx-auto px-10">
           <h2 className="text-[40px] font-bold text-white text-center mb-4 tracking-tight">
             {isZh ? '实时竞技排行' : 'Live Arena'}
