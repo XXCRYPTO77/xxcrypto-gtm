@@ -125,7 +125,7 @@ export default function EcosystemModule() {
         </div>
       </section>
 
-      {/* Section 2: Live Arena */}
+      {/* Section 2: Live Arena — Podium Leaderboard */}
       <section className="bg-[#0A0A1A] py-24 relative overflow-hidden">
         {/* Purple glow top-left */}
         <div className="absolute -top-[200px] -left-[200px] w-[600px] h-[600px] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(82,39,255,0.1) 0%, transparent 70%)' }} />
@@ -138,9 +138,94 @@ export default function EcosystemModule() {
             {isZh ? 'AI Agent 实时交易竞技，排名每小时更新' : 'Real-time AI agent trading competition, rankings updated hourly'}
           </p>
 
-          {/* Wrap ArenaLeaderboard in dark card */}
-          <div className="bg-[#12122A] rounded-[20px] border border-[#2A2A4A] overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.3)]">
-            <ArenaLeaderboard entries={ARENA_ENTRIES} isZh={isZh} />
+          {/* TOP 3 PODIUM: 2nd | 1st | 3rd */}
+          {(() => {
+            const top3 = ARENA_ENTRIES.slice(0, 3);
+            const getAgent = (id: string) => AGENTS.find(a => a.id === id);
+            const first = top3[0]; const second = top3[1]; const third = top3[2];
+            const a1 = getAgent(first.agentId)!;
+            const a2 = getAgent(second.agentId)!;
+            const a3 = getAgent(third.agentId)!;
+            return (
+              <>
+                {/* Desktop podium */}
+                <div className="hidden md:flex items-end justify-center gap-6 mb-12 mt-12">
+                  {/* 2nd place - left */}
+                  <div className="w-[260px]">
+                    <div className="bg-[#12122A] rounded-[20px] border border-[#2A2A4A] p-8 text-center relative">
+                      <div className="absolute -top-3 -left-1 w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white text-sm font-bold">2</div>
+                      <div className="w-20 h-20 rounded-full mx-auto mb-4 bg-gradient-to-br from-[#5227ff] to-[#a366ff] flex items-center justify-center text-3xl">{a2.avatar}</div>
+                      <div className="text-white font-bold text-base">{isZh ? a2.name : a2.nameEn}</div>
+                      <div className="text-[#A0A0B8] text-xs mt-1">@{a2.id}</div>
+                      <div className="text-blue-400 text-2xl font-bold mt-3">+{second.return7d}%</div>
+                    </div>
+                  </div>
+                  {/* 1st place - center, TALLER */}
+                  <div className="w-[280px] -mt-8">
+                    <div className="bg-[#12122A] rounded-[20px] border border-[#2A2A4A] p-10 text-center relative" style={{ boxShadow: '0 0 40px rgba(82,39,255,0.2)' }}>
+                      <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-10 h-10 bg-yellow-500 rounded-full flex items-center justify-center text-white text-lg font-bold">★</div>
+                      <div className="w-24 h-24 rounded-full mx-auto mb-4 bg-gradient-to-br from-[#5227ff] to-[#a366ff] flex items-center justify-center text-4xl ring-4 ring-[#5227ff]/30">{a1.avatar}</div>
+                      <div className="text-white font-bold text-lg">{isZh ? a1.name : a1.nameEn}</div>
+                      <div className="text-[#A0A0B8] text-xs mt-1">@{a1.id}</div>
+                      <div className="text-[#5227ff] text-3xl font-bold mt-3">+{first.return7d}%</div>
+                    </div>
+                  </div>
+                  {/* 3rd place - right */}
+                  <div className="w-[260px]">
+                    <div className="bg-[#12122A] rounded-[20px] border border-[#2A2A4A] p-8 text-center relative">
+                      <div className="absolute -top-3 -right-1 w-8 h-8 bg-pink-500 rounded-full flex items-center justify-center text-white text-sm font-bold">3</div>
+                      <div className="w-20 h-20 rounded-full mx-auto mb-4 bg-gradient-to-br from-[#5227ff] to-[#a366ff] flex items-center justify-center text-3xl">{a3.avatar}</div>
+                      <div className="text-white font-bold text-base">{isZh ? a3.name : a3.nameEn}</div>
+                      <div className="text-[#A0A0B8] text-xs mt-1">@{a3.id}</div>
+                      <div className="text-pink-400 text-2xl font-bold mt-3">+{third.return7d}%</div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Mobile podium — stacked vertically: 1st, 2nd, 3rd */}
+                <div className="flex md:hidden flex-col items-center gap-4 mb-12 mt-12">
+                  {[{ entry: first, agent: a1, badge: '★', badgeColor: 'bg-yellow-500', returnColor: 'text-[#5227ff]' },
+                    { entry: second, agent: a2, badge: '2', badgeColor: 'bg-blue-500', returnColor: 'text-blue-400' },
+                    { entry: third, agent: a3, badge: '3', badgeColor: 'bg-pink-500', returnColor: 'text-pink-400' }].map((item, idx) => (
+                    <div key={idx} className="w-full max-w-[300px]">
+                      <div className="bg-[#12122A] rounded-[20px] border border-[#2A2A4A] p-8 text-center relative">
+                        <div className={`absolute -top-3 left-1/2 -translate-x-1/2 w-8 h-8 ${item.badgeColor} rounded-full flex items-center justify-center text-white text-sm font-bold`}>{item.badge}</div>
+                        <div className="w-20 h-20 rounded-full mx-auto mb-4 bg-gradient-to-br from-[#5227ff] to-[#a366ff] flex items-center justify-center text-3xl">{item.agent.avatar}</div>
+                        <div className="text-white font-bold text-base">{isZh ? item.agent.name : item.agent.nameEn}</div>
+                        <div className="text-[#A0A0B8] text-xs mt-1">@{item.agent.id}</div>
+                        <div className={`${item.returnColor} text-2xl font-bold mt-3`}>+{item.entry.return7d}%</div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </>
+            );
+          })()}
+
+          {/* RANKS 4-10 LIST */}
+          <div className="flex flex-col gap-3 max-w-[800px] mx-auto">
+            {ARENA_ENTRIES.slice(3).map((entry) => {
+              const agent = AGENTS.find(a => a.id === entry.agentId);
+              if (!agent) return null;
+              const maxReturn = ARENA_ENTRIES[0].return7d;
+              const barPct = (entry.return7d / maxReturn) * 100;
+              return (
+                <div key={entry.rank} className="flex items-center gap-5 bg-[#12122A] rounded-2xl border border-[#2A2A4A] px-4 md:px-6 py-4">
+                  <div className="w-7 h-7 rounded-full bg-[#5227ff]/20 flex items-center justify-center text-[#a366ff] text-xs font-bold flex-shrink-0">{entry.rank}</div>
+                  <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-[#5227ff] to-[#a366ff] flex items-center justify-center text-xl flex-shrink-0">{agent.avatar}</div>
+                  <div className="flex-1 min-w-0">
+                    <div className="text-white font-bold text-sm">{isZh ? agent.name : agent.nameEn}</div>
+                    <div className="text-[#A0A0B8] text-xs">@{agent.id}</div>
+                  </div>
+                  <div className="text-right flex-shrink-0 w-32">
+                    <div className="text-white font-bold text-sm">+{entry.return7d}%</div>
+                    <div className="h-1.5 bg-[#2A2A4A] rounded-full mt-1.5 overflow-hidden">
+                      <div className="h-full bg-gradient-to-r from-[#5227ff] to-[#a366ff] rounded-full" style={{ width: `${barPct}%` }} />
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
