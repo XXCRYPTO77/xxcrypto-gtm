@@ -109,7 +109,7 @@ export function ArenaHero({ isZh }: ArenaHeroProps) {
           <span
             style={{
               background:
-                'linear-gradient(135deg, #5227ff 0%, #a366ff 50%, #ffcc00 100%)',
+                'linear-gradient(135deg, #5227ff 0%, #a366ff 50%, #ffffff 100%)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',
@@ -135,10 +135,10 @@ export function ArenaHero({ isZh }: ArenaHeroProps) {
           style={{ animation: 'fadeInUp 0.6s ease-out 0.6s both' }}
         >
           <button
-            className="uppercase tracking-widest font-bold text-lg px-10 py-4 rounded-xl text-[#0A0A1A] transition-transform hover:scale-105"
+            className="uppercase tracking-widest font-bold text-lg px-10 py-4 rounded-xl text-white transition-transform hover:scale-105"
             style={{
-              background: 'linear-gradient(135deg, #ffcc00 0%, #ff9900 100%)',
-              boxShadow: '0 4px 24px rgba(255,204,0,0.3)',
+              background: 'linear-gradient(135deg, #5227ff 0%, #a366ff 100%)',
+              boxShadow: '0 4px 24px rgba(82,39,255,0.4)',
             }}
           >
             {isZh ? '立即参赛' : 'ENTER ARENA'}
