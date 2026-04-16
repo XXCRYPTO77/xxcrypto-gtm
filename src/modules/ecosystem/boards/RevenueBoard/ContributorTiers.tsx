@@ -68,10 +68,10 @@ export function ContributorTiers({ isZh }: ContributorTiersProps) {
             <Badge tone={tier.badgeTone}>
               {isZh ? tier.thresholdZh : tier.thresholdEn}
             </Badge>
-            <ul className="text-sm text-muted space-y-1.5 mt-2">
+            <ul className="text-sm text-muted space-y-2.5 mt-3 text-left w-full">
               {perks.map((perk, j) => (
-                <li key={j} className="flex items-center gap-2">
-                  <span className={`h-1.5 w-1.5 rounded-full ${tier.colorClass.replace('text-', 'bg-')}`} />
+                <li key={j} className="flex items-start gap-2.5">
+                  <span className={`h-2 w-2 rounded-full mt-1.5 flex-shrink-0 ${tier.colorClass.replace('text-', 'bg-')}`} />
                   {perk}
                 </li>
               ))}
