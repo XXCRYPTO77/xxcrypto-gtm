@@ -291,11 +291,11 @@ export default function EcosystemModule() {
             {isZh ? '社区策略持续迭代，优胜劣汰，适者生存' : 'Community strategies evolve through continuous iteration and natural selection'}
           </p>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <div className="lg:col-span-2 [&_.card]:bg-[#12122A] [&_.card]:border-[#2A2A4A] [&_.badge]:bg-[rgba(82,39,255,0.15)] [&_.badge]:text-[#a366ff]">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8" style={{ '--color-ink': '#FFFFFF', '--color-muted': '#A0A0B8', '--color-surface': '#12122A', '--color-border': '#2A2A4A', '--color-page': '#0A0A1A' } as React.CSSProperties}>
+            <div className="lg:col-span-2">
               <StrategyLibrary strategies={STRATEGIES} isZh={isZh} />
             </div>
-            <div className="[&_.card]:bg-[#12122A] [&_.card]:border-[#2A2A4A]">
+            <div>
               <ContributorRank isZh={isZh} />
             </div>
           </div>
