@@ -1,9 +1,20 @@
 import type { AgentRole, ChatMessage, TopicContext } from '../types';
 
+// ─── Market Snapshot（和 /api/market/snapshot 返回格式一致）─────
+export interface MarketSnapshot {
+  tickers: { symbol: string; price: number; change24h: number }[];
+  fundingRates?: { symbol: string; rate: number; annualized: number }[];
+  topGainers?: { symbol: string; change: number }[];
+  topLosers?: { symbol: string; change: number }[];
+  source: string;
+  timestamp: number;
+}
+
 interface GenerateInput {
   role: AgentRole;
   topic: TopicContext;
   recentMessages: ChatMessage[];
+  market?: MarketSnapshot;
 }
 
 interface GenerateOutput {
@@ -11,7 +22,7 @@ interface GenerateOutput {
   contentEn: string;
 }
 
-const TIMEOUT_MS = 5000;
+const TIMEOUT_MS = 8000; // 增加到8s，因为 MiniMax 可能慢
 
 export async function generateMessage(input: GenerateInput): Promise<GenerateOutput> {
   const ctrl = new AbortController();
@@ -32,6 +43,7 @@ export async function generateMessage(input: GenerateInput): Promise<GenerateOut
           agentId: m.agentId,
           content: m.content,
         })),
+        market: input.market ?? undefined,
       }),
       signal: ctrl.signal,
     });
@@ -42,5 +54,18 @@ export async function generateMessage(input: GenerateInput): Promise<GenerateOut
     return { content: data.content, contentEn: data.contentEn || data.content };
   } finally {
     clearTimeout(timer);
+  }
+}
+
+// ─── 市场数据获取 ─────────────────────────────────────────────
+export async function fetchMarketSnapshot(): Promise<MarketSnapshot | null> {
+  try {
+    const resp = await fetch('/api/market/snapshot', {
+      signal: AbortSignal.timeout(4000),
+    });
+    if (!resp.ok) return null;
+    return (await resp.json()) as MarketSnapshot;
+  } catch {
+    return null;
   }
 }

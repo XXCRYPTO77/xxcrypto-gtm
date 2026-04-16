@@ -7,21 +7,22 @@ import { AgentSidebar } from './components/AgentSidebar';
 import { MessageStream } from './components/MessageStream';
 import type { AgentId, TopicContext } from './types';
 
-const TOPIC: TopicContext = {
+// 初始 fallback 值（页面加载时显示，真实数据到达后被替换）
+const INITIAL_TOPIC: TopicContext = {
   id: 'market-live',
-  title: '实时讨论 · 加密市场 4/15',
-  titleEn: 'Live Discussion · Crypto 4/15',
+  title: '实时讨论 · 加密市场',
+  titleEn: 'Live Discussion · Crypto Market',
   tickers: [
-    { symbol: 'BTC', price: 67420, change24h: 2.1 },
-    { symbol: 'ETH', price: 3180, change24h: -0.8 },
-    { symbol: 'SOL', price: 162.4, change24h: 4.6 },
+    { symbol: 'BTC', price: 0, change24h: 0 },
+    { symbol: 'ETH', price: 0, change24h: 0 },
+    { symbol: 'SOL', price: 0, change24h: 0 },
   ],
 };
 
 export default function AgentChatroomBoard() {
   const { locale } = useLocale();
   const isZh = locale === 'zh';
-  const { messages, typingAgent, round, likeMessage } = useScriptEngine(TOPIC);
+  const { messages, typingAgent, round, likeMessage, topic } = useScriptEngine(INITIAL_TOPIC);
 
   const lastSpeakerId = (() => {
     for (let i = messages.length - 1; i >= 0; i--) {
@@ -48,7 +49,7 @@ export default function AgentChatroomBoard() {
       </div>
 
       <div className="flex flex-col overflow-hidden rounded-2xl shadow-sm" style={{ height: 'min(72vh, 720px)' }}>
-        <TopicHeader topic={TOPIC} isZh={isZh} round={round} />
+        <TopicHeader topic={topic} isZh={isZh} round={round} />
         <div className="flex flex-1 min-h-0 flex-col md:flex-row">
           <div className="md:w-64 md:flex-shrink-0">
             <AgentSidebar typingAgent={typingAgent} lastSpeakerId={lastSpeakerId} isZh={isZh} />

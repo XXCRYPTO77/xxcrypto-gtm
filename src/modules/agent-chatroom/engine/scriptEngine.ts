@@ -1,8 +1,9 @@
 'use client';
 
 import { useCallback, useEffect, useRef, useState } from 'react';
-import type { AgentId, ChatMessage, TopicContext } from '../types';
-import { generateMessage } from '../api/openclawClient';
+import type { AgentId, ChatMessage, TickerData, TopicContext } from '../types';
+import { generateMessage, fetchMarketSnapshot } from '../api/openclawClient';
+import type { MarketSnapshot } from '../api/openclawClient';
 
 // ─── 常量 ────────────────────────────────────────────────────────
 const AGENTS: AgentId[] = ['cwclaw-alpha', 'cwclaw-beta', 'cwclaw-gamma'];
@@ -19,6 +20,8 @@ const GAP_MS = { min: 1800, max: 3800 };
 // 每轮最多条数，超过后冷却 30s 重启
 const ROUND_MAX = 28;
 const COOLDOWN_MS = 30_000;
+// 市场数据刷新间隔
+const MARKET_REFRESH_MS = 15_000;
 
 const LIKE_KEY = 'cwc-act15-likes';
 
@@ -42,15 +45,29 @@ function writeLiked(s: Set<string>) {
   try { window.localStorage.setItem(LIKE_KEY, JSON.stringify([...s])); } catch { /**/ }
 }
 
+// 用实时数据生成话题标题
+function buildTopicTitle(tickers: TickerData[]): { title: string; titleEn: string } {
+  const now = new Date();
+  const dateStr = `${now.getMonth() + 1}/${now.getDate()}`;
+  const btc = tickers.find((t) => t.symbol === 'BTC');
+  const direction = btc && btc.change24h >= 0 ? '多头' : '空头';
+  return {
+    title: `实时讨论 · 加密市场 ${dateStr} · ${direction}氛围`,
+    titleEn: `Live Discussion · Crypto ${dateStr}`,
+  };
+}
+
 // ─── Hook ───────────────────────────────────────────────────────
-export function useScriptEngine(topic: TopicContext) {
+export function useScriptEngine(initialTopic: TopicContext) {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [typingAgent, setTypingAgent] = useState<AgentId | null>(null);
   const [round, setRound] = useState(1);
+  const [topic, setTopic] = useState<TopicContext>(initialTopic);
 
   const cancelRef = useRef(false);
   const likedSet = useRef<Set<string>>(new Set());
   const messagesRef = useRef<ChatMessage[]>([]);
+  const marketRef = useRef<MarketSnapshot | null>(null);
 
   // 让 messagesRef 随 state 同步
   const pushMessage = useCallback((msg: ChatMessage) => {
@@ -61,35 +78,72 @@ export function useScriptEngine(topic: TopicContext) {
   const sleep = useCallback((ms: number) => {
     return new Promise<void>((resolve) => {
       const id = window.setTimeout(resolve, ms);
-      // 挂到 cancelRef 里，cleanup 时 clearTimeout
       (cancelRef as any)._timers = [...((cancelRef as any)._timers || []), id];
     });
+  }, []);
+
+  // 刷新市场数据 + 同步到 topic state
+  const refreshMarket = useCallback(async () => {
+    const snapshot = await fetchMarketSnapshot();
+    if (snapshot && snapshot.tickers.length > 0) {
+      marketRef.current = snapshot;
+      const newTickers: TickerData[] = snapshot.tickers.map((t) => ({
+        symbol: t.symbol,
+        price: t.price,
+        change24h: t.change24h,
+      }));
+      const titles = buildTopicTitle(newTickers);
+      setTopic((prev) => ({
+        ...prev,
+        tickers: newTickers,
+        title: titles.title,
+        titleEn: titles.titleEn,
+      }));
+    }
   }, []);
 
   const runLoop = useCallback(async (currentRound: number) => {
     let lastAgent: AgentId | null = null;
     let count = 0;
+    let lastMarketRefresh = 0;
+
+    // 首次立即刷新市场数据
+    await refreshMarket();
+    lastMarketRefresh = Date.now();
 
     while (!cancelRef.current && count < ROUND_MAX) {
       const agentId = pickNext(lastAgent);
       lastAgent = agentId;
       count++;
 
+      // 定时刷新市场数据（每 15s）
+      if (Date.now() - lastMarketRefresh > MARKET_REFRESH_MS) {
+        await refreshMarket();
+        lastMarketRefresh = Date.now();
+      }
+
       // 1. typing 指示
       setTypingAgent(agentId);
       await sleep(rand(TYPING_MS.min, TYPING_MS.max));
       if (cancelRef.current) return;
 
-      // 2. 生成消息
+      // 2. 生成消息（传入实时市场数据）
       const context = messagesRef.current.slice(-6);
       let content = '';
       let contentEn = '';
 
       try {
+        const currentTickers = marketRef.current?.tickers.map((t) => ({
+          symbol: t.symbol,
+          price: t.price,
+          change24h: t.change24h,
+        })) ?? initialTopic.tickers;
+
         const out = await generateMessage({
           role: ROLE_MAP[agentId],
-          topic,
+          topic: { ...initialTopic, tickers: currentTickers },
           recentMessages: context,
+          market: marketRef.current ?? undefined,
         });
         content = out.content;
         contentEn = out.contentEn;
@@ -125,7 +179,6 @@ export function useScriptEngine(topic: TopicContext) {
       // 冷却后重启
       await sleep(COOLDOWN_MS);
       if (!cancelRef.current) {
-        // 新一轮：清空消息
         messagesRef.current = [];
         setMessages([]);
         const nextRound = currentRound + 1;
@@ -133,7 +186,7 @@ export function useScriptEngine(topic: TopicContext) {
         runLoop(nextRound);
       }
     }
-  }, [topic, sleep, pushMessage]);
+  }, [initialTopic, sleep, pushMessage, refreshMarket]);
 
   useEffect(() => {
     cancelRef.current = false;
@@ -151,7 +204,7 @@ export function useScriptEngine(topic: TopicContext) {
       (cancelRef as any)._timers = [];
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [topic]);
+  }, [initialTopic]);
 
   const likeMessage = useCallback((id: string) => {
     const set = likedSet.current;
@@ -167,5 +220,6 @@ export function useScriptEngine(topic: TopicContext) {
     );
   }, []);
 
-  return { messages, typingAgent, round, likeMessage };
+  // 现在返回 topic（含实时数据），让 UI 组件用最新 ticker
+  return { messages, typingAgent, round, likeMessage, topic };
 }
