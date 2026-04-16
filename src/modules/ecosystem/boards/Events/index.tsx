@@ -66,6 +66,54 @@ const BOUNTIES = [
     deadline: '2026-06-01',
     tags: ['框架', '核心'],
   },
+  {
+    id: 'b5',
+    titleZh: 'BTC 期权隐含波动率 Skill',
+    titleEn: 'BTC options implied volatility Skill',
+    descZh: '接入 Deribit 期权数据，计算 IV Surface，输出波动率异常预警。',
+    descEn: 'Ingest Deribit options data, compute IV surface, output volatility anomaly alerts.',
+    reward: 600,
+    bids: 9,
+    status: 'bidding' as const,
+    deadline: '2026-05-25',
+    tags: ['期权', 'Skill'],
+  },
+  {
+    id: 'b6',
+    titleZh: 'Agent 回测引擎优化',
+    titleEn: 'Agent backtesting engine optimization',
+    descZh: '现有回测模块单线程跑 1 年数据需 40s，优化至 <5s，支持并行。',
+    descEn: 'Current backtest takes 40s for 1yr data. Optimize to <5s with parallelization.',
+    reward: 900,
+    bids: 6,
+    status: 'bidding' as const,
+    deadline: '2026-05-30',
+    tags: ['性能', '核心'],
+  },
+  {
+    id: 'b7',
+    titleZh: '社交情绪信号接入（Twitter/Telegram）',
+    titleEn: 'Social sentiment signal integration (Twitter/Telegram)',
+    descZh: '聚合 Twitter + Telegram 群消息，NLP 提取情绪分数，供 Agent 策略调用。',
+    descEn: 'Aggregate Twitter + Telegram messages, extract sentiment scores via NLP for agent strategies.',
+    reward: 700,
+    bids: 15,
+    status: 'submitted' as const,
+    deadline: '2026-05-10',
+    tags: ['情绪', 'Skill'],
+  },
+  {
+    id: 'b8',
+    titleZh: 'DEX 流动性监控 Skill',
+    titleEn: 'DEX liquidity monitoring Skill',
+    descZh: '监控 Uniswap/Raydium 大额流动性变动，触发 Agent 仓位调整。',
+    descEn: 'Monitor Uniswap/Raydium large liquidity changes, trigger agent position adjustments.',
+    reward: 450,
+    bids: 11,
+    status: 'bidding' as const,
+    deadline: '2026-05-18',
+    tags: ['DeFi', 'Skill'],
+  },
 ];
 
 /* ── Upcoming events ── */
@@ -100,12 +148,79 @@ const UPCOMING = [
     reward: '8,000 Credit',
     type: 'competition',
   },
+  {
+    titleZh: 'DeFi 策略挑战赛',
+    titleEn: 'DeFi Strategy Challenge',
+    dateZh: '6 月 20 日 – 6 月 27 日',
+    dateEn: 'Jun 20 – Jun 27',
+    descZh: '限 DEX 策略参赛，考验 Agent 的链上交互能力，冠军获 DeFi 专属徽章。',
+    descEn: 'DEX-only strategies. Tests on-chain interaction. Champion earns DeFi badge.',
+    reward: '5,000 Credit',
+    type: 'competition',
+  },
+  {
+    titleZh: '风控 Skill 专场',
+    titleEn: 'Risk Control Skill Sprint',
+    dateZh: '7 月 5 日 – 7 月 12 日',
+    dateEn: 'Jul 5 – Jul 12',
+    descZh: '构建最佳风控类 Skill，评审维度：回撤控制、极端行情表现、响应速度。',
+    descEn: 'Build best risk-control Skill. Judged on drawdown control, black swan resilience, response speed.',
+    reward: '2,500 Credit',
+    type: 'hackathon',
+  },
+];
+
+/* ── Community challenges ── */
+const CHALLENGES = [
+  {
+    titleZh: '连续 30 天正收益挑战',
+    titleEn: '30-Day Positive Return Challenge',
+    descZh: 'Agent 连续 30 天保持日收益为正，完成即解锁「稳如泰山」徽章。',
+    descEn: 'Agent must maintain positive daily returns for 30 consecutive days. Unlock "Rock Solid" badge.',
+    participants: 89,
+    completions: 12,
+    reward: '徽章 + 200 Credit',
+    rewardEn: 'Badge + 200 Credit',
+  },
+  {
+    titleZh: '最大回撤 <5% 挑战',
+    titleEn: 'Max Drawdown <5% Challenge',
+    descZh: '30 天内最大回撤不超过 5%，考验风控能力。',
+    descEn: 'Keep max drawdown under 5% for 30 days. Tests risk control ability.',
+    participants: 134,
+    completions: 28,
+    reward: '徽章 + 300 Credit',
+    rewardEn: 'Badge + 300 Credit',
+  },
+  {
+    titleZh: '多策略切换挑战',
+    titleEn: 'Multi-Strategy Switch Challenge',
+    descZh: 'Agent 至少挂载 3 张策略卡并在实盘中切换 5 次以上，记录切换逻辑。',
+    descEn: 'Agent runs 3+ strategy cards and switches at least 5 times in live trading.',
+    participants: 47,
+    completions: 8,
+    reward: '徽章 + 500 Credit',
+    rewardEn: 'Badge + 500 Credit',
+  },
+  {
+    titleZh: '新人首单挑战',
+    titleEn: 'First Trade Challenge',
+    descZh: '新注册开发者接入 Agent 并完成首笔模拟交易。人人可参加。',
+    descEn: 'New devs onboard an agent and complete first simulated trade. Open to everyone.',
+    participants: 312,
+    completions: 287,
+    reward: '50 Credit',
+    rewardEn: '50 Credit',
+  },
 ];
 
 /* ── Past events (for social proof) ── */
 const PAST = [
   { titleZh: 'S2 交易锦标赛', titleEn: 'S2 Trading Championship', dateZh: '已结束 · 3/31', dateEn: 'Ended · 3/31', participants: 189, winner: 'MoonTrader', returnPct: '+22.4%' },
   { titleZh: 'Skill 黑客松 #1', titleEn: 'Skill Hackathon #1', dateZh: '已结束 · 2/28', dateEn: 'Ended · 2/28', participants: 34, winner: 'alpha_quant', returnPct: '—' },
+  { titleZh: 'S1 交易锦标赛', titleEn: 'S1 Trading Championship', dateZh: '已结束 · 12/31', dateEn: 'Ended · 12/31', participants: 128, winner: 'GridMaster', returnPct: '+18.7%' },
+  { titleZh: '新人训练营 #1', titleEn: 'Bootcamp #1', dateZh: '已结束 · 1/15', dateEn: 'Ended · 1/15', participants: 56, winner: '—', returnPct: '—' },
+  { titleZh: 'DeFi Alpha 挑战', titleEn: 'DeFi Alpha Challenge', dateZh: '已结束 · 2/14', dateEn: 'Ended · 2/14', participants: 72, winner: 'defi_hunter', returnPct: '+31.2%' },
 ];
 
 const STATUS_STYLE = {
@@ -197,6 +312,36 @@ export function EventsBoard() {
               </div>
             );
           })}
+        </div>
+      </section>
+
+      {/* ─── Community Challenges ─── */}
+      <section>
+        <h2 className="text-2xl font-bold text-ink mb-2">
+          {isZh ? '社区挑战' : 'Community Challenges'}
+        </h2>
+        <p className="text-sm text-muted mb-6">
+          {isZh ? '完成挑战解锁徽章和奖励，展示你的 Agent 实力' : 'Complete challenges to unlock badges and rewards'}
+        </p>
+        <div className="grid gap-4 sm:grid-cols-2">
+          {CHALLENGES.map((c, i) => (
+            <div key={i} className="rounded-xl border border-border bg-surface p-6 flex flex-col gap-3">
+              <h3 className="text-sm font-semibold text-ink">{isZh ? c.titleZh : c.titleEn}</h3>
+              <p className="text-xs text-muted leading-relaxed">{isZh ? c.descZh : c.descEn}</p>
+              <div className="flex items-center gap-4 text-xs text-muted mt-auto pt-2 border-t border-border">
+                <span className="font-semibold text-brand">{isZh ? c.reward : c.rewardEn}</span>
+                <span>{c.participants} {isZh ? '参与' : 'joined'}</span>
+                <span className="text-cw-green">{c.completions} {isZh ? '完成' : 'completed'}</span>
+              </div>
+              {/* Progress bar */}
+              <div className="h-1.5 rounded-full bg-gray-100 overflow-hidden">
+                <div
+                  className="h-full rounded-full bg-brand"
+                  style={{ width: `${Math.min((c.completions / c.participants) * 100, 100)}%` }}
+                />
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 

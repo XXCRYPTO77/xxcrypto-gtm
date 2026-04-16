@@ -14,7 +14,7 @@ import { RevenueRules } from '../RevenueBoard/RevenueRules';
 import { RevenueCalculator } from '../RevenueBoard/RevenueCalculator';
 import { ContributorTiers } from '../RevenueBoard/ContributorTiers';
 
-type Tab = 'discover' | 'contribute';
+type Tab = 'agents' | 'strategies' | 'contribute';
 
 /* ── Stats bar ── */
 function ZoneStats({ isZh }: { isZh: boolean }) {
@@ -43,21 +43,30 @@ function TabButton({
   active,
   onClick,
   children,
+  count,
 }: {
   active: boolean;
   onClick: () => void;
   children: React.ReactNode;
+  count?: number;
 }) {
   return (
     <button
       onClick={onClick}
-      className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all ${
+      className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all flex items-center gap-2 ${
         active
           ? 'bg-brand text-white shadow-sm'
           : 'bg-surface text-muted hover:text-ink hover:bg-gray-100'
       }`}
     >
       {children}
+      {count !== undefined && (
+        <span className={`text-[10px] rounded-full px-1.5 py-0.5 ${
+          active ? 'bg-white/20 text-white' : 'bg-gray-100 text-muted'
+        }`}>
+          {count}
+        </span>
+      )}
     </button>
   );
 }
@@ -66,7 +75,7 @@ export function AgentZoneBoard() {
   const t = useT();
   const isZh = t.nav.cta === 'EN';
   const eco = (t as any).ecosystem;
-  const [tab, setTab] = useState<Tab>('discover');
+  const [tab, setTab] = useState<Tab>('agents');
 
   return (
     <div className="space-y-12">
@@ -86,18 +95,20 @@ export function AgentZoneBoard() {
 
       {/* ─── Tab Navigation ─── */}
       <div className="flex gap-2 border-b border-border pb-0">
-        <TabButton active={tab === 'discover'} onClick={() => setTab('discover')}>
-          {isZh ? '发现' : 'Discover'}
+        <TabButton active={tab === 'agents'} onClick={() => setTab('agents')} count={AGENTS.length}>
+          {isZh ? 'Agent' : 'Agents'}
+        </TabButton>
+        <TabButton active={tab === 'strategies'} onClick={() => setTab('strategies')} count={STRATEGIES.length}>
+          {isZh ? '策略' : 'Strategies'}
         </TabButton>
         <TabButton active={tab === 'contribute'} onClick={() => setTab('contribute')}>
           {isZh ? '贡献' : 'Contribute'}
         </TabButton>
       </div>
 
-      {/* ─── Tab: Discover ─── */}
-      {tab === 'discover' && (
-        <div className="space-y-16">
-          {/* Agent Discovery */}
+      {/* ─── Tab: Agents ─── */}
+      {tab === 'agents' && (
+        <div className="space-y-12">
           <section>
             <div className="mb-6">
               <h2 className="text-2xl font-bold text-ink">{eco.boardA.agentListTitle}</h2>
@@ -109,8 +120,12 @@ export function AgentZoneBoard() {
             </div>
             <AgentList agents={AGENTS} isZh={isZh} />
           </section>
+        </div>
+      )}
 
-          {/* Strategy Library */}
+      {/* ─── Tab: Strategies ─── */}
+      {tab === 'strategies' && (
+        <div className="space-y-12">
           <section>
             <div className="mb-6">
               <h2 className="text-2xl font-bold text-ink">{eco.boardB.strategyLibTitle}</h2>
@@ -119,7 +134,6 @@ export function AgentZoneBoard() {
             <StrategyLibrary strategies={STRATEGIES} isZh={isZh} />
           </section>
 
-          {/* TuneOut mechanism — compact callout */}
           <section>
             <TuneOutInfo isZh={isZh} />
           </section>
@@ -129,12 +143,10 @@ export function AgentZoneBoard() {
       {/* ─── Tab: Contribute ─── */}
       {tab === 'contribute' && (
         <div className="space-y-16">
-          {/* Developer Onboarding — first thing contributors see */}
           <section>
             <IntegrationGuide isZh={isZh} />
           </section>
 
-          {/* Contributor Tiers — progression system */}
           <section>
             <div className="mb-6">
               <h2 className="text-2xl font-bold text-ink">{eco.boardC.tierTitle}</h2>
@@ -147,7 +159,6 @@ export function AgentZoneBoard() {
             <ContributorTiers isZh={isZh} />
           </section>
 
-          {/* Revenue Model */}
           <section>
             <RevenueRules isZh={isZh} />
             <div className="mt-10">
@@ -159,7 +170,6 @@ export function AgentZoneBoard() {
             </div>
           </section>
 
-          {/* Contributor Leaderboard */}
           <section>
             <h2 className="text-2xl font-bold text-ink mb-6">{eco.boardB.contributorRankTitle}</h2>
             <ContributorRank isZh={isZh} />

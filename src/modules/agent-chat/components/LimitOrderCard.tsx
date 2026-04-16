@@ -2,6 +2,12 @@
 
 import { CheckCircle2 } from 'lucide-react';
 
+/** Format price: max 4 decimal places */
+function fmtPrice(n: number): string {
+  const decimals = n >= 1000 ? 2 : 4;
+  return n.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: decimals });
+}
+
 interface LimitOrderPayload {
   orderId: string;
   symbol: string;
@@ -45,7 +51,7 @@ export function LimitOrderCard({ payload, isZh }: Props) {
         </div>
 
         <div className="grid grid-cols-2 gap-x-4 gap-y-2 text-xs">
-          <Row label={labels.price} value={`$${payload.price.toLocaleString()}`} />
+          <Row label={labels.price} value={`$${fmtPrice(payload.price)}`} />
           <Row label={labels.amount} value={`${payload.amount} ${payload.symbol.split('/')[0]}`} />
           <Row label={labels.notional} value={`$${payload.notional.toLocaleString()}`} />
           <Row label={labels.time} value={payload.timestamp} />

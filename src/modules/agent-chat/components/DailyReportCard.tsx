@@ -2,6 +2,12 @@
 
 import { TrendingUp, TrendingDown } from 'lucide-react';
 
+/** Format price: max 4 decimal places */
+function fmtPrice(n: number): string {
+  const decimals = n >= 1000 ? 2 : 4;
+  return n.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: decimals });
+}
+
 interface DailyReportPayload {
   date: string;
   btc: { price: number; change: number };
@@ -52,7 +58,7 @@ export function DailyReportCard({ payload, isZh }: Props) {
             return (
               <div key={symbol} className="rounded-lg border border-border bg-page p-2.5">
                 <div className="text-[11px] text-muted">{symbol}</div>
-                <div className="text-sm font-semibold text-ink">${c.price.toLocaleString()}</div>
+                <div className="text-sm font-semibold text-ink">${fmtPrice(c.price)}</div>
                 <div className={`flex items-center gap-0.5 text-xs font-medium ${up ? 'text-green-600' : 'text-red-600'}`}>
                   {up ? <TrendingUp className="h-3 w-3" /> : <TrendingDown className="h-3 w-3" />}
                   {up ? '+' : ''}{c.change}%

@@ -18,6 +18,7 @@ export { HubBoard } from './boards/Hub';
 export { ArenaBoard } from './boards/Arena';
 export { AgentZoneBoard } from './boards/AgentZone';
 export { EventsBoard } from './boards/Events';
+export { Act3Nav } from './boards/Act3Nav';
 
 // Legacy exports — keep for backward compat until fully migrated
 export { EcosystemBoard } from './boards/EcosystemBoard';

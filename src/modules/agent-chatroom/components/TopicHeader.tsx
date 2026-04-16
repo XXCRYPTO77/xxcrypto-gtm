@@ -3,6 +3,17 @@
 import type { TopicContext } from '../types';
 import { Radio } from 'lucide-react';
 
+/** Format price: max 4 decimal places, with thousands separator */
+function fmtPrice(n: number): string {
+  // For prices >= 1, show up to 4 significant decimals (strip trailing zeros)
+  // For prices < 1, always show 4 decimal places
+  const decimals = n >= 1000 ? 2 : n >= 1 ? 4 : 4;
+  return n.toLocaleString(undefined, {
+    minimumFractionDigits: 0,
+    maximumFractionDigits: decimals,
+  });
+}
+
 interface Props {
   topic: TopicContext;
   isZh: boolean;
@@ -36,7 +47,7 @@ export function TopicHeader({ topic, isZh, round }: Props) {
           return (
             <span key={t.symbol} className="flex items-center gap-1 rounded-lg border border-border bg-page px-2 py-1">
               <span className="font-mono font-semibold text-ink">{t.symbol}</span>
-              <span className="font-mono text-muted">${t.price.toLocaleString()}</span>
+              <span className="font-mono text-muted">${fmtPrice(t.price)}</span>
               <span className={`font-mono font-semibold ${up ? 'text-cw-green' : 'text-cw-red'}`}>
                 {up ? '+' : ''}{t.change24h}%
               </span>
