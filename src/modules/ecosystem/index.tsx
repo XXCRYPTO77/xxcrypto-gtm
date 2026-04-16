@@ -152,7 +152,7 @@ export default function EcosystemModule() {
                 <div className="hidden md:flex items-end justify-center gap-6 mb-12 mt-12">
                   {/* 2nd place - left */}
                   <div className="w-[260px]">
-                    <div className="bg-[#12122A] rounded-[20px] border border-[#2A2A4A] p-8 text-center relative">
+                    <div className="bg-[#12122A] rounded-[20px] border border-[#2A2A4A] p-8 text-center relative hover:shadow-[0_0_30px_rgba(82,39,255,0.25)] hover:border-[rgba(82,39,255,0.4)] transition-all duration-300">
                       <div className="absolute -top-3 -left-1 w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white text-sm font-bold">2</div>
                       <div className="w-20 h-20 rounded-full mx-auto mb-4 bg-gradient-to-br from-[#5227ff] to-[#a366ff] flex items-center justify-center text-3xl">{a2.avatar}</div>
                       <div className="text-white font-bold text-base">{isZh ? a2.name : a2.nameEn}</div>
@@ -172,7 +172,7 @@ export default function EcosystemModule() {
                   </div>
                   {/* 3rd place - right */}
                   <div className="w-[260px]">
-                    <div className="bg-[#12122A] rounded-[20px] border border-[#2A2A4A] p-8 text-center relative">
+                    <div className="bg-[#12122A] rounded-[20px] border border-[#2A2A4A] p-8 text-center relative hover:shadow-[0_0_30px_rgba(82,39,255,0.25)] hover:border-[rgba(82,39,255,0.4)] transition-all duration-300">
                       <div className="absolute -top-3 -right-1 w-8 h-8 bg-pink-500 rounded-full flex items-center justify-center text-white text-sm font-bold">3</div>
                       <div className="w-20 h-20 rounded-full mx-auto mb-4 bg-gradient-to-br from-[#5227ff] to-[#a366ff] flex items-center justify-center text-3xl">{a3.avatar}</div>
                       <div className="text-white font-bold text-base">{isZh ? a3.name : a3.nameEn}</div>
@@ -188,7 +188,7 @@ export default function EcosystemModule() {
                     { entry: second, agent: a2, badge: '2', badgeColor: 'bg-blue-500', returnColor: 'text-blue-400' },
                     { entry: third, agent: a3, badge: '3', badgeColor: 'bg-pink-500', returnColor: 'text-pink-400' }].map((item, idx) => (
                     <div key={idx} className="w-full max-w-[300px]">
-                      <div className="bg-[#12122A] rounded-[20px] border border-[#2A2A4A] p-8 text-center relative">
+                      <div className="bg-[#12122A] rounded-[20px] border border-[#2A2A4A] p-8 text-center relative hover:shadow-[0_0_30px_rgba(82,39,255,0.25)] hover:border-[rgba(82,39,255,0.4)] transition-all duration-300">
                         <div className={`absolute -top-3 left-1/2 -translate-x-1/2 w-8 h-8 ${item.badgeColor} rounded-full flex items-center justify-center text-white text-sm font-bold`}>{item.badge}</div>
                         <div className="w-20 h-20 rounded-full mx-auto mb-4 bg-gradient-to-br from-[#5227ff] to-[#a366ff] flex items-center justify-center text-3xl">{item.agent.avatar}</div>
                         <div className="text-white font-bold text-base">{isZh ? item.agent.name : item.agent.nameEn}</div>
@@ -210,7 +210,7 @@ export default function EcosystemModule() {
               const maxReturn = ARENA_ENTRIES[0].return7d;
               const barPct = (entry.return7d / maxReturn) * 100;
               return (
-                <div key={entry.rank} className="flex items-center gap-5 bg-[#12122A] rounded-2xl border border-[#2A2A4A] px-4 md:px-6 py-4">
+                <div key={entry.rank} className="flex items-center gap-5 bg-[#12122A] rounded-2xl border border-[#2A2A4A] px-4 md:px-6 py-4 hover:shadow-[0_0_24px_rgba(82,39,255,0.2)] hover:border-[rgba(82,39,255,0.3)] transition-all duration-300">
                   <div className="w-7 h-7 rounded-full bg-[#5227ff]/20 flex items-center justify-center text-[#a366ff] text-xs font-bold flex-shrink-0">{entry.rank}</div>
                   <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-[#5227ff] to-[#a366ff] flex items-center justify-center text-xl flex-shrink-0">{agent.avatar}</div>
                   <div className="flex-1 min-w-0">
@@ -292,7 +292,7 @@ export default function EcosystemModule() {
           </p>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8" style={{ '--color-ink': '#FFFFFF', '--color-muted': '#A0A0B8', '--color-surface': '#12122A', '--color-border': '#2A2A4A', '--color-page': '#0A0A1A' } as React.CSSProperties}>
-            <div className="lg:col-span-2">
+            <div className="lg:col-span-2 [&_.rounded-2xl]:hover:shadow-[0_0_30px_rgba(82,39,255,0.25)] [&_.rounded-2xl]:hover:border-[rgba(82,39,255,0.4)]">
               <StrategyLibrary strategies={STRATEGIES} isZh={isZh} />
             </div>
             <div>
