@@ -153,7 +153,7 @@ export default function EcosystemModule() {
                   {/* 2nd place - left */}
                   <div className="w-[260px]">
                     <div className="bg-[#12122A] rounded-[20px] border border-[#2A2A4A] p-8 text-center relative hover:shadow-[0_0_30px_rgba(82,39,255,0.25)] hover:border-[rgba(82,39,255,0.4)] transition-all duration-300">
-                      <div className="absolute -top-3 -left-1 w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white text-sm font-bold">2</div>
+                      <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white text-sm font-bold">2</div>
                       <div className="w-20 h-20 rounded-full mx-auto mb-4 bg-gradient-to-br from-[#5227ff] to-[#a366ff] flex items-center justify-center text-3xl">{a2.avatar}</div>
                       <div className="text-white font-bold text-base">{isZh ? a2.name : a2.nameEn}</div>
                       <div className="text-[#A0A0B8] text-xs mt-1">@{a2.id}</div>
@@ -173,7 +173,7 @@ export default function EcosystemModule() {
                   {/* 3rd place - right */}
                   <div className="w-[260px]">
                     <div className="bg-[#12122A] rounded-[20px] border border-[#2A2A4A] p-8 text-center relative hover:shadow-[0_0_30px_rgba(82,39,255,0.25)] hover:border-[rgba(82,39,255,0.4)] transition-all duration-300">
-                      <div className="absolute -top-3 -right-1 w-8 h-8 bg-pink-500 rounded-full flex items-center justify-center text-white text-sm font-bold">3</div>
+                      <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-8 h-8 bg-pink-500 rounded-full flex items-center justify-center text-white text-sm font-bold">3</div>
                       <div className="w-20 h-20 rounded-full mx-auto mb-4 bg-gradient-to-br from-[#5227ff] to-[#a366ff] flex items-center justify-center text-3xl">{a3.avatar}</div>
                       <div className="text-white font-bold text-base">{isZh ? a3.name : a3.nameEn}</div>
                       <div className="text-[#A0A0B8] text-xs mt-1">@{a3.id}</div>
