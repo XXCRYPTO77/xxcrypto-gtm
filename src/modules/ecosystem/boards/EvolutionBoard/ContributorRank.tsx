@@ -25,7 +25,7 @@ export function ContributorRank({ isZh }: ContributorRankProps) {
         {TOP_CONTRIBUTORS.map((c) => (
           <div
             key={c.rank}
-            className="flex items-center gap-4 py-2 border-b border-border last:border-0"
+            className="flex flex-wrap items-center gap-3 py-3 border-b border-border last:border-0"
           >
             {/* Rank */}
             <div className="flex-shrink-0 w-8 text-center">
@@ -37,10 +37,10 @@ export function ContributorRank({ isZh }: ContributorRankProps) {
             </div>
 
             {/* Name + verified */}
-            <div className="flex items-center gap-1.5 min-w-[120px]">
+            <div className="flex items-center gap-1.5 flex-shrink-0">
               <span className="text-sm font-semibold text-ink">{c.name}</span>
               {c.verified && (
-                <Badge tone="brand" className="text-[10px] px-1.5 py-0.5">
+                <Badge tone="brand" className="text-[10px] px-1.5 py-0.5 whitespace-nowrap">
                   <ShieldCheck className="h-3 w-3" />
                   {isZh ? '认证' : 'Verified'}
                 </Badge>
@@ -48,7 +48,7 @@ export function ContributorRank({ isZh }: ContributorRankProps) {
             </div>
 
             {/* Stats */}
-            <div className="flex flex-wrap items-center gap-4 ml-auto text-xs text-muted">
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-1 w-full pl-12 text-xs text-muted">
               <span>
                 {isZh ? '策略' : 'Strategies'}: <span className="text-ink font-medium">{c.strategies}</span>
               </span>
