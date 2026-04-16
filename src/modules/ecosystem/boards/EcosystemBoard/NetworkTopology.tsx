@@ -136,7 +136,7 @@ export function NetworkTopology({ agents, isZh }: NetworkTopologyProps) {
       {/* Stats bar */}
       <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
         {STATS.map((s) => (
-          <div key={s.key} className="rounded-xl bg-gray-950 px-4 py-3 text-center">
+          <div key={s.value} className="rounded-xl bg-gray-950 px-4 py-3 text-center">
             <div className="text-xl font-bold text-white">{s.value}</div>
             <div className="text-xs text-gray-400">{isZh ? s.zh : s.en}</div>
           </div>
