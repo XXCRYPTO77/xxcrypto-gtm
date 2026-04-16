@@ -15,19 +15,19 @@ const ACT_CONFIG = [
 ] as const;
 
 const ACT_META: Record<string, { num: string; title: string; desc: string; versions: string }> = {
-  act1:  { num: 'ACT I',   title: '看到', desc: 'Skills 落地页——用户看到产品是什么、能干什么，复制一段 prompt 就能试。', versions: 'v1.0' },
-  act15: { num: 'ACT I·5', title: '旁观', desc: '3 个 Agent 实时讨论行情和策略，未登录也能看。先建立信任，再谈转化。', versions: 'v1.0.5' },
-  act2:  { num: 'ACT II',  title: '用到', desc: '选风格、跟 Agent 聊、走完看行情→下单→看结果的完整流程。', versions: 'v1.1' },
-  act3:  { num: 'ACT III', title: '生态', desc: '双 Agent 接入 + Skill 进化协作 + 交易竞技 + 分润闭环——产品终态。', versions: 'v1.5' },
-  act4:  { num: 'ACT IV',  title: '远景', desc: '合回主站路径、安全风控、后续规划蓝图。', versions: 'v2.0+' },
+  act1:  { num: 'ACT 1', title: '看到', desc: 'Skills 落地页——用户看到产品是什么、能干什么，复制一段 prompt 就能试。', versions: 'v1.0' },
+  act15: { num: 'ACT 2', title: '旁观', desc: '3 个 Agent 实时讨论行情和策略，未登录也能看。先建立信任，再谈转化。', versions: 'v1.1' },
+  act2:  { num: 'ACT 3', title: '用到', desc: '选风格、跟 Agent 聊、走完看行情→下单→看结果的完整流程。', versions: 'v1.2' },
+  act3:  { num: 'ACT 4', title: '生态', desc: '双 Agent 接入 + Skill 进化协作 + 交易竞技 + 分润闭环——产品终态。', versions: 'v1.5' },
+  act4:  { num: 'ACT 5', title: '远景', desc: '合回主站路径、安全风控、后续规划蓝图。', versions: 'v2.0+' },
 };
 
 const ACT_META_EN: Record<string, { num: string; title: string; desc: string; versions: string }> = {
-  act1:  { num: 'ACT I',   title: 'See It',    desc: 'Skills landing page — see the product, understand it, copy a prompt and try.', versions: 'v1.0' },
-  act15: { num: 'ACT I·5', title: 'Watch',     desc: '3 Agents discuss markets and strategies in real time. No login required. Trust first, convert later.', versions: 'v1.0.5' },
-  act2:  { num: 'ACT II',  title: 'Use It',    desc: 'Pick a style, chat with an Agent, walk through the full trading flow.', versions: 'v1.1' },
-  act3:  { num: 'ACT III', title: 'Ecosystem', desc: 'Dual Agent access + Skill evolution + trading arena + revenue sharing — the endgame.', versions: 'v1.5' },
-  act4:  { num: 'ACT IV',  title: 'Vision',    desc: 'Main-site integration path, security & compliance, future roadmap.', versions: 'v2.0+' },
+  act1:  { num: 'ACT 1', title: 'See It',    desc: 'Skills landing page — see the product, understand it, copy a prompt and try.', versions: 'v1.0' },
+  act15: { num: 'ACT 2', title: 'Watch',     desc: '3 Agents discuss markets and strategies in real time. No login required. Trust first, convert later.', versions: 'v1.1' },
+  act2:  { num: 'ACT 3', title: 'Use It',    desc: 'Pick a style, chat with an Agent, walk through the full trading flow.', versions: 'v1.2' },
+  act3:  { num: 'ACT 4', title: 'Ecosystem', desc: 'Dual Agent access + Skill evolution + trading arena + revenue sharing — the endgame.', versions: 'v1.5' },
+  act4:  { num: 'ACT 5', title: 'Vision',    desc: 'Main-site integration path, security & compliance, future roadmap.', versions: 'v2.0+' },
 };
 
 export default function Overview() {
@@ -53,8 +53,8 @@ export default function Overview() {
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-muted">
             {isZh
-              ? '四幕产品路线图。每一幕都是一个可体验的产品Demo——从落地页到Agent对话，到完整交易生态。'
-              : 'Four-act product roadmap. Each act is a live product demo — from landing page to Agent chat to the full trading ecosystem.'}
+              ? '五幕产品路线图。每一幕都是一个可体验的产品 Demo——从落地页到 Agent 对话，到完整交易生态。'
+              : 'Five-act product roadmap. Each act is a live product demo — from landing page to Agent chat to the full trading ecosystem.'}
           </p>
         </div>
       </section>

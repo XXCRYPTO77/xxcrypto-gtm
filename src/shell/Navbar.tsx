@@ -31,11 +31,11 @@ export function ShellNavbar() {
               : null;
 
   const acts = [
-    { id: 'act1', label: 'Act I', href: '/act1' },
-    { id: 'act15', label: 'Act I·5', href: '/act15' },
-    { id: 'act2', label: 'Act II', href: '/act2' },
-    { id: 'act3', label: 'Act III', href: '/act3' },
-    { id: 'act4', label: 'Act IV', href: '/act4' },
+    { id: 'act1', label: 'Act 1', href: '/act1' },
+    { id: 'act15', label: 'Act 2', href: '/act15' },
+    { id: 'act2', label: 'Act 3', href: '/act2' },
+    { id: 'act3', label: 'Act 4', href: '/act3' },
+    { id: 'act4', label: 'Act 5', href: '/act4' },
     { id: 'skills', label: 'Skills', href: '/skills' },
   ];
 

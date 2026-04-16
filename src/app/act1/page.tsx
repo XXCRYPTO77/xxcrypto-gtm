@@ -15,8 +15,8 @@ function Act1Content() {
       <LandingModule />
       <TransitionBand
         band="band1"
-        nextActLabel={isZh ? 'Act II · 用到 →' : 'Act II · Use It →'}
-        nextActHref="/act2"
+        nextActLabel={isZh ? 'Act 2 · 实时对话 →' : 'Act 2 · Live Chat →'}
+        nextActHref="/act15"
       />
     </>
   );

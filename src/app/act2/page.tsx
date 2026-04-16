@@ -17,7 +17,7 @@ function Act2Content() {
       <CompanionCapabilities />
       <TransitionBand
         band="band2"
-        nextActLabel={isZh ? 'Act III · 生态 →' : 'Act III · Ecosystem →'}
+        nextActLabel={isZh ? 'Act 4 · 生态 →' : 'Act 4 · Ecosystem →'}
         nextActHref="/act3"
       />
     </>

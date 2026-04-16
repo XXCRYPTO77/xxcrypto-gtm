@@ -19,7 +19,7 @@ function Act15Content() {
             href="/act2"
             className="inline-flex items-center gap-2 rounded-full border border-border bg-page px-5 py-2.5 text-sm font-medium text-ink shadow-sm transition-all hover:border-brand hover:text-brand hover:shadow-md"
           >
-            {isZh ? 'Act II · 用到 →' : 'Act II · Use It →'}
+            {isZh ? 'Act 3 · Agent 交互 →' : 'Act 3 · Agent Interface →'}
             <ChevronDown size={16} />
           </a>
         </div>

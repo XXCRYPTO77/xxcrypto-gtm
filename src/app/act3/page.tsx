@@ -15,7 +15,7 @@ function Act3HubContent() {
       <div className="mt-16">
         <TransitionBand
           band="band3"
-          nextActLabel={isZh ? 'Act IV \u00B7 \u8FDC\u666F \u2192' : 'Act IV \u00B7 Vision \u2192'}
+          nextActLabel={isZh ? 'Act 5 · 远景 →' : 'Act 5 · Vision →'}
           nextActHref="/act4"
         />
       </div>
