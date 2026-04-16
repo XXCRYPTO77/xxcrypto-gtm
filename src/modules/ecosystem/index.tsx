@@ -356,20 +356,21 @@ export default function EcosystemModule() {
         </div>
       </section>
 
-      {/* Section 9: Developer Onboarding — Purple bg */}
-      <section className="bg-[#5227ff] py-24 relative overflow-hidden">
-        <div className="absolute -top-[100px] -right-[100px] w-[400px] h-[400px] rounded-full bg-white/5 pointer-events-none" />
-        <div className="absolute -bottom-[150px] -left-[50px] w-[300px] h-[300px] rounded-full border-2 border-white/8 pointer-events-none" />
-        <div className="max-w-[1280px] mx-auto px-10 relative z-10">
-          <h2 className="text-[40px] font-bold text-white text-center mb-4 tracking-tight">
+      {/* Section 9: Developer Onboarding — White bg */}
+      <section className="bg-white py-24">
+        <div className="max-w-[1280px] mx-auto px-10">
+          <div className="text-center mb-4">
+            <span className="inline-flex items-center px-4 py-1.5 bg-[rgba(82,39,255,0.08)] border border-[rgba(82,39,255,0.15)] rounded-full text-[13px] font-semibold text-[#5227ff]">
+              {isZh ? '开发者' : 'Developers'}
+            </span>
+          </div>
+          <h2 className="text-[44px] font-bold text-[#111] text-center mb-4 tracking-tight">
             {isZh ? '开发者入驻' : 'Developer Onboarding'}
           </h2>
-          <p className="text-base text-white/70 text-center mb-14">
+          <p className="text-lg text-[#666] text-center mb-14 max-w-[600px] mx-auto">
             {isZh ? '三步开始构建你的交易 Agent' : 'Three steps to start building your trading Agent'}
           </p>
-          <div style={{ '--color-ink': '#FFFFFF', '--color-muted': 'rgba(255,255,255,0.7)', '--color-surface': 'rgba(255,255,255,0.1)', '--color-border': 'rgba(255,255,255,0.15)', '--color-page': 'transparent' } as React.CSSProperties}>
-            <IntegrationGuide isZh={isZh} />
-          </div>
+          <IntegrationGuide isZh={isZh} />
         </div>
       </section>
 
