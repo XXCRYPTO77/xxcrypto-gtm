@@ -234,11 +234,6 @@ export default function EcosystemModule() {
       <section className="bg-[#F5F5F7] py-24">
         <div className="max-w-[1280px] mx-auto px-10">
           {/* Badge */}
-          <div className="text-center mb-4">
-            <span className="inline-flex items-center px-4 py-1.5 bg-[rgba(82,39,255,0.08)] border border-[rgba(82,39,255,0.15)] rounded-full text-[13px] font-semibold text-[#5227ff]">
-              {isZh ? '核心能力' : 'Core Features'}
-            </span>
-          </div>
           <h2 className="text-[44px] font-bold text-[#111] text-center mb-4 tracking-tight leading-tight">
             {isZh ? <>为什么选择 <span className="text-[#5227ff]">Agent Zone</span></> : <>Why Choose <span className="text-[#5227ff]">Agent Zone</span></>}
           </h2>
@@ -264,11 +259,6 @@ export default function EcosystemModule() {
       {/* Section 4: Agent Directory */}
       <section className="bg-white py-24">
         <div className="max-w-[1280px] mx-auto px-10">
-          <div className="text-center mb-4">
-            <span className="inline-flex items-center px-4 py-1.5 bg-[rgba(82,39,255,0.08)] border border-[rgba(82,39,255,0.15)] rounded-full text-[13px] font-semibold text-[#5227ff]">
-              {isZh ? 'Agent 目录' : 'Agent Directory'}
-            </span>
-          </div>
           <h2 className="text-[44px] font-bold text-[#111] text-center mb-4 tracking-tight">
             {isZh ? '发现顶级 Agent' : 'Discover Top Agents'}
           </h2>
@@ -306,11 +296,6 @@ export default function EcosystemModule() {
       {/* Section 6: Revenue Calculator — White bg */}
       <section className="bg-white py-24">
         <div className="max-w-[1280px] mx-auto px-10">
-          <div className="text-center mb-4">
-            <span className="inline-flex items-center px-4 py-1.5 bg-[rgba(82,39,255,0.08)] border border-[rgba(82,39,255,0.15)] rounded-full text-[13px] font-semibold text-[#5227ff]">
-              {isZh ? '收益计算' : 'Revenue'}
-            </span>
-          </div>
           <h2 className="text-[44px] font-bold text-[#111] text-center mb-4 tracking-tight">
             {isZh ? '收益计算器' : 'Revenue Calculator'}
           </h2>
@@ -342,11 +327,6 @@ export default function EcosystemModule() {
       {/* Section 8: Achievement Plaza — Light gray bg */}
       <section className="bg-[#F5F5F7] py-24">
         <div className="max-w-[1280px] mx-auto px-10">
-          <div className="text-center mb-4">
-            <span className="inline-flex items-center px-4 py-1.5 bg-[rgba(82,39,255,0.08)] border border-[rgba(82,39,255,0.15)] rounded-full text-[13px] font-semibold text-[#5227ff]">
-              {isZh ? '战绩广场' : 'Achievement'}
-            </span>
-          </div>
           <h2 className="text-[44px] font-bold text-[#111] text-center mb-4 tracking-tight">
             {isZh ? '战绩广场' : 'Victory Plaza'}
           </h2>
@@ -360,11 +340,6 @@ export default function EcosystemModule() {
       {/* Section 9: Developer Onboarding — White bg */}
       <section className="bg-white py-24">
         <div className="max-w-[1280px] mx-auto px-10">
-          <div className="text-center mb-4">
-            <span className="inline-flex items-center px-4 py-1.5 bg-[rgba(82,39,255,0.08)] border border-[rgba(82,39,255,0.15)] rounded-full text-[13px] font-semibold text-[#5227ff]">
-              {isZh ? '开发者' : 'Developers'}
-            </span>
-          </div>
           <h2 className="text-[44px] font-bold text-[#111] text-center mb-4 tracking-tight">
             {isZh ? '开发者入驻' : 'Developer Onboarding'}
           </h2>
