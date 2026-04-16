@@ -12,6 +12,9 @@ import { AGENTS } from './data/agents';
 import { ARENA_ENTRIES } from './data/arena';
 import { PLAZA_POSTS } from './data/plaza';
 import { STRATEGIES } from './data/strategies';
+import { AgentList } from './boards/EcosystemBoard/AgentList';
+import { StrategyLibrary } from './boards/EvolutionBoard/StrategyLibrary';
+import { ContributorRank } from './boards/EvolutionBoard/ContributorRank';
 
 const FEATURES_EN = [
   { icon: Bot, label: 'AI Agents', desc: 'Autonomous trading bots' },
@@ -273,35 +276,7 @@ export default function EcosystemModule() {
             {isZh ? '浏览并关注表现最佳的 AI 交易 Agent' : 'Browse and follow the best-performing AI trading agents'}
           </p>
 
-          <div className="flex justify-center gap-2 mb-10">
-            {['All', 'Official', 'Community'].map((tab, i) => (
-              <button key={tab} className={`px-5 py-2 rounded-full text-sm font-medium transition-all ${i === 0 ? 'bg-[#5227ff] text-white' : 'border border-[#E5E5EA] text-[#666] hover:border-[#5227ff] hover:text-[#5227ff]'}`}>
-                {tab}
-              </button>
-            ))}
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {AGENTS.map((agent) => (
-              <div key={agent.id} className="bg-white rounded-[20px] p-6 border border-[#E5E5EA] shadow-[0_2px_8px_rgba(0,0,0,0.04)] hover:-translate-y-1 hover:shadow-[0_8px_40px_rgba(0,0,0,0.08)] transition-all duration-300">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-[#5227ff] to-[#a366ff] flex items-center justify-center text-xl">{agent.avatar}</div>
-                  <div className="flex-1 min-w-0">
-                    <div className="text-base font-bold text-[#111] truncate">{isZh ? agent.name : agent.nameEn}</div>
-                    <span className={`text-[11px] font-semibold px-2 py-0.5 rounded-full ${agent.type === 'official' ? 'bg-[rgba(82,39,255,0.1)] text-[#5227ff]' : 'bg-[rgba(255,102,0,0.1)] text-[#ff6600]'}`}>
-                      {agent.type === 'official' ? 'Official' : 'Community'}
-                    </span>
-                  </div>
-                </div>
-                <p className="text-sm text-[#666] leading-relaxed mb-4 line-clamp-2">{isZh ? agent.tagline : agent.taglineEn}</p>
-                <div className="flex justify-between pt-3 border-t border-[#E5E5EA]">
-                  <div><div className="text-base font-bold text-[#22C55E]">+{agent.metrics.return7d}%</div><div className="text-[11px] text-[#999]">7D Return</div></div>
-                  <div><div className="text-base font-bold text-[#111]">{agent.metrics.dailyCalls.toLocaleString()}</div><div className="text-[11px] text-[#999]">Calls/Day</div></div>
-                  <div><div className="text-base font-bold text-[#111]">{agent.metrics.followers.toLocaleString()}</div><div className="text-[11px] text-[#999]">Followers</div></div>
-                </div>
-              </div>
-            ))}
-          </div>
+          <AgentList agents={AGENTS} isZh={isZh} />
         </div>
       </section>
 
@@ -316,40 +291,13 @@ export default function EcosystemModule() {
             {isZh ? '社区策略持续迭代，优胜劣汰，适者生存' : 'Community strategies evolve through continuous iteration and natural selection'}
           </p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {STRATEGIES.map((strategy) => {
-              const statusStyles: Record<string, string> = {
-                active: 'bg-[rgba(34,197,94,0.15)] text-[#22C55E]',
-                trending: 'bg-[rgba(255,204,0,0.15)] text-[#ffcc00]',
-                'at-risk': 'bg-[rgba(239,68,68,0.15)] text-[#ef4444]',
-                deprecated: 'bg-[rgba(239,68,68,0.15)] text-[#ef4444]',
-              };
-              const lastVersion = strategy.versions[strategy.versions.length - 1];
-              return (
-                <div key={strategy.id} className="bg-[#12122A] rounded-[20px] p-7 border border-[#2A2A4A] hover:-translate-y-1 hover:border-[rgba(82,39,255,0.3)] hover:shadow-[0_8px_32px_rgba(82,39,255,0.15)] transition-all duration-300">
-                  <span className="inline-block px-3 py-1 rounded-full text-[11px] font-semibold bg-[rgba(82,39,255,0.15)] text-[#a366ff] uppercase mb-4">{strategy.category}</span>
-                  <div className="flex items-center justify-between mb-2">
-                    <h3 className="text-lg font-bold text-white">{isZh ? strategy.name : strategy.nameEn}</h3>
-                    <span className={`text-[10px] font-semibold px-2 py-0.5 rounded-full ${statusStyles[strategy.status] || ''}`}>{strategy.status === 'at-risk' ? 'Under Review' : strategy.status.charAt(0).toUpperCase() + strategy.status.slice(1)}</span>
-                  </div>
-                  <div className="text-xs text-[#A0A0B8] mb-3">by {strategy.contributor.name}</div>
-                  <p className="text-sm text-[#A0A0B8] leading-relaxed mb-5 line-clamp-2">{isZh ? strategy.desc : strategy.descEn}</p>
-                  <div className="mb-4">
-                    <div className="flex justify-between text-xs text-[#A0A0B8] mb-1.5">
-                      <span>Win Rate</span><span>{strategy.winRateIndex}%</span>
-                    </div>
-                    <div className="h-1.5 bg-[rgba(255,255,255,0.08)] rounded-full overflow-hidden">
-                      <div className="h-full bg-gradient-to-r from-[#5227ff] to-[#a366ff] rounded-full" style={{ width: `${strategy.winRateIndex}%` }} />
-                    </div>
-                  </div>
-                  <div className="flex justify-between pt-4 border-t border-[#2A2A4A]">
-                    <div><div className="text-sm font-bold text-white">{strategy.realTrades.toLocaleString()}</div><div className="text-[11px] text-[#A0A0B8]">Trades</div></div>
-                    <div><div className={`text-sm font-bold ${strategy.cumulativePnL >= 0 ? 'text-[#22C55E]' : 'text-[#ef4444]'}`}>{strategy.cumulativePnL >= 0 ? '+' : ''}{strategy.cumulativePnL.toLocaleString()} USDT</div><div className="text-[11px] text-[#A0A0B8]">PnL</div></div>
-                    <div><div className="text-sm font-bold text-white">{lastVersion.version}</div><div className="text-[11px] text-[#A0A0B8]">Version</div></div>
-                  </div>
-                </div>
-              );
-            })}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div className="lg:col-span-2 [&_.card]:bg-[#12122A] [&_.card]:border-[#2A2A4A] [&_.badge]:bg-[rgba(82,39,255,0.15)] [&_.badge]:text-[#a366ff]">
+              <StrategyLibrary strategies={STRATEGIES} isZh={isZh} />
+            </div>
+            <div className="[&_.card]:bg-[#12122A] [&_.card]:border-[#2A2A4A]">
+              <ContributorRank isZh={isZh} />
+            </div>
           </div>
         </div>
       </section>
