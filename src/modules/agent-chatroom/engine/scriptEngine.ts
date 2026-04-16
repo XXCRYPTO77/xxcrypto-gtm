@@ -1,172 +1,171 @@
 'use client';
 
 import { useCallback, useEffect, useRef, useState } from 'react';
-import type { AgentId, ChatMessage, Script, ScriptBeat } from '../types';
-import { ROLE_MAP } from '../types';
+import type { AgentId, ChatMessage, TopicContext } from '../types';
 import { generateMessage } from '../api/openclawClient';
 
-const LIKE_STORAGE_KEY = 'cwc-act15-likes';
+// ─── 常量 ────────────────────────────────────────────────────────
+const AGENTS: AgentId[] = ['cwclaw-alpha', 'cwclaw-beta', 'cwclaw-gamma'];
+const ROLE_MAP: Record<AgentId, 'alpha' | 'beta' | 'gamma'> = {
+  'cwclaw-alpha': 'alpha',
+  'cwclaw-beta': 'beta',
+  'cwclaw-gamma': 'gamma',
+};
+
+// 打字等待 ms（模拟 Agent 思考速度）
+const TYPING_MS = { min: 1200, max: 2400 };
+// 消息间隔 ms（Agent 打完字到下一个 Agent 开始）
+const GAP_MS = { min: 1800, max: 3800 };
+// 每轮最多条数，超过后冷却 30s 重启
+const ROUND_MAX = 28;
 const COOLDOWN_MS = 30_000;
 
-function readLikedSet(): Set<string> {
+const LIKE_KEY = 'cwc-act15-likes';
+
+function rand(min: number, max: number) {
+  return min + Math.floor(Math.random() * (max - min));
+}
+
+// 不让同一个 Agent 连续发两次以上
+function pickNext(last: AgentId | null): AgentId {
+  const pool = last ? AGENTS.filter((a) => a !== last) : AGENTS;
+  return pool[Math.floor(Math.random() * pool.length)];
+}
+
+function readLiked(): Set<string> {
   if (typeof window === 'undefined') return new Set();
-  try {
-    const raw = window.localStorage.getItem(LIKE_STORAGE_KEY);
-    if (!raw) return new Set();
-    return new Set(JSON.parse(raw) as string[]);
-  } catch {
-    return new Set();
-  }
+  try { return new Set(JSON.parse(window.localStorage.getItem(LIKE_KEY) || '[]')); }
+  catch { return new Set(); }
 }
 
-function writeLikedSet(s: Set<string>) {
-  try {
-    window.localStorage.setItem(LIKE_STORAGE_KEY, JSON.stringify([...s]));
-  } catch {
-    /* noop */
-  }
+function writeLiked(s: Set<string>) {
+  try { window.localStorage.setItem(LIKE_KEY, JSON.stringify([...s])); } catch { /**/ }
 }
 
-interface EngineState {
-  messages: ChatMessage[];
-  typingAgent: AgentId | null;
-  round: number;
-}
+// ─── Hook ───────────────────────────────────────────────────────
+export function useScriptEngine(topic: TopicContext) {
+  const [messages, setMessages] = useState<ChatMessage[]>([]);
+  const [typingAgent, setTypingAgent] = useState<AgentId | null>(null);
+  const [round, setRound] = useState(1);
 
-export function useScriptEngine(script: Script) {
-  const [state, setState] = useState<EngineState>({ messages: [], typingAgent: null, round: 1 });
-  const timers = useRef<number[]>([]);
-  const cancelled = useRef(false);
+  const cancelRef = useRef(false);
   const likedSet = useRef<Set<string>>(new Set());
+  const messagesRef = useRef<ChatMessage[]>([]);
 
-  const clearAllTimers = useCallback(() => {
-    timers.current.forEach((t) => window.clearTimeout(t));
-    timers.current = [];
+  // 让 messagesRef 随 state 同步
+  const pushMessage = useCallback((msg: ChatMessage) => {
+    messagesRef.current = [...messagesRef.current, msg];
+    setMessages([...messagesRef.current]);
   }, []);
 
-  const schedule = useCallback((fn: () => void, ms: number) => {
-    const id = window.setTimeout(fn, ms);
-    timers.current.push(id);
-    return id;
-  }, []);
-
-  const runBeat = useCallback(
-    async (beat: ScriptBeat, round: number, latestRef: { current: ChatMessage[] }) => {
-      if (cancelled.current) return;
-      // 1. 先展示 typing
-      setState((s) => ({ ...s, typingAgent: beat.agentId }));
-
-      await new Promise<void>((resolve) => {
-        schedule(() => resolve(), beat.typingDuration ?? 1500);
-      });
-      if (cancelled.current) return;
-
-      // 2. 取内容
-      let content = beat.payload.content ?? '';
-      let contentEn = beat.payload.contentEn ?? '';
-
-      if (beat.mode === 'dynamic' && beat.payload.prompt) {
-        try {
-          const out = await generateMessage({
-            role: ROLE_MAP[beat.agentId],
-            prompt: beat.payload.prompt,
-            recentMessages: latestRef.current,
-          });
-          content = out.content;
-          contentEn = out.contentEn;
-        } catch {
-          // fallback
-          content = beat.payload.fallback?.content ?? '...';
-          contentEn = beat.payload.fallback?.contentEn ?? '...';
-        }
-      }
-
-      if (cancelled.current) return;
-
-      const msgId = `${beat.id}-r${round}`;
-      const msg: ChatMessage = {
-        id: msgId,
-        agentId: beat.agentId,
-        type: beat.type,
-        content,
-        contentEn,
-        timestamp: Date.now(),
-        likes: Math.floor(Math.random() * 25) + 2,
-        liked: likedSet.current.has(msgId),
-        replyTo: beat.replyTo ? `${beat.replyTo}-r${round}` : undefined,
-      };
-
-      setState((s) => {
-        const next = { ...s, typingAgent: null, messages: [...s.messages, msg] };
-        latestRef.current = next.messages;
-        return next;
-      });
-    },
-    [schedule]
-  );
-
-  // 启动循环
-  useEffect(() => {
-    cancelled.current = false;
-    likedSet.current = readLikedSet();
-    const latestRef = { current: [] as ChatMessage[] };
-
-    async function runLoop() {
-      let round = 1;
-      while (!cancelled.current) {
-        // 新一轮清空
-        if (round > 1) {
-          setState({ messages: [], typingAgent: null, round });
-          latestRef.current = [];
-          // 系统开场
-          await new Promise<void>((resolve) => schedule(() => resolve(), 800));
-        } else {
-          setState((s) => ({ ...s, round }));
-        }
-
-        for (const beat of script.beats) {
-          if (cancelled.current) return;
-          await new Promise<void>((resolve) => schedule(() => resolve(), beat.delay));
-          if (cancelled.current) return;
-          await runBeat(beat, round, latestRef);
-        }
-        if (cancelled.current) return;
-        // 冷却
-        await new Promise<void>((resolve) => schedule(() => resolve(), COOLDOWN_MS));
-        round += 1;
-      }
-    }
-
-    runLoop();
-
-    return () => {
-      cancelled.current = true;
-      clearAllTimers();
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [script]);
-
-  const likeMessage = useCallback((id: string) => {
-    setState((s) => {
-      const messages = s.messages.map((m) => {
-        if (m.id !== id) return m;
-        const liked = !m.liked;
-        const next = { ...m, liked, likes: m.likes + (liked ? 1 : -1) };
-        return next;
-      });
-      // 更新 localStorage
-      const set = likedSet.current;
-      if (set.has(id)) set.delete(id);
-      else set.add(id);
-      writeLikedSet(set);
-      return { ...s, messages };
+  const sleep = useCallback((ms: number) => {
+    return new Promise<void>((resolve) => {
+      const id = window.setTimeout(resolve, ms);
+      // 挂到 cancelRef 里，cleanup 时 clearTimeout
+      (cancelRef as any)._timers = [...((cancelRef as any)._timers || []), id];
     });
   }, []);
 
-  return {
-    messages: state.messages,
-    typingAgent: state.typingAgent,
-    round: state.round,
-    likeMessage,
-  };
+  const runLoop = useCallback(async (currentRound: number) => {
+    let lastAgent: AgentId | null = null;
+    let count = 0;
+
+    while (!cancelRef.current && count < ROUND_MAX) {
+      const agentId = pickNext(lastAgent);
+      lastAgent = agentId;
+      count++;
+
+      // 1. typing 指示
+      setTypingAgent(agentId);
+      await sleep(rand(TYPING_MS.min, TYPING_MS.max));
+      if (cancelRef.current) return;
+
+      // 2. 生成消息
+      const context = messagesRef.current.slice(-6);
+      let content = '';
+      let contentEn = '';
+
+      try {
+        const out = await generateMessage({
+          role: ROLE_MAP[agentId],
+          topic,
+          recentMessages: context,
+        });
+        content = out.content;
+        contentEn = out.contentEn;
+      } catch {
+        // fallback：沉默降级，跳过这条继续
+        setTypingAgent(null);
+        await sleep(rand(GAP_MS.min, GAP_MS.max));
+        continue;
+      }
+
+      if (cancelRef.current) return;
+
+      const msgId = `${agentId}-r${currentRound}-${count}`;
+      const msg: ChatMessage = {
+        id: msgId,
+        agentId,
+        type: count % 5 === 0 ? 'strategy' : count % 3 === 0 ? 'reaction' : 'analysis',
+        content,
+        contentEn,
+        timestamp: Date.now(),
+        likes: rand(2, 28),
+        liked: likedSet.current.has(msgId),
+      };
+
+      setTypingAgent(null);
+      pushMessage(msg);
+
+      // 3. 等一会儿再发下一条
+      await sleep(rand(GAP_MS.min, GAP_MS.max));
+    }
+
+    if (!cancelRef.current) {
+      // 冷却后重启
+      await sleep(COOLDOWN_MS);
+      if (!cancelRef.current) {
+        // 新一轮：清空消息
+        messagesRef.current = [];
+        setMessages([]);
+        const nextRound = currentRound + 1;
+        setRound(nextRound);
+        runLoop(nextRound);
+      }
+    }
+  }, [topic, sleep, pushMessage]);
+
+  useEffect(() => {
+    cancelRef.current = false;
+    likedSet.current = readLiked();
+    messagesRef.current = [];
+    setMessages([]);
+    setTypingAgent(null);
+    (cancelRef as any)._timers = [];
+
+    runLoop(1);
+
+    return () => {
+      cancelRef.current = true;
+      ((cancelRef as any)._timers || []).forEach((id: number) => window.clearTimeout(id));
+      (cancelRef as any)._timers = [];
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [topic]);
+
+  const likeMessage = useCallback((id: string) => {
+    const set = likedSet.current;
+    if (set.has(id)) set.delete(id); else set.add(id);
+    writeLiked(set);
+    setMessages((prev) =>
+      prev.map((m) =>
+        m.id !== id ? m : { ...m, liked: !m.liked, likes: m.likes + (m.liked ? -1 : 1) }
+      )
+    );
+    messagesRef.current = messagesRef.current.map((m) =>
+      m.id !== id ? m : { ...m, liked: !m.liked, likes: m.likes + (m.liked ? -1 : 1) }
+    );
+  }, []);
+
+  return { messages, typingAgent, round, likeMessage };
 }

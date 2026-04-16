@@ -1,8 +1,8 @@
-import type { AgentRole, ChatMessage } from '../types';
+import type { AgentRole, ChatMessage, TopicContext } from '../types';
 
 interface GenerateInput {
   role: AgentRole;
-  prompt: string;
+  topic: TopicContext;
   recentMessages: ChatMessage[];
 }
 
@@ -11,12 +11,8 @@ interface GenerateOutput {
   contentEn: string;
 }
 
-const TIMEOUT_MS = 4000;
+const TIMEOUT_MS = 5000;
 
-/**
- * 调 /api/openclaw/generate 生成动态 Agent 消息。
- * 超时 / 失败 抛错，上层（scriptEngine）用 fallback 兜底。
- */
 export async function generateMessage(input: GenerateInput): Promise<GenerateOutput> {
   const ctrl = new AbortController();
   const timer = setTimeout(() => ctrl.abort(), TIMEOUT_MS);
@@ -27,8 +23,12 @@ export async function generateMessage(input: GenerateInput): Promise<GenerateOut
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         role: input.role,
-        prompt: input.prompt,
-        recentMessages: input.recentMessages.slice(-5).map((m) => ({
+        topic: {
+          title: input.topic.title,
+          titleEn: input.topic.titleEn,
+          tickers: input.topic.tickers,
+        },
+        recentMessages: input.recentMessages.slice(-6).map((m) => ({
           agentId: m.agentId,
           content: m.content,
         })),
@@ -37,9 +37,8 @@ export async function generateMessage(input: GenerateInput): Promise<GenerateOut
     });
 
     if (!resp.ok) throw new Error(`openclaw ${resp.status}`);
-
     const data = (await resp.json()) as GenerateOutput;
-    if (!data.content) throw new Error('empty content');
+    if (!data.content) throw new Error('empty');
     return { content: data.content, contentEn: data.contentEn || data.content };
   } finally {
     clearTimeout(timer);
