@@ -49,7 +49,7 @@ export function TopicHeader({ topic, isZh, round }: Props) {
               <span className="font-mono font-semibold text-ink">{t.symbol}</span>
               <span className="font-mono text-muted">${fmtPrice(t.price)}</span>
               <span className={`font-mono font-semibold ${up ? 'text-cw-green' : 'text-cw-red'}`}>
-                {up ? '+' : ''}{t.change24h}%
+                {up ? '+' : ''}{t.change24h.toFixed(2)}%
               </span>
             </span>
           );

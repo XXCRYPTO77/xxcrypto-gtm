@@ -61,7 +61,7 @@ export function DailyReportCard({ payload, isZh }: Props) {
                 <div className="text-sm font-semibold text-ink">${fmtPrice(c.price)}</div>
                 <div className={`flex items-center gap-0.5 text-xs font-medium ${up ? 'text-green-600' : 'text-red-600'}`}>
                   {up ? <TrendingUp className="h-3 w-3" /> : <TrendingDown className="h-3 w-3" />}
-                  {up ? '+' : ''}{c.change}%
+                  {up ? '+' : ''}{Number(c.change).toFixed(2)}%
                 </div>
               </div>
             );

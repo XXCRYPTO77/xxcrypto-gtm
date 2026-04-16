@@ -4,6 +4,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import type { AgentId, ChatMessage, TickerData, TopicContext } from '../types';
 import { generateMessage, fetchMarketSnapshot } from '../api/openclawClient';
 import type { MarketSnapshot } from '../api/openclawClient';
+import { marketMorning } from './scripts/market-morning';
 
 // ─── 常量 ────────────────────────────────────────────────────────
 const AGENTS: AgentId[] = ['cwclaw-alpha', 'cwclaw-beta', 'cwclaw-gamma'];
@@ -22,6 +23,8 @@ const ROUND_MAX = 28;
 const COOLDOWN_MS = 30_000;
 // 市场数据刷新间隔
 const MARKET_REFRESH_MS = 15_000;
+// API 连续失败几次后切到静态脚本
+const API_FAIL_THRESHOLD = 2;
 
 const LIKE_KEY = 'cwc-act15-likes';
 
@@ -102,10 +105,69 @@ export function useScriptEngine(initialTopic: TopicContext) {
     }
   }, []);
 
+  // ─── 静态脚本播放（API 不可用时的 fallback）────────────────────
+  const runStaticScript = useCallback(async (currentRound: number) => {
+    const beats = marketMorning.beats;
+
+    for (let i = 0; i < beats.length; i++) {
+      if (cancelRef.current) return;
+
+      const beat = beats[i];
+
+      // typing 指示
+      setTypingAgent(beat.agentId);
+      await sleep(Math.min(beat.delay, TYPING_MS.max));
+      if (cancelRef.current) return;
+
+      // 取内容：static 直接拿 payload，dynamic 拿 fallback
+      let content = '';
+      let contentEn = '';
+      if (beat.mode === 'static') {
+        content = beat.payload.content || '';
+        contentEn = beat.payload.contentEn || content;
+      } else {
+        content = beat.payload.fallback?.content || beat.payload.content || '';
+        contentEn = beat.payload.fallback?.contentEn || beat.payload.contentEn || content;
+      }
+
+      const msgId = `static-r${currentRound}-${beat.id}`;
+      const msg: ChatMessage = {
+        id: msgId,
+        agentId: beat.agentId,
+        type: beat.type,
+        content,
+        contentEn,
+        timestamp: Date.now(),
+        likes: rand(2, 28),
+        liked: likedSet.current.has(msgId),
+      };
+
+      setTypingAgent(null);
+      pushMessage(msg);
+
+      // 消息间隔
+      await sleep(rand(GAP_MS.min, GAP_MS.max));
+    }
+
+    // 脚本播完后冷却重播
+    if (!cancelRef.current) {
+      await sleep(COOLDOWN_MS);
+      if (!cancelRef.current) {
+        messagesRef.current = [];
+        setMessages([]);
+        const nextRound = currentRound + 1;
+        setRound(nextRound);
+        runStaticScript(nextRound);
+      }
+    }
+  }, [sleep, pushMessage]);
+
+  // ─── 动态 API 循环 ────────────────────────────────────────────
   const runLoop = useCallback(async (currentRound: number) => {
     let lastAgent: AgentId | null = null;
     let count = 0;
     let lastMarketRefresh = 0;
+    let consecutiveFails = 0;
 
     // 首次立即刷新市场数据
     await refreshMarket();
@@ -147,8 +209,22 @@ export function useScriptEngine(initialTopic: TopicContext) {
         });
         content = out.content;
         contentEn = out.contentEn;
+        consecutiveFails = 0; // 成功了，重置计数
       } catch {
-        // fallback：沉默降级，跳过这条继续
+        consecutiveFails++;
+
+        // 连续失败超过阈值 → 切到静态脚本
+        if (consecutiveFails >= API_FAIL_THRESHOLD) {
+          console.warn(`[scriptEngine] API failed ${consecutiveFails}x, switching to static script`);
+          setTypingAgent(null);
+          // 清空已有消息，从头播静态脚本
+          messagesRef.current = [];
+          setMessages([]);
+          runStaticScript(currentRound);
+          return;
+        }
+
+        // 还没到阈值，跳过这条继续
         setTypingAgent(null);
         await sleep(rand(GAP_MS.min, GAP_MS.max));
         continue;
@@ -186,7 +262,7 @@ export function useScriptEngine(initialTopic: TopicContext) {
         runLoop(nextRound);
       }
     }
-  }, [initialTopic, sleep, pushMessage, refreshMarket]);
+  }, [initialTopic, sleep, pushMessage, refreshMarket, runStaticScript]);
 
   useEffect(() => {
     cancelRef.current = false;
