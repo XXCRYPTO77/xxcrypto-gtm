@@ -291,11 +291,12 @@ export default function EcosystemModule() {
             {isZh ? '社区策略持续迭代，优胜劣汰，适者生存' : 'Community strategies evolve through continuous iteration and natural selection'}
           </p>
 
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8" style={{ '--color-ink': '#FFFFFF', '--color-muted': '#A0A0B8', '--color-surface': '#12122A', '--color-border': '#2A2A4A', '--color-page': '#0A0A1A' } as React.CSSProperties}>
-            <div className="lg:col-span-3 [&_.rounded-2xl]:hover:shadow-[0_0_30px_rgba(82,39,255,0.25)] [&_.rounded-2xl]:hover:border-[rgba(82,39,255,0.4)]">
+          <div style={{ '--color-ink': '#FFFFFF', '--color-muted': '#A0A0B8', '--color-surface': '#12122A', '--color-border': '#2A2A4A', '--color-page': '#0A0A1A' } as React.CSSProperties}>
+            <div className="[&_.rounded-2xl]:hover:shadow-[0_0_30px_rgba(82,39,255,0.25)] [&_.rounded-2xl]:hover:border-[rgba(82,39,255,0.4)]">
               <StrategyLibrary strategies={STRATEGIES} isZh={isZh} />
             </div>
-            <div>
+            <div className="mt-12">
+              <h3 className="text-xl font-bold text-white mb-6 text-center">{isZh ? '策略贡献者排名' : 'Top Strategy Contributors'}</h3>
               <ContributorRank isZh={isZh} />
             </div>
           </div>
