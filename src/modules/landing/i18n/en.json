@@ -65,6 +65,24 @@
       "Developers build custom Skills to extend capabilities."
     ]
   },
+  "trust": {
+    "title": "Your Assets. Your Control.",
+    "cards": [
+      {"icon": "lock", "title": "AES-256 Encrypted", "desc": "API keys are encrypted server-side. Never stored or transmitted in plaintext."},
+      {"icon": "shield", "title": "No Withdrawal Access", "desc": "Only trade and read permissions. Withdrawal API is never touched."},
+      {"icon": "scroll", "title": "Full Audit Trail", "desc": "Every trade, every decision — complete logs available for review anytime."}
+    ]
+  },
+  "faq": {
+    "title": "FAQ",
+    "items": [
+      {"q": "Is AgentX safe? Are my funds at risk?", "a": "AgentX never custodies your funds. API keys only have trade and read permissions — no withdrawal access. Keys are AES-256 encrypted, decrypted in memory at runtime, and wiped after use."},
+      {"q": "Do I need a technical background?", "a": "Not for basic agents. Pick a preset strategy, configure parameters, and start. Developers can use the SDK to build custom strategies."},
+      {"q": "Which exchanges are supported?", "a": "CoinW is supported now. More exchanges are being integrated."},
+      {"q": "Is there a fee during beta?", "a": "All basic features are free during the public beta."},
+      {"q": "Will my strategy be visible to other users?", "a": "No. Each agent runs independently with fully isolated strategy parameters. Listing on the strategy marketplace is opt-in — if you don't list, only you can see it."}
+    ]
+  },
   "footer": {
     "copyright": "© 2026 AgentX. All rights reserved.",
     "github": "GitHub",
