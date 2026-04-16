@@ -71,6 +71,7 @@ export function useScriptEngine(initialTopic: TopicContext) {
   const likedSet = useRef<Set<string>>(new Set());
   const messagesRef = useRef<ChatMessage[]>([]);
   const marketRef = useRef<MarketSnapshot | null>(null);
+  const runLoopRef = useRef<((round: number) => void) | null>(null);
 
   // 让 messagesRef 随 state 同步
   const pushMessage = useCallback((msg: ChatMessage) => {
@@ -149,7 +150,7 @@ export function useScriptEngine(initialTopic: TopicContext) {
       await sleep(rand(GAP_MS.min, GAP_MS.max));
     }
 
-    // 脚本播完后冷却重播
+    // 脚本播完后冷却，回 runLoop 重试 API（不是永远留在静态模式）
     if (!cancelRef.current) {
       await sleep(COOLDOWN_MS);
       if (!cancelRef.current) {
@@ -157,7 +158,8 @@ export function useScriptEngine(initialTopic: TopicContext) {
         setMessages([]);
         const nextRound = currentRound + 1;
         setRound(nextRound);
-        runStaticScript(nextRound);
+        // 回到 runLoop，让它重新尝试 API；失败了会再 fallback 回来
+        runLoopRef.current?.(nextRound);
       }
     }
   }, [sleep, pushMessage]);
@@ -263,6 +265,9 @@ export function useScriptEngine(initialTopic: TopicContext) {
       }
     }
   }, [initialTopic, sleep, pushMessage, refreshMarket, runStaticScript]);
+
+  // 把 runLoop 挂到 ref 上，让 runStaticScript 能调回来
+  runLoopRef.current = runLoop;
 
   useEffect(() => {
     cancelRef.current = false;
