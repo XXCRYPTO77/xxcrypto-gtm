@@ -126,26 +126,30 @@ export default function EcosystemModule() {
       </section>
 
       {/* Section 2: Live Arena — Podium Leaderboard */}
-      <section className="bg-[#0A0A1A] py-24 relative overflow-hidden">
+      <section className="py-24 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #0A0A1A 0%, #0D0B2E 25%, #0A0A1A 50%, #120A30 75%, #0A0A1A 100%)' }}>
         {/* Grid overlay */}
-        <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: 'linear-gradient(rgba(82,39,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(82,39,255,0.04) 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
+        <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: 'linear-gradient(rgba(82,39,255,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(82,39,255,0.06) 1px, transparent 1px)', backgroundSize: '50px 50px' }} />
 
-        {/* Floating purple orbs */}
-        <div className="absolute w-[400px] h-[400px] rounded-full pointer-events-none" style={{ top: '-10%', left: '-5%', background: 'radial-gradient(circle, rgba(82,39,255,0.12) 0%, transparent 70%)', animation: 'floatOrb 12s ease-in-out infinite' }} />
-        <div className="absolute w-[300px] h-[300px] rounded-full pointer-events-none" style={{ top: '50%', right: '-3%', background: 'radial-gradient(circle, rgba(82,39,255,0.08) 0%, transparent 70%)', animation: 'floatOrb 15s ease-in-out 2s infinite' }} />
-        <div className="absolute w-[250px] h-[250px] rounded-full pointer-events-none" style={{ bottom: '5%', left: '20%', background: 'radial-gradient(circle, rgba(82,39,255,0.06) 0%, transparent 70%)', animation: 'floatOrb 10s ease-in-out 4s infinite' }} />
-        <div className="absolute w-[350px] h-[350px] rounded-full pointer-events-none" style={{ top: '30%', left: '60%', background: 'radial-gradient(circle, rgba(120,80,255,0.07) 0%, transparent 70%)', animation: 'floatOrb 18s ease-in-out 1s infinite' }} />
+        {/* Large floating orbs — lively & bright */}
+        <div className="absolute w-[500px] h-[500px] rounded-full pointer-events-none blur-3xl" style={{ top: '-15%', left: '-8%', background: 'radial-gradient(circle, rgba(82,39,255,0.25) 0%, rgba(120,60,255,0.08) 50%, transparent 80%)', animation: 'floatOrb 12s ease-in-out infinite' }} />
+        <div className="absolute w-[450px] h-[450px] rounded-full pointer-events-none blur-3xl" style={{ top: '20%', right: '-10%', background: 'radial-gradient(circle, rgba(139,92,246,0.2) 0%, rgba(82,39,255,0.05) 60%, transparent 80%)', animation: 'floatOrb 16s ease-in-out 1s infinite' }} />
+        <div className="absolute w-[350px] h-[350px] rounded-full pointer-events-none blur-2xl" style={{ bottom: '-5%', left: '15%', background: 'radial-gradient(circle, rgba(168,85,247,0.18) 0%, transparent 70%)', animation: 'floatOrb 10s ease-in-out 3s infinite' }} />
+        <div className="absolute w-[400px] h-[400px] rounded-full pointer-events-none blur-3xl" style={{ top: '50%', left: '55%', background: 'radial-gradient(circle, rgba(99,60,255,0.15) 0%, transparent 70%)', animation: 'floatOrb 14s ease-in-out 2s infinite' }} />
+        <div className="absolute w-[300px] h-[300px] rounded-full pointer-events-none blur-2xl" style={{ top: '10%', left: '40%', background: 'radial-gradient(circle, rgba(147,51,234,0.12) 0%, transparent 70%)', animation: 'floatOrb 18s ease-in-out 5s infinite' }} />
+        <div className="absolute w-[250px] h-[250px] rounded-full pointer-events-none blur-xl" style={{ bottom: '20%', right: '25%', background: 'radial-gradient(circle, rgba(59,130,246,0.1) 0%, transparent 70%)', animation: 'floatOrb 11s ease-in-out 4s infinite' }} />
 
         {/* Floating crypto tokens */}
         {[
-          { symbol: '₿', top: '8%', left: '5%', size: 40, delay: '0s', dur: '6s', opacity: 0.12 },
-          { symbol: 'Ξ', top: '15%', right: '8%', size: 36, delay: '1s', dur: '7s', opacity: 0.10 },
-          { symbol: '◎', top: '60%', left: '3%', size: 28, delay: '2s', dur: '8s', opacity: 0.08 },
-          { symbol: '✦', top: '70%', right: '5%', size: 32, delay: '0.5s', dur: '5s', opacity: 0.10 },
-          { symbol: '₿', top: '40%', left: '10%', size: 24, delay: '3s', dur: '9s', opacity: 0.06 },
-          { symbol: 'Ξ', top: '80%', right: '12%', size: 22, delay: '1.5s', dur: '7s', opacity: 0.07 },
-          { symbol: '◈', top: '25%', left: '88%', size: 30, delay: '2.5s', dur: '6s', opacity: 0.09 },
-          { symbol: '₮', top: '50%', right: '15%', size: 26, delay: '4s', dur: '8s', opacity: 0.07 },
+          { symbol: '₿', top: '8%', left: '5%', size: 44, delay: '0s', dur: '6s', opacity: 0.18 },
+          { symbol: 'Ξ', top: '15%', right: '8%', size: 40, delay: '1s', dur: '7s', opacity: 0.15 },
+          { symbol: '◎', top: '60%', left: '3%', size: 32, delay: '2s', dur: '8s', opacity: 0.12 },
+          { symbol: '✦', top: '70%', right: '5%', size: 36, delay: '0.5s', dur: '5s', opacity: 0.15 },
+          { symbol: '₿', top: '40%', left: '10%', size: 28, delay: '3s', dur: '9s', opacity: 0.10 },
+          { symbol: 'Ξ', top: '80%', right: '12%', size: 26, delay: '1.5s', dur: '7s', opacity: 0.12 },
+          { symbol: '◈', top: '25%', left: '88%', size: 34, delay: '2.5s', dur: '6s', opacity: 0.14 },
+          { symbol: '₮', top: '50%', right: '15%', size: 30, delay: '4s', dur: '8s', opacity: 0.12 },
+          { symbol: '❖', top: '35%', left: '2%', size: 24, delay: '5s', dur: '10s', opacity: 0.10 },
+          { symbol: 'Ξ', top: '90%', left: '70%', size: 20, delay: '3.5s', dur: '7s', opacity: 0.08 },
         ].map((t, i) => (
           <div
             key={i}
