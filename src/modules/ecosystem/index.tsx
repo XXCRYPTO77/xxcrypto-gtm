@@ -302,53 +302,92 @@ export default function EcosystemModule() {
         </div>
       </section>
 
-      {/* Section 6: Revenue Sharing */}
-      <section className="mx-auto max-w-7xl px-6 py-20 sm:py-28">
-        <h2 className="text-[28px] font-semibold text-[#1a1a2e] text-center mb-12">
-          {isZh ? '收益分成' : 'Revenue Sharing'}
-        </h2>
-        <div className="max-w-3xl mx-auto bg-white/70 backdrop-blur-[20px] rounded-3xl p-12 border border-[rgba(82,39,255,0.08)] shadow-[0_4px_24px_rgba(82,39,255,0.06)]">
-          <RevenueCalculator isZh={isZh} />
-        </div>
-        <div className="mt-12 bg-white/70 backdrop-blur-[20px] rounded-3xl p-8 border border-[rgba(82,39,255,0.08)] shadow-[0_4px_24px_rgba(82,39,255,0.06)]">
-          <ContributorTiers isZh={isZh} />
+      {/* Section 6: Revenue Calculator — White bg */}
+      <section className="bg-white py-24">
+        <div className="max-w-[1280px] mx-auto px-10">
+          <div className="text-center mb-4">
+            <span className="inline-flex items-center px-4 py-1.5 bg-[rgba(82,39,255,0.08)] border border-[rgba(82,39,255,0.15)] rounded-full text-[13px] font-semibold text-[#5227ff]">
+              {isZh ? '收益计算' : 'Revenue'}
+            </span>
+          </div>
+          <h2 className="text-[44px] font-bold text-[#111] text-center mb-4 tracking-tight">
+            {isZh ? '收益计算器' : 'Revenue Calculator'}
+          </h2>
+          <p className="text-lg text-[#666] text-center mb-14 max-w-[600px] mx-auto">
+            {isZh ? '预估你的 Agent 潜在收益' : 'Estimate your Agent earning potential'}
+          </p>
+          <div className="max-w-[720px] mx-auto bg-white rounded-3xl p-12 border border-[#E5E5EA] shadow-[0_8px_40px_rgba(0,0,0,0.08)]">
+            <RevenueCalculator isZh={isZh} />
+          </div>
         </div>
       </section>
 
-      {/* Section 7: Victory Plaza */}
-      <section className="mx-auto max-w-7xl px-6 py-20 sm:py-28">
-        <h2 className="text-[28px] font-semibold text-[#1a1a2e] text-center mb-12">
-          {isZh ? '战绩广场' : 'Victory Plaza'}
-        </h2>
-        <div className="bg-white/70 backdrop-blur-[20px] rounded-3xl p-8 border border-[rgba(82,39,255,0.08)] shadow-[0_4px_24px_rgba(82,39,255,0.06)]">
+      {/* Section 7: Contributor Tiers — Dark bg */}
+      <section className="bg-[#0A0A1A] py-24 relative overflow-hidden">
+        <div className="absolute -top-[200px] -right-[200px] w-[600px] h-[600px] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(82,39,255,0.1) 0%, transparent 70%)' }} />
+        <div className="max-w-[1280px] mx-auto px-10 relative z-10">
+          <h2 className="text-[40px] font-bold text-white text-center mb-4 tracking-tight">
+            {isZh ? '贡献者等级' : 'Contributor Tiers'}
+          </h2>
+          <p className="text-base text-[#A0A0B8] text-center mb-14">
+            {isZh ? '从社区成员到官方合作伙伴的进阶之路' : 'Your path from community member to official partner'}
+          </p>
+          <div style={{ '--color-ink': '#FFFFFF', '--color-muted': '#A0A0B8', '--color-surface': '#12122A', '--color-border': '#2A2A4A', '--color-page': '#0A0A1A' } as React.CSSProperties}>
+            <ContributorTiers isZh={isZh} />
+          </div>
+        </div>
+      </section>
+
+      {/* Section 8: Achievement Plaza — Light gray bg */}
+      <section className="bg-[#F5F5F7] py-24">
+        <div className="max-w-[1280px] mx-auto px-10">
+          <div className="text-center mb-4">
+            <span className="inline-flex items-center px-4 py-1.5 bg-[rgba(82,39,255,0.08)] border border-[rgba(82,39,255,0.15)] rounded-full text-[13px] font-semibold text-[#5227ff]">
+              {isZh ? '战绩广场' : 'Achievement'}
+            </span>
+          </div>
+          <h2 className="text-[44px] font-bold text-[#111] text-center mb-4 tracking-tight">
+            {isZh ? '战绩广场' : 'Victory Plaza'}
+          </h2>
+          <p className="text-lg text-[#666] text-center mb-14 max-w-[600px] mx-auto">
+            {isZh ? 'Agent 交易战绩实时展示' : 'Real-time showcase of Agent trading achievements'}
+          </p>
           <PlazaFeed posts={PLAZA_POSTS} isZh={isZh} />
         </div>
       </section>
 
-      {/* Section 8: Integration Guide */}
-      <section className="mx-auto max-w-7xl px-6 py-20 sm:py-28">
-        <h2 className="text-[28px] font-semibold text-[#1a1a2e] text-center mb-12">
-          {isZh ? '开发者入驻' : 'Developer Onboarding'}
-        </h2>
-        <div className="bg-white/70 backdrop-blur-[20px] rounded-3xl p-8 border border-[rgba(82,39,255,0.08)] shadow-[0_4px_24px_rgba(82,39,255,0.06)]">
-          <IntegrationGuide isZh={isZh} />
+      {/* Section 9: Developer Onboarding — Purple bg */}
+      <section className="bg-[#5227ff] py-24 relative overflow-hidden">
+        <div className="absolute -top-[100px] -right-[100px] w-[400px] h-[400px] rounded-full bg-white/5 pointer-events-none" />
+        <div className="absolute -bottom-[150px] -left-[50px] w-[300px] h-[300px] rounded-full border-2 border-white/8 pointer-events-none" />
+        <div className="max-w-[1280px] mx-auto px-10 relative z-10">
+          <h2 className="text-[40px] font-bold text-white text-center mb-4 tracking-tight">
+            {isZh ? '开发者入驻' : 'Developer Onboarding'}
+          </h2>
+          <p className="text-base text-white/70 text-center mb-14">
+            {isZh ? '三步开始构建你的交易 Agent' : 'Three steps to start building your trading Agent'}
+          </p>
+          <div style={{ '--color-ink': '#FFFFFF', '--color-muted': 'rgba(255,255,255,0.7)', '--color-surface': 'rgba(255,255,255,0.1)', '--color-border': 'rgba(255,255,255,0.15)', '--color-page': 'transparent' } as React.CSSProperties}>
+            <IntegrationGuide isZh={isZh} />
+          </div>
         </div>
       </section>
 
-      {/* Section 9: Footer CTA */}
-      <section className="bg-gradient-to-br from-[#5227ff] via-[#a366ff] to-[#7c3aed] relative overflow-hidden">
-        <div className="rounded-[32px] mx-4 sm:mx-8 py-20 sm:py-24 px-8 text-center relative z-10">
-          <h2 className="text-4xl sm:text-5xl font-bold text-white">
+      {/* Section 10: Footer CTA — Dark bg */}
+      <section className="bg-[#0A0A1A] py-28 text-center relative overflow-hidden">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(82,39,255,0.15) 0%, transparent 70%)' }} />
+        <div className="max-w-[700px] mx-auto px-10 relative z-10">
+          <h2 className="text-5xl font-bold text-white mb-4 tracking-tight leading-tight">
             {isZh ? '准备好构建你的 Agent 了吗？' : 'Ready to Build Your Agent?'}
           </h2>
-          <p className="text-lg text-white/70 mt-4">
+          <p className="text-lg text-[#A0A0B8] mb-10">
             {isZh ? '传奇成就在等你' : 'Legendary Success Awaits'}
           </p>
-          <div className="mt-10 flex items-center justify-center gap-4 flex-wrap">
-            <button className="bg-white text-[#5227ff] rounded-2xl px-10 py-4 font-semibold text-base hover:scale-[1.02] hover:shadow-xl transition-all">
+          <div className="flex items-center justify-center gap-4 flex-wrap">
+            <button className="px-10 py-4 rounded-full bg-[#5227ff] text-white text-base font-semibold shadow-[0_8px_32px_rgba(82,39,255,0.3)] hover:bg-[#4520dd] hover:-translate-y-0.5 transition-all">
               {isZh ? '立即开始' : 'Get Started'}
             </button>
-            <button className="border-2 border-white/50 text-white rounded-2xl px-10 py-4 font-semibold text-base hover:bg-white/10 transition-all">
+            <button className="px-10 py-4 rounded-full border-2 border-white/30 text-white text-base font-semibold hover:border-white hover:bg-white/5 transition-all">
               {isZh ? '了解更多' : 'Learn More'}
             </button>
           </div>
