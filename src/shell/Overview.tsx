@@ -68,7 +68,7 @@ export default function Overview() {
               <a
                 key={key}
                 href={href}
-                className="group relative flex flex-col justify-between rounded-2xl border border-border bg-page p-8 transition-all duration-200 hover:border-brand hover:shadow-lg hover:shadow-brand/5 hover:-translate-y-0.5"
+                className="group relative flex flex-col justify-between rounded-2xl border border-border bg-surface p-8 transition-all duration-200 hover:border-brand hover:shadow-lg hover:shadow-brand/5 hover:-translate-y-0.5"
               >
                 {/* Version tag */}
                 <span className="absolute top-6 right-6 rounded-full bg-gray-50 px-3 py-1 text-xs font-mono font-semibold text-muted">
