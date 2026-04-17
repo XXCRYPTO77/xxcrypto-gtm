@@ -65,7 +65,7 @@
 
 html,
 body {
-  background: var(--color-page);
+  background-color: var(--color-page);
   color: var(--color-ink);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;

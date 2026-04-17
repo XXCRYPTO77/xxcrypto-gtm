@@ -8,7 +8,7 @@ export function LandingFooter() {
   const t = useLandingT();
 
   return (
-    <footer className="border-t border-border py-10">
+    <footer className="border-t border-border py-10 bg-page">
       <div className="mx-auto max-w-7xl px-6 flex flex-col items-center gap-4 sm:flex-row sm:justify-between">
         {/* Left: Brand + Copyright */}
         <div className="flex items-center gap-3">

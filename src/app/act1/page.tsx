@@ -26,7 +26,7 @@ export default function Act1Page() {
   return (
     <>
       <ShellNavbar />
-      <main className="pt-16">
+      <main className="pt-16 bg-page min-h-screen">
         <Act1Content />
       </main>
       <ShellFooter />
