@@ -20,7 +20,7 @@ export function Hero() {
       <div className="mx-auto max-w-7xl px-6">
         <div className="grid gap-12 md:grid-cols-2 md:items-center">
           {/* Left: Text content */}
-          <div className="flex flex-col items-center text-center md:items-start md:text-left gap-6">
+          <div className="flex flex-col items-center text-center md:items-start md:text-left gap-6 min-w-0">
             {/* Eyebrow badge */}
             <span className="inline-flex items-center gap-2 rounded-full border border-brand-light bg-brand-soft px-4 py-1.5 text-sm font-semibold text-brand">
               <span className="inline-block h-1.5 w-1.5 rounded-full bg-brand animate-pulse" />
@@ -29,7 +29,7 @@ export function Hero() {
 
             {/* Title with gradient */}
             <h1
-              className="text-5xl font-black tracking-tight sm:text-6xl md:text-7xl"
+              className="text-5xl font-black tracking-tight sm:text-6xl lg:text-7xl break-words"
               style={{
                 background: 'linear-gradient(135deg, var(--color-brand) 0%, #7C5CFF 40%, #00D4AA 100%)',
                 WebkitBackgroundClip: 'text',
