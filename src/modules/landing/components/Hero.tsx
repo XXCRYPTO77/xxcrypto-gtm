@@ -9,7 +9,7 @@ export function Hero() {
   const t = useLandingT();
 
   return (
-    <section className="relative overflow-hidden pt-28 pb-20 sm:pt-36 sm:pb-28">
+    <section className="relative overflow-x-clip pt-28 pb-20 sm:pt-36 sm:pb-28">
       {/* Gradient orb background */}
       <div
         aria-hidden
@@ -29,7 +29,7 @@ export function Hero() {
 
             {/* Title with gradient */}
             <h1
-              className="text-5xl font-black tracking-tight sm:text-6xl lg:text-7xl break-words"
+              className="text-[clamp(2.5rem,6vw,4.5rem)] font-black tracking-tight"
               style={{
                 background: 'linear-gradient(135deg, var(--color-brand) 0%, #7C5CFF 40%, #00D4AA 100%)',
                 WebkitBackgroundClip: 'text',
