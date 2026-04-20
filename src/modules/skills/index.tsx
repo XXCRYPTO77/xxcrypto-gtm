@@ -65,7 +65,7 @@ export default function SkillsModule() {
       {/* Page header */}
       <div className="mb-10 space-y-3">
         <div className="flex items-center gap-2 text-xs font-medium text-muted uppercase tracking-wider">
-          <span>🦞 CWClaw</span>
+          <span>🦀 Claw 42</span>
           <span>·</span>
           <span>{isZh ? 'Skills 功能对照表' : 'Skills Reference'}</span>
         </div>
@@ -74,8 +74,8 @@ export default function SkillsModule() {
         </h1>
         <p className="text-lg text-muted max-w-xl leading-relaxed">
           {isZh
-            ? '覆盖信息获取、交易执行、账号安全、平台对接四个维度。这是 CWClaw 的完整能力边界。'
-            : 'Covering information, trade execution, account security, and platform integration. The complete capability boundary of CWClaw.'}
+            ? '覆盖信息获取、交易执行、账号安全、平台对接四个维度。这是 Claw 42 的完整能力边界。'
+            : 'Covering information, trade execution, account security, and platform integration. The complete capability boundary of Claw 42.'}
         </p>
       </div>
 
@@ -185,15 +185,15 @@ export default function SkillsModule() {
       <div className="mt-14 flex flex-col items-center gap-3 text-center">
         <p className="text-sm text-muted">
           {isZh
-            ? '18 项 Skills 全部就绪，认养一个专属的 CWClaw 开始体验'
-            : 'All 18 skills ready — adopt your CWClaw to get started'}
+            ? '18 项 Skills 全部就绪，认养一个专属的 Claw 42 开始体验'
+            : 'All 18 skills ready — adopt your Claw 42 to get started'}
         </p>
         <Link
           href="/act2"
           className="inline-flex items-center gap-2 rounded-2xl bg-brand px-7 py-3 text-sm font-semibold text-white shadow hover:opacity-90 active:scale-95 transition-all"
         >
           <span className="text-base">🦞</span>
-          {isZh ? '认养你的 CWClaw →' : 'Adopt Your CWClaw →'}
+          {isZh ? '认养你的 Claw 42 →' : 'Adopt Your Claw 42 →'}
           <ArrowRight size={14} />
         </Link>
       </div>

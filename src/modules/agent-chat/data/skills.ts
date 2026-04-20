@@ -99,8 +99,8 @@ export const CHAT_SKILLS: SkillRef[] = [
   },
   {
     code: 'M17', name: '落地页入口', nameEn: 'Landing Portal', group: 'platform',
-    desc: '统一的 CWClaw 产品入口，整合认养流程、功能展示、用户引导，是产品对外的第一个触点。',
-    descEn: 'Unified CWClaw product entry point integrating the adoption flow, feature showcase, and user onboarding.',
+    desc: '统一的 Claw 42 产品入口，整合认养流程、功能展示、用户引导，是产品对外的第一个触点。',
+    descEn: 'Unified Claw 42 product entry point integrating the adoption flow, feature showcase, and user onboarding.',
   },
   {
     code: 'M18', name: '调用统计', nameEn: 'Usage Analytics', group: 'platform',

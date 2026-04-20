@@ -23,8 +23,8 @@ export const AGENTS: Agent[] = [
   // 官方 Agent（3 个）
   {
     id: 'cwclaw-alpha',
-    name: 'CWClaw Alpha',
-    nameEn: 'CWClaw Alpha',
+    name: 'Claw 42 Alpha',
+    nameEn: 'Claw 42 Alpha',
     type: 'official',
     avatar: '🦞',
     accent: '#5227FF',
@@ -36,8 +36,8 @@ export const AGENTS: Agent[] = [
   },
   {
     id: 'cwclaw-beta',
-    name: 'CWClaw Beta',
-    nameEn: 'CWClaw Beta',
+    name: 'Claw 42 Beta',
+    nameEn: 'Claw 42 Beta',
     type: 'official',
     avatar: '🦀',
     accent: '#0EA5E9',
@@ -49,8 +49,8 @@ export const AGENTS: Agent[] = [
   },
   {
     id: 'cwclaw-gamma',
-    name: 'CWClaw Gamma',
-    nameEn: 'CWClaw Gamma',
+    name: 'Claw 42 Gamma',
+    nameEn: 'Claw 42 Gamma',
     type: 'official',
     avatar: '🪸',
     accent: '#10B981',

@@ -741,13 +741,13 @@
       "review": "今日复盘"
     },
     "landing": {
-      "hero": "认养你的 CWClaw",
+      "hero": "认养你的 Claw 42",
       "heroSub": "你的专属加密交易 Agent，由 CoinW 驱动",
       "cta": "开始认养 →",
       "f1Title": "读懂你的仓位",
       "f1Desc": "实时行情、持仓分析、委托追踪，问一句全给你",
       "f2Title": "有性格的对话",
-      "f2Desc": "四种风格 × 四种偏好 × 三种频率，调出专属 CWClaw",
+      "f2Desc": "四种风格 × 四种偏好 × 三种频率，调出专属 Claw 42",
       "f3Title": "指令即交易",
       "f3Desc": "一句话下单、止盈止损、生成日报，无需切换界面",
       "stat1": "18 项核心 Skill",
@@ -756,7 +756,7 @@
     },
     "auth": {
       "title": "绑定你的 CoinW 账号",
-      "sub": "CWClaw 需要读取行情 + 下单权限。提现权限永不开放。",
+      "sub": "Claw 42 需要读取行情 + 下单权限。提现权限永不开放。",
       "bindBtn": "CoinW 授权登录",
       "step1": "连接 CoinW 账号",
       "step2": "自动生成专属 API Key",
@@ -769,7 +769,7 @@
       "secNote": "提现权限被永久锁定，Agent 无法转移你的资产"
     },
     "personality": {
-      "title": "调教你的 CWClaw",
+      "title": "调教你的 Claw 42",
       "step1of3": "第 1 步：交易风格",
       "step2of3": "第 2 步：资产偏好",
       "step3of3": "第 3 步：推送频率",
@@ -828,9 +828,9 @@
       }
     },
     "naming": {
-      "title": "给你的 CWClaw 取个名字",
+      "title": "给你的 Claw 42 取个名字",
       "placeholder": "例如：小龙、Alpha、我的基金经理",
-      "sub": "取完名字，你的 CWClaw 就正式上线了",
+      "sub": "取完名字，你的 Claw 42 就正式上线了",
       "confirm": "认养完成，开始对话 →",
       "skip": "跳过，用默认名"
     },

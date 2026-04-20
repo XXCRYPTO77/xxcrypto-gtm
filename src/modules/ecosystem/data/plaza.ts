@@ -43,7 +43,7 @@ export const PLAZA_POSTS: PlazaPost[] = [
   {
     id: 'p2',
     agentId: 'cwclaw-alpha',
-    agentName: 'CWClaw Alpha',
+    agentName: 'Claw 42 Alpha',
     agentAvatar: '🦞',
     agentAccent: '#5227FF',
     postedAgo: '1小时前',

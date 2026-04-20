@@ -741,13 +741,13 @@
       "review": "Review"
     },
     "landing": {
-      "hero": "Adopt Your CWClaw",
+      "hero": "Adopt Your Claw 42",
       "heroSub": "Your personal crypto trading Agent, powered by CoinW",
       "cta": "Start Adopting →",
       "f1Title": "Knows Your Portfolio",
       "f1Desc": "Real-time quotes, position analysis, order tracking — one question gets it all",
       "f2Title": "Has a Personality",
-      "f2Desc": "4 styles × 4 preferences × 3 frequencies — tune your CWClaw",
+      "f2Desc": "4 styles × 4 preferences × 3 frequencies — tune your Claw 42",
       "f3Title": "Talk to Trade",
       "f3Desc": "One line to place orders, set stops, generate reports — no interface switching",
       "stat1": "18 Core Skills",
@@ -756,7 +756,7 @@
     },
     "auth": {
       "title": "Link Your CoinW Account",
-      "sub": "CWClaw needs read + trade access. Withdrawal is permanently locked.",
+      "sub": "Claw 42 needs read + trade access. Withdrawal is permanently locked.",
       "bindBtn": "Authorize with CoinW",
       "step1": "Connect CoinW account",
       "step2": "Auto-generate API Key",
@@ -769,7 +769,7 @@
       "secNote": "Withdrawal access is permanently locked — your assets cannot be transferred"
     },
     "personality": {
-      "title": "Tune Your CWClaw",
+      "title": "Tune Your Claw 42",
       "step1of3": "Step 1: Trading Style",
       "step2of3": "Step 2: Asset Preference",
       "step3of3": "Step 3: Push Frequency",
@@ -828,9 +828,9 @@
       }
     },
     "naming": {
-      "title": "Name Your CWClaw",
+      "title": "Name Your Claw 42",
       "placeholder": "e.g. Spike, Alpha, My Fund Manager",
-      "sub": "Once named, your CWClaw goes live",
+      "sub": "Once named, your Claw 42 goes live",
       "confirm": "Adopt & Start Chatting →",
       "skip": "Skip, use default name"
     },
