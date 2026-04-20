@@ -13,8 +13,20 @@ export function Hero() {
       {/* Gradient orb background */}
       <div
         aria-hidden
-        className="pointer-events-none absolute left-1/2 top-24 -z-10 h-[520px] w-[900px] -translate-x-1/2 rounded-full opacity-30 blur-[100px]"
-        style={{ background: 'radial-gradient(circle, #5B3FFF 0%, transparent 70%)' }}
+        className="pointer-events-none absolute left-1/2 top-24 -z-10 h-[520px] w-[900px] -translate-x-1/2 rounded-full opacity-40 blur-[100px]"
+        style={{ background: 'radial-gradient(circle, #6c4fff 0%, transparent 70%)' }}
+      />
+      {/* Faint grid overlay */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 -z-10 opacity-[0.05]"
+        style={{
+          backgroundImage:
+            'linear-gradient(rgba(255,255,255,0.6) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.6) 1px, transparent 1px)',
+          backgroundSize: '48px 48px',
+          maskImage: 'radial-gradient(ellipse at top, black 40%, transparent 75%)',
+          WebkitMaskImage: 'radial-gradient(ellipse at top, black 40%, transparent 75%)',
+        }}
       />
 
       <div className="mx-auto max-w-7xl px-6">
@@ -26,8 +38,16 @@ export function Hero() {
           </span>
 
           {/* Title */}
-          <h1 className="text-6xl font-black tracking-tight text-ink sm:text-7xl md:text-8xl">
-            {t.hero.title}
+          <h1 className="text-6xl font-bold tracking-tight sm:text-7xl md:text-8xl">
+            <span
+              className="bg-clip-text text-transparent"
+              style={{
+                backgroundImage:
+                  'linear-gradient(180deg, #ffffff 0%, #c9beff 60%, #6c4fff 100%)',
+              }}
+            >
+              {t.hero.title}
+            </span>
           </h1>
 
           {/* Subtitle */}

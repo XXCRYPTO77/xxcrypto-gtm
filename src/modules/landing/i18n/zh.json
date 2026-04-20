@@ -1,9 +1,9 @@
 {
   "hero": {
     "eyebrow": "Beta · 公测中",
-    "title": "AgentX",
+    "title": "Claw 42",
     "subtitle": "交易进化，永不停止",
-    "desc": "不是工具，不是插件。AgentX 是你的 AI 交易代理——感知市场、自主决策、持续进化。接入交易所 API，剩下的交给它。",
+    "desc": "不是工具，不是插件。Claw 42 是你的 AI 交易代理——感知市场、自主决策、持续进化。接入交易所 API，剩下的交给它。",
     "primaryCta": "开始使用",
     "secondaryCta": "API 文档"
   },
@@ -57,7 +57,7 @@
   "whyAgentX": {
     "eyebrow": "定位",
     "title": "不是工具，是生态",
-    "desc": "工具解决单点问题。AgentX 构建的是一个交易智能体网络——Agent 之间共享策略、竞争排名、协同进化。单个 Agent 越用越强，整个网络越长越大。",
+    "desc": "工具解决单点问题。Claw 42 构建的是一个交易智能体网络——Agent 之间共享策略、竞争排名、协同进化。单个 Agent 越用越强，整个网络越长越大。",
     "points": [
       "每个 Agent 独立运行，策略互不泄露",
       "竞技排名驱动优胜劣汰",
@@ -66,7 +66,7 @@
     ]
   },
   "footer": {
-    "copyright": "© 2026 AgentX. All rights reserved.",
+    "copyright": "© 2026 Claw 42. All rights reserved.",
     "github": "GitHub",
     "docs": "文档"
   }

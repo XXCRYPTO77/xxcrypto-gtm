@@ -1,203 +1,127 @@
 /* ============================================================
-   CoinW Brand Tokens · v0.2
-   Source: CoinW Brand Guidelines v1.0 (pp. 31-47)
-   Primary: Purple #5227FF — NOT orange
-   Proportion: Purple 5% / Black 10% / Grey 10% / White 75%
+   Claw 42 Design Tokens · v1.0
+   Source: Figma `jTAfVtZVoGpoAwRhnlhQZ5`, frame `27778:2342`
+   Dark-only theme. `.cw-dark` still scopes legacy tokens but
+   `:root` now mirrors the dark palette so default = dark.
    ============================================================ */
 
 :root {
-  /* Primary — CoinW Purple scale */
-  --coinw-purple:        #5227FF;
-  --coinw-purple-med:    #6C4FFF;
-  --coinw-purple-light:  #D2C9FF;
-  --coinw-purple-soft:   #EEE9FF;
+  /* ------- Base palette ------- */
+  --bg-base:       #000000;
+  --bg-elevated:   #0a0a0a;
+  --bg-panel:      #1a1a1a;
+  --bg-terminal:   #0d0d0d;
 
-  /* Neutral — Gray scale (ink system) */
-  --gray-0:    #FFFFFF;
-  --gray-50:   #F7F7F8;
-  --gray-100:  #ECECEE;
-  --gray-200:  #D9D9DE;
-  --gray-300:  #A6A6AD;
-  --gray-400:  #6E6E78;
-  --gray-500:  #4A4A54;
-  --gray-700:  #2A2A32;
-  --gray-900:  #0B0B0F;
+  --brand-purple:        #6c4fff;
+  --brand-purple-hover:  #8169ff;
+  --brand-purple-soft:   rgba(108, 79, 255, 0.15);
+  --brand-purple-border: rgba(108, 79, 255, 0.3);
 
-  /* Marketing accents (sparingly) */
-  --accent-green: #16C784;
-  --accent-red:   #EA3943;
-  --accent-amber: #F5A623;
+  --accent-lime: #d1ff55;     /* deposit / hero CTA */
+  --accent-lime-hover: #dfff7a;
+  --status-green: #14a739;
 
-  /* Semantic aliases (consumed by Tailwind @theme) */
-  --color-brand:        var(--coinw-purple);
-  --color-brand-med:    var(--coinw-purple-med);
-  --color-brand-light:  var(--coinw-purple-light);
-  --color-brand-soft:   var(--coinw-purple-soft);
+  --text-primary:   #ffffff;
+  --text-secondary: #d1d1d1;
+  --text-muted:     #a6a6a6;
 
-  --color-ink:     var(--gray-900);
-  --color-muted:   var(--gray-400);
-  --color-surface: var(--gray-50);
-  --color-border:  var(--gray-100);
-  --color-page:    var(--gray-0);
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.16);
 
-  /* Typography */
-  --font-en: "Satoshi", "Inter", system-ui, -apple-system, sans-serif;
-  --font-zh: "HarmonyOS Sans SC", "PingFang SC", "Noto Sans SC", sans-serif;
+  /* ------- Semantic aliases (consumed by Tailwind @theme) ------- */
+  --color-brand:        var(--brand-purple);
+  --color-brand-med:    var(--brand-purple-hover);
+  --color-brand-light:  var(--brand-purple-border);
+  --color-brand-soft:   var(--brand-purple-soft);
+
+  --color-page:    var(--bg-base);
+  --color-surface: var(--bg-panel);
+  --color-ink:     var(--text-primary);
+  --color-muted:   var(--text-muted);
+  --color-border:  var(--border-subtle);
+
+  --color-accent-green: var(--accent-lime);
+
+  /* ------- Typography (Inter first, Satoshi kept as fallback) ------- */
+  --font-en: "Inter", "Satoshi", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-zh: "Inter", "HarmonyOS Sans SC", "PingFang SC", "Noto Sans SC", sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
 
   /* Spacing rhythm */
   --space-section: clamp(4rem, 8vw, 7rem);
-  --space-gutter: clamp(1.25rem, 4vw, 2.5rem);
+  --space-gutter:  clamp(1.25rem, 4vw, 2.5rem);
 
   /* Radius */
   --radius-sm: 6px;
-  --radius-md: 10px;
+  --radius-md: 12px;
   --radius-lg: 16px;
   --radius-xl: 24px;
 
   /* Motion */
-  --ease-out: cubic-bezier(.22,.61,.36,1);
+  --ease-out:    cubic-bezier(.22,.61,.36,1);
   --ease-in-out: cubic-bezier(.65,0,.35,1);
 
-  /* ============================================================
-     CoinW Design System Tokens · Light Theme
-     Source: Web端开发规范 _vars.scss (2026-04-14 同步)
-     使用 --cw- 前缀与上方 brand token 共存，避免命名冲突
-     ============================================================ */
+  /* ------- Legacy CoinW functional tokens ------- */
+  /* Kept so historical components don't crash, but tuned for dark bg. */
+  --cw-green:       #14a739;
+  --cw-green-mid:   rgba(20, 167, 57, 0.3);
+  --cw-green-light: rgba(20, 167, 57, 0.12);
+  --cw-green-badge: rgba(20, 167, 57, 0.18);
 
-  /* 功能色 — Green（涨/成功） */
-  --cw-green:       #14A739;
-  --cw-green-mid:   #80D68E;
-  --cw-green-light: #DEF2E0;
-  --cw-green-badge: rgba(20, 167, 57, 0.1);
+  --cw-red:       #ff5c5c;
+  --cw-red-mid:   rgba(255, 92, 92, 0.3);
+  --cw-red-light: rgba(255, 92, 92, 0.1);
+  --cw-red-badge: rgba(255, 92, 92, 0.15);
 
-  /* 功能色 — Red（跌/错误） */
-  --cw-red:       #E95032;
-  --cw-red-mid:   #FFC5B0;
-  --cw-red-light: #FFF5F0;
-  --cw-red-badge: rgba(233, 80, 50, 0.1);
-
-  /* 功能色 — Orange（警告/标注） */
-  --cw-orange:       #FE6F00;
-  --cw-orange-mid:   #FEC191;
-  --cw-orange-light: #FEF2EA;
-  --cw-orange-badge: rgba(254, 111, 0, 0.1);
-
-  /* 功能色 — Blue（信息/链接） */
-  --cw-blue:       #2D89CC;
-  --cw-blue-mid:   #B6D9F2;
-  --cw-blue-light: #E0F5FF;
-  --cw-blue-badge: rgba(45, 137, 204, 0.1);
-
-  /* Brand light — badge/card 背景 */
-  --cw-brand-badge: rgba(82, 39, 255, 0.1);
-  --cw-brand-card:  rgba(82, 39, 255, 0.05);
-
-  /* 文字层级 */
-  --cw-text-primary:   #1A1A1A;
-  --cw-text-secondary: #404040;
-  --cw-text-tertiary:  #8C8C8C;
-  --cw-text-disabled:  #BFBFBF;
-
-  /* 背景层级 */
-  --cw-bg-primary:   #FFFFFF;
-  --cw-bg-secondary: #F2F2F2;
-  --cw-bg-input:     #F2F2F2;
-  --cw-bg-card:      #FFFFFF;
-  --cw-bg-tooltip:   #1A1A1A;
-
-  /* 边框 */
-  --cw-border:       #D9D9D9;
-  --cw-border-light: #F2F2F2;
-  --cw-border-brand: #5227FF;
-  --cw-border-error: #E95032;
-
-  /* 按钮状态（主要行动色） */
-  --cw-btn-green:         #14A739;
-  --cw-btn-green-hover:   #35BD52;
-  --cw-btn-red:           #E95032;
-  --cw-btn-red-hover:     #F5795B;
-}
-
-/* ============================================================
-   CoinW Design System Tokens · Dark Theme
-   Scoped to .cw-dark — apply this class to any dark-themed container.
-
-   Usage: <div className="cw-dark"> ... use same token classes ... </div>
-
-   Semantic token names stay the same (--color-ink, --color-page, etc.)
-   so components written with standard tokens auto-adapt.
-   ============================================================ */
-
-.cw-dark {
-  /* Page & surface — CoinW gray scale, dark end */
-  --color-page:    #0B0B0F;
-  --color-surface: #16161D;
-  --color-ink:     #FFFFFF;
-  --color-muted:   rgba(255, 255, 255, 0.5);
-  --color-border:  rgba(255, 255, 255, 0.08);
-
-  /* Brand — same hue, adjusted for dark bg readability */
-  --color-brand:        #7C5CFF;
-  --color-brand-med:    #9B82FF;
-  --color-brand-light:  rgba(124, 92, 255, 0.2);
-  --color-brand-soft:   rgba(124, 92, 255, 0.08);
-
-  /* Gray scale override for dark */
-  --color-gray-0:   #0B0B0F;
-  --color-gray-50:  #16161D;
-  --color-gray-100: #1E1E28;
-  --color-gray-200: #2A2A36;
-  --color-gray-300: #3D3D4A;
-  --color-gray-400: rgba(255, 255, 255, 0.5);
-  --color-gray-500: rgba(255, 255, 255, 0.7);
-  --color-gray-700: rgba(255, 255, 255, 0.85);
-  --color-gray-900: #FFFFFF;
-
-  /* CoinW 功能色 — dark bg 上需要更亮才看得清 */
-  --cw-green:       #1FD655;
-  --cw-green-mid:   rgba(31, 214, 85, 0.3);
-  --cw-green-light: rgba(31, 214, 85, 0.1);
-  --cw-green-badge: rgba(31, 214, 85, 0.15);
-
-  --cw-red:         #FF5C5C;
-  --cw-red-mid:     rgba(255, 92, 92, 0.3);
-  --cw-red-light:   rgba(255, 92, 92, 0.1);
-  --cw-red-badge:   rgba(255, 92, 92, 0.15);
-
-  --cw-orange:       #FF9332;
+  --cw-orange:       #ff9332;
   --cw-orange-mid:   rgba(255, 147, 50, 0.3);
   --cw-orange-light: rgba(255, 147, 50, 0.1);
+  --cw-orange-badge: rgba(255, 147, 50, 0.15);
 
-  --cw-blue:         #5BA8E6;
-  --cw-blue-mid:     rgba(91, 168, 230, 0.3);
-  --cw-blue-light:   rgba(91, 168, 230, 0.1);
+  --cw-blue:       #5ba8e6;
+  --cw-blue-mid:   rgba(91, 168, 230, 0.3);
+  --cw-blue-light: rgba(91, 168, 230, 0.1);
+  --cw-blue-badge: rgba(91, 168, 230, 0.15);
 
-  --cw-brand-badge: rgba(124, 92, 255, 0.15);
-  --cw-brand-card:  rgba(124, 92, 255, 0.06);
+  --cw-brand-badge: var(--brand-purple-soft);
+  --cw-brand-card:  rgba(108, 79, 255, 0.06);
 
-  /* CoinW 文字 & 背景层级 — dark override */
-  --cw-text-primary:   #FFFFFF;
-  --cw-text-secondary: rgba(255, 255, 255, 0.7);
-  --cw-text-tertiary:  rgba(255, 255, 255, 0.45);
+  --cw-text-primary:   var(--text-primary);
+  --cw-text-secondary: var(--text-secondary);
+  --cw-text-tertiary:  var(--text-muted);
   --cw-text-disabled:  rgba(255, 255, 255, 0.25);
 
-  --cw-bg-primary:   #0B0B0F;
-  --cw-bg-secondary: #16161D;
-  --cw-bg-input:     #1E1E28;
-  --cw-bg-card:      #16161D;
-  --cw-bg-tooltip:   #FFFFFF;
+  --cw-bg-primary:   var(--bg-base);
+  --cw-bg-secondary: var(--bg-elevated);
+  --cw-bg-input:     var(--bg-panel);
+  --cw-bg-card:      var(--bg-panel);
+  --cw-bg-tooltip:   #ffffff;
 
-  --cw-border:       rgba(255, 255, 255, 0.1);
-  --cw-border-light: rgba(255, 255, 255, 0.05);
-  --cw-border-brand: #7C5CFF;
-  --cw-border-error: #FF5C5C;
+  --cw-border:       var(--border-subtle);
+  --cw-border-light: rgba(255, 255, 255, 0.04);
+  --cw-border-brand: var(--brand-purple);
+  --cw-border-error: #ff5c5c;
 
-  --cw-btn-green:       #1FD655;
-  --cw-btn-green-hover: #3DE06F;
-  --cw-btn-red:         #FF5C5C;
-  --cw-btn-red-hover:   #FF7A7A;
+  --cw-btn-green:         var(--accent-lime);
+  --cw-btn-green-hover:   var(--accent-lime-hover);
+  --cw-btn-red:           #ff5c5c;
+  --cw-btn-red-hover:     #ff7a7a;
 
-  /* Base text/bg for the container */
-  color: #FFFFFF;
-  background: #0B0B0F;
+  /* Gray scale (override for dark) */
+  --color-gray-0:   #0b0b0f;
+  --color-gray-50:  #121217;
+  --color-gray-100: #1a1a1a;
+  --color-gray-200: #242430;
+  --color-gray-300: #3d3d4a;
+  --color-gray-400: #a6a6a6;
+  --color-gray-500: #d1d1d1;
+  --color-gray-700: #e9e9ee;
+  --color-gray-900: #ffffff;
+}
+
+/* Keep .cw-dark as an alias of :root so any legacy component that
+   still manually applies `cw-dark` keeps working identically. */
+.cw-dark {
+  color: var(--text-primary);
+  background: var(--bg-base);
 }

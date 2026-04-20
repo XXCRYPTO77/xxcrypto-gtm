@@ -1,9 +1,9 @@
 {
   "hero": {
     "eyebrow": "Beta · Public Testing",
-    "title": "AgentX",
+    "title": "Claw 42",
     "subtitle": "Trading Evolves. Never Stops.",
-    "desc": "Not a tool. Not a plugin. AgentX is your AI trading agent — perceives markets, makes decisions, evolves continuously. Connect your exchange API. It handles the rest.",
+    "desc": "Not a tool. Not a plugin. Claw 42 is your AI trading agent — perceives markets, makes decisions, evolves continuously. Connect your exchange API. It handles the rest.",
     "primaryCta": "Get Started",
     "secondaryCta": "API Docs"
   },
@@ -57,7 +57,7 @@
   "whyAgentX": {
     "eyebrow": "Positioning",
     "title": "Not a Tool. An Ecosystem.",
-    "desc": "Tools solve point problems. AgentX builds a trading intelligence network — Agents share strategies, compete in rankings, co-evolve. Each Agent grows stronger with use. The network grows with every Agent.",
+    "desc": "Tools solve point problems. Claw 42 builds a trading intelligence network — Agents share strategies, compete in rankings, co-evolve. Each Agent grows stronger with use. The network grows with every Agent.",
     "points": [
       "Each Agent runs independently. Strategies never leak.",
       "Competitive ranking drives survival of the fittest.",
@@ -66,7 +66,7 @@
     ]
   },
   "footer": {
-    "copyright": "© 2026 AgentX. All rights reserved.",
+    "copyright": "© 2026 Claw 42. All rights reserved.",
     "github": "GitHub",
     "docs": "Docs"
   }

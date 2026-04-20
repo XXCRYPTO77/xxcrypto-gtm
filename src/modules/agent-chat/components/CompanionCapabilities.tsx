@@ -81,7 +81,7 @@ function NotificationChannels({ isZh }: { isZh: boolean }) {
           <div className="h-6 w-6 rounded-full bg-[#229ed9] flex items-center justify-center">
             <span className="text-xs font-bold text-white">TG</span>
           </div>
-          <span className="text-xs font-semibold text-gray-600">CoinW Agent Bot</span>
+          <span className="text-xs font-semibold text-gray-600">Claw 42 Agent Bot</span>
         </div>
         <div className="rounded-2xl rounded-tl-none bg-white px-3 py-2 shadow-sm text-xs text-gray-800 max-w-[90%]">
           {isZh
@@ -97,7 +97,7 @@ function NotificationChannels({ isZh }: { isZh: boolean }) {
           </span>
         </div>
         <div className="text-xs font-bold text-gray-800 mb-1">
-          {isZh ? '[CoinW Agent] 日报 · 2026-04-14' : '[CoinW Agent] Daily Report · 2026-04-14'}
+          {isZh ? '[Claw 42] 日报 · 2026-04-14' : '[Claw 42] Daily Report · 2026-04-14'}
         </div>
         <div className="text-xs text-gray-500 leading-relaxed">
           {isZh

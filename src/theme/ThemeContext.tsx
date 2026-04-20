@@ -1,72 +1,53 @@
 'use client';
 
-import React, { createContext, useCallback, useContext, useEffect, useState } from 'react';
+import React, { createContext, useCallback, useContext, useEffect } from 'react';
 
-type Theme = 'light' | 'dark';
+// Claw 42 is a dark-only theme. We keep the context shape so any existing
+// consumer (useTheme / ThemeToggle) still compiles, but every value is locked
+// to 'dark'.
+type Theme = 'dark';
 
 interface ThemeCtx {
   theme: Theme;
-  setTheme: (t: Theme) => void;
+  setTheme: (_t: Theme) => void;
   toggle: () => void;
 }
 
 const Ctx = createContext<ThemeCtx | null>(null);
 
-const STORAGE_KEY = 'agentx-theme';
-
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setThemeState] = useState<Theme>('light');
-
   useEffect(() => {
-    try {
-      const saved = window.localStorage.getItem(STORAGE_KEY) as Theme | null;
-      if (saved === 'light' || saved === 'dark') {
-        setThemeState(saved);
-        applyTheme(saved);
-        return;
-      }
-      // Respect system preference
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      const initial = prefersDark ? 'dark' : 'light';
-      setThemeState(initial);
-      applyTheme(initial);
-    } catch {
-      /* noop */
-    }
+    if (typeof document === 'undefined') return;
+    // Force dark class on <html> on every mount/navigation.
+    document.documentElement.classList.add('cw-dark');
   }, []);
 
-  const setTheme = useCallback((t: Theme) => {
-    setThemeState(t);
-    applyTheme(t);
-    try {
-      window.localStorage.setItem(STORAGE_KEY, t);
-    } catch {
-      /* noop */
-    }
+  const setTheme = useCallback((_t: Theme) => {
+    if (typeof document === 'undefined') return;
+    document.documentElement.classList.add('cw-dark');
   }, []);
 
   const toggle = useCallback(() => {
-    setTheme(theme === 'light' ? 'dark' : 'light');
-  }, [theme, setTheme]);
+    // no-op: dark only
+  }, []);
 
   return (
-    <Ctx.Provider value={{ theme, setTheme, toggle }}>
+    <Ctx.Provider value={{ theme: 'dark', setTheme, toggle }}>
       {children}
     </Ctx.Provider>
   );
 }
 
-function applyTheme(t: Theme) {
-  const el = document.documentElement;
-  if (t === 'dark') {
-    el.classList.add('cw-dark');
-  } else {
-    el.classList.remove('cw-dark');
-  }
-}
-
 export function useTheme(): ThemeCtx {
   const ctx = useContext(Ctx);
-  if (!ctx) throw new Error('useTheme must be used inside <ThemeProvider>');
+  if (!ctx) {
+    // Defensive fallback for components rendered without the provider
+    // (e.g. during isolated stories) \u2014 return a dark-only shim.
+    return {
+      theme: 'dark',
+      setTheme: () => {},
+      toggle: () => {},
+    };
+  }
   return ctx;
 }

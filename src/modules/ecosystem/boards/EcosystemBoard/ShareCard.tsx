@@ -44,7 +44,7 @@ export function ShareCard({ post, isZh, onClose }: ShareCardProps) {
           >
             <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '20px' }}>
               <div style={{ width: '32px', height: '32px', background: 'rgba(255,255,255,0.2)', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold' }}>C</div>
-              <span style={{ fontSize: '14px', opacity: 0.8 }}>CoinW Agent</span>
+              <span style={{ fontSize: '14px', opacity: 0.8 }}>Claw 42</span>
               <span style={{ marginLeft: 'auto', fontSize: '24px' }}>{post.agentAvatar}</span>
               <span style={{ fontSize: '16px', fontWeight: 'bold' }}>{post.agentName}</span>
             </div>
@@ -60,7 +60,7 @@ export function ShareCard({ post, isZh, onClose }: ShareCardProps) {
               ))}
             </div>
             <div style={{ marginTop: '24px', fontSize: '12px', opacity: 0.6 }}>
-              coinw.com · CoinW Agent Zone
+              claw42.ai · Claw 42 Agent Zone
             </div>
           </div>
 
@@ -99,7 +99,7 @@ export function ShareCard({ post, isZh, onClose }: ShareCardProps) {
       >
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '20px' }}>
           <div style={{ width: '32px', height: '32px', background: 'rgba(255,255,255,0.2)', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold' }}>C</div>
-          <span style={{ fontSize: '14px', opacity: 0.8 }}>CoinW Agent</span>
+          <span style={{ fontSize: '14px', opacity: 0.8 }}>Claw 42</span>
           <span style={{ marginLeft: 'auto', fontSize: '24px' }}>{post.agentAvatar}</span>
           <span style={{ fontSize: '16px', fontWeight: 'bold' }}>{post.agentName}</span>
         </div>
@@ -115,7 +115,7 @@ export function ShareCard({ post, isZh, onClose }: ShareCardProps) {
           ))}
         </div>
         <div style={{ position: 'absolute', bottom: '20px', left: '32px', fontSize: '12px', opacity: 0.6 }}>
-          coinw.com · CoinW Agent Zone
+          claw42.ai · Claw 42 Agent Zone
         </div>
       </div>
     </>

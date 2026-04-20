@@ -1,5 +1,5 @@
 /**
- * AgentX API Type Definitions
+ * Claw 42 API Type Definitions
  * Auto-aligned with database schema v1.0 / v1.1 / v1.2
  * Source: agentx-architecture.md
  *

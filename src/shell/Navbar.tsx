@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { ArrowLeft } from 'lucide-react';
 import { LangToggle } from '@/components/primitives/LangToggle';
-import { ThemeToggle } from '@/components/primitives/ThemeToggle';
 
 export function ShellNavbar() {
   const pathname = usePathname();
@@ -16,28 +15,31 @@ export function ShellNavbar() {
   }, []);
 
   const isSubpage = pathname !== '/';
-  // 注意：act15 必须先判断，否则被 /act1 startsWith 吃掉
-  const activeAct = pathname.startsWith('/act15')
-    ? 'act15'
-    : pathname.startsWith('/act1')
-      ? 'act1'
-      : pathname.startsWith('/act2')
-        ? 'act2'
-        : pathname.startsWith('/act3')
-          ? 'act3'
-          : pathname.startsWith('/act4')
-            ? 'act4'
-            : pathname.startsWith('/skills')
-              ? 'skills'
-              : null;
+
+  // Order matters: act15 must beat /act1 startsWith.
+  const activeAct = pathname === '/'
+    ? 'overview'
+    : pathname.startsWith('/act15')
+      ? 'act15'
+      : pathname.startsWith('/act1')
+        ? 'act1'
+        : pathname.startsWith('/act2')
+          ? 'act2'
+          : pathname.startsWith('/act3')
+            ? 'act3'
+            : pathname.startsWith('/act4')
+              ? 'act4'
+              : pathname.startsWith('/skills')
+                ? 'skills'
+                : null;
 
   const acts = [
+    { id: 'overview', label: 'Overview', href: '/' },
     { id: 'act1', label: 'Act 1', href: '/act1' },
-    { id: 'act15', label: 'Act 2', href: '/act15' },
-    { id: 'act2', label: 'Act 3', href: '/act2' },
-    { id: 'act3', label: 'Act 4', href: '/act3' },
-    { id: 'act4', label: 'Act 5', href: '/act4' },
-    { id: 'skills', label: 'Skills', href: '/skills' },
+    { id: 'act15', label: 'Act 1.5', href: '/act15' },
+    { id: 'act2', label: 'Act 2', href: '/act2' },
+    { id: 'act3', label: 'Act 3', href: '/act3' },
+    { id: 'act4', label: 'Act 4', href: '/act4' },
   ];
 
   if (!mounted) {
@@ -45,49 +47,61 @@ export function ShellNavbar() {
   }
 
   return (
-    <nav className="sticky top-0 z-50 border-b border-border bg-page">
+    <nav className="sticky top-0 z-50 border-b border-white/5 bg-black/80 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
         {/* Left: Brand + Back Arrow */}
         <div className="flex items-center gap-2">
           {isSubpage && (
             <Link
               href="/"
-              className="inline-flex items-center justify-center rounded p-1 hover:bg-surface"
+              className="inline-flex items-center justify-center rounded p-1 text-white/60 transition-colors hover:bg-white/5 hover:text-white"
               aria-label="Back to home"
             >
-              <ArrowLeft size={16} className="text-muted" />
+              <ArrowLeft size={16} />
             </Link>
           )}
           <Link href="/" className="flex items-center gap-2 no-underline">
-            <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-brand font-bold text-white">
-              X
+            <span
+              className="flex h-8 w-8 items-center justify-center rounded-lg font-bold text-white"
+              style={{
+                background:
+                  'linear-gradient(135deg, #6c4fff 0%, #8169ff 100%)',
+                boxShadow: '0 0 16px rgba(108,79,255,0.4)',
+              }}
+            >
+              C
             </span>
             <span className="hidden sm:block">
-              <span className="block text-sm font-bold text-ink">AgentX</span>
+              <span className="block text-sm font-semibold tracking-tight text-white">
+                Claw 42
+              </span>
             </span>
           </Link>
         </div>
 
-        {/* Center: Act Links */}
-        <div className="hidden items-center gap-8 md:flex">
-          {acts.map((act) => (
-            <Link
-              key={act.id}
-              href={act.href}
-              className={`text-sm font-medium transition-colors ${
-                activeAct === act.id
-                  ? 'text-brand'
-                  : 'text-muted hover:text-brand'
-              }`}
-            >
-              {act.label}
-            </Link>
-          ))}
+        {/* Center: Nav Links */}
+        <div className="hidden items-center gap-7 md:flex">
+          {acts.map((act) => {
+            const active = activeAct === act.id;
+            return (
+              <Link
+                key={act.id}
+                href={act.href}
+                className={`relative text-sm font-medium transition-colors ${
+                  active ? 'text-white' : 'text-white/60 hover:text-white'
+                }`}
+              >
+                {act.label}
+                {active && (
+                  <span className="absolute -bottom-[22px] left-0 right-0 h-[2px] rounded-full bg-[#6c4fff] shadow-[0_0_8px_rgba(108,79,255,0.8)]" />
+                )}
+              </Link>
+            );
+          })}
         </div>
 
-        {/* Right: Theme + Lang toggles */}
+        {/* Right: Lang toggle only (theme is dark-only now) */}
         <div className="flex items-center gap-2">
-          <ThemeToggle />
           <LangToggle />
         </div>
       </div>

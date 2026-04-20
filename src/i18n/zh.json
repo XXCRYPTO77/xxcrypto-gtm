@@ -1,10 +1,10 @@
 {
   "meta": {
-    "title": "CoinW Agent Skill · MVP 路线图",
+    "title": "Claw 42 · MVP 路线图",
     "description": "把 Agent 变成 CoinW 用户的交易大脑——从看懂市场到自动下单，v1 到 v2 走完只要九步。"
   },
   "nav": {
-    "brand": "CoinW Agent Skill",
+    "brand": "Claw 42",
     "tagline": "MVP 路线图",
     "acts": {
       "act1": "第一幕 · 能跑",
@@ -14,7 +14,7 @@
     "cta": "EN"
   },
   "hero": {
-    "eyebrow": "CoinW Agent Skill",
+    "eyebrow": "Claw 42",
     "title": "Make AI Trading for Every Trader",
     "subtitle": "不是看盘工具，不是抄单机器。AI 看懂行情、给你靠谱策略、一键自动执行——普惠AI交易，人人皆可轻松入局。",
     "primaryCta": "立即开始",
@@ -89,7 +89,7 @@
       "note": "Skills 不是 Agent 本身。它是 Agent 的手和眼——Agent 负责思考，Skills 负责干活。"
     },
     "why": {
-      "title": "为什么选 CoinW Agent Skills",
+      "title": "为什么选 Claw 42",
       "items": [
         {
           "tag": "最简单",
@@ -425,7 +425,7 @@
         {
           "icon": "newspaper",
           "title": "每日加密日报",
-          "desc": "使用 CoinW Skills，在每天早上 9:00 发给我过去 24 小时的加密日报，包含大盘、主流币种、资金流向、链上异动。"
+          "desc": "使用 Claw 42 Skills，在每天早上 9:00 发给我过去 24 小时的加密日报，包含大盘、主流币种、资金流向、链上异动。"
         },
         {
           "icon": "bell",
@@ -556,7 +556,7 @@
       },
       {
         "title": "v2.0 主站原生集成",
-        "desc": "从独立模块到 CoinW 主站 Agent Skill 品类"
+        "desc": "从独立模块到 CoinW 主站内置 Claw 42 入口"
       }
     ]
   },
@@ -654,7 +654,7 @@
       },
       {
         "code": "E3",
-        "title": "CoinW mascot 原生 Agent IP",
+        "title": "Claw 42 mascot 原生 Agent IP",
         "desc": "让品牌吉祥物长出独立的 Agent 人设，不只是视觉符号"
       },
       {
@@ -670,9 +670,9 @@
     ]
   },
   "footer": {
-    "tagline": "CoinW Agent Skill · 技术预览版",
+    "tagline": "Claw 42 · 技术预览版",
     "disclaimer": "本页所有版本号、功能、UI 均为 MVP 原型。数据为 mock。实际开发以最终 PRD 为准。",
-    "copyright": "© 2026 CoinW Agent Skill MVP",
+    "copyright": "© 2026 Claw 42. All Rights Reserved.",
     "links": [
       {
         "label": "GitHub",

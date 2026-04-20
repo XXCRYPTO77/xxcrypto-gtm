@@ -1,10 +1,10 @@
 {
   "meta": {
-    "title": "CoinW Agent Skill · MVP Roadmap",
+    "title": "Claw 42 · MVP Roadmap",
     "description": "Turn an Agent into the trading brain of every CoinW user — from reading the market to placing orders in one sentence. Nine steps from v1.0 to v2.0, all on the table."
   },
   "nav": {
-    "brand": "CoinW Agent Skill",
+    "brand": "Claw 42",
     "tagline": "MVP Roadmap",
     "acts": {
       "act1": "Act I · Runs",
@@ -14,7 +14,7 @@
     "cta": "中"
   },
   "hero": {
-    "eyebrow": "CoinW Agent Skill",
+    "eyebrow": "Claw 42",
     "title": "Make AI Trading for Every Trader",
     "subtitle": "Not a charting tool. Not a copy-trade bot. AI reads the market, picks strategies, and executes — one click, zero code.",
     "primaryCta": "Get started",
@@ -89,7 +89,7 @@
       "note": "Skills are not the Agent. They're its hands and eyes — the Agent thinks, Skills do the work."
     },
     "why": {
-      "title": "Why CoinW Agent Skills",
+      "title": "Why Claw 42",
       "items": [
         {
           "tag": "Simplest",
@@ -143,7 +143,7 @@
             },
             {
               "role": "agent",
-              "text": "Found CoinW Skills: quotes, spot & futures, on-chain. Connect?"
+              "text": "Found Claw 42 Skills: quotes, spot & futures, on-chain. Connect?"
             },
             {
               "role": "user",
@@ -425,7 +425,7 @@
         {
           "icon": "newspaper",
           "title": "Daily crypto digest",
-          "desc": "Using CoinW Skills, at 9 AM every day send me a digest of the last 24 hours: market indices, majors, fund flows, on-chain anomalies."
+          "desc": "Using Claw 42 Skills, at 9 AM every day send me a digest of the last 24 hours: market indices, majors, fund flows, on-chain anomalies."
         },
         {
           "icon": "bell",
@@ -556,7 +556,7 @@
       },
       {
         "title": "v2.0 Native integration",
-        "desc": "From standalone module to CoinW main-site Agent Skill category"
+        "desc": "From standalone module to the Claw 42 native category on CoinW"
       }
     ]
   },
@@ -654,7 +654,7 @@
       },
       {
         "code": "E3",
-        "title": "CoinW mascot as a native Agent IP",
+        "title": "Claw 42 mascot as a native Agent IP",
         "desc": "The brand mascot grows into its own Agent persona"
       },
       {
@@ -670,9 +670,9 @@
     ]
   },
   "footer": {
-    "tagline": "CoinW Agent Skill · Technical Preview",
+    "tagline": "Claw 42 · Technical Preview",
     "disclaimer": "All version numbers, features, and UI on this page are MVP prototypes. Data is mocked. Final PRD governs actual development.",
-    "copyright": "© 2026 CoinW Agent Skill MVP",
+    "copyright": "© 2026 Claw 42. All Rights Reserved.",
     "links": [
       {
         "label": "GitHub",

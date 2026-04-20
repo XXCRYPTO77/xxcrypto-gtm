@@ -47,7 +47,7 @@ export function DailyReportCard({ payload, isZh }: Props) {
             <div className="text-xs text-muted">{payload.date}</div>
             <div className="text-base font-semibold text-ink">{labels.title}</div>
           </div>
-          <div className="rounded-md bg-brand-soft px-2 py-0.5 text-xs font-medium text-brand">CoinW</div>
+          <div className="rounded-md bg-brand-soft px-2 py-0.5 text-xs font-medium text-brand">Claw 42</div>
         </div>
 
         {/* Price ticker */}

@@ -13,7 +13,7 @@ export function LandingFooter() {
         {/* Left: Brand + Copyright */}
         <div className="flex items-center gap-3">
           <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-brand font-bold text-white text-xs">
-            X
+            C
           </span>
           <span className="text-sm text-muted">{t.footer.copyright}</span>
         </div>
