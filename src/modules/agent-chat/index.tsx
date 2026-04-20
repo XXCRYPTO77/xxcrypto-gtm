@@ -29,7 +29,7 @@ export default function AgentChatModule() {
 
   // State accumulated through onboarding
   const [personality, setPersonality] = useState<Personality>(DEFAULT_PERSONALITY);
-  const [agentName, setAgentName] = useState<string>('CWClaw');
+  const [agentName, setAgentName] = useState<string>('Claw 42');
 
   function goTo(s: Step) {
     setStep(s);
@@ -44,11 +44,11 @@ export default function AgentChatModule() {
     setStep(1);
     setMaxStep(1);
     setPersonality(DEFAULT_PERSONALITY);
-    setAgentName('CWClaw');
+    setAgentName('Claw 42');
   }
 
   return (
-    <section className="mx-auto max-w-6xl px-6 py-8">
+    <section className="mx-auto max-w-6xl px-6 py-10 sm:py-14">
       <JourneyBar current={step} maxVisited={maxStep} onStepClick={handleStepClick} />
 
       <div className="mt-8">

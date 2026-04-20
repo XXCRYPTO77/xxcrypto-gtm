@@ -37,7 +37,7 @@ export function HowItWorks() {
             return (
               <div
                 key={stage.tag}
-                className="group relative flex flex-col rounded-2xl border border-border bg-page p-8 transition-all duration-200 hover:border-brand/30 hover:shadow-lg hover:shadow-brand/5 hover:-translate-y-0.5"
+                className="cw-card-interactive group relative flex flex-col rounded-2xl border border-border bg-page p-8"
               >
                 {/* Stage number + icon */}
                 <div className="flex items-center gap-4 mb-6">

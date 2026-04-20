@@ -32,8 +32,8 @@ const STYLE_LINES: Record<Personality['style'], { zh: string; en: string }> = {
   aggressive: { zh: '激进猎手，不废话冲', en: 'Hunter mode, no fluff' },
 };
 
-const DEFAULT_NAME_ZH = 'CWClaw';
-const DEFAULT_NAME_EN = 'CWClaw';
+const DEFAULT_NAME_ZH = 'Claw 42';
+const DEFAULT_NAME_EN = 'Claw 42';
 
 export function AgentNaming({ personality, onComplete, onBack }: AgentNamingProps) {
   const t = useT();
@@ -65,7 +65,7 @@ export function AgentNaming({ personality, onComplete, onBack }: AgentNamingProp
             className="relative flex h-28 w-28 items-center justify-center rounded-2xl shadow-xl transition-all duration-500"
             style={{ background: gradient }}
           >
-            <span className="text-6xl select-none" role="img" aria-label="CWClaw">🦞</span>
+            <span className="text-6xl select-none" role="img" aria-label="Claw 42">🦀</span>
           </div>
           {/* Online dot */}
           <span className="absolute bottom-1.5 right-1.5 flex h-5 w-5 items-center justify-center rounded-full bg-white shadow">

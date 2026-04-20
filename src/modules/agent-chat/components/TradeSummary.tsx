@@ -49,7 +49,7 @@ const SUMMARY = {
 
 const MAX_CALLS = 12;
 
-export default function TradeSummary({ onNext, agentName = 'CWClaw' }: TradeSummaryProps) {
+export default function TradeSummary({ onNext, agentName = 'Claw 42' }: TradeSummaryProps) {
   const t = useT();
   const isZh = t.nav.cta === 'EN';
   const [exporting, setExporting] = useState(false);

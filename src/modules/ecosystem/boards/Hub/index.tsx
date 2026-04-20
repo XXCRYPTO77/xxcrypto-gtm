@@ -2,6 +2,7 @@
 
 import { useT } from '@/i18n/LocaleContext';
 import Link from 'next/link';
+import { HeroBackdrop } from '@/shared/ui/HeroBackdrop';
 import { AGENTS } from '../../data/agents';
 import { STRATEGIES } from '../../data/strategies';
 
@@ -74,19 +75,38 @@ export function HubBoard() {
   const { topAgent, trendingStrategy } = useHighlights(isZh);
 
   return (
-    <div className="space-y-20">
+    <div className="space-y-16">
 
-      {/* ─── Hero (tight) ─── */}
-      <div className="text-center pt-4">
-        <h1 className="text-4xl font-bold text-ink sm:text-5xl leading-tight">
-          {isZh ? '交易 Agent 生态' : 'Trading Agent Ecosystem'}
-        </h1>
-        <p className="mt-4 text-muted max-w-xl mx-auto leading-relaxed">
-          {isZh
-            ? '竞技场验证实力，Zone 进化策略，活动赢取奖励。'
-            : 'Prove in the Arena, evolve in the Zone, earn through Events.'}
-        </p>
-      </div>
+      {/* ─── Hero ─── */}
+      <section className="relative overflow-hidden -mx-6 px-6 py-16 sm:py-20">
+        <HeroBackdrop variant="default" />
+        <div className="relative text-center">
+          <span
+            className="inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-xs font-semibold tracking-wide mb-6"
+            style={{
+              borderColor: 'rgba(108,79,255,0.3)',
+              background: 'rgba(108,79,255,0.08)',
+              color: '#b8a6ff',
+            }}
+          >
+            <span className="inline-block h-1.5 w-1.5 rounded-full bg-[#6c4fff] animate-pulse" />
+            {isZh ? 'Act III · 生态' : 'Act III · Ecosystem'}
+          </span>
+          <h1
+            className="font-black tracking-tight leading-[1.05]"
+            style={{ fontSize: 'clamp(2.25rem, 5vw, 3.75rem)' }}
+          >
+            <span className="cw-title-gradient">
+              {isZh ? '交易 Agent 生态' : 'Trading Agent Ecosystem'}
+            </span>
+          </h1>
+          <p className="mt-5 text-muted max-w-2xl mx-auto leading-relaxed text-base sm:text-lg">
+            {isZh
+              ? '竞技场验证实力，Zone 进化策略，活动赢取奖励。'
+              : 'Prove in the Arena, evolve in the Zone, earn through Events.'}
+          </p>
+        </div>
+      </section>
 
       {/* ─── Three Pillar Cards (主焦点) ─── */}
       <div className="grid gap-6 sm:grid-cols-3">
@@ -94,7 +114,7 @@ export function HubBoard() {
           <Link
             key={p.href}
             href={p.href}
-            className="group relative rounded-2xl border border-border bg-surface overflow-hidden transition-all hover:shadow-xl hover:-translate-y-1"
+            className="cw-card-interactive group relative rounded-2xl border border-border bg-surface overflow-hidden"
           >
             {/* Gradient top bar */}
             <div className={`h-1.5 bg-gradient-to-r ${p.gradient}`} />
@@ -142,7 +162,7 @@ export function HubBoard() {
           {isZh ? '生态动态' : 'Live Highlights'}
         </h2>
         <div className="grid gap-4 sm:grid-cols-3">
-          <div className="rounded-xl border border-border bg-surface p-5">
+          <div className="cw-card-interactive rounded-xl border border-border bg-surface p-5">
             <p className="text-xs text-muted mb-2">{isZh ? '本周最强 Agent' : 'Top Agent This Week'}</p>
             <div className="flex items-center gap-3">
               <span className="text-2xl">{topAgent.avatar}</span>
@@ -153,7 +173,7 @@ export function HubBoard() {
               <span className="ml-auto text-sm font-bold text-cw-green">+{topAgent.metrics.return7d.toFixed(1)}%</span>
             </div>
           </div>
-          <div className="rounded-xl border border-border bg-surface p-5">
+          <div className="cw-card-interactive rounded-xl border border-border bg-surface p-5">
             <p className="text-xs text-muted mb-2">{isZh ? '热门策略' : 'Trending Strategy'}</p>
             <p className="text-sm font-semibold text-ink">{isZh ? trendingStrategy.name : trendingStrategy.nameEn}</p>
             <div className="flex items-center gap-4 mt-2 text-xs text-muted">
@@ -162,7 +182,7 @@ export function HubBoard() {
               <span>v{trendingStrategy.versions[trendingStrategy.versions.length - 1]?.version || '1.0'}</span>
             </div>
           </div>
-          <div className="rounded-xl border border-border bg-surface p-5">
+          <div className="cw-card-interactive rounded-xl border border-border bg-surface p-5">
             <p className="text-xs text-muted mb-2">{isZh ? '当前赛季' : 'Current Season'}</p>
             <p className="text-sm font-semibold text-ink">S3 · Q2 2026</p>
             <div className="flex items-center gap-4 mt-2 text-xs text-muted">
@@ -180,7 +200,7 @@ export function HubBoard() {
         </h2>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3">
           {CAPABILITIES.map((c, i) => (
-            <div key={i} className="rounded-xl border border-border bg-surface px-4 py-3 text-center">
+            <div key={i} className="cw-card-interactive rounded-xl border border-border bg-surface px-4 py-3 text-center">
               <span className="text-xl">{c.icon}</span>
               <p className="text-xs font-medium text-ink mt-1.5">{isZh ? c.zh : c.en}</p>
             </div>

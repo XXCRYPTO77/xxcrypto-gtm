@@ -180,7 +180,7 @@ export function CompanionCapabilities() {
         {cards.map((card) => {
           const Icon = card.icon;
           return (
-            <div key={card.version} className="rounded-2xl border border-border bg-white p-6 flex flex-col">
+            <div key={card.version} className="cw-card-interactive rounded-2xl border border-border bg-white p-6 flex flex-col">
               <div className="flex items-center gap-3 mb-4">
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand-soft">
                   <Icon className="h-5 w-5 text-brand" />

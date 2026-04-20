@@ -28,7 +28,7 @@ export function Capabilities() {
             return (
               <div
                 key={card.icon}
-                className="group relative overflow-hidden rounded-2xl border border-border bg-page p-8 transition-all duration-200 hover:border-brand/30 hover:shadow-lg hover:shadow-brand/5"
+                className="cw-card-interactive group relative overflow-hidden rounded-2xl border border-border bg-page p-8"
               >
                 {/* Stat highlight */}
                 <div className="flex items-end justify-between mb-6">

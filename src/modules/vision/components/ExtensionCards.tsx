@@ -38,7 +38,7 @@ export function ExtensionCards() {
           return (
             <div
               key={item.code}
-              className="flex flex-col gap-3 rounded-2xl border border-border bg-page p-5"
+              className="cw-card-interactive flex flex-col gap-3 rounded-2xl border border-border bg-page p-5"
             >
               <div className="flex items-start justify-between gap-3">
                 <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand-soft text-brand">

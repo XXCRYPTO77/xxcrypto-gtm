@@ -55,12 +55,12 @@ export function QuickAccessPanel({ agentName, personality, isZh, onShortcut }: Q
       >
         <div className="flex items-center gap-2.5">
           <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-white/20 text-xl">
-            🦞
+            🦀
           </div>
           <div>
             <div className="text-sm font-bold leading-tight">{agentName}</div>
             <div className="text-[11px] text-white/70">
-              CWClaw · {isZh ? '在线' : 'Online'}
+              Claw 42 · {isZh ? '在线' : 'Online'}
             </div>
           </div>
           <div className="ml-auto h-2 w-2 rounded-full bg-emerald-300 shadow-lg shadow-emerald-400/50" />

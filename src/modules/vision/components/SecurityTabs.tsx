@@ -220,7 +220,7 @@ function MergeTab({ isZh }: { isZh: boolean }) {
   return (
     <div className="py-4 grid gap-4 md:grid-cols-3">
       {PHASES.map((p) => (
-        <div key={p.n} className="rounded-xl border border-border bg-white p-5 flex flex-col gap-3">
+        <div key={p.n} className="cw-card-interactive rounded-xl border border-border bg-white p-5 flex flex-col gap-3">
           <div className="flex items-start justify-between gap-2">
             <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand text-white text-sm font-bold">
               {p.n}

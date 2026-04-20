@@ -43,7 +43,7 @@ const DEFAULT_PERSONALITY: Personality = {
   frequency: 'onDemand',
 };
 
-export function ChatInterface({ onTrade, agentName = 'CWClaw', personality = DEFAULT_PERSONALITY }: ChatInterfaceProps) {
+export function ChatInterface({ onTrade, agentName = 'Claw 42', personality = DEFAULT_PERSONALITY }: ChatInterfaceProps) {
   const t = useT();
   const isZh = t.nav.cta === 'EN';
 

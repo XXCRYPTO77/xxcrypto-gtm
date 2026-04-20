@@ -285,7 +285,7 @@ export function EventsBoard() {
           {BOUNTIES.map((b) => {
             const st = STATUS_STYLE[b.status];
             return (
-              <div key={b.id} className="rounded-xl border border-border bg-surface p-6 flex flex-col gap-3">
+              <div key={b.id} className="cw-card-interactive rounded-xl border border-border bg-surface p-6 flex flex-col gap-3">
                 <div className="flex items-start justify-between gap-3">
                   <h3 className="text-sm font-semibold text-ink leading-snug flex-1">
                     {isZh ? b.titleZh : b.titleEn}
@@ -325,7 +325,7 @@ export function EventsBoard() {
         </p>
         <div className="grid gap-4 sm:grid-cols-2">
           {CHALLENGES.map((c, i) => (
-            <div key={i} className="rounded-xl border border-border bg-surface p-6 flex flex-col gap-3">
+            <div key={i} className="cw-card-interactive rounded-xl border border-border bg-surface p-6 flex flex-col gap-3">
               <h3 className="text-sm font-semibold text-ink">{isZh ? c.titleZh : c.titleEn}</h3>
               <p className="text-xs text-muted leading-relaxed">{isZh ? c.descZh : c.descEn}</p>
               <div className="flex items-center gap-4 text-xs text-muted mt-auto pt-2 border-t border-border">
@@ -352,7 +352,7 @@ export function EventsBoard() {
         </h2>
         <div className="space-y-4">
           {UPCOMING.map((ev, i) => (
-            <div key={i} className="rounded-xl border border-border bg-surface p-6 flex flex-col sm:flex-row sm:items-center gap-4">
+            <div key={i} className="cw-card-interactive rounded-xl border border-border bg-surface p-6 flex flex-col sm:flex-row sm:items-center gap-4">
               <span className="text-2xl shrink-0">{TYPE_ICON[ev.type] || '📌'}</span>
               <div className="flex-1 min-w-0">
                 <p className="text-sm font-semibold text-ink">

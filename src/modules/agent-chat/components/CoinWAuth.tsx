@@ -64,7 +64,7 @@ export function CoinWAuth({ onNext }: CoinWAuthProps) {
           onClick={startAuth}
           className="flex w-full items-center justify-center gap-3 rounded-2xl bg-brand py-4 text-sm font-semibold text-white shadow-md hover:opacity-90 active:scale-95 transition-all"
         >
-          <span className="text-xl">🦞</span>
+          <span className="text-xl">🦀</span>
           {c.bindBtn}
         </button>
       ) : (

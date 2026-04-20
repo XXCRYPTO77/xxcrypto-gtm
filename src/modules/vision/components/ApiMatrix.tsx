@@ -127,7 +127,7 @@ export function ApiMatrix() {
             <p className="text-xs font-bold uppercase tracking-wider text-brand mb-2 px-1">{groupLabels[gi]}</p>
             <div className="space-y-2">
               {CAPABILITIES.slice(start, end).map((cap) => (
-                <div key={cap.code} className="rounded-xl border border-border bg-white p-4 space-y-2">
+                <div key={cap.code} className="cw-card-interactive rounded-xl border border-border bg-white p-4 space-y-2">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
                       <span className="font-mono text-xs font-bold text-muted">{cap.code}</span>

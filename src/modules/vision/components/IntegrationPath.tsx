@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { ArrowRight, Code2, Package, Layers } from 'lucide-react';
+import { HeroBackdrop } from '@/shared/ui/HeroBackdrop';
 
 const STEPS = [
   {
@@ -29,15 +30,37 @@ const STEPS = [
 
 export function IntegrationPath() {
   return (
-    <section className="mx-auto max-w-7xl px-6 py-10 sm:py-12">
-      <h2 className="text-3xl font-bold text-ink sm:text-4xl mb-2">接回主站路径</h2>
-      <p className="text-sm text-muted mb-10">Demo 不是一次性的。每一幕完成即可抽出，流水线交付。</p>
+    <section className="relative overflow-hidden">
+      <HeroBackdrop variant="default" />
+      <div className="relative mx-auto max-w-7xl px-6 py-16 sm:py-24">
+        <div className="mb-10 text-center">
+          <span
+            className="inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-xs font-semibold tracking-wide mb-5"
+            style={{
+              borderColor: 'rgba(108,79,255,0.3)',
+              background: 'rgba(108,79,255,0.08)',
+              color: '#b8a6ff',
+            }}
+          >
+            <span className="inline-block h-1.5 w-1.5 rounded-full bg-[#6c4fff] animate-pulse" />
+            Act IV · v2.0+
+          </span>
+          <h2
+            className="font-black tracking-tight leading-[1.05]"
+            style={{ fontSize: 'clamp(2.25rem, 5vw, 3.75rem)' }}
+          >
+            <span className="cw-title-gradient">接回主站路径</span>
+          </h2>
+          <p className="mt-4 mx-auto max-w-2xl text-muted text-base sm:text-lg">
+            Demo 不是一次性的。每一幕完成即可抽出，流水线交付。
+          </p>
+        </div>
 
-      <div className="grid gap-4 md:grid-cols-3">
+        <div className="grid gap-4 md:grid-cols-3">
         {STEPS.map((step, idx) => {
           const Icon = step.icon;
           return (
-            <div key={idx} className="relative flex flex-col gap-4 rounded-2xl border border-border bg-page p-6">
+            <div key={idx} className="cw-card-interactive relative flex flex-col gap-4 rounded-2xl border border-border bg-page p-6">
               {/* Connector arrow */}
               {idx < STEPS.length - 1 && (
                 <span className="hidden md:flex absolute -right-3 top-1/2 -translate-y-1/2 z-10 h-6 w-6 items-center justify-center rounded-full bg-brand-soft text-brand">
@@ -63,6 +86,7 @@ export function IntegrationPath() {
             </div>
           );
         })}
+        </div>
       </div>
     </section>
   );

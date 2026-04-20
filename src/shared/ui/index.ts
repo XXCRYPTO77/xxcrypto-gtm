@@ -14,3 +14,5 @@ export { Ticker } from '@/shared/ui/Ticker';
 export { Portfolio } from '@/shared/ui/Portfolio';
 export { SentimentGauge } from '@/shared/ui/SentimentGauge';
 export { WhaleFeed } from '@/shared/ui/WhaleFeed';
+export { HeroBackdrop } from '@/shared/ui/HeroBackdrop';
+export { ClawMark } from '@/shared/ui/ClawMark';

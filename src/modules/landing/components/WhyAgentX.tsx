@@ -34,7 +34,7 @@ export function WhyAgentX() {
             {t.whyAgentX.points.map((point, i) => (
               <div
                 key={i}
-                className="flex items-start gap-3 rounded-xl border border-border bg-page p-5 transition-colors hover:border-brand/20"
+                className="cw-card-interactive flex items-start gap-3 rounded-xl border border-border bg-page p-5"
               >
                 <div className="flex-shrink-0 mt-0.5 w-6 h-6 rounded-full bg-brand-soft flex items-center justify-center">
                   <Check size={14} className="text-brand" />
