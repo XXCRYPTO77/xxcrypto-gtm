@@ -1,0 +1,145 @@
+{
+  "brand": "Claw 42",
+  "nav": {
+    "buyCrypto": "Buy crypto",
+    "trade": "Trade",
+    "markets": "Markets",
+    "copyTrading": "Copy trading",
+    "bots": "Bots",
+    "finance": "Finance",
+    "luckyHodl": "Lucky HODL",
+    "more": "More",
+    "wallet": "Wallet",
+    "deposit": "Deposit",
+    "new": "New",
+    "login": "Login",
+    "signup": "Sign up"
+  },
+  "hero": {
+    "pill": "邀请跟单获得奖励",
+    "title": "用 AI Agent 重新定义交易方式",
+    "subtitle": "从“人操作工具” → “AI 直接执行交易”。让 AI 直接连接交易能力，从分析、决策到执行，一步完成。",
+    "ctaPrimary": "立即开始",
+    "ctaPrimarySub": "新手引导",
+    "ctaSecondary": "API 文档"
+  },
+  "install": {
+    "title": "快速开始，一键安装",
+    "terminalLabel": "QUICK START TERMINAL",
+    "prompt": "$",
+    "command": "pip install claw42-skills && cw.claw42.run help report"
+  },
+  "useCases": {
+    "title": "常用场景",
+    "subtitle": "AI Agent 不只是执行，更是你的智能交易副驾。探索基于 Neural Architect 的多样化应用场景。",
+    "badgeRecommend": "推荐场景",
+    "hero": {
+      "title": "生成加密货币日报",
+      "desc": "一键唤醒 AI 获取全球市场动态。AI 将自动扫描主流币种波动、热门社交媒体情绪、重要链上数据与宏观新闻，输出结构化的中文研报，助你开启每日交易。",
+      "hint": "点击复制内容，发送给你的 agent 即可体验",
+      "cta": "立即试用",
+      "ai": "AI:",
+      "aiMsg": "正在分析 BTC, ETH, SOL 的 24h 数据…",
+      "aiMsg2": "BTC 上涨 3.2%，支撑位巩固",
+      "aiMsg3": "社交情绪偏向看涨 (0.78)\n发现 3 笔巨鲸转入交易所…",
+      "summary": "“总结：今日市场波动率较高，建议关注…”"
+    },
+    "monitor": {
+      "title": "实时行情监控",
+      "desc": "24/7 监控市场行情，大涨大跌及时知晓"
+    },
+    "automation": {
+      "title": "Agent 自动化交易",
+      "desc": "如需使用交易功能，请先创建 API key"
+    }
+  },
+  "why": {
+    "title": "为什么 Claw 42 要构建 AI Agent Skills？",
+    "subtitle": "过去十年，数字资产交易经历了从手动交易到工具化交易的演进。从 K 线分析、量化策略，到自动化执行，交易效率不断提升。Claw 42 认为，未来的交易平台不只是撮合交易的场所，而是可被 AI 调用的“交易基础设施”。",
+    "cards": [
+      {
+        "title": "让交易能力被 AI 调用",
+        "desc": "将行情、交易、账户等能力模块化，开放给 AI Agent，实现深度集成。"
+      },
+      {
+        "title": "降低交易门槛",
+        "desc": "用户无需复杂操作，通过自然语言即可完成原本繁琐的交易与分析流程。"
+      },
+      {
+        "title": "构建开放生态",
+        "desc": "开发者可以构建 Skill，共同丰富 AI 交易能力，推动 Web3 智能化。"
+      }
+    ],
+    "codeComment": "// - Completion",
+    "codeTagline": "important type { Claw 42 正在从“交易平台”，进化为“AI 原生交易基础设施” }"
+  },
+  "ecosystem": {
+    "title": "探索 AI Skills 生态",
+    "subtitle": "AI 调用的不只是接口，而是整个交易系统。从研究、策略到风控的全链路闭环。",
+    "popular": "Popular",
+    "learnMore": "了解详情",
+    "contract": {
+      "title": "Contract",
+      "desc": "合约专用 skill：涵盖市场数据、下单/取消订单、止盈/止损、持仓和订单查询、账户资产、持仓模式和杠杆查询"
+    },
+    "spot": {
+      "title": "Spot",
+      "desc": "现货专用 skill：涵盖市场数据、下单/取消订单、订单查询、账户余额和资金划转"
+    }
+  },
+  "steps": {
+    "title": "3 步开启 AI 交易",
+    "subtitle": "简单三步，让你的 AI Agent 具备专业的交易执行与分析能力。",
+    "items": [
+      {
+        "title": "创建 API Key",
+        "desc": "在 Claw 42 账户后台快速生成访问凭证，确保环境安全，获取交易引擎的连接权限。"
+      },
+      {
+        "title": "授权 AI Agent",
+        "desc": "通过私密握手协议，将必要权限授予你信任的 AI 代理。数据加密传输，资产安全有保障。"
+      },
+      {
+        "title": "选择并使用 Skill",
+        "desc": "在 Skill 市场中选择所需技能，AI 即可根据你的自然语言指令自动开始 24/7 全天候工作。"
+      }
+    ],
+    "codeComment": "// - Completion",
+    "codeTagline": "important type { 无需任何代码经验，通过自然语言即可完成复杂的策略配置 }"
+  },
+  "disclaimer": {
+    "title": "免责声明",
+    "paragraphs": [
+      "Claw 42-Skills 仅作为信息参考工具。Claw 42-Skills 及其输出内容按“现状”及“现有”基础提供，不作任何形式的陈述或保证。其内容不构成投资、财务、交易或任何其他形式的建议；不代表买入、卖出或持有任何资产的推荐；不保证所呈现数据或分析的准确性、及时性或完整性。",
+      "您使用 Claw 42-Skills 及其相关信息的风险由您自行承担，您需独立负责评估所提供的信息并对所有交易决策负责。Claw 42 不认可或保证任何 AI 生成的信息，且 AI 生成的内容或摘要不应作为决策的唯一依据。AI 生成的内容可能包含或反映第三方的观点，并可能存在错误、偏见或过时信息。",
+      "对于因使用或依赖 Claw 42-Skills 功能而导致的任何损失，Claw 42 概不负责。Claw 42 可自行决定修改或终止该功能。数字资产价格具有高市场风险和波动性，您的投资价值可能下跌也可能上涨，且可能无法收回投资本金。您应对自己的投资决策负全责，Claw 42 对您可能遭受的任何损失不承担责任。",
+      "过往业绩并非未来表现的可靠预测指标。在做出任何投资前，您应仔细考虑自己的投资经验、财务状况、投资目标和风险承受能力，并咨询独立财务顾问。更多信息请参阅我们的风险提示和使用条款。"
+    ]
+  },
+  "footer": {
+    "downloadApp": "Download app",
+    "appStore": "App Store",
+    "googlePlay": "Google Play",
+    "columns": {
+      "company": {
+        "title": "Company",
+        "links": ["About us", "News", "Claw 42 verify", "Fee rate", "Risk statement"]
+      },
+      "products": {
+        "title": "Products",
+        "links": ["Buy crypto", "Spot trading", "ETF trading", "Futures", "Copy-trading", "Claw 42 earn", "Claw 42 ventures"]
+      },
+      "services": {
+        "title": "Services",
+        "links": ["Listing application", "T&C of Listing", "Become the merchant", "VIP Program", "APIs", "Invite Friends", "Bug Bounty", "Help center"]
+      },
+      "learn": {
+        "title": "Learn",
+        "links": ["Novice Camp", "Futures Academy", "Help Center", "Crypto Introduction"]
+      }
+    },
+    "disclaimer": "Disclaimer: Cryptocurrency trading is subject to market risks. Please trade responsibly and ensure you fully understand the risks before making any investment decisions.",
+    "language": "English",
+    "copyright": "© 2026 Claw 42. All Rights Reserved."
+  }
+}

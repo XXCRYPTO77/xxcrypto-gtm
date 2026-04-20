@@ -1,0 +1,145 @@
+{
+  "brand": "Claw 42",
+  "nav": {
+    "buyCrypto": "Buy crypto",
+    "trade": "Trade",
+    "markets": "Markets",
+    "copyTrading": "Copy trading",
+    "bots": "Bots",
+    "finance": "Finance",
+    "luckyHodl": "Lucky HODL",
+    "more": "More",
+    "wallet": "Wallet",
+    "deposit": "Deposit",
+    "new": "New",
+    "login": "Login",
+    "signup": "Sign up"
+  },
+  "hero": {
+    "pill": "Invite for copy-trading rewards",
+    "title": "Redefine Trading with AI Agents",
+    "subtitle": "From “humans operating tools” to “AI executing trades directly”. Let AI connect natively to trading primitives — analysis, decision, and execution in one step.",
+    "ctaPrimary": "Get started",
+    "ctaPrimarySub": "Beginner guide",
+    "ctaSecondary": "API Docs"
+  },
+  "install": {
+    "title": "Get started in one command",
+    "terminalLabel": "QUICK START TERMINAL",
+    "prompt": "$",
+    "command": "pip install claw42-skills && cw.claw42.run help report"
+  },
+  "useCases": {
+    "title": "Common Scenarios",
+    "subtitle": "AI Agents don't just execute — they're your trading co-pilot. Explore diverse use cases built on the Neural Architect.",
+    "badgeRecommend": "Featured",
+    "hero": {
+      "title": "Generate your daily crypto brief",
+      "desc": "Wake the Agent with one command. It scans majors, social sentiment, on-chain flows and macro news, then returns a structured research brief to kick-start your trading day.",
+      "hint": "Click to copy, paste into your agent, and try it live.",
+      "cta": "Try it now",
+      "ai": "AI:",
+      "aiMsg": "Analyzing 24h data for BTC, ETH, SOL…",
+      "aiMsg2": "BTC +3.2%, support levels holding",
+      "aiMsg3": "Social sentiment bullish (0.78)\n3 whale deposits detected…",
+      "summary": "“Summary: volatility elevated today, keep an eye on…”"
+    },
+    "monitor": {
+      "title": "Realtime market watch",
+      "desc": "24/7 monitoring — get notified the moment markets move."
+    },
+    "automation": {
+      "title": "Agent-driven automation",
+      "desc": "Create an API key before enabling trade execution."
+    }
+  },
+  "why": {
+    "title": "Why Claw 42 is building AI Agent Skills",
+    "subtitle": "Over the last decade, digital-asset trading evolved from manual execution to tooled workflows — candlesticks, quant strategies, automation. Claw 42 believes the next trading platform is not a venue but an AI-callable infrastructure.",
+    "cards": [
+      {
+        "title": "Make trading AI-callable",
+        "desc": "Modularize markets, orders, and accounts so AI Agents can integrate deeply and natively."
+      },
+      {
+        "title": "Lower the barrier",
+        "desc": "Natural language replaces complex clicks. Users trade and analyze without learning the UI."
+      },
+      {
+        "title": "Build an open ecosystem",
+        "desc": "Developers ship Skills that grow the shared AI-trading toolkit, pushing Web3 toward intelligence."
+      }
+    ],
+    "codeComment": "// - Completion",
+    "codeTagline": "important type { Claw 42 is evolving from a trading venue into AI-native trading infrastructure }"
+  },
+  "ecosystem": {
+    "title": "Explore the AI Skills Ecosystem",
+    "subtitle": "AI calls more than endpoints — it calls the whole trading system. A closed loop from research to strategy to risk.",
+    "popular": "Popular",
+    "learnMore": "Learn more",
+    "contract": {
+      "title": "Contract",
+      "desc": "Perpetual & futures skill: market data, order placement / cancel, TP/SL, positions & orders, account balance, margin mode and leverage queries."
+    },
+    "spot": {
+      "title": "Spot",
+      "desc": "Spot-trading skill: market data, order placement / cancel, order queries, balances and transfers."
+    }
+  },
+  "steps": {
+    "title": "Start AI trading in 3 steps",
+    "subtitle": "Three simple steps give your AI Agent professional-grade trading execution and analysis.",
+    "items": [
+      {
+        "title": "Create an API key",
+        "desc": "Mint an access credential inside your Claw 42 account. Secure environment, authorized connection to the trading engine."
+      },
+      {
+        "title": "Authorize the AI Agent",
+        "desc": "A private handshake grants only the permissions you approve. Encrypted transport, asset-safe by design."
+      },
+      {
+        "title": "Pick and run a Skill",
+        "desc": "Choose a Skill from the marketplace — the AI runs 24/7 from your natural-language instructions."
+      }
+    ],
+    "codeComment": "// - Completion",
+    "codeTagline": "important type { no code required — configure complex strategies in plain language }"
+  },
+  "disclaimer": {
+    "title": "Disclaimer",
+    "paragraphs": [
+      "Claw 42-Skills is provided for informational purposes only. Claw 42-Skills and its outputs are delivered on an \"as-is\" and \"as-available\" basis, without warranty of any kind. The content does not constitute investment, financial, trading, or any other form of advice; it does not represent a recommendation to buy, sell, or hold any asset; and it does not guarantee the accuracy, timeliness, or completeness of the data or analysis presented.",
+      "You use Claw 42-Skills and related information at your own risk, and are solely responsible for evaluating the information provided and for all trading decisions. Claw 42 does not endorse or guarantee any AI-generated information, and AI-generated content or summaries should not be the sole basis for any decision. AI output may contain or reflect third-party views and may include errors, biases, or stale information.",
+      "Claw 42 is not liable for any losses arising from use of or reliance on Claw 42-Skills features. Claw 42 may modify or discontinue the feature at its discretion. Digital-asset prices carry high market risk and volatility; the value of your investment may fall as well as rise, and you may not recover your principal. You are fully responsible for your investment decisions; Claw 42 is not responsible for any loss you may suffer.",
+      "Past performance is not a reliable indicator of future results. Before making any investment, carefully consider your experience, financial situation, objectives, and risk tolerance, and consult an independent financial adviser. See our Risk Statement and Terms of Use for more information."
+    ]
+  },
+  "footer": {
+    "downloadApp": "Download app",
+    "appStore": "App Store",
+    "googlePlay": "Google Play",
+    "columns": {
+      "company": {
+        "title": "Company",
+        "links": ["About us", "News", "Claw 42 verify", "Fee rate", "Risk statement"]
+      },
+      "products": {
+        "title": "Products",
+        "links": ["Buy crypto", "Spot trading", "ETF trading", "Futures", "Copy-trading", "Claw 42 earn", "Claw 42 ventures"]
+      },
+      "services": {
+        "title": "Services",
+        "links": ["Listing application", "T&C of Listing", "Become the merchant", "VIP Program", "APIs", "Invite Friends", "Bug Bounty", "Help center"]
+      },
+      "learn": {
+        "title": "Learn",
+        "links": ["Novice Camp", "Futures Academy", "Help Center", "Crypto Introduction"]
+      }
+    },
+    "disclaimer": "Disclaimer: Cryptocurrency trading is subject to market risks. Please trade responsibly and ensure you fully understand the risks before making any investment decisions.",
+    "language": "English",
+    "copyright": "© 2026 Claw 42. All Rights Reserved."
+  }
+}

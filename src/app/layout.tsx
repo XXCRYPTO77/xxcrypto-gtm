@@ -4,8 +4,8 @@ import { LocaleProvider } from '@/i18n/LocaleContext';
 import { ThemeProvider } from '@/theme/ThemeContext';
 
 export const metadata: Metadata = {
-  title: 'AgentX · AI Trading Agent',
-  description: 'Your AI trading agent — perceives markets, makes decisions, evolves continuously.',
+  title: 'Claw 42 · AI Trading Agent',
+  description: 'Redefine trading with AI Agents. Claw 42 turns exchange primitives into AI-callable Skills — from market data to execution.',
 };
 
 export default function RootLayout({
